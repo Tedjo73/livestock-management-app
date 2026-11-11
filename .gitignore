@@ -2,5 +2,8 @@ node_modules/
 server/.env
 .env
 server/serviceAccountKey.json
+frontend/qwerty*.txt
+.vercel
 *.log
 contracts/build/
+

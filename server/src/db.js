@@ -10,6 +10,12 @@ if (process.env.FIREBASE_SERVICE_ACCOUNT_BASE64) {
   } catch (err) {
     console.error('Failed to parse FIREBASE_SERVICE_ACCOUNT_BASE64:', err.message);
   }
+} else if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+  try {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  } catch (err) {
+    console.error('Failed to parse FIREBASE_SERVICE_ACCOUNT JSON:', err.message);
+  }
 }
 
 if (!serviceAccount) {
