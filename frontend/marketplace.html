@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Livestock Marketplace</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body style="background:var(--bg-base);min-height:100vh;">
+<div id="toast-container"></div>
+
+<!-- Public Header -->
+<header style="background:var(--bg-surface);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);">
+  <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="location.href='index.html'">
+    <div style="width:38px;height:38px;background:var(--text-accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;">🐄</div>
+    <div>
+      <div style="font-weight:800;font-size:17px;color:var(--text-primary);">Livestock<span style="color:var(--text-accent);">App</span> <span style="font-size:12px;font-weight:400;color:var(--text-muted);">Marketplace</span></div>
+      <div style="font-size:11px;color:var(--text-muted);">Public livestock trading portal · Maluti (M)</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;" id="header-auth-controls">
+    <a href="index.html" class="btn btn-secondary btn-sm">🏠 Home</a>
+    <a href="login.html?redirect=marketplace.html" class="btn btn-primary btn-sm">🔑 Sign In to Buy</a>
+  </div>
+</header>
+
+<main style="max-width:1200px;margin:28px auto;padding:0 24px;">
+
+  <!-- KPIs -->
+  <div class="kpi-grid" style="margin-bottom:24px;">
+    <div class="kpi-card" style="--accent:var(--green-500)">
+      <div class="kpi-label">Available Listings</div>
+      <div class="kpi-value" id="kpi-available">—</div>
+      <div class="kpi-change pos">Active verified listings</div>
+    </div>
+    <div class="kpi-card" style="--accent:var(--blue-400)">
+      <div class="kpi-label">Certified Healthy</div>
+      <div class="kpi-value">100%</div>
+      <div class="kpi-change pos">Vet-cleared livestock</div>
+    </div>
+    <div class="kpi-card" style="--accent:var(--amber-400)">
+      <div class="kpi-label">Blockchain Verified</div>
+      <div class="kpi-value">✓</div>
+      <div class="kpi-change pos">Tamper-evident provenance</div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="card mb-4" style="padding:14px 18px;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <input type="text" id="search-input" class="form-input" placeholder="🔍 Search name, species, breed..." style="max-width:260px;" oninput="renderListings()"/>
+      <select id="filter-species" class="form-select" style="width:160px;" onchange="renderListings()">
+        <option value="">All Species</option>
+        <option value="Cattle">🐄 Cattle</option>
+        <option value="Goat">🐐 Goat</option>
+        <option value="Sheep">🐑 Sheep</option>
+        <option value="Pig">🐖 Pig</option>
+        <option value="Poultry">🐔 Poultry</option>
+      </select>
+      <select id="filter-status" class="form-select" style="width:170px;" onchange="renderListings()">
+        <option value="Available">🟢 Available Only</option>
+        <option value="">All (incl. Sold)</option>
+        <option value="Sold">🔴 Sold</option>
+      </select>
+      <span id="results-count" style="font-size:13px;color:var(--text-secondary);margin-left:auto;"></span>
+    </div>
+  </div>
+
+  <!-- Listings grid -->
+  <div id="listings-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:40px;"></div>
+
+</main>
+
+<!-- MODAL: Authentication Required to Purchase -->
+<div class="modal-overlay" id="modal-auth-required">
+  <div class="modal" style="max-width:480px; text-align:center; padding:28px 24px;">
+    <div style="font-size:46px; margin-bottom:12px;">🔒</div>
+    <h3 style="margin-bottom:8px; font-size:19px; color:var(--text-primary); font-weight:700;">Account Required to Buy</h3>
+    <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">
+      To guarantee agricultural traceability, DIDT3110 audit trails, and cryptographic blockchain provenance, livestock purchases are only permitted by registered users (Buyers, Butchers, Traders, Farmers).
+    </p>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <a href="login.html?redirect=marketplace.html" class="btn btn-primary" style="justify-content:center; padding:10px;">🔑 Sign In to Purchase</a>
+      <a href="register.html?redirect=marketplace.html&role=buyer" class="btn btn-secondary" style="justify-content:center; padding:10px;">📝 Create a Buyer Account</a>
+      <button type="button" class="btn" style="background:transparent; color:var(--text-muted); font-size:12.5px; border:none; cursor:pointer;" onclick="closeModal('modal-auth-required')">Continue Browsing Listings</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Buy / Contact Seller -->
+<div class="modal-overlay" id="modal-buy">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">🛒 Purchase Livestock</span>
+      <button class="modal-close" onclick="closeModal('modal-buy')">✕</button>
+    </div>
+    <div id="buy-animal-info" class="card mb-4" style="margin-bottom:12px;padding:12px;background:var(--bg-card);"></div>
+    <div id="buyer-account-badge"></div>
+    <form id="buy-form">
+      <div class="form-group">
+        <label class="form-label">Buyer / Business Name</label>
+        <input type="text" id="buyer-name" class="form-input" placeholder="e.g. Mofokeng Butchery or Moshoeshoe Fresh Meats" required/>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">🔒 Privacy Protected: Your account is verified and pseudonymized to a 12-char cryptographic hash on the blockchain.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact Phone</label>
+        <input type="tel" id="buyer-phone" class="form-input" placeholder="+266 5800 1234 or +266 6200 4321" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Collection / Delivery Notes (Optional)</label>
+        <textarea id="buyer-msg" class="form-textarea" placeholder="e.g. Will collect livestock on Saturday morning in Berea…"></textarea>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:4px;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-buy')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-buy">Confirm Purchase &amp; Seal on Chain</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: PROVENANCE CERTIFICATE -->
+<div class="modal-overlay" id="modal-provenance">
+  <div class="modal" style="max-width:540px;">
+    <div class="modal-header">
+      <span class="modal-title">⛓️ Blockchain Provenance Certificate</span>
+      <button class="modal-close" onclick="closeModal('modal-provenance')">✕</button>
+    </div>
+    <div id="provenance-content" style="padding:4px 0 16px;"></div>
+    <div style="display:flex; justify-content:flex-end; gap:10px;">
+      <button class="btn btn-secondary" onclick="closeModal('modal-provenance')">Close</button>
+      <a href="blockchain.html" class="btn btn-primary">View Ledger</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  'use strict';
+  const API = window.AGRI_CONFIG.API_URL;
+
+  async function openProvenanceModal(id) {
+    const item = listings.find(i => i.id === id);
+    if (!item) return;
+
+    const hash = await AG.sha256(JSON.stringify(item));
+    const content = document.getElementById('provenance-content');
+
+    content.innerHTML = `
+      <div style="background:var(--bg-card); padding:14px; border-radius:8px; margin-bottom:14px;">
+        <div style="font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:4px;">
+          ${item.species} — ${item.name} (${item.animalId})
+        </div>
+        <div style="font-size:12.5px; color:var(--text-secondary);">
+          Breed: <strong>${item.breed}</strong> &nbsp;·&nbsp; Origin: <strong>${item.district} District</strong>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; font-size:12.5px;">
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:6px;">
+          <span style="color:var(--text-muted);">Veterinary Status:</span>
+          <span style="color:var(--green-500); font-weight:600;">✅ Certified Healthy &amp; Vaccinated</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:6px;">
+          <span style="color:var(--text-muted);">Smart Contract Status:</span>
+          <span class="badge badge-green">Sealed On Ethereum EVM</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:6px;">
+          <span style="color:var(--text-muted);">Contract Address:</span>
+          <code style="font-size:11px;">0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab</code>
+        </div>
+        <div>
+          <span style="color:var(--text-muted); font-size:11px; text-transform:uppercase; font-weight:600;">Cryptographic Record Hash:</span>
+          <code style="display:block; font-size:11px; color:var(--text-accent); word-break:break-all; margin-top:2px;">
+            ${hash}
+          </code>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:10px; background:#e6f4ef; border-left:3px solid var(--green-500); font-size:11.5px; color:var(--text-secondary);">
+        🛡️ <strong>Record integrity:</strong> Livestock details are kept in Firestore. Once Sepolia is configured, the app anchors a cryptographic hash on Ethereum for verification.
+      </div>
+    `;
+
+    openModal('modal-provenance');
+  }
+
+  // Basotho livestock market sample listings
+  const SAMPLE_LISTINGS = [
+    { id: 'L-001', animalId:'AC-0001', name:'Khomohadi', species:'Cattle',  breed:'Nguni',       weight:420, price:14400, district:'Berea',       health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-002', animalId:'AC-0002', name:'Tau',        species:'Cattle',  breed:'Brahman',     weight:610, price:19500, district:'Maseru',      health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-003', animalId:'AC-0004', name:'Potsanyane', species:'Goat',    breed:'Angora (Mohair)', weight:68,  price:3400,  district:'Leribe',     health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-004', animalId:'AC-0006', name:'Naledi',     species:'Sheep',   breed:'Merino (Wool)', weight:55,  price:2750,  district:'Mohale\'s Hoek', health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-005', animalId:'AC-0008', name:'Kolobenyane',species:'Pig',     breed:'Large White', weight:95,  price:6800,  district:'Mafeteng',   health:'Healthy', status:'Sold',      vaccinated:true },
+    { id: 'L-006', animalId:'AC-0013', name:'Thaba',      species:'Cattle',  breed:'Simmental',   weight:720, price:24000, district:'Butha-Buthe',health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-007', animalId:'AC-0015', name:'Mohlomi',    species:'Cattle',  breed:'Afrikaner',   weight:540, price:17500, district:'Quthing',    health:'Healthy', status:'Available', vaccinated:true },
+    { id: 'L-008', animalId:'AC-0018', name:'Phefo',      species:'Cattle',  breed:'Drakensberger', weight:630, price:21000, district:'Mokhotlong',health:'Healthy', status:'Available', vaccinated:true }
+  ];
+
+  let listings = [...SAMPLE_LISTINGS];
+  let selectedListing = null;
+
+  function showToast(msg, type='success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+  function openModal(id)  { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  const emojis = { Cattle:'🐄', Goat:'🐐', Sheep:'🐑', Pig:'🐖', Poultry:'🐔' };
+
+  function renderListings() {
+    const grid = document.getElementById('listings-grid');
+    const q = (document.getElementById('search-input')?.value || '').toLowerCase();
+    const sp = document.getElementById('filter-species')?.value || '';
+    const st = document.getElementById('filter-status')?.value ?? 'Available';
+
+    const filtered = listings.filter(item => {
+      if (st && item.status !== st) return false;
+      if (sp && item.species !== sp) return false;
+      if (q) {
+        const hay = `${item.name} ${item.species} ${item.breed} ${item.district}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    const available = listings.filter(l => l.status === 'Available');
+    document.getElementById('kpi-available').textContent = available.length;
+    document.getElementById('results-count').textContent = `Showing ${filtered.length} listing(s)`;
+
+    if (!filtered.length) {
+      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text-muted);">
+        <div style="font-size:36px;margin-bottom:8px;">🔍</div>
+        <p>No listings match your filters.</p></div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(item => {
+      const avail = item.status === 'Available';
+      return `
+        <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border-top:3px solid ${avail?'var(--green-500)':'var(--red-400)'};">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <div>
+                <span class="badge ${avail?'badge-green':'badge-muted'}" style="font-size:11px;">${item.animalId}</span>
+                <h3 style="margin-top:4px;font-size:17px;font-weight:700;">${emojis[item.species]||'🐾'} ${AG.esc(item.name)}</h3>
+              </div>
+              <span class="badge ${avail?'badge-green':'badge-red'}">${item.status}</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">
+              <strong>${item.species}</strong> · ${AG.esc(item.breed)} · ${AG.esc(item.district||'')}
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg-card);padding:10px;border-radius:8px;font-size:12.5px;margin-bottom:12px;">
+              <div><span style="color:var(--text-muted)">Weight:</span> <strong>${item.weight} kg</strong></div>
+              <div><span style="color:var(--text-muted)">Health:</span> <span class="badge badge-green" style="font-size:10px;">✅ Cleared</span></div>
+              <div><span style="color:var(--text-muted)">Vaccinated:</span> <strong>${item.vaccinated?'Yes':'No'}</strong></div>
+              <div><span style="color:var(--text-muted)">Vet Certified:</span> <strong>Yes</strong></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
+              <span style="font-size:12px;color:var(--text-muted)">Price:</span>
+              <span style="font-size:22px;font-weight:800;color:${avail?'var(--text-accent)':'var(--text-muted)'};">M ${item.price.toLocaleString()}</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-secondary btn-sm" style="flex:1;" onclick="openProvenanceModal('${item.id}')">⛓️ Verify</button>
+            ${avail
+              ? `<button class="btn btn-primary btn-sm" style="flex:1;" onclick="openBuyModal('${item.id}')">🛒 Buy</button>`
+              : `<button class="btn btn-secondary btn-sm" style="flex:1;cursor:not-allowed;" disabled>Sold</button>`
+            }
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function openBuyModal(id) {
+    const user = AG.currentUser();
+    if (!user) {
+      openModal('modal-auth-required');
+      return;
+    }
+
+    selectedListing = listings.find(l => l.id === id);
+    if (!selectedListing) return;
+
+    document.getElementById('buy-animal-info').innerHTML = `
+      <div style="font-weight:700;color:var(--text-primary);">${emojis[selectedListing.species]||'🐾'} ${AG.esc(selectedListing.name)} — ${AG.esc(selectedListing.species)}</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">${AG.esc(selectedListing.breed)} · ${selectedListing.weight} kg · <strong>M ${selectedListing.price.toLocaleString()}</strong></div>`;
+
+    const badge = document.getElementById('buyer-account-badge');
+    if (badge) {
+      badge.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#eef7f2;border:1px solid #c2e7d3;border-radius:6px;font-size:12.5px;color:var(--text-primary);margin-bottom:14px;">
+          <span style="color:var(--green-500);font-weight:700;">✓ Verified Account:</span>
+          <span><strong>${AG.esc(user.name)}</strong> (${AG.esc(user.email)})</span>
+        </div>`;
+    }
+
+    document.getElementById('buyer-name').value = user.name || '';
+    document.getElementById('buyer-phone').value = user.phone || '';
+    document.getElementById('buyer-msg').value = '';
+    openModal('modal-buy');
+  }
+
+  document.getElementById('buy-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!selectedListing) return;
+
+    const user = AG.currentUser();
+    if (!user) {
+      closeModal('modal-buy');
+      openModal('modal-auth-required');
+      return;
+    }
+
+    const btn = document.getElementById('btn-buy');
+    btn.disabled = true; btn.textContent = 'Processing & Anchoring…';
+
+    const buyerName  = document.getElementById('buyer-name').value.trim();
+    const buyerPhone = document.getElementById('buyer-phone').value.trim();
+
+    try {
+      const out = await AG.apiRequest('/marketplace/purchase', {
+        method: 'POST',
+        body: JSON.stringify({ listingId: selectedListing.id, buyerName, buyerPhone })
+      });
+      selectedListing.status = 'Sold';
+      showToast(out.txHash
+        ? `🎉 Purchased and anchored on Ethereum. Sale ID: ${out.saleId}`
+        : `🎉 Purchased and saved. Ethereum anchor is pending setup. Sale ID: ${out.saleId}`);
+      closeModal('modal-buy');
+      renderListings();
+    } catch(err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Confirm Purchase & Seal on Chain';
+    }
+  });
+
+  function renderHeaderAuth() {
+    const c = document.getElementById('header-auth-controls');
+    if (!c) return;
+    const u = AG.currentUser();
+    if (u) {
+      const roleName = u.role === 'veterinary_officer' ? 'Veterinary Officer' : u.role === 'buyer' ? 'Buyer' : 'Farmer';
+      const portalLink = u.role === 'veterinary_officer' ? 'vet-dashboard.html' : u.role === 'buyer' ? 'marketplace.html' : 'dashboard.html';
+      const portalLabel = u.role === 'veterinary_officer' ? '🩺 Vet Portal' : u.role === 'buyer' ? '🛒 Marketplace' : '🌾 Farm Dashboard';
+      c.innerHTML = `
+        <span style="font-size:13px;color:var(--text-primary);font-weight:600;">👤 ${AG.esc(u.name)}</span>
+        <span class="badge badge-green" style="font-size:11px;">${roleName}</span>
+        ${u.role !== 'buyer' ? `<a href="${portalLink}" class="btn btn-secondary btn-sm">${portalLabel}</a>` : ''}
+        <button class="btn btn-secondary btn-sm" onclick="AG.logout()">Logout</button>
+      `;
+    } else {
+      c.innerHTML = `
+        <a href="index.html" class="btn btn-secondary btn-sm">🏠 Home</a>
+        <a href="login.html?redirect=marketplace.html" class="btn btn-secondary btn-sm">🔑 Sign In</a>
+        <a href="register.html?redirect=marketplace.html&role=buyer" class="btn btn-primary btn-sm">📝 Register to Buy</a>
+      `;
+    }
+  }
+
+  // Load listings from the Firestore-backed server API.
+  async function init() {
+    renderHeaderAuth();
+    try {
+      const out = await AG.apiRequest('/marketplace');
+      if (out.listings && out.listings.length) listings = out.listings;
+    } catch {}
+    renderListings();
+  }
+
+  init();
+</script>
+</body>
+</html>
+

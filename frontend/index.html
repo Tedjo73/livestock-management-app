@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Livestock App — Home</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body style="background:var(--bg-base);min-height:100vh;">
+
+  <div id="toast-container"></div>
+
+  <!-- Header -->
+  <header style="background:var(--bg-surface);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:40px;height:40px;background:var(--text-accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;">🐄</div>
+      <div>
+        <div style="font-weight:800;font-size:18px;color:var(--text-primary);">Livestock<span style="color:var(--text-accent);">App</span></div>
+        <div style="font-size:11px;color:var(--text-muted);">Farm management with blockchain provenance</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="ai-dashboard.html" class="btn btn-secondary btn-sm">🧠 AI Analytics</a>
+      <a href="marketplace.html" class="btn btn-secondary btn-sm">🛒 Marketplace</a>
+      <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section style="max-width:1100px;margin:60px auto;padding:0 24px;text-align:center;">
+    <h1 style="font-size:40px;font-weight:900;color:var(--text-primary);line-height:1.2;">
+      Smart Livestock Management<br/><span style="color:var(--text-accent);">for Modern Farmers</span>
+    </h1>
+    <p style="font-size:16px;color:var(--text-secondary);max-width:600px;margin:16px auto 32px;">
+      Manage your herd, assign veterinary officers, track health records, and sell livestock — all secured with blockchain provenance.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="register.html" class="btn btn-primary" style="font-size:15px;padding:12px 28px;">🌾 Get Started as Farmer</a>
+      <a href="marketplace.html" class="btn btn-secondary" style="font-size:15px;padding:12px 28px;">🛒 Browse Livestock</a>
+    </div>
+  </section>
+
+  <!-- Role cards -->
+  <section style="max-width:1100px;margin:40px auto;padding:0 24px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      
+      <div class="card" style="text-align:center;padding:28px;">
+        <div style="font-size:48px;margin-bottom:14px;">🌾</div>
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Farmer</h2>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">Manage your herd, view vet health reports, track sales, and assign trusted vets to your animals.</p>
+        <a href="register.html?role=farmer" class="btn btn-primary btn-sm">Start as Farmer →</a>
+      </div>
+
+      <div class="card" style="text-align:center;padding:28px;">
+        <div style="font-size:48px;margin-bottom:14px;">🩺</div>
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Veterinary Officer</h2>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">Accept farm assignments, attend animals, and submit vaccination, treatment and check-up records directly to the farmer's dashboard.</p>
+        <a href="register.html?role=veterinary_officer" class="btn btn-primary btn-sm">Register as Vet →</a>
+      </div>
+
+      <div class="card" style="text-align:center;padding:28px;">
+        <div style="font-size:48px;margin-bottom:14px;">🛒</div>
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Livestock Buyer</h2>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">Browse verified livestock listings with full blockchain provenance. Create a buyer account to purchase certified livestock.</p>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+          <a href="register.html?role=buyer&redirect=marketplace.html" class="btn btn-primary btn-sm">Register as Buyer →</a>
+          <a href="marketplace.html" class="btn btn-secondary btn-sm">Browse Catalog</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:32px;color:var(--text-muted);font-size:12.5px;margin-top:40px;border-top:1px solid var(--border);">
+    Livestock App — DIDT 3110 Group Assignment &nbsp;·&nbsp; <a href="login.html" style="color:var(--text-secondary);text-decoration:none;">🔐 Security Admin Login</a> &nbsp;·&nbsp; Blockchain &amp; Cybersecurity
+  </footer>
+
+  <script>
+    // Auto-redirect if already logged in
+    const u = AG.currentUser();
+    if (u) {
+      if (u.role === 'veterinary_officer') location.href = 'vet-dashboard.html';
+      else if (u.role === 'buyer') location.href = 'marketplace.html';
+      else location.href = 'dashboard.html';
+    }
+
+    // Prefill register page role if URL param
+    const urlRole = new URLSearchParams(location.search).get('role');
+    if (urlRole) location.href = `register.html?role=${urlRole}`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+Data Asset ID,Module / Entity,Data Field Name,Classification Level,Sensitivity Description,Storage Location,Encryption at Rest,Encryption in Transit,Access Control (Actors),Retention Period,GDPR / Legal Basis
+DA-01,Marketplace,crop_name,Public,Name of agricultural produce (e.g. Maize, Tomatoes),PostgreSQL (listings),None (Publicly indexable),TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent until deleted,Legitimate Interest
+DA-02,Marketplace,category,Public,Produce category (grains, vegetables, fruits, legumes),PostgreSQL (listings),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent until deleted,Legitimate Interest
+DA-03,Marketplace,quantity,Public,Available volume offered by seller,PostgreSQL (listings),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Listing lifecycle,Legitimate Interest
+DA-04,Marketplace,price_per_unit,Public,Selling price per unit in LSL/Maloti,PostgreSQL (listings),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent until deleted,Contractual Necessity
+DA-05,Marketplace,location,Public,District or market hub of produce (e.g. Leribe),PostgreSQL (listings),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Listing lifecycle,Legitimate Interest
+DA-06,Marketplace,description,Public,General quality notes and harvest description,PostgreSQL (listings),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Listing lifecycle,Legitimate Interest
+DA-07,Market Prices,crop_prices,Public,Aggregated commodity market price benchmarks,PostgreSQL (crop_prices),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Archived 5 Years,Public Task
+DA-08,Farming Tips,farming_tips,Public,Agronomic guidance articles and recommendations,PostgreSQL (farming_tips),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent,Educational Public Interest
+DA-09,AI Analytics,ai_market_dataset,Public,Historical market pricing and seasonal trends,PostgreSQL (ai_market_dataset),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent,Research / Public Task
+DA-10,AI Analytics,ai_model_metrics,Public,Benchmark metrics (R2 score, RMSE, MAE),PostgreSQL (ai_model_metrics),None,TLS 1.3 / HTTPS,All (Public / Anonymous),Permanent,Transparency Requirement
+DA-11,Blockchain,blockchain_ledger,Public,Cryptographic block height, tx hash, and Merkle root,PostgreSQL / DLT,SHA-256 Hashing,TLS 1.3 / HTTPS,All (Public Explorer),Permanent Immutable,Supply Chain Integrity
+DA-12,Identity & User,name,Private,Full legal name of the user,PostgreSQL (users),AES-256 (DB Level),TLS 1.3 / HTTPS,Owner & System Admin,Account lifetime + 30 days,User Consent (Art. 6.1a)
+DA-13,Identity & User,email,Private,Primary email contact & login identifier,PostgreSQL (users),AES-256 (DB Level),TLS 1.3 / HTTPS,Owner & System Admin,Account lifetime + 30 days,Contractual (Art. 6.1b)
+DA-14,Identity & User,phone,Private,Mobile phone number for trade coordination,PostgreSQL (users),AES-256 (DB Level),TLS 1.3 / HTTPS,Transacting Counterparty & Admin,Account lifetime + 30 days,User Consent (Art. 6.1a)
+DA-15,Identity & User,location,Private,User residence or farm location,PostgreSQL (users),AES-256 (DB Level),TLS 1.3 / HTTPS,Transacting Counterparty & Admin,Account lifetime,User Consent (Art. 6.1a)
+DA-16,Identity & User,profile_image,Private,User avatar or profile picture URL,PostgreSQL (users),AES-256,TLS 1.3 / HTTPS,Registered Users,Account lifetime,User Consent (Art. 6.1a)
+DA-17,Direct Messaging,content,Confidential,Negotiations and private trade messages,PostgreSQL (messages),AES-256 Column Encryption,TLS 1.3 / HTTPS,Sender & Receiver Only,12 Months post-trade,Contractual / Legitimate
+DA-18,Blockchain Sales,sales_transactions,Confidential,Settlement escrow values and bilateral counterparty IDs,AgriLedger DLT,Keccak-256 Encrypted Payload,TLS 1.3 / HTTPS,Transacting Parties & Auditor,7 Years (Tax Compliance),Legal Obligation (Art. 6.1c)
+DA-19,AI Predictive Logs,ai_predictions,Confidential,Individual farm financial predictions and gross revenue estimates,PostgreSQL (ai_predictions),AES-256,TLS 1.3 / HTTPS,Owner Farmer & Admin,24 Months,Legitimate Interest
+DA-20,Authentication,password_hash,Restricted,Bcrypt hashed password (cost factor 12),PostgreSQL (users),One-way Bcrypt Salted Hash,TLS 1.3 / HTTPS,Zero-Knowledge (No human access),Account lifetime,Security Requirement (Art. 32)
+DA-21,Authentication,jwt_secret,Restricted,HMAC secret key used to sign session tokens,Server Environment (.env),Memory Only / Protected Env,Memory Guarded,System Process Only,Rotated periodically,Security Requirement (Art. 32)
+DA-22,Database Admin,db_credentials,Restricted,PostgreSQL superuser credentials,Server Environment (.env),OS Vault / Env Protected,Local Loopback / TLS,System Administrator Only,Active Service Lifetime,Security Requirement (Art. 32)
+DA-23,Blockchain Node,validator_private_key,Restricted,Secp256k1 private key for block validation signing,Server Keystore (.env),Hardware/Env Encrypted,Isolated RPC Network,Validator Process Only,Key Lifetime,Cryptographic Proof Integrity
+

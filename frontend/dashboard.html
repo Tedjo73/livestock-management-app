@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Dashboard — Livestock App</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">🐄 Livestock<span>App</span></div>
+    <nav class="sidebar-nav">
+      <a href="#" onclick="showSection('overview')" class="active" id="nav-overview">📊 Overview</a>
+      <a href="#" onclick="showSection('animals')" id="nav-animals">🐾 My Animals</a>
+      <a href="#" onclick="showSection('health')" id="nav-health">
+        💉 Health Records <span class="notif-badge" id="health-badge" style="display:none;">0</span>
+      </a>
+      <a href="#" onclick="showSection('vets')" id="nav-vets">👨‍⚕️ My Vets</a>
+      <a href="#" onclick="showSection('sales')" id="nav-sales">💰 Sales</a>
+      <a href="ai-dashboard.html" id="nav-ai">🧠 AI Analytics</a>
+      <a href="marketplace.html" id="nav-marketplace">🛒 Marketplace</a>
+      <a href="blockchain.html" id="nav-blockchain">⛓️ Blockchain</a>
+      <a href="security.html" id="nav-security">🛡️ Security</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="font-size:13px; font-weight:600; color:var(--text-primary);" id="user-name">…</div>
+      <div style="font-size:11.5px; color:var(--text-muted);" id="user-role"></div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:10px; width:100%;" onclick="AG.logout()">Logout</button>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main-content">
+    <div class="topbar">
+      <h1 id="section-title">Farm Overview</h1>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-primary btn-sm" onclick="openModal('modal-add-animal')">+ Add Animal</button>
+      </div>
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <section id="section-overview">
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card" style="--accent:var(--green-500)">
+          <div class="kpi-label">Total Animals</div>
+          <div class="kpi-value" id="kpi-total">—</div>
+          <div class="kpi-change">Active herd</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--red-400)">
+          <div class="kpi-label">Sick / At Risk</div>
+          <div class="kpi-value" id="kpi-sick">—</div>
+          <div class="kpi-change">Needs attention</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--blue-400)">
+          <div class="kpi-label">Assigned Vets</div>
+          <div class="kpi-value" id="kpi-vets">—</div>
+          <div class="kpi-change">Active assignments</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--amber-400)">
+          <div class="kpi-label">Total Sales (M)</div>
+          <div class="kpi-value" id="kpi-sales">—</div>
+          <div class="kpi-change">All recorded</div>
+        </div>
+      </div>
+
+      <!-- Recent vet notifications -->
+      <div class="card mb-4" id="vet-notifications-card" style="display:none;">
+        <div class="card-title">🔔 New Vet Reports</div>
+        <div id="vet-notifications-list"></div>
+      </div>
+
+      <!-- Quick animals table -->
+      <div class="card">
+        <div class="card-title">🐾 Recent Animals</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Species</th><th>Health</th><th>Status</th></tr></thead>
+            <tbody id="overview-animals-tbody"><tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:20px;">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANIMALS SECTION -->
+    <section id="section-animals" style="display:none;">
+      <div class="card mb-4">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="card-title" style="margin-bottom:0;">🐾 Animal Registry</div>
+          <button class="btn btn-primary btn-sm" onclick="openModal('modal-add-animal')">+ Add Animal</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Name</th><th>Species</th><th>Breed</th><th>Weight (kg)</th><th>Health</th><th>Status</th><th>Assigned Vet</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="animals-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEALTH RECORDS SECTION -->
+    <section id="section-health" style="display:none;">
+      <div class="card mb-4">
+        <div class="card-title">💉 Health Records (from Vets)</div>
+        <p style="font-size:13px;color:var(--text-secondary);">Records are submitted by your assigned veterinary officers and appear here automatically.</p>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Animal ID</th><th>Type</th><th>Description</th><th>Vet</th><th>Next Due</th><th>Status</th></tr>
+            </thead>
+            <tbody id="health-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VETS SECTION -->
+    <section id="section-vets" style="display:none;">
+      <div class="card mb-4">
+        <div class="card-title">👨‍⚕️ Manage Veterinary Officers</div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">Assign a vet to attend to your animals. The vet will then be able to log health records for your farm.</p>
+        <button class="btn btn-primary btn-sm" onclick="openModal('modal-assign-vet')">+ Assign a Vet</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Active Assignments</div>
+        <div id="assignments-list"><p style="color:var(--text-muted);font-size:13px;">No vets assigned yet.</p></div>
+      </div>
+    </section>
+
+    <!-- SALES SECTION -->
+    <section id="section-sales" style="display:none;">
+      <div class="card mb-4">
+        <div class="card-title">💰 Sales Records</div>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Animal</th><th>Species</th><th>Weight</th><th>Buyer</th><th>Price (M)</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="sales-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL: ADD ANIMAL -->
+<div class="modal-overlay" id="modal-add-animal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">🐾 Add New Animal</span>
+      <button class="modal-close" onclick="closeModal('modal-add-animal')">✕</button>
+    </div>
+    <form id="add-animal-form">
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Livestock Name</label>
+          <input type="text" id="a-name" class="form-input" placeholder="e.g. Khomohadi or Tau" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Species</label>
+          <select id="a-species" class="form-select" required>
+            <option value="">Select…</option>
+            <option value="Cattle">Cattle (Likhomo)</option>
+            <option value="Goat">Goat (Lipoli)</option>
+            <option value="Sheep">Sheep (Linku)</option>
+            <option value="Pig">Pig (Likolobe)</option>
+            <option value="Poultry">Poultry (Likhoho)</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Breed</label>
+          <input type="text" id="a-breed" class="form-input" placeholder="e.g. Nguni, Merino, or Angora"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <select id="a-gender" class="form-select">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Date of Birth</label>
+          <input type="date" id="a-dob" class="form-input"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Weight (kg)</label>
+          <input type="number" id="a-weight" class="form-input" placeholder="e.g. 420"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Location / Kraal / Pen</label>
+        <input type="text" id="a-location" class="form-input" placeholder="e.g. Kraal A-1 or Pasture B"/>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:4px;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-animal')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-add-animal">Add Animal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: ASSIGN VET -->
+<div class="modal-overlay" id="modal-assign-vet">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">👨‍⚕️ Assign a Vet</span>
+      <button class="modal-close" onclick="closeModal('modal-assign-vet')">✕</button>
+    </div>
+    <form id="assign-vet-form">
+      <div class="form-group">
+        <label class="form-label">Select Veterinary Officer</label>
+        <select id="vet-select" class="form-select" required>
+          <option value="">Loading vets…</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Animals to assign (optional — leave blank for all)</label>
+        <div id="animal-checkboxes" style="max-height:200px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;padding:10px;"></div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:4px;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-assign-vet')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-assign-vet">Assign Vet</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  'use strict';
+  const API = window.AGRI_CONFIG.API_URL;
+  let farmData = { animals:[], healthRec:[], salesRec:[], breedRec:[], feedRec:[] };
+  let farmId = null;
+  let currentVets = [];
+
+  // ── Guard ──
+  const user = AG.guard({ roles:['farmer'] });
+  if (!user) throw new Error('Not authorised');
+  document.getElementById('user-name').textContent = user.name;
+  document.getElementById('user-role').textContent = 'Farmer';
+
+  // ── Toast ──
+  function showToast(msg, type='success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+
+  // ── Modal helpers ──
+  function openModal(id)  { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  // ── Section navigation ──
+  const sections = ['overview','animals','health','vets','sales'];
+  function showSection(name) {
+    sections.forEach(s => {
+      document.getElementById(`section-${s}`).style.display = s===name ? '' : 'none';
+      const nav = document.getElementById(`nav-${s}`);
+      if (nav) nav.classList.toggle('active', s===name);
+    });
+    const titles = {overview:'Farm Overview', animals:'Animal Registry', health:'Health Records', vets:'Veterinary Officers', sales:'Sales Records'};
+    document.getElementById('section-title').textContent = titles[name] || '';
+    if (name==='health') loadHealthRecords();
+    if (name==='vets')   loadAssignments();
+  }
+
+  // ── Load farm data ──
+  async function loadFarmData() {
+    try {
+      const out = await AG.loadData();
+      if (!out || !out.data) return;
+      farmId = out.farm?.id || null;
+      farmData = out.data;
+      renderOverview();
+      renderAnimalsTable();
+      renderSalesTable();
+      checkNotifications();
+      loadAssignments();
+    } catch(e) { showToast('Failed to load farm data: '+e.message,'error'); }
+  }
+
+  // ── KPIs ──
+  function renderOverview() {
+    const active = farmData.animals.filter(a => a.status !== 'Sold');
+    const sick   = active.filter(a => a.health !== 'Healthy');
+    document.getElementById('kpi-total').textContent = active.length;
+    document.getElementById('kpi-sick').textContent  = sick.length;
+    document.getElementById('kpi-sales').textContent = 'M ' + (farmData.salesRec||[]).reduce((s,r)=>s+r.price,0).toLocaleString();
+
+    // Overview animals table (top 5)
+    const tbody = document.getElementById('overview-animals-tbody');
+    if (!active.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:20px;">No animals yet. Add your first animal!</td></tr>'; return; }
+    tbody.innerHTML = active.slice(0,5).map(a => `
+      <tr>
+        <td><code>${AG.esc(a.id)}</code></td>
+        <td>${AG.esc(a.name)}</td>
+        <td>${AG.esc(a.species)}</td>
+        <td><span class="badge ${healthBadge(a.health)}">${AG.esc(a.health||'Unknown')}</span></td>
+        <td><span class="badge ${a.status==='Sold'?'badge-muted':'badge-green'}">${AG.esc(a.status||'Active')}</span></td>
+      </tr>`).join('');
+  }
+
+  function healthBadge(h) {
+    if (!h || h==='Healthy') return 'badge-green';
+    if (h==='Under Treatment'||h==='Quarantine') return 'badge-red';
+    return 'badge-amber';
+  }
+
+  // ── Animals table ──
+  function renderAnimalsTable() {
+    const tbody = document.getElementById('animals-tbody');
+    if (!farmData.animals.length) {
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:20px;">No animals recorded.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = farmData.animals.map(a => `
+      <tr>
+        <td><code>${AG.esc(a.id)}</code></td>
+        <td><strong>${AG.esc(a.name)}</strong></td>
+        <td>${AG.esc(a.species)}</td>
+        <td>${AG.esc(a.breed||'—')}</td>
+        <td>${a.weight||'—'}</td>
+        <td><span class="badge ${healthBadge(a.health)}">${AG.esc(a.health||'Unknown')}</span></td>
+        <td><span class="badge ${a.status==='Sold'?'badge-muted':'badge-green'}">${AG.esc(a.status||'Active')}</span></td>
+        <td style="font-size:12px;color:var(--text-secondary);">${AG.esc(a.assignedVetName||'None')}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" onclick="removeAnimal('${AG.esc(a.id)}')">Remove</button>
+        </td>
+      </tr>`).join('');
+  }
+
+  // ── Sales table ──
+  function renderSalesTable() {
+    const tbody = document.getElementById('sales-tbody');
+    const sales = farmData.salesRec || [];
+    if (!sales.length) {
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:20px;">No sales recorded.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = sales.slice().reverse().map(s => `
+      <tr>
+        <td><code>${AG.esc(s.id)}</code></td>
+        <td>${AG.esc(s.animalId||'—')}</td>
+        <td>${AG.esc(s.species||'—')}</td>
+        <td>${s.weight||'—'} kg</td>
+        <td>${AG.esc(s.buyer||'—')}</td>
+        <td style="font-weight:700;color:var(--text-accent);">M ${(s.price||0).toLocaleString()}</td>
+        <td>${AG.esc(s.date||'—')}</td>
+        <td><span class="badge ${s.status==='Paid'?'badge-green':'badge-amber'}">${AG.esc(s.status||'Pending')}</span></td>
+      </tr>`).join('');
+  }
+
+  // ── Health records ──
+  async function loadHealthRecords() {
+    const tbody = document.getElementById('health-tbody');
+    if (!farmId) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:20px;">Farm not registered yet.</td></tr>';
+      return;
+    }
+    try {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:20px;">Loading health records…</td></tr>';
+      const out = await AG.apiRequest(`/health/records?farmId=${encodeURIComponent(farmId)}`);
+      const records = out.records || [];
+      if (!records.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:20px;">No vet records yet. Assign a vet to get started.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = records.map(r => {
+        const animal = (farmData.animals || []).find(a => a.id === r.animalId);
+        const animalLabel = animal ? `<strong>${AG.esc(animal.name)}</strong> <small style="color:var(--text-muted);">(${AG.esc(r.animalId)})</small>` : `<code>${AG.esc(r.animalId||'—')}</code>`;
+        const rawVet = r.vetName || r.vet || 'Unknown Vet';
+        const vetNameDisplay = rawVet.startsWith('Dr.') ? AG.esc(rawVet) : 'Dr. ' + AG.esc(rawVet);
+        const typeBadge = r.type === 'Quarantine' ? 'badge-red' : r.type === 'Vaccination' ? 'badge-blue' : 'badge-amber';
+        const statusBadge = r.status === 'Completed' ? 'badge-green' : r.status === 'Critical' ? 'badge-red' : 'badge-amber';
+        const rx = r.prescription ? `<div style="font-size:11px;color:var(--text-muted);margin-top:2px;">💊 <em>Rx: ${AG.esc(r.prescription)}</em></div>` : '';
+
+        return `
+        <tr>
+          <td>${AG.esc(r.date||'—')}</td>
+          <td>${animalLabel}</td>
+          <td><span class="badge ${typeBadge}">${AG.esc(r.type||'—')}</span></td>
+          <td>
+            <div>${AG.esc(r.description||r.desc||'—')}</div>
+            ${rx}
+          </td>
+          <td style="color:var(--text-accent);font-weight:600;">${vetNameDisplay}</td>
+          <td>${AG.esc(r.nextDue||'—')}</td>
+          <td><span class="badge ${statusBadge}">${AG.esc(r.status||'—')}</span></td>
+        </tr>`;
+      }).join('');
+
+      // Once loaded and marked as seen, clear notification badge and alert card
+      const badge = document.getElementById('health-badge');
+      if (badge) badge.style.display = 'none';
+      const card = document.getElementById('vet-notifications-card');
+      if (card) card.style.display = 'none';
+    } catch(e) {
+      console.error('Failed to load health records:', e);
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--accent-red);padding:20px;">Failed to load records: ${AG.esc(e.message)}</td></tr>`;
+    }
+  }
+
+  // ── Notifications (unseen vet records) ──
+  async function checkNotifications() {
+    if (!farmId) return;
+    try {
+      const out = await AG.apiRequest('/health/notifications');
+      const badge = document.getElementById('health-badge');
+      const count = out.unseen || 0;
+      if (count > 0) {
+        if (badge) {
+          badge.style.display = 'inline-block';
+          badge.textContent = count;
+        }
+        // Show notification card
+        const card = document.getElementById('vet-notifications-card');
+        if (card) card.style.display = '';
+        const list = document.getElementById('vet-notifications-list');
+        if (list) {
+          list.innerHTML = `
+            <div class="alert alert-info" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <span>🩺 You have <strong>${count}</strong> new vet inspection/treatment report(s) for your animals.</span>
+              <button class="btn btn-primary btn-sm" onclick="showSection('health'); return false;">View Health Records →</button>
+            </div>`;
+        }
+      } else {
+        if (badge) badge.style.display = 'none';
+        const card = document.getElementById('vet-notifications-card');
+        if (card) card.style.display = 'none';
+      }
+    } catch(e) { console.error('Notifications check error:', e); }
+  }
+
+  // ── Vet assignments ──
+  async function loadAssignments() {
+    try {
+      const out = await AG.apiRequest('/vets/assignments');
+      const list = document.getElementById('assignments-list');
+      const assignments = out.assignments || [];
+      const kpi = document.getElementById('kpi-vets');
+      if (kpi) kpi.textContent = assignments.length;
+
+      if (!list) return;
+      if (!assignments.length) {
+        list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">No vets assigned yet. Click "+ Assign a Vet" above to choose a doctor.</p>';
+        return;
+      }
+      list.innerHTML = assignments.map(a => {
+        const rawVet = a.vetName || 'Unknown';
+        const vetDisplay = rawVet.startsWith('Dr.') ? AG.esc(rawVet) : 'Dr. ' + AG.esc(rawVet);
+        return `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--border-light);border-radius:8px;margin-bottom:8px;">
+          <div>
+            <strong style="color:var(--text-primary);">${vetDisplay}</strong>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">
+              ${a.animalIds&&a.animalIds.length ? a.animalIds.length+' animal(s) assigned' : 'All animals on farm'}
+            </div>
+          </div>
+          <button class="btn btn-danger btn-sm" onclick="removeAssignment('${a.id}')">Remove</button>
+        </div>`;
+      }).join('');
+    } catch(e) {
+      console.error('Failed to load assignments:', e);
+      const kpi = document.getElementById('kpi-vets');
+      if (kpi && kpi.textContent === '—') kpi.textContent = '0';
+    }
+  }
+
+  async function removeAssignment(id) {
+    if (!confirm('Remove this vet assignment?')) return;
+    try {
+      await AG.apiRequest(`/vets/assign/${id}`, { method: 'DELETE' });
+      showToast('Vet assignment removed');
+      loadAssignments();
+    } catch(e) { showToast(e.message, 'error'); }
+  }
+
+  // ── Load vets into assign modal ──
+  async function loadVetList() {
+    try {
+      const out = await AG.apiRequest('/vets');
+      currentVets = out.vets || [];
+      const sel = document.getElementById('vet-select');
+      sel.innerHTML = currentVets.length
+        ? '<option value="">— Select a vet —</option>' + currentVets.map(v => `<option value="${v.id}">${AG.esc(v.name)} (${AG.esc(v.email)})</option>`).join('')
+        : '<option value="">No vets registered yet</option>';
+
+      // Populate animal checkboxes
+      const container = document.getElementById('animal-checkboxes');
+      container.innerHTML = farmData.animals.length
+        ? farmData.animals.map(a => `<label style="display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;cursor:pointer;"><input type="checkbox" value="${a.id}" style="width:15px;height:15px;"> ${AG.esc(a.name)} (${AG.esc(a.id)}) — ${AG.esc(a.species)}</label>`).join('')
+        : '<p style="font-size:13px;color:var(--text-muted);">No animals yet. Add animals first.</p>';
+    } catch(e) { console.error('Failed to load vet list:', e); }
+  }
+
+  // ── Assign vet form submit ──
+  document.getElementById('assign-vet-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btn-assign-vet');
+    btn.disabled = true; btn.textContent = 'Assigning…';
+
+    const vetId = document.getElementById('vet-select').value;
+    const checkboxes = document.querySelectorAll('#animal-checkboxes input[type=checkbox]:checked');
+    const animalIds = Array.from(checkboxes).map(c => c.value);
+
+    try {
+      const out = await AG.apiRequest('/vets/assign', {
+        method: 'POST',
+        body: JSON.stringify({ vetId, animalIds })
+      });
+      showToast(out.message || 'Vet assigned successfully!');
+      closeModal('modal-assign-vet');
+      loadAssignments();
+    } catch(e) { showToast(e.message,'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Assign Vet'; }
+  });
+
+  // Open assign-vet modal → load vet list
+  document.querySelector('[onclick="openModal(\'modal-assign-vet\')"]').addEventListener('click', loadVetList, {capture:true});
+
+  // ── Add animal form submit ──
+  document.getElementById('add-animal-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btn-add-animal');
+    btn.disabled = true; btn.textContent = 'Adding…';
+
+    const id = 'AC-' + String(farmData.animals.length + 1).padStart(4, '0');
+    const animal = {
+      id,
+      name: document.getElementById('a-name').value.trim(),
+      species: document.getElementById('a-species').value,
+      breed: document.getElementById('a-breed').value.trim(),
+      gender: document.getElementById('a-gender').value,
+      dob: document.getElementById('a-dob').value,
+      weight: parseFloat(document.getElementById('a-weight').value) || 0,
+      location: document.getElementById('a-location').value.trim(),
+      health: 'Healthy',
+      status: 'Active',
+      addedOn: new Date().toISOString().slice(0,10)
+    };
+
+    farmData.animals.push(animal);
+    const ok = await AG.saveData(farmData);
+    if (ok) {
+      showToast(`${animal.name} added to your herd!`);
+      closeModal('modal-add-animal');
+      document.getElementById('add-animal-form').reset();
+      renderOverview();
+      renderAnimalsTable();
+    } else {
+      farmData.animals.pop();
+      showToast('Failed to save. Check connection.','error');
+    }
+    btn.disabled = false; btn.textContent = 'Add Animal';
+  });
+
+  // ── Remove animal ──
+  async function removeAnimal(id) {
+    if (!confirm(`Remove animal ${id}?`)) return;
+    farmData.animals = farmData.animals.filter(a => a.id !== id);
+    await AG.saveData(farmData);
+    renderAnimalsTable();
+    renderOverview();
+    showToast('Animal removed');
+  }
+
+  // ── Init ──
+  loadFarmData();
+  loadAssignments();
+</script>
+</body>
+</html>

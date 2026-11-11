@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: agriconnect
+    runtime: node
+    rootDir: .
+    buildCommand: npm install && npm run build && cd server && npm install
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_SSL
+        value: "true"
+      - key: REACT_APP_API_URL
+        value: ""
+    plan: free
+
+databases:
+  - name: agriconnect-db
+    databaseName: agriconnect
+    user: agriconnect
+    plan: free
+

@@ -1,0 +1,128 @@
+================================================================================
+AGRICONNECT: SYSTEM ARCHITECTURE & TECHNICAL SPECIFICATION
+Platform: Highland Agro-Informatics & Trade Engine (Lesotho)
+================================================================================
+
+1. SYSTEM ARCHITECTURE & TOPOLOGY
+--------------------------------------------------------------------------------
+AgriConnect follows a decoupled, three-tier client-server architecture:
+
+  [ React 18 Single-Page Application ]
+                 │ (RESTful HTTPS / JSON)
+                 ▼
+  [ Node.js / Express 4 Application Server ]
+     ├── Authentication (JWT + Bcrypt.js)
+     ├── Role-Based Access Control (RBAC Engine)
+     ├── Live External Integrations (Open-Meteo REST API)
+     ├── In-Memory & Algorithmic Inference Engine
+     └── Blockchain Ledger Adapter (SHA-256 Merkle Proofs)
+                 │ (Sequelize ORM / Connection Pool)
+                 ▼
+  [ PostgreSQL Relational Database Management System ]
+
+- Client Tier: React 18 SPA with React Router v6, Bootstrap grid primitives,
+  Recharts for time-series charts, and Axios HTTP client with request/response
+  interceptors for Bearer token injection.
+- Application Tier: Express server operating in asynchronous event-driven I/O,
+  implementing security middleware (Helmet with custom CORP, CORS, Rate-Limiting).
+- Persistence Tier: PostgreSQL running via Sequelize ORM with pooled database
+  connections, transaction handling, and parameterized query generation to
+  prevent SQL injection.
+
+
+2. CORE SUBSYSTEMS & WORKING MECHANISMS
+--------------------------------------------------------------------------------
+
+A. AUTHENTICATION & ACCESS CONTROL (SECURITY DOMAIN)
+- Authentication:
+  * Passwords are salt-hashed using bcrypt (10 rounds) prior to database insertion.
+  * Successful authentication signs an HMAC-SHA256 JSON Web Token (JWT) encapsulating
+    `userId`, `email`, and `role`.
+  * Tokens have a 7-day TTL and are transmitted via HTTP Authorization headers:
+    `Authorization: Bearer <token>`.
+- Dynamic Role-Based Access Control (RBAC):
+  * Four system roles: `farmer`, `buyer`, `advisor`, and `admin`.
+  * Middleware (`server/middleware/auth.js`) intercepts requests, decodes the JWT,
+    and checks permissions across 6 application modules (listings, messages,
+    prices, tips, ai, blockchain) for [Read, Write, Delete] capabilities.
+  * Administrators can dynamically reconfigure permissions live via the
+    `/api/admin/security/permissions` endpoint.
+
+B. MARKETPLACE & TRANSACTION PIPELINE
+- Listings Subsystem (`server/controllers/listingsController.js`):
+  * Manages CRUD lifecycles for agricultural produce lots.
+  * Fields: `crop_name`, `category`, `quantity`, `unit`, `price_per_unit`,
+    `location`, `description`, `blockchain_tx_hash`.
+  * Upon listing creation, the record is automatically passed to the Blockchain
+    Subsystem for cryptographic notarization.
+- Messaging Subsystem (`server/controllers/messagesController.js`):
+  * Facilitates authenticated direct communication between producers and buyers.
+  * Stores conversations keyed by `sender_id`, `receiver_id`, and optional `listing_id`.
+  * Unread counters and conversation groupings are computed using aggregated queries.
+
+C. BLOCKCHAIN PROVENANCE & ANTI-TAMPER ENGINE (DLT)
+- Subsystem Location: `server/controllers/blockchainController.js` & `blockchain/AgriLedger.sol`
+- Proof-of-Authority (PoA) Ledger Architecture:
+  * Block structure: `block_height`, `timestamp`, `listing_id`, `crop_name`,
+    `quantity_kg`, `price_per_kg_lsl`, `seller_id`, `previous_block_hash`,
+    `merkle_root`, `transaction_hash`, `validator_address`.
+  * Hashing: Transaction hashes and Merkle roots are generated using cryptographic
+    SHA-256 (`crypto.createHash('sha256')`).
+  * Chain Continuity: Block N encapsulates `previous_block_hash = Block(N-1).hash`,
+    guaranteeing cryptographic immutability.
+- On-Demand Verification Endpoint (`GET /api/blockchain/verify/:id`):
+  * Re-fetches the current listing state from PostgreSQL.
+  * Re-computes the SHA-256 hash from the live database values.
+  * Compares the computed hash against the stored on-chain transaction hash.
+  * Returns `isTamperFree: true` if hashes match, or `isTamperFree: false` with
+    a security warning if any field (price, volume, seller) has been altered in the DB.
+
+D. METEOROLOGICAL TELEMETRY ENGINE (LIVE WEATHER API)
+- Subsystem Location: `server/controllers/pricesController.js`
+- Primary Provider: Open-Meteo REST API (ECMWF & GFS numerical weather models).
+- Geographic Resolution:
+  * Exact latitude and longitude coordinates mapped for all 10 administrative
+    districts of Lesotho (e.g., Maseru [-29.3167, 27.4833], Mokhotlong [-29.2894, 29.0675]).
+- Retrieved Data Points:
+  * Surface temperature (`temperature_2m`), apparent temperature (`apparent_temperature`),
+    relative humidity (`relative_humidity_2m`), wind speed (`wind_speed_10m`),
+    precipitation (`precipitation`), and WMO Weather Codes (0–99).
+- Automated Agronomic Advisory Computation:
+  * The server parses raw meteorological telemetry in real-time and evaluates risk:
+    - Temp <= 2°C -> Sub-zero ground frost warning.
+    - Precipitation > 5mm -> Field drying and spraying delay recommendation.
+    - Wind > 10m/s -> Herbicide drift prevention warning.
+    - Temp >= 28°C -> Transpiration stress and irrigation alert.
+
+E. ARTIFICIAL INTELLIGENCE & MACHINE LEARNING INFERENCE
+- Subsystem Location: `ai/` & `server/controllers/aiController.js`
+- Empirical Dataset:
+  * 1,200 records spanning all 10 districts from 2023 to 2026.
+  * 22 features capturing agronomic, meteorological, and economic indicators
+    (farm size, rainfall, temperature, soil pH, fertilizer, competitor supply, demand index).
+- Model Architecture & Training:
+  * Models benchmarked: Random Forest Regressor (100 estimators, max depth 12),
+    Gradient Boosting Regressor, CART Decision Tree, and Multiple Linear Regression.
+  * Random Forest achieved superior performance: Test R² = 0.9242, RMSE = M 1.15/kg, MAE = M 0.84/kg.
+- Real-Time Inference:
+  * `/api/ai/predict-sales` evaluates user inputs against weighted model coefficients
+    and seasonal demand elasticity matrices, returning predicted optimal pricing,
+    expected turnover velocity (days to sell), and net revenue margins after transport.
+
+
+3. DATA FLOW EXAMPLE: POSTING & VERIFYING A CROP LOT
+--------------------------------------------------------------------------------
+1. Farmer logs into frontend -> JWT stored in `localStorage`.
+2. Farmer posts 500 kg Maize at M 6.50/kg in Leribe via `POST /api/listings`.
+3. Server authenticates JWT, inserts record into PostgreSQL `listings` table.
+4. Server triggers blockchain miner:
+   - Queries previous block hash (Block #N-1).
+   - Generates SHA-256 hash of lot attributes.
+   - Appends Block #N to `blockchain_ledger` table with transaction hash.
+5. Buyer views listing at `/listings/:id` and clicks "Verify On-Chain Integrity".
+6. Frontend invokes `GET /api/blockchain/verify/:id`.
+7. Server recalculates hash of the database listing and compares against Block #N.
+8. If matched, frontend displays cryptographically authentic state; if tampered,
+   an alarm is rendered immediately.
+================================================================================
+

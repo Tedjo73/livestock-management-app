@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Livestock App Lesotho</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body class="auth-page">
+  <div id="toast-container"></div>
+
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div style="font-size:36px; margin-bottom:4px;">🌾</div>
+      <h1>Agri<span>Chain</span> Lesotho</h1>
+      <p style="font-size:12px; color:var(--text-muted); margin-top:2px;">Livestock Management &amp; Blockchain Provenance</p>
+    </div>
+
+    <div id="alert-box" style="display:none;" class="alert"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-input" placeholder="e.g. charlesthato04@gmail.com, dr.ramokoena@vet.ls, or admin@livestock-app.com" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="password" class="form-input" placeholder="••••••••" required/>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:4px;" id="btn-login">
+        Login
+      </button>
+    </form>
+
+    <p style="text-align:center; margin-top:20px; font-size:13.5px; color:var(--text-muted);">
+      Don't have an account? <a href="register.html">Register here</a>
+    </p>
+
+    <p style="text-align:center; margin-top:12px; font-size:12px; color:var(--text-muted);">
+      <a href="marketplace.html">Browse Public Livestock Marketplace (No Login Needed)</a>
+    </p>
+  </div>
+
+  <script>
+    // Redirect if already logged in
+    const redirectParam = new URLSearchParams(location.search).get('redirect');
+    if (AG.currentUser()) {
+      const u = AG.currentUser();
+      if (redirectParam) {
+        location.href = redirectParam;
+      } else {
+        location.href = u.role === 'veterinary_officer' ? 'vet-dashboard.html'
+                      : u.role === 'buyer' ? 'marketplace.html'
+                      : (u.role === 'security_admin' || u.role === 'admin') ? 'admin.html'
+                      : (u.registered ? 'dashboard.html' : 'welcome.html');
+      }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const btn      = document.getElementById('btn-login');
+      const alertBox = document.getElementById('alert-box');
+
+      btn.disabled = true;
+      btn.textContent = 'Logging in…';
+      alertBox.style.display = 'none';
+
+      const result = await AG.login(email, password);
+      if (result.ok) {
+        const u = result.user;
+        if (redirectParam) {
+          location.href = redirectParam;
+          return;
+        }
+        if (u.role === 'veterinary_officer') {
+          location.href = 'vet-dashboard.html';
+        } else if (u.role === 'buyer') {
+          location.href = 'marketplace.html';
+        } else if (u.role === 'security_admin' || u.role === 'admin') {
+          location.href = 'admin.html';
+        } else {
+          location.href = u.registered ? 'dashboard.html' : 'welcome.html';
+        }
+      } else {
+        alertBox.className = 'alert alert-danger';
+        alertBox.textContent = result.error || 'Invalid email or password';
+        alertBox.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Login';
+      }
+    });
+  </script>
+</body>
+</html>

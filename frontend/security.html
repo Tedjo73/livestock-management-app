@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cybersecurity, RBAC &amp; GDPR — AgriChain</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+  <style>
+    /* ── Tab system ── */
+    .tabs { display:flex; gap:0; border-bottom:2px solid var(--border-color,#e5e7eb); margin-bottom:24px; overflow-x:auto; }
+    .tab-btn { padding:11px 20px; font-size:13.5px; font-weight:600; border:none; background:none; color:var(--text-secondary,#6b7280); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; white-space:nowrap; transition:all .2s; }
+    .tab-btn.active { color:var(--text-accent,#3b82f6); border-bottom-color:var(--text-accent,#3b82f6); }
+    .tab-btn:hover:not(.active) { color:var(--text-primary,#111); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+
+    /* ── Classification table row colours ── */
+    .cls-public      { background:rgba(16,185,129,.05); }
+    .cls-private     { background:rgba(59,130,246,.05); }
+    .cls-confidential{ background:rgba(245,158,11,.06); }
+    .cls-restricted  { background:rgba(239,68,68,.05); }
+
+    /* ── RBAC matrix ── */
+    .rbac-matrix th { text-align:center; font-size:12px; }
+    .rbac-matrix td:first-child { text-align:left; font-size:13px; }
+    .rbac-matrix td { text-align:center; vertical-align:middle; padding:9px 10px; }
+    .perm { display:inline-block; border-radius:5px; padding:3px 9px; font-size:11.5px; font-weight:700; }
+    .perm-rw  { background:rgba(16,185,129,.15); color:#059669; }
+    .perm-ro  { background:rgba(59,130,246,.15);  color:#2563eb; }
+    .perm-no  { background:rgba(156,163,175,.12); color:#9ca3af; }
+    .perm-wo  { background:rgba(245,158,11,.15);  color:#d97706; }
+    .perm-adm { background:rgba(239,68,68,.13);   color:#dc2626; }
+
+    /* ── GDPR cards ── */
+    .gdpr-card { border-radius:10px; border:1px solid var(--border-color,#e5e7eb); padding:14px 16px; margin-bottom:12px; display:flex; gap:14px; align-items:flex-start; }
+    .gdpr-status { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; margin-top:2px; }
+    .gdpr-ok   { background:rgba(16,185,129,.18); color:#059669; }
+    .gdpr-part { background:rgba(245,158,11,.18); color:#d97706; }
+    .gdpr-no   { background:rgba(239,68,68,.15);  color:#dc2626; }
+    .gdpr-article { font-size:11px; font-weight:700; color:var(--text-muted,#9ca3af); text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px; }
+    .gdpr-title   { font-size:14px; font-weight:700; color:var(--text-primary,#111); margin-bottom:4px; }
+    .gdpr-desc    { font-size:12.5px; color:var(--text-secondary,#6b7280); line-height:1.5; }
+    .gdpr-desc em { color:var(--text-muted,#9ca3af); }
+
+    /* ── Domain banner ── */
+    .domain-banner { border-radius:10px; border:1.5px dashed var(--text-accent,#3b82f6); padding:14px 18px; margin-bottom:20px; display:flex; align-items:center; gap:14px; background:rgba(59,130,246,.05); }
+    .domain-banner code { font-size:13px; color:var(--text-accent,#3b82f6); font-weight:700; }
+
+    /* ── Endpoint pill list ── */
+    .endpoint-pill { display:inline-block; border-radius:5px; padding:2px 8px; font-size:11.5px; font-weight:700; margin:2px; }
+    .ep-get  { background:#dcfce7; color:#15803d; }
+    .ep-post { background:#dbeafe; color:#1d4ed8; }
+    .ep-patch{ background:#fef3c7; color:#b45309; }
+    .ep-del  { background:#fee2e2; color:#b91c1c; }
+
+    .section-heading { font-size:17px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+    .section-heading span { font-size:22px; }
+
+    /* role cards */
+    .role-cards { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:20px; }
+    @media(max-width:900px){ .role-cards { grid-template-columns:repeat(2,1fr); } }
+    .role-card { border-radius:8px; padding:12px; border:1px solid var(--border-color); }
+  </style>
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">🛡️ Agri<span>Secure</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">📊 Farmer Dashboard</a>
+      <a href="marketplace.html">🛒 Marketplace</a>
+      <a href="blockchain.html">⛓️ Blockchain Ledger</a>
+      <a href="ai-dashboard.html">🤖 AI Analytics</a>
+      <a href="admin.html">🔑 Admin HQ</a>
+      <a href="security.html" class="active">🛡️ Security &amp; RBAC</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="font-size:13px;font-weight:600;color:var(--text-primary);" id="user-name">…</div>
+      <div style="font-size:11.5px;color:var(--text-muted);" id="user-role"></div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:10px;width:100%;" onclick="AG.logout()">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div class="topbar">
+      <div>
+        <h1>🛡️ Cybersecurity, RBAC &amp; Data Protection</h1>
+        <p style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">
+          Data Classification · Role-Based Access Control &amp; Dedicated Security Architecture · GDPR Compliance
+        </p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <button class="btn btn-primary btn-sm" onclick="exportAllSecurityCSV()">📊 Export to Spreadsheet</button>
+        <button class="btn btn-secondary btn-sm" onclick="AG.exportData()">📥 Export My Data (GDPR Art.20)</button>
+        <button class="btn btn-danger btn-sm" onclick="AG.deleteAccount()">🗑️ Delete Account (GDPR Art.17)</button>
+      </div>
+    </div>
+
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'tab-classification')">📂 Data Classification</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-rbac')">🔐 RBAC &amp; Permissions</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-domain')">🌐 Security Domain</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-gdpr')">🔒 GDPR Compliance</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-audit')">📜 Live Audit Trail</button>
+    </div>
+
+    <!-- ═══ TAB 1: DATA CLASSIFICATION ═══ -->
+    <div id="tab-classification" class="tab-panel active">
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+        <span class="badge badge-green">🌍 Public — Freely accessible</span>
+        <span class="badge badge-blue">🔵 Private — Authenticated users only</span>
+        <span class="badge badge-amber">🟠 Confidential — Role-restricted &amp; pseudonymised</span>
+        <span class="badge badge-red">🔴 Restricted — Highest protection; never exposed externally</span>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-title section-heading"><span>🏷️</span> Comprehensive Data Classification Table</div>
+        <div class="table-wrap">
+          <table id="table-data-classification">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Data Asset / Field</th>
+                <th>Classification</th>
+                <th>Who Accesses</th>
+                <th>Storage Location</th>
+                <th>Protection Mechanism</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- PUBLIC -->
+              <tr class="cls-public">
+                <td>Marketplace</td>
+                <td>Species, breed, weight, certified health status, asking price (LSL)</td>
+                <td><span class="badge badge-green">🌍 Public</span></td>
+                <td>Anyone (unauthenticated)</td>
+                <td>Firestore <code>marketplaceListings</code></td>
+                <td>Data minimisation — no farmer PII is included in listings</td>
+              </tr>
+              <tr class="cls-public">
+                <td>AI Dashboard</td>
+                <td>Market price benchmarks (LSL/kg per species)</td>
+                <td><span class="badge badge-green">🌍 Public</span></td>
+                <td>Any logged-in user</td>
+                <td>Hardcoded in <code>ai-engine.js</code></td>
+                <td>Reference data only; contains no personal data</td>
+              </tr>
+              <tr class="cls-public">
+                <td>Blockchain</td>
+                <td>Keccak-256 hashes of livestock records</td>
+                <td><span class="badge badge-green">🌍 Public</span></td>
+                <td>Any verifier</td>
+                <td>Firestore <code>blockchainAnchors</code> + Ethereum Sepolia</td>
+                <td>Keccak-256 one-way hash; record contents remain off-chain</td>
+              </tr>
+              <tr class="cls-public">
+                <td>Blockchain</td>
+                <td>District, main livestock species on genesis block</td>
+                <td><span class="badge badge-green">🌍 Public</span></td>
+                <td>Any verifier</td>
+                <td>Ledger (non-identifying coarse descriptor)</td>
+                <td>Pseudonymous by design — no farm name or owner PII on-chain</td>
+              </tr>
+              <!-- PRIVATE -->
+              <tr class="cls-private">
+                <td>Livestock</td>
+                <td>Animal ID/ear tag, name, pen, weight history, date of birth</td>
+                <td><span class="badge badge-blue">🔵 Private</span></td>
+                <td>Registered farmer &amp; assigned vet</td>
+                <td>Firestore <code>farmRecords</code></td>
+                <td>JWT auth + role guard on every API route; farm-scoped reads</td>
+              </tr>
+              <tr class="cls-private">
+                <td>Breeding</td>
+                <td>Dam/sire IDs, mating dates, offspring records</td>
+                <td><span class="badge badge-blue">🔵 Private</span></td>
+                <td>Registered farmer only</td>
+                <td>Firestore <code>farmRecords.data.breedRec</code></td>
+                <td>Farmer-only PUT; vets have read-only via vet assignment</td>
+              </tr>
+              <tr class="cls-private">
+                <td>Farm Profile</td>
+                <td>Farm name, town/district, size (Ha), registration number</td>
+                <td><span class="badge badge-blue">🔵 Private</span></td>
+                <td>Farmer &amp; Security Admin (audit only)</td>
+                <td>Firestore <code>farms</code></td>
+                <td>Auth-gated; admin reads are logged in <code>auditLogs</code></td>
+              </tr>
+              <tr class="cls-private">
+                <td>Feed Logs</td>
+                <td>Feed type, quantity (kg), cost per batch</td>
+                <td><span class="badge badge-blue">🔵 Private</span></td>
+                <td>Registered farmer only</td>
+                <td>Firestore <code>farmRecords.data.feedRec</code></td>
+                <td>Farmer-scoped PUT; no vet or buyer access</td>
+              </tr>
+              <!-- CONFIDENTIAL -->
+              <tr class="cls-confidential">
+                <td>Users (PII)</td>
+                <td>Full name, e-mail address, phone number</td>
+                <td><span class="badge badge-amber">🟠 Confidential</span></td>
+                <td>Account owner &amp; Security Admin</td>
+                <td>Firestore <code>users</code></td>
+                <td>Never written to blockchain; GDPR export/delete enforced (Art.15, 17)</td>
+              </tr>
+              <tr class="cls-confidential">
+                <td>Health Records</td>
+                <td>Diagnoses, treatment prescriptions, vaccine lot IDs, follow-up notes</td>
+                <td><span class="badge badge-amber">🟠 Confidential</span></td>
+                <td>Veterinary Officer (write); Farmer (read)</td>
+                <td>Firestore <code>healthRecords</code></td>
+                <td>Role-restricted REST (<code>POST /api/health/record</code> — vet only); only event type on-chain</td>
+              </tr>
+              <tr class="cls-confidential">
+                <td>Sales / Financial</td>
+                <td>Sale price (LSL), payment status, transaction date</td>
+                <td><span class="badge badge-amber">🟠 Confidential</span></td>
+                <td>Farm owner only</td>
+                <td>Firestore <code>farmRecords.data.salesRec</code></td>
+                <td>Hash-sealed on-chain (SHA-256 of full record); raw financials off-chain only</td>
+              </tr>
+              <tr class="cls-confidential">
+                <td>Buyer Identity</td>
+                <td>Buyer name, company, contact details</td>
+                <td><span class="badge badge-amber">🟠 Confidential</span></td>
+                <td>Farm owner only</td>
+                <td>Firestore (off-chain only)</td>
+                <td>On-chain only as 12-char SHA-256 <code>buyerRef</code> pseudonym — real name never on ledger</td>
+              </tr>
+              <!-- RESTRICTED -->
+              <tr class="cls-restricted">
+                <td>Authentication</td>
+                <td>Password hashes (bcrypt, 12 rounds)</td>
+                <td><span class="badge badge-red">🔴 Restricted</span></td>
+                <td>System only — never returned to client</td>
+                <td>Firestore <code>users.passwordHash</code></td>
+                <td>bcrypt salted; deleted from <code>req.user</code> in auth middleware before any handler sees it</td>
+              </tr>
+              <tr class="cls-restricted">
+                <td>Authentication</td>
+                <td>JWT session tokens (8-hour expiry)</td>
+                <td><span class="badge badge-red">🔴 Restricted</span></td>
+                <td>Authenticated browser session only</td>
+                <td>Browser <code>sessionStorage</code> (auto-cleared on tab close)</td>
+                <td>HMAC-SHA256 signed; cleared on logout; never stored server-side</td>
+              </tr>
+              <tr class="cls-restricted">
+                <td>Audit &amp; Compliance</td>
+                <td>Audit log events (action, actor, IP, user-agent, timestamp)</td>
+                <td><span class="badge badge-red">🔴 Restricted</span></td>
+                <td>Security Admin only</td>
+                <td>Firestore <code>auditLogs</code></td>
+                <td>Admin-role guard on <code>GET /api/security/audit-logs</code>; tamper-evident server records</td>
+              </tr>
+              <tr class="cls-restricted">
+                <td>System Secrets</td>
+                <td>JWT secret key, Firebase service account key, Ethereum private key</td>
+                <td><span class="badge badge-red">🔴 Restricted</span></td>
+                <td>System/DevOps only</td>
+                <td>Server <code>.env</code> + OS environment variables</td>
+                <td>Never in front-end code; <code>.env</code> excluded from VCS via <code>.gitignore</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="kpi-card" style="--accent:var(--green-400)">
+          <div class="kpi-label">Public Assets</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-change pos">No auth required</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--blue-400)">
+          <div class="kpi-label">Private Assets</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-change">Auth + registration</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--amber-400)">
+          <div class="kpi-label">Confidential Assets</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-change">Role-restricted &amp; pseudonymised</div>
+        </div>
+        <div class="kpi-card" style="--accent:var(--red-400)">
+          <div class="kpi-label">Restricted Assets</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-change">Highest protection</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 2: RBAC PERMISSIONS ═══ -->
+    <div id="tab-rbac" class="tab-panel">
+      <div class="card mb-4">
+        <div class="card-title section-heading"><span>👥</span> Role-Based Access Control Matrix</div>
+
+        <div class="role-cards">
+          <div class="role-card" style="background:rgba(156,163,175,.06);">
+            <div style="font-size:18px;margin-bottom:4px;">🌐</div>
+            <div style="font-weight:700;font-size:13px;">Anonymous</div>
+            <div style="font-size:11.5px;color:var(--text-muted);">No session. Can view marketplace listings or register/login only.</div>
+          </div>
+          <div class="role-card" style="background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.25);">
+            <div style="font-size:18px;margin-bottom:4px;">🌾</div>
+            <div style="font-weight:700;font-size:13px;color:#059669;">Farmer</div>
+            <div style="font-size:11.5px;color:var(--text-muted);">Full CRUD on own herd, health (read), breeding, sales, feed, AI, ledger.</div>
+          </div>
+          <div class="role-card" style="background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.25);">
+            <div style="font-size:18px;margin-bottom:4px;">🩺</div>
+            <div style="font-weight:700;font-size:13px;color:#2563eb;">Veterinary Officer</div>
+            <div style="font-size:11.5px;color:var(--text-muted);">Read assigned herd. Write clinical health records &amp; certify animals.</div>
+          </div>
+          <div class="role-card" style="background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.25);">
+            <div style="font-size:18px;margin-bottom:4px;">🛒</div>
+            <div style="font-weight:700;font-size:13px;color:#d97706;">Buyer</div>
+            <div style="font-size:11.5px;color:var(--text-muted);">Browse &amp; purchase livestock. Identity pseudonymised on blockchain.</div>
+          </div>
+          <div class="role-card" style="background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.25);">
+            <div style="font-size:18px;margin-bottom:4px;">🔑</div>
+            <div style="font-weight:700;font-size:13px;color:#dc2626;">Security Admin</div>
+            <div style="font-size:11.5px;color:var(--text-muted);">Manage accounts, roles, audit logs. Cannot buy, farm, or self-delete.</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="rbac-matrix" id="table-rbac-matrix">
+            <thead>
+              <tr>
+                <th style="text-align:left;min-width:220px;">Module / Action</th>
+                <th>Anonymous</th>
+                <th>Farmer 🌾</th>
+                <th>Vet 🩺</th>
+                <th>Buyer 🛒</th>
+                <th>Admin 🔑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Account -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Account &amp; Authentication</td></tr>
+              <tr><td>Register &amp; Login</td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td></tr>
+              <tr><td>Export own data (GDPR Art.20)</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td></tr>
+              <tr><td>Delete own account (GDPR Art.17)</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-no">✗ No<br><small>(cannot self-delete)</small></span></td></tr>
+              <!-- Livestock -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Livestock Herd Management</td></tr>
+              <tr><td>View herd inventory</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-ro">👁 Own farm</span></td><td><span class="perm perm-ro">👁 Assigned only</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Audit</span></td></tr>
+              <tr><td>Add / Edit / Remove animals</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full CRUD</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <tr><td>Assign Vet Officer to farm</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Assign/Revoke</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <!-- Health -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Health Records (Clinical)</td></tr>
+              <tr><td>View health records</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Assigned farms</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Audit</span></td></tr>
+              <tr><td>Submit health attendance / certify</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-wo">✍ Write</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <!-- Breeding / Feed -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Breeding &amp; Feed Records</td></tr>
+              <tr><td>Add / view breeding records</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Audit</span></td></tr>
+              <tr><td>Add / view feed logs</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Audit</span></td></tr>
+              <!-- Marketplace -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Marketplace</td></tr>
+              <tr><td>Browse marketplace listings</td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td></tr>
+              <tr><td>Purchase animal (account required)</td><td><span class="perm perm-no">✗ No<br><small>Redirects to login</small></span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Purchase</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <tr><td>List animal for sale</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <!-- Blockchain -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Blockchain Ledger</td></tr>
+              <tr><td>View &amp; verify blocks</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-ro">👁 Own farm</span></td><td><span class="perm perm-ro">👁 Assigned</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 All farms</span></td></tr>
+              <tr><td>Mine &amp; anchor new block</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Own farm</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <tr><td>Edit or delete existing blocks</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td></tr>
+              <!-- AI -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">AI Analytics Dashboard</td></tr>
+              <tr><td>View AI models &amp; predictions</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <tr><td>Import dataset CSV</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-rw">✔ Full</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <!-- Security Admin -->
+              <tr style="background:var(--bg-surface)"><td colspan="6" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);text-align:left;padding:7px 10px;">Security Administration</td></tr>
+              <tr><td>View audit trail &amp; login history</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <tr><td>Change user roles / suspend accounts</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <tr><td>Reset any user's password</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <tr><td>Delete any user account</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+              <tr><td>View Security Config Module policies</td><td><span class="perm perm-no">✗ No</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-ro">👁 Read</span></td><td><span class="perm perm-adm">🔑 Full</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:16px;font-size:12px;flex-wrap:wrap;">
+          <span><span class="perm perm-rw">✔ Full</span> = Full Read &amp; Write</span>
+          <span><span class="perm perm-ro">👁 Read</span> = Read Only</span>
+          <span><span class="perm perm-wo">✍ Write</span> = Write / Submit Only</span>
+          <span><span class="perm perm-adm">🔑 Audit</span> = Admin-level read (all activity logged)</span>
+          <span><span class="perm perm-no">✗ No</span> = No Access — HTTP 401/403 returned</span>
+        </div>
+
+        <div style="margin-top:16px;padding:12px 14px;background:rgba(59,130,246,.06);border-radius:8px;border:1px solid rgba(59,130,246,.2);font-size:12.5px;color:var(--text-secondary);">
+          <strong>🔧 How enforcement is wired into the codebase:</strong><br>
+          • <strong>Frontend:</strong> <code>AG.guard({ roles: [...] })</code> in <code>core.js</code> fires on every page load — wrong role → redirect, not just hidden menu items.<br>
+          • <strong>Backend:</strong> Every route is protected by the JWT <code>auth</code> middleware (<code>server/middleware/auth.js</code>). Admin routes also call <code>requireAdmin()</code>.<br>
+          • <strong>Vet scoping:</strong> <code>GET /api/farm/data</code> cross-checks <code>vetAssignments</code> collection before returning any farm records.<br>
+          • <strong>Marketplace:</strong> <code>POST /api/marketplace/purchase</code> requires a valid JWT — unauthenticated requests receive HTTP 401.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 3: SEPARATE DOMAIN ═══ -->
+    <div id="tab-domain" class="tab-panel">
+      <div class="card mb-4">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+          <div class="card-title section-heading" style="margin-bottom:0;"><span>🌐</span> Security Configuration Module on a Dedicated Domain</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="exportSecurityDomainCSV()">📊 Export Architecture (Spreadsheet)</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportSecurityDomainJSON()">📋 Export (JSON)</button>
+          </div>
+        </div>
+
+        <div style="padding:16px;background:rgba(16,185,129,.06);border-radius:10px;border:1px solid rgba(16,185,129,.25);margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#059669;margin-bottom:6px;">✅ Dedicated Security Architecture</div>
+          <div style="font-size:13px;color:var(--text-secondary);">
+            AgriChain delivers a physically separate <code>security-module/</code> service — with its own <code>config.js</code>, <code>core.js</code>, <code>styles.css</code>, <code>security.html</code>, and deployment configuration — designed to be deployed independently with zero dependency on the main farm app.
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+          <div style="border-radius:10px;border:1.5px solid rgba(59,130,246,.3);padding:16px;background:rgba(59,130,246,.04);">
+            <div style="font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">🏛️ Main AgriChain Application</div>
+            <div style="font-size:12.5px;color:var(--text-secondary);line-height:1.7;">
+              📂 <code>livestock-management-app/frontend/</code><br>
+              🌐 Dev: <code>http://localhost:4001</code><br>
+              ☁️ Prod: Vercel / Netlify / Railway<br><br>
+              Hosts: Farmer Dashboard, Marketplace, Blockchain Ledger, Vet Clinical Hub, AI Analytics, Admin HQ
+            </div>
+          </div>
+          <div style="border-radius:10px;border:1.5px solid rgba(239,68,68,.3);padding:16px;background:rgba(239,68,68,.04);">
+            <div style="font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">🔒 Separate Security Config Module</div>
+            <div style="font-size:12.5px;color:var(--text-secondary);line-height:1.7;">
+              📂 <code>security-module/</code><br>
+              🌐 Dev: <code>http://localhost:8081/security.html</code><br>
+              ☁️ Prod: <code>security.agrichain.ls</code> subdomain<br><br>
+              Hosts: Data Classification, RBAC policies, GDPR compliance — policy-only, zero farm data
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-bottom:16px;">
+          <table id="table-domain-spec">
+            <thead>
+              <tr><th>File</th><th>Location</th><th>Purpose</th><th>Standalone?</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>security-module/security.html</code></td><td>Separate directory</td><td>Full Data Classification, RBAC, GDPR reference — no backend dependency</td><td><span class="badge badge-green">✅ Yes</span></td></tr>
+              <tr><td><code>security-module/config.js</code></td><td>Separate directory</td><td>Configures <code>MAIN_APP_URL</code> &amp; <code>SECURITY_URL</code> for cross-domain linking</td><td><span class="badge badge-green">✅ Yes</span></td></tr>
+              <tr><td><code>security-module/core.js</code></td><td>Separate directory</td><td>Standalone auth session reader &amp; <code>AG.*</code> helpers</td><td><span class="badge badge-green">✅ Yes</span></td></tr>
+              <tr><td><code>security-module/styles.css</code></td><td>Separate directory</td><td>Independent stylesheet — does not share CSS with main app</td><td><span class="badge badge-green">✅ Yes</span></td></tr>
+              <tr><td><code>security-module/README.md</code></td><td>Separate directory</td><td>Deployment guide: set both URLs in config.js, deploy to any static host</td><td><span class="badge badge-green">✅ Yes</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <div style="font-size:13.5px;font-weight:700;margin-bottom:10px;">Protected REST API Endpoints (Server-Side Enforcement)</div>
+          <div style="font-size:12.5px;color:var(--text-secondary);margin-bottom:10px;">All <code>/api/security/*</code> routes enforce RBAC on the Express server — the security module pages are only the UI layer.</div>
+          <div style="line-height:2;">
+            <span class="endpoint-pill ep-get">GET</span> <code>/api/security/stats</code> — Admin only: system KPIs<br>
+            <span class="endpoint-pill ep-get">GET</span> <code>/api/security/users</code> — Admin only: all user accounts<br>
+            <span class="endpoint-pill ep-patch">PATCH</span> <code>/api/security/users/:id/role</code> — Admin only: change user role (audit logged)<br>
+            <span class="endpoint-pill ep-patch">PATCH</span> <code>/api/security/users/:id/status</code> — Admin only: activate/suspend (audit logged)<br>
+            <span class="endpoint-pill ep-post">POST</span> <code>/api/security/users/:id/reset-password</code> — Admin only: password reset (audit logged)<br>
+            <span class="endpoint-pill ep-del">DELETE</span> <code>/api/security/users/:id</code> — Admin only: delete account (audit logged)<br>
+            <span class="endpoint-pill ep-get">GET</span> <code>/api/security/audit-logs</code> — Admin only: full tamper-evident audit trail<br>
+            <span class="endpoint-pill ep-get">GET</span> <code>/api/security/farms</code> — Admin only: all registered farms &amp; herds
+          </div>
+        </div>
+
+        <div style="padding:12px 14px;background:rgba(245,158,11,.06);border-radius:8px;border:1px solid rgba(245,158,11,.2);font-size:12.5px;color:var(--text-secondary);">
+          <strong>🚀 To run on a truly separate origin during demonstration:</strong><br>
+          <code>cd nkeane/security-module &amp;&amp; npx serve . -l 8081</code><br>
+          Then open <code>http://localhost:8081/security.html</code> — a completely different HTTP origin from <code>http://localhost:4001</code>. The Express server's <code>cors({ origin: true })</code> config accepts both origins.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 4: GDPR ═══ -->
+    <div id="tab-gdpr" class="tab-panel">
+      <div class="card mb-4">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+          <div class="card-title section-heading" style="margin-bottom:0;"><span>🔒</span> GDPR Compliance Levels</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="exportGDPRReportCSV()">📥 Export GDPR Report (CSV)</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportGDPRReportJSON()">📋 Export (JSON)</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px;">
+          <div class="kpi-card" style="--accent:var(--green-400)"><div style="font-size:22px">✅</div><div class="kpi-label">Fully Compliant</div><div class="kpi-value" style="color:#059669;">5</div></div>
+          <div class="kpi-card" style="--accent:var(--amber-400)"><div style="font-size:22px">⚠️</div><div class="kpi-label">Partial</div><div class="kpi-value" style="color:#d97706;">5</div></div>
+          <div class="kpi-card" style="--accent:var(--red-400)"><div style="font-size:22px">⛔</div><div class="kpi-label">Not Yet</div><div class="kpi-value" style="color:#dc2626;">2</div></div>
+          <div class="kpi-card" style="--accent:var(--purple-400)"><div style="font-size:22px">📊</div><div class="kpi-label">Compliance Score</div><div class="kpi-value" style="font-size:24px;color:var(--text-accent);">62.5%</div></div>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Self-assessment (Compliant=1pt, Partial=0.5pt, Not yet=0pt). Reference: GDPR (EU) 2016/679 &amp; Lesotho Data Protection Act, 2011.</p>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-part">!</div>
+          <div><div class="gdpr-article">Art. 5 — Data Processing Principles (Minimisation, Purpose Limitation)</div><div class="gdpr-title">Partial ⚠️</div><div class="gdpr-desc">Data minimisation is applied — only essential fields collected at registration and listing. Personal data (name, email) is kept strictly off the blockchain (only SHA-256 hashes on-chain). <em>Gap: No formal data retention schedule or automatic expiry policy is defined.</em></div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-ok">✔</div>
+          <div><div class="gdpr-article">Art. 6–7 — Lawful Basis &amp; Consent</div><div class="gdpr-title">Compliant ✅</div><div class="gdpr-desc">Explicit, unticked consent checkbox is mandatory to complete registration (contractual necessity + legitimate interest). Consent timestamp is stored on the user profile in Firestore.</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-part">!</div>
+          <div><div class="gdpr-article">Art. 12–14 — Transparency &amp; Privacy Notice</div><div class="gdpr-title">Partial ⚠️</div><div class="gdpr-desc">A plain-language privacy summary is shown on the registration page. This Security Config Module serves as a technical privacy reference. <em>Gap: A formal Privacy Policy document has not been separately published.</em></div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-ok">✔</div>
+          <div><div class="gdpr-article">Art. 15 — Right of Access</div><div class="gdpr-title">Compliant ✅</div><div class="gdpr-desc">The "📥 Export My Data" button calls <code>GET /api/farm/export</code> which returns the full account, farm profile, herd records, and blockchain ledger as a downloadable JSON file within seconds.</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-part">!</div>
+          <div><div class="gdpr-article">Art. 16 — Right to Rectification</div><div class="gdpr-title">Partial ⚠️</div><div class="gdpr-desc">Herd records (animals, health, breeding, feed, sales) can be corrected via the Farmer Dashboard. <em>Gap: Farm profile name and owner name cannot currently be edited after initial registration — a planned profile-edit form would fully satisfy this article.</em></div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-ok">✔</div>
+          <div><div class="gdpr-article">Art. 17 — Right to Erasure ("Right to be Forgotten")</div><div class="gdpr-title">Compliant ✅</div><div class="gdpr-desc">The "🗑️ Delete Account" button calls <code>DELETE /api/farm/account</code> which permanently removes the user document, farm profile, and farm records from Firestore. The blockchain design ensures no PII is ever written to the ledger — only cryptographic hashes remain which cannot be reverse-engineered.</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-ok">✔</div>
+          <div><div class="gdpr-article">Art. 20 — Right to Data Portability</div><div class="gdpr-title">Compliant ✅</div><div class="gdpr-desc">Machine-readable JSON export is available via the Export button. The AI dataset can also be downloaded as CSV from the AI Dashboard. Data is provided in a commonly used, structured, machine-readable format per Art. 20(1).</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-part">!</div>
+          <div><div class="gdpr-article">Art. 25 — Data Protection by Design &amp; by Default</div><div class="gdpr-title">Partial ⚠️</div><div class="gdpr-desc">Applied: data minimisation at input, hashes-only on-chain, imported prediction rows stored in Firestore, XSS escaping via <code>AG.esc()</code>, role-based page guards, JWT with 8-hour expiry, bcrypt-12 password hashing, session cleared on logout, Helmet.js HTTP security headers, rate limiting. The browser keeps only the language preference and active login session.</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-part">!</div>
+          <div><div class="gdpr-article">Art. 30 — Records of Processing Activities (RoPA)</div><div class="gdpr-title">Partial ⚠️</div><div class="gdpr-desc">Every animal, health, breeding, sale, and feed event is sealed with a blockchain anchor creating a de-facto event log. The admin audit trail records every LOGIN, ROLE_CHANGE, ACCOUNT_SUSPENDED, and PASSWORD_RESET with actor, IP, and timestamp. <em>Gap: A formal RoPA document (data controller, purpose, retention periods) has not been produced.</em></div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-ok">✔</div>
+          <div><div class="gdpr-article">Art. 32 — Security of Processing</div><div class="gdpr-title">Compliant ✅</div><div class="gdpr-desc">bcrypt (12 rounds) password hashing, JWT HMAC-SHA256 session tokens (8h expiry), Helmet.js HTTP security headers, rate limiting on auth endpoints (30 req/15 min), CORS configuration, tamper-evident blockchain ledger with Proof-of-Work mining. All sensitive keys stored server-side in <code>.env</code>.</div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-no">✗</div>
+          <div><div class="gdpr-article">Art. 33–34 — Personal Data Breach Notification</div><div class="gdpr-title">Not Yet ⛔</div><div class="gdpr-desc">Blockchain tamper verification can detect data integrity failures. <em>Gap: No automated breach detection pipeline or 72-hour supervisory authority notification mechanism is currently implemented.</em></div></div>
+        </div>
+
+        <div class="gdpr-card">
+          <div class="gdpr-status gdpr-no">✗</div>
+          <div><div class="gdpr-article">Art. 35 — Data Protection Impact Assessment (DPIA)</div><div class="gdpr-title">Not Yet ⛔</div><div class="gdpr-desc"><em>Gap: A formal DPIA has not been conducted. Recommended before production deployment given the AI health-risk scoring feature (automated profiling of livestock conditions) and permanent blockchain event logging.</em></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 5: LIVE AUDIT TRAIL ═══ -->
+    <div id="tab-audit" class="tab-panel">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+          <div class="card-title section-heading" style="margin-bottom:0;"><span>📜</span> Live System Security Audit Trail</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="exportAuditTrailCSV()">📥 Export Audit Logs (CSV)</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportAuditTrailJSON()">📋 Export (JSON)</button>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:var(--text-secondary);margin-bottom:14px;">
+          Every login, role change, account suspension, and password reset is recorded server-side in Firestore <code>auditLogs</code> with the actor's name, email, role, IP address, and user-agent. Accessible to Security Admins only.
+        </p>
+        <div class="table-wrap">
+          <table id="table-audit-trail">
+            <thead>
+              <tr><th>Timestamp</th><th>Action</th><th>Actor Name</th><th>Actor Email</th><th>Role</th><th>Target</th><th>IP Address</th></tr>
+            </thead>
+            <tbody id="audit-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted);">Loading audit logs…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  'use strict';
+  const API = window.AGRI_CONFIG?.API_URL || 'http://localhost:4001/api';
+
+  const u = AG.currentUser();
+  if (u) {
+    document.getElementById('user-name').textContent = u.name;
+    const roleLabels = { farmer:'Farmer', veterinary_officer:'Veterinary Officer', buyer:'Buyer', security_admin:'Security Admin', admin:'Admin' };
+    document.getElementById('user-role').textContent = roleLabels[u.role] || u.role;
+  } else {
+    document.getElementById('user-name').textContent = 'Public Viewer';
+    document.getElementById('user-role').textContent = 'Anonymous';
+  }
+
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+    if (panelId === 'tab-audit') loadAuditLogs();
+  }
+
+  function showToast(msg, type) {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = 'toast ' + (type || 'success');
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+
+  let _loadedAuditLogs = [];
+
+  function cleanCellText(cell) {
+    if (!cell) return '';
+    let text = cell.innerText || cell.textContent || '';
+    return text.replace(/\r?\n|\r/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function downloadFile(content, filename, mimeType) {
+    const blob = new Blob([content], { type: mimeType });
+    const a = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Exported: ' + filename, 'success');
+  }
+
+  function extractTableLines(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) return [];
+    return Array.from(table.querySelectorAll('tr')).map(row => {
+      const cells = Array.from(row.querySelectorAll('th, td'));
+      if (cells.length === 1 && cells[0].hasAttribute('colspan')) {
+        const text = cleanCellText(cells[0]).replace(/"/g, '""');
+        const span = parseInt(cells[0].getAttribute('colspan') || '6', 10);
+        const empties = Array(Math.max(0, span - 1)).fill('""').join(',');
+        return `"${text}"${empties ? ',' + empties : ''}`;
+      }
+      return cells.map(cell => {
+        const text = cleanCellText(cell).replace(/"/g, '""');
+        return `"${text}"`;
+      }).join(',');
+    });
+  }
+
+  // ── 1. Data Classification Export ──
+  function exportClassificationCSV() {
+    const lines = extractTableLines('table-data-classification');
+    const csv = '\uFEFF' + lines.join('\r\n');
+    downloadFile(csv, `AgriChain_Data_Classification_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  function getClassificationData() {
+    const rows = Array.from(document.querySelectorAll('#table-data-classification tbody tr'));
+    return rows.map(r => {
+      const td = r.querySelectorAll('td');
+      return {
+        module: cleanCellText(td[0]),
+        dataAsset: cleanCellText(td[1]),
+        classification: cleanCellText(td[2]),
+        whoAccesses: cleanCellText(td[3]),
+        storageLocation: cleanCellText(td[4]),
+        protectionMechanism: cleanCellText(td[5])
+      };
+    });
+  }
+
+  function exportClassificationJSON() {
+    const data = getClassificationData();
+    downloadFile(JSON.stringify(data, null, 2), `AgriChain_Data_Classification_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  // ── 2. RBAC Matrix Export ──
+  function exportRBACMatrixCSV() {
+    const lines = extractTableLines('table-rbac-matrix');
+    const csv = '\uFEFF' + lines.join('\r\n');
+    downloadFile(csv, `AgriChain_RBAC_Permissions_Matrix_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  function getRBACData() {
+    const rows = Array.from(document.querySelectorAll('#table-rbac-matrix tbody tr'));
+    let currentCategory = 'General';
+    const matrix = [];
+    rows.forEach(r => {
+      const hdr = r.querySelector('td[colspan]');
+      if (hdr) {
+        currentCategory = cleanCellText(hdr);
+        return;
+      }
+      const td = r.querySelectorAll('td');
+      if (td.length >= 6) {
+        matrix.push({
+          category: currentCategory,
+          moduleAction: cleanCellText(td[0]),
+          anonymous: cleanCellText(td[1]),
+          farmer: cleanCellText(td[2]),
+          veterinaryOfficer: cleanCellText(td[3]),
+          buyer: cleanCellText(td[4]),
+          securityAdmin: cleanCellText(td[5])
+        });
+      }
+    });
+    return matrix;
+  }
+
+  function exportRBACMatrixJSON() {
+    const data = getRBACData();
+    downloadFile(JSON.stringify(data, null, 2), `AgriChain_RBAC_Permissions_Matrix_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  // ── 3. Security Domain Export ──
+  function exportSecurityDomainCSV() {
+    const tableLines = extractTableLines('table-domain-spec');
+    const endpointLines = [
+      '""',
+      '"=== PROTECTED REST API ENDPOINTS (SERVER-SIDE ENFORCEMENT) ==="',
+      '"Method","Endpoint","Policy / Description"',
+      '"GET","/api/security/stats","Admin only: system KPIs"',
+      '"GET","/api/security/users","Admin only: all user accounts"',
+      '"PATCH","/api/security/users/:id/role","Admin only: change user role (audit logged)"',
+      '"PATCH","/api/security/users/:id/status","Admin only: activate/suspend (audit logged)"',
+      '"POST","/api/security/users/:id/reset-password","Admin only: password reset (audit logged)"',
+      '"DELETE","/api/security/users/:id","Admin only: delete account (audit logged)"',
+      '"GET","/api/security/audit-logs","Admin only: full tamper-evident audit trail"',
+      '"GET","/api/security/farms","Admin only: all registered farms & herds"'
+    ];
+    const csv = '\uFEFF' + ['"=== AGRI-CHAIN: DEDICATED SECURITY DOMAIN ARCHITECTURE ==="', ...tableLines, ...endpointLines].join('\r\n');
+    downloadFile(csv, `AgriChain_Security_Domain_Architecture_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  function getSecurityDomainData() {
+    const rows = Array.from(document.querySelectorAll('#table-domain-spec tbody tr'));
+    const files = rows.map(r => {
+      const td = r.querySelectorAll('td');
+      return {
+        file: cleanCellText(td[0]),
+        location: cleanCellText(td[1]),
+        purpose: cleanCellText(td[2]),
+        standalone: cleanCellText(td[3])
+      };
+    });
+    const endpoints = [
+      { method: 'GET', endpoint: '/api/security/stats', access: 'Admin only', purpose: 'System KPIs' },
+      { method: 'GET', endpoint: '/api/security/users', access: 'Admin only', purpose: 'All user accounts' },
+      { method: 'PATCH', endpoint: '/api/security/users/:id/role', access: 'Admin only', purpose: 'Change user role (audit logged)' },
+      { method: 'PATCH', endpoint: '/api/security/users/:id/status', access: 'Admin only', purpose: 'Activate/suspend (audit logged)' },
+      { method: 'POST', endpoint: '/api/security/users/:id/reset-password', access: 'Admin only', purpose: 'Password reset (audit logged)' },
+      { method: 'DELETE', endpoint: '/api/security/users/:id', access: 'Admin only', purpose: 'Delete account (audit logged)' },
+      { method: 'GET', endpoint: '/api/security/audit-logs', access: 'Admin only', purpose: 'Full tamper-evident audit trail' },
+      { method: 'GET', endpoint: '/api/security/farms', access: 'Admin only', purpose: 'All registered farms & herds' }
+    ];
+    return { files, endpoints };
+  }
+
+  function exportSecurityDomainJSON() {
+    const data = getSecurityDomainData();
+    downloadFile(JSON.stringify(data, null, 2), `AgriChain_Security_Domain_Architecture_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  // ── 4. GDPR Compliance Export ──
+  function getGDPRData() {
+    const cards = Array.from(document.querySelectorAll('#tab-gdpr .gdpr-card'));
+    const articles = cards.map(c => {
+      const article = cleanCellText(c.querySelector('.gdpr-article'));
+      const statusTitle = cleanCellText(c.querySelector('.gdpr-title'));
+      const descEl = c.querySelector('.gdpr-desc');
+      const fullDesc = cleanCellText(descEl);
+      const gapEl = descEl ? descEl.querySelector('em') : null;
+      const gap = gapEl ? cleanCellText(gapEl) : '';
+      return { article, status: statusTitle, description: fullDesc, gap };
+    });
+    return {
+      summary: {
+        fullyCompliant: 5,
+        partial: 5,
+        notYet: 2,
+        complianceScore: '62.5%',
+        standards: ['GDPR (EU) 2016/679', 'Lesotho Data Protection Act, 2011']
+      },
+      articles
+    };
+  }
+
+  function exportGDPRReportCSV() {
+    const gdpr = getGDPRData();
+    const rows = [
+      '"Article / Requirement","Compliance Status","Description & Implementation Details","Identified Gap / Roadmap"'
+    ];
+    gdpr.articles.forEach(a => {
+      const art = a.article.replace(/"/g, '""');
+      const st = a.status.replace(/"/g, '""');
+      const desc = a.description.replace(/"/g, '""');
+      const gap = (a.gap || '').replace(/"/g, '""');
+      rows.push(`"${art}","${st}","${desc}","${gap}"`);
+    });
+    const header = [
+      '"=== AGRI-CHAIN: GDPR & LESOTHO DPA COMPLIANCE ASSESSMENT REPORT ==="',
+      `"Compliance Score: ${gdpr.summary.complianceScore} (${gdpr.summary.fullyCompliant} Fully Compliant, ${gdpr.summary.partial} Partial, ${gdpr.summary.notYet} Not Yet)"`,
+      '""'
+    ];
+    const csv = '\uFEFF' + [...header, ...rows].join('\r\n');
+    downloadFile(csv, `AgriChain_GDPR_Compliance_Report_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  function exportGDPRReportJSON() {
+    const data = getGDPRData();
+    downloadFile(JSON.stringify(data, null, 2), `AgriChain_GDPR_Compliance_Report_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  // ── 5. Live Audit Trail Export ──
+  async function ensureAuditLogsLoaded() {
+    if (_loadedAuditLogs && _loadedAuditLogs.length > 0) return _loadedAuditLogs;
+    const sess = JSON.parse(sessionStorage.getItem('livestock_session_v1') || 'null');
+    if (sess && sess.token) {
+      try {
+        const res = await fetch(API + '/security/audit-logs', { headers: { Authorization: 'Bearer ' + sess.token } });
+        if (res.ok) {
+          const out = await res.json();
+          _loadedAuditLogs = out.logs || [];
+          return _loadedAuditLogs;
+        }
+      } catch (e) {}
+    }
+    return [];
+  }
+
+  async function exportAuditTrailCSV() {
+    const logs = await ensureAuditLogsLoaded();
+    if (!logs.length) {
+      const lines = extractTableLines('table-audit-trail');
+      if (lines.length > 1) {
+        const csv = '\uFEFF' + lines.join('\r\n');
+        downloadFile(csv, `AgriChain_Audit_Trail_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+        return;
+      }
+      showToast('No audit logs loaded. Please log in as an administrator to export live audit trail.', 'error');
+      return;
+    }
+    const header = '"Timestamp","Action","Actor Name","Actor Email","Role","Target / Entity","IP Address"';
+    const rows = logs.map(l => {
+      const ts = l.createdAt
+        ? (l.createdAt._seconds ? new Date(l.createdAt._seconds * 1000) : new Date(l.createdAt)).toISOString()
+        : '';
+      const action = (l.action || '').replace(/"/g, '""');
+      const name = (l.userName || l.userId || 'system').replace(/"/g, '""');
+      const email = (l.userEmail || '').replace(/"/g, '""');
+      const role = (l.role || '').replace(/"/g, '""');
+      const target = (l.targetUserEmail || l.entityType || '').replace(/"/g, '""');
+      const ip = (l.ipAddress || '127.0.0.1').replace(/"/g, '""');
+      return `"${ts}","${action}","${name}","${email}","${role}","${target}","${ip}"`;
+    });
+    const csv = '\uFEFF' + ['"=== AGRI-CHAIN: CYBERSECURITY AUDIT TRAIL LOGS ==="', header, ...rows].join('\r\n');
+    downloadFile(csv, `AgriChain_Audit_Trail_${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  async function exportAuditTrailJSON() {
+    const logs = await ensureAuditLogsLoaded();
+    if (!logs.length) {
+      showToast('No audit logs loaded. Please log in as an administrator to export live audit trail.', 'error');
+      return;
+    }
+    downloadFile(JSON.stringify({ auditLogs: logs, exportedAt: new Date().toISOString() }, null, 2), `AgriChain_Audit_Trail_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  // ── 6. Master Export: All Security & RBAC Data ──
+  async function exportAllSecurityCSV() {
+    await ensureAuditLogsLoaded();
+    const dateStr = new Date().toISOString().slice(0, 10);
+    const clsLines = extractTableLines('table-data-classification');
+    const rbacLines = extractTableLines('table-rbac-matrix');
+    const domainLines = extractTableLines('table-domain-spec');
+    const gdpr = getGDPRData();
+
+    const gdprLines = [
+      '"Article / Requirement","Status","Description","Gap"',
+      ...gdpr.articles.map(a => `"${a.article.replace(/"/g, '""')}","${a.status.replace(/"/g, '""')}","${a.description.replace(/"/g, '""')}","${(a.gap||'').replace(/"/g, '""')}"`)
+    ];
+
+    const auditLines = _loadedAuditLogs.length ? [
+      '""',
+      '"=== PART 5: SYSTEM SECURITY AUDIT TRAIL LOGS ==="',
+      '"Timestamp","Action","Actor Name","Actor Email","Role","Target / Entity","IP Address"',
+      ..._loadedAuditLogs.map(l => {
+        const ts = l.createdAt ? (l.createdAt._seconds ? new Date(l.createdAt._seconds * 1000) : new Date(l.createdAt)).toISOString() : '';
+        return `"${ts}","${(l.action||'').replace(/"/g, '""')}","${(l.userName||'').replace(/"/g, '""')}","${(l.userEmail||'').replace(/"/g, '""')}","${(l.role||'').replace(/"/g, '""')}","${(l.targetUserEmail||l.entityType||'').replace(/"/g, '""')}","${(l.ipAddress||'127.0.0.1').replace(/"/g, '""')}"`;
+      })
+    ] : [];
+
+    const masterCSV = [
+      '\uFEFF"=== AGRI-CHAIN: COMPREHENSIVE CYBERSECURITY, RBAC & GDPR DATA EXPORT ==="',
+      `"Exported Date: ${new Date().toISOString()}"`,
+      '"Applicable Regulations: GDPR (EU) 2016/679 & Lesotho Data Protection Act 2011"',
+      '""',
+      '"=== PART 1: COMPREHENSIVE DATA CLASSIFICATION TIERS ==="',
+      ...clsLines,
+      '""',
+      '"=== PART 2: ROLE-BASED ACCESS CONTROL (RBAC) PERMISSIONS MATRIX ==="',
+      ...rbacLines,
+      '""',
+      '"=== PART 3: DEDICATED SECURITY DOMAIN ARCHITECTURE ==="',
+      ...domainLines,
+      '""',
+      '"=== PART 4: GDPR COMPLIANCE STATUS & PRINCIPLES ASSESSMENT ==="',
+      ...gdprLines,
+      ...auditLines
+    ].join('\r\n');
+
+    downloadFile(masterCSV, `AgriChain_Master_Security_and_RBAC_${dateStr}.csv`, 'text/csv;charset=utf-8;');
+  }
+
+  async function exportAllSecurityExcel() {
+    await ensureAuditLogsLoaded();
+    const dateStr = new Date().toISOString().slice(0, 10);
+    const clsTable = document.getElementById('table-data-classification');
+    const rbacTable = document.getElementById('table-rbac-matrix');
+    const domainTable = document.getElementById('table-domain-spec');
+    const gdpr = getGDPRData();
+
+    let gdprHtmlRows = gdpr.articles.map(a => `
+      <tr>
+        <td><strong>${AG.esc(a.article)}</strong></td>
+        <td>${AG.esc(a.status)}</td>
+        <td>${AG.esc(a.description)}</td>
+        <td>${AG.esc(a.gap || '—')}</td>
+      </tr>
+    `).join('');
+
+    let auditHtmlRows = _loadedAuditLogs.map(l => {
+      const ts = l.createdAt ? (l.createdAt._seconds ? new Date(l.createdAt._seconds * 1000) : new Date(l.createdAt)).toISOString() : '';
+      return `
+        <tr>
+          <td><code>${AG.esc(ts)}</code></td>
+          <td>${AG.esc(l.action || 'EVENT')}</td>
+          <td>${AG.esc(l.userName || l.userId || 'system')}</td>
+          <td>${AG.esc(l.userEmail || '—')}</td>
+          <td>${AG.esc(l.role || '—')}</td>
+          <td>${AG.esc(l.targetUserEmail || l.entityType || '—')}</td>
+          <td>${AG.esc(l.ipAddress || '127.0.0.1')}</td>
+        </tr>
+      `;
+    }).join('');
+
+    const htmlContent = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Security &amp; RBAC</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->
+        <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"/>
+        <style>
+          body { font-family: Calibri, Arial, sans-serif; }
+          table { border-collapse: collapse; width: 100%; margin-bottom: 24px; font-size: 11pt; }
+          th { background: #1e3a5f; color: #ffffff; font-weight: bold; border: 1px solid #1e3a5f; padding: 8px 10px; text-align: left; }
+          td { border: 1px solid #d1d5db; padding: 6px 10px; vertical-align: top; }
+          .banner { font-size: 16pt; font-weight: bold; color: #1e3a5f; margin-bottom: 6px; }
+          .meta { font-size: 10pt; color: #6b7280; margin-bottom: 20px; }
+        </style>
+      </head>
+      <body>
+        <div class="banner">🛡️ AgriChain — Comprehensive Cybersecurity, RBAC &amp; GDPR Specification</div>
+        <div class="meta">Exported: ${new Date().toLocaleString()} | Standards: GDPR (EU) 2016/679, Lesotho Data Protection Act 2011</div>
+
+        <h2>1. Data Classification Tiers</h2>
+        ${clsTable ? clsTable.outerHTML : ''}
+
+        <h2>2. Role-Based Access Control (RBAC) Matrix</h2>
+        ${rbacTable ? rbacTable.outerHTML : ''}
+
+        <h2>3. Dedicated Security Domain Architecture</h2>
+        ${domainTable ? domainTable.outerHTML : ''}
+
+        <h2>4. GDPR Compliance Assessment Report</h2>
+        <table>
+          <thead>
+            <tr><th>Article / Requirement</th><th>Status</th><th>Description &amp; Implementation</th><th>Gap / Roadmap</th></tr>
+          </thead>
+          <tbody>
+            ${gdprHtmlRows}
+          </tbody>
+        </table>
+
+        ${_loadedAuditLogs.length ? `
+          <h2>5. Live System Security Audit Logs</h2>
+          <table>
+            <thead>
+              <tr><th>Timestamp</th><th>Action</th><th>Actor Name</th><th>Actor Email</th><th>Role</th><th>Target</th><th>IP Address</th></tr>
+            </thead>
+            <tbody>
+              ${auditHtmlRows}
+            </tbody>
+          </table>
+        ` : ''}
+      </body>
+      </html>
+    `;
+
+    downloadFile(htmlContent, `AgriChain_Master_Security_and_RBAC_${dateStr}.xls`, 'application/vnd.ms-excel;charset=utf-8;');
+  }
+
+  async function exportAllSecurityJSON() {
+    await ensureAuditLogsLoaded();
+    const payload = {
+      system: 'AgriChain Livestock Management & Cybersecurity Platform',
+      version: 'v3.0-enterprise',
+      exportedAt: new Date().toISOString(),
+      standards: ['GDPR (EU) 2016/679', 'Lesotho Data Protection Act 2011', 'ISO/IEC 27001 Data Minimization'],
+      dataClassification: getClassificationData(),
+      rbacMatrix: getRBACData(),
+      securityDomain: getSecurityDomainData(),
+      gdprCompliance: getGDPRData(),
+      auditLogs: _loadedAuditLogs
+    };
+    downloadFile(JSON.stringify(payload, null, 2), `AgriChain_Master_Security_and_RBAC_${new Date().toISOString().slice(0, 10)}.json`, 'application/json');
+  }
+
+  async function loadAuditLogs() {
+    const tbody = document.getElementById('audit-tbody');
+    try {
+      const sess = JSON.parse(sessionStorage.getItem('livestock_session_v1') || 'null');
+      if (!sess || !sess.token) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted);">Please log in as an admin to view audit logs.</td></tr>';
+        return;
+      }
+      const res = await fetch(API + '/security/audit-logs', {
+        headers: { Authorization: 'Bearer ' + sess.token }
+      });
+      if (res.status === 403) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--red-400);">🔒 Access restricted — Security Admin role required.</td></tr>';
+        return;
+      }
+      const out = await res.json();
+      const logs = out.logs || [];
+      _loadedAuditLogs = logs;
+      if (!logs.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted);">No security events logged yet.</td></tr>';
+        return;
+      }
+      function badgeClass(action) {
+        action = action || '';
+        if (action.includes('LOGIN')) return 'badge-blue';
+        if (action.includes('ROLE') || action.includes('SUSPEND') || action.includes('RESET')) return 'badge-red';
+        if (action.includes('ACTIV') || action.includes('DELET')) return 'badge-amber';
+        return 'badge-green';
+      }
+      tbody.innerHTML = logs.map(function(l) {
+        var ts = l.createdAt
+          ? (l.createdAt._seconds
+              ? new Date(l.createdAt._seconds * 1000)
+              : new Date(l.createdAt)
+            ).toLocaleString()
+          : 'Just now';
+        var target = l.targetUserEmail ? AG.esc(l.targetUserEmail) : (l.entityType ? AG.esc(l.entityType) : '—');
+        return '<tr>'
+          + '<td><code style="font-size:11.5px;">' + ts + '</code></td>'
+          + '<td><span class="badge ' + badgeClass(l.action) + '">' + AG.esc(l.action || 'EVENT') + '</span></td>'
+          + '<td>' + AG.esc(l.userName || l.userId || 'system') + '</td>'
+          + '<td><code style="font-size:11px;">' + AG.esc(l.userEmail || '—') + '</code></td>'
+          + '<td><span class="badge badge-muted" style="font-size:10.5px;">' + AG.esc(l.role || '—') + '</span></td>'
+          + '<td style="font-size:12px;">' + target + '</td>'
+          + '<td><code style="font-size:11px;">' + AG.esc(l.ipAddress || '127.0.0.1') + '</code></td>'
+          + '</tr>';
+      }).join('');
+    } catch (e) {
+      tbody.innerHTML = '<tr><td colspan="7" style="padding:16px;text-align:center;color:var(--text-muted);">Could not load audit logs: ' + e.message + '</td></tr>';
+    }
+  }
+</script>
+</body>
+</html>

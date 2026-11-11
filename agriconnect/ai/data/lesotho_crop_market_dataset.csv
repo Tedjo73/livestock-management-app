@@ -1,0 +1,1201 @@
+record_id,date,month,season,district,crop_name,category,farm_size_ha,rainfall_mm,temperature_c,soil_ph,fertilizer_kg_per_ha,historical_avg_price_lsl,competitor_supply_tons,market_demand_index,transport_cost_lsl,yield_tons,actual_price_per_kg_lsl,sales_volume_kg,revenue_lsl,days_to_sell,demand_tier
+AGC-00001,2023-05-21,May,Autumn,Butha-Buthe,Beans (Dry),legumes,6.83,62.6,9.8,6.18,104,22.5,175,72,181,6.35,21.86,5880,127473,13,High
+AGC-00002,2024-05-27,May,Autumn,Leribe,Wheat,grains,3.95,40.5,16.7,6.83,54,9.8,106,76,125,4.27,12.97,4091,52549,17,High
+AGC-00003,2026-01-12,Jan,Summer,Butha-Buthe,Potatoes,vegetables,0.91,163.6,21.8,6.04,225,8.8,167,66,204,21.81,9.02,19149,168818,17,High
+AGC-00004,2025-09-25,Sep,Spring,Leribe,Peaches,fruits,9.09,90.6,19.8,6.88,203,19,111,59,132,82.9,24.14,68144,1636001,19,Medium
+AGC-00005,2024-07-18,Jul,Winter,Qacha's Nek,Tomatoes,vegetables,9.17,5,4.7,7.19,115,12.5,90,35,331,6.51,16.65,4101,66924,28,Low
+AGC-00006,2025-05-17,May,Autumn,Qacha's Nek,Peaches,fruits,7.92,80.4,19.1,7.4,118,19,94,28,372,44.43,23.87,25503,599269,27,Low
+AGC-00007,2025-04-18,Apr,Autumn,Quthing,Sorghum,grains,9.42,35.7,11.6,7.06,167,7.2,180,43,266,10.55,7.88,7322,55750,23,Medium
+AGC-00008,2024-07-30,Jul,Winter,Qacha's Nek,Sorghum,grains,11.1,45.1,9.2,6.87,134,7.2,85,31,342,19.2,10.1,11482,112041,26,Low
+AGC-00009,2023-02-01,Feb,Summer,Mafeteng,Sorghum,grains,1.37,99,22.5,6.87,203,7.2,84,66,113,4.04,9.17,3547,32125,16,High
+AGC-00010,2025-02-08,Feb,Summer,Mohale's Hoek,Potatoes,vegetables,5.87,99.9,24.2,5.98,139,8.8,144,49,194,65.69,9.23,48742,440433,24,Medium
+AGC-00011,2023-09-20,Sep,Spring,Thaba-Tseka,Cabbage,vegetables,12.36,60.1,17.4,7.07,173,7,100,41,299,140.66,9.95,95367,920387,24,Medium
+AGC-00012,2023-02-04,Feb,Summer,Maseru,Peaches,fruits,4.49,99.2,27.4,7.48,148,19,194,98,66,29.68,19.58,29680,579176,12,High
+AGC-00013,2023-10-05,Oct,Spring,Quthing,Beans (Dry),legumes,12.12,61,15.1,5.43,110,22.5,83,52,221,8.73,28.99,6687,192378,22,Medium
+AGC-00014,2025-11-18,Nov,Spring,Thaba-Tseka,Wheat,grains,2.76,67,21.3,7.03,113,9.8,164,25,316,5.22,10.21,2871,28406,28,Low
+AGC-00015,2024-07-27,Jul,Winter,Leribe,Potatoes,vegetables,7.1,36.2,11.5,6.68,137,8.8,76,43,130,49.13,11.39,34096,383921,26,Medium
+AGC-00016,2023-12-27,Dec,Summer,Leribe,Peaches,fruits,1.06,108.7,23,6.58,177,19,156,71,141,9.04,19.16,8299,157839,18,High
+AGC-00017,2024-10-24,Oct,Spring,Berea,Beans (Dry),legumes,5.68,66.9,19.5,5.94,57,22.5,86,65,110,4.2,28.84,3654,104979,20,High
+AGC-00018,2023-03-31,Mar,Autumn,Qacha's Nek,Tomatoes,vegetables,9.27,51.9,19.3,5.78,134,12.5,52,43,333,69.99,17.73,48573,845024,25,Medium
+AGC-00019,2024-08-25,Aug,Winter,Mohale's Hoek,Wheat,grains,11.55,28.8,7.3,6.43,132,9.8,75,49,161,10.74,13.88,7969,109327,23,Medium
+AGC-00020,2024-12-15,Dec,Summer,Mohale's Hoek,Cabbage,vegetables,7.96,121.5,29.7,7.38,107,7,69,46,182,136.12,10.11,97734,970303,26,Medium
+AGC-00021,2024-03-04,Mar,Autumn,Thaba-Tseka,Potatoes,vegetables,9.12,23.5,20.3,7.46,121,8.8,81,42,337,28.91,12.61,19832,243398,25,Medium
+AGC-00022,2024-11-15,Nov,Spring,Berea,Beans (Dry),legumes,3.39,57.5,19.3,5.75,77,22.5,75,64,104,2.58,29.46,2224,65288,19,Medium
+AGC-00023,2025-09-04,Sep,Spring,Maseru,Peaches,fruits,1.22,70.6,23.5,6.63,94,19,64,79,69,6.75,25.96,6629,171631,13,High
+AGC-00024,2024-01-20,Jan,Summer,Butha-Buthe,Peaches,fruits,8.32,110.8,20,6.89,170,19,179,68,204,72.8,18.88,65083,1215490,16,High
+AGC-00025,2024-09-02,Sep,Spring,Mohale's Hoek,Tomatoes,vegetables,4.78,62.1,17.1,6.11,106,12.5,72,52,189,49.47,17.07,37894,639689,21,Medium
+AGC-00026,2024-05-06,May,Autumn,Thaba-Tseka,Peaches,fruits,6,43.7,19.1,6.06,123,19,112,31,324,19.74,22.99,11805,267572,25,Low
+AGC-00027,2023-12-04,Dec,Summer,Qacha's Nek,Maize,grains,2.16,124.6,21.4,5.54,239,6.5,104,43,350,6.67,9.82,4629,43837,25,Medium
+AGC-00028,2023-03-20,Mar,Autumn,Qacha's Nek,Tomatoes,vegetables,3.91,54.1,15.7,5.45,140,12.5,105,22,359,31.75,15.92,16701,259884,28,Low
+AGC-00029,2023-11-11,Nov,Spring,Qacha's Nek,Sorghum,grains,11.89,73.3,18.8,6.6,121,7.2,71,38,393,27.94,10.55,18273,185599,24,Low
+AGC-00030,2025-05-06,May,Autumn,Mafeteng,Wheat,grains,10.03,28.7,16.2,6.77,160,9.8,38,33,129,9.83,13.45,6036,80406,28,Low
+AGC-00031,2023-08-31,Aug,Winter,Qacha's Nek,Maize,grains,5.3,31.7,7.9,7.34,108,6.5,104,33,326,4.13,8.76,2536,21389,25,Low
+AGC-00032,2025-06-09,Jun,Winter,Berea,Beans (Dry),legumes,2.42,18.5,2.5,5.6,202,22.5,78,54,111,0.73,29.49,571,16775,22,Medium
+AGC-00033,2025-07-10,Jul,Winter,Quthing,Sorghum,grains,10.67,7.9,10.9,7.34,165,7.2,39,46,226,2.67,10.29,1917,19293,24,Medium
+AGC-00034,2025-09-02,Sep,Spring,Mokhotlong,Wheat,grains,7.65,80.4,16.2,5.67,192,9.8,176,45,417,20.2,10.9,14342,150347,21,Medium
+AGC-00035,2023-04-06,Apr,Autumn,Mafeteng,Sorghum,grains,8.17,67,16.3,7.46,165,7.2,145,85,132,16.67,7.98,16670,130826,10,High
+AGC-00036,2025-01-19,Jan,Summer,Quthing,Sorghum,grains,10.43,106.8,26,6.25,102,7.2,69,20,258,23.99,9.68,12235,115278,28,Low
+AGC-00037,2023-10-30,Oct,Spring,Mokhotlong,Sorghum,grains,0.99,108.7,21.4,7.02,72,7.2,52,37,425,1.2,11.3,775,8428,29,Low
+AGC-00038,2023-08-18,Aug,Winter,Qacha's Nek,Wheat,grains,7.29,22.5,7.3,7.39,202,9.8,47,55,371,4.81,15.46,3800,57338,25,Medium
+AGC-00039,2025-01-31,Jan,Summer,Butha-Buthe,Sorghum,grains,4.9,153.2,25.5,5.97,176,7.2,28,59,190,11.42,11.08,9387,102224,20,Medium
+AGC-00040,2023-07-23,Jul,Winter,Berea,Maize,grains,2.37,15.9,6,7.05,101,6.5,50,51,104,0.85,8.89,644,5658,21,Medium
+AGC-00041,2025-09-03,Sep,Spring,Berea,Beans (Dry),legumes,8.84,77.1,21.4,6.3,175,22.5,59,72,109,11.23,30.76,10399,318740,19,High
+AGC-00042,2025-05-26,May,Autumn,Butha-Buthe,Sorghum,grains,5.99,53.2,18.4,6.82,107,7.2,220,66,183,11.2,7.01,9834,67137,15,High
+AGC-00043,2025-09-23,Sep,Spring,Quthing,Wheat,grains,11.91,70.2,21.9,6.1,105,9.8,134,51,265,33.35,10.33,25279,254433,18,Medium
+AGC-00044,2024-02-04,Feb,Summer,Leribe,Tomatoes,vegetables,11.51,142.6,24.5,7.07,100,12.5,154,89,122,210.52,14.02,210520,2925807,11,High
+AGC-00045,2023-06-06,Jun,Winter,Thaba-Tseka,Cabbage,vegetables,2.1,5,2.1,5.86,60,7,160,47,344,1.58,8.05,1147,8839,21,Medium
+AGC-00046,2023-09-30,Sep,Spring,Butha-Buthe,Potatoes,vegetables,9.98,83.8,18.1,5.53,230,8.8,80,60,176,151,11.91,125330,1470622,19,Medium
+AGC-00047,2025-08-08,Aug,Winter,Mokhotlong,Peaches,fruits,8.74,12.9,7,6.01,138,19,79,29,357,8.65,24.07,5034,119371,29,Low
+AGC-00048,2023-12-05,Dec,Summer,Thaba-Tseka,Wheat,grains,5.97,135.9,24.9,6.39,147,9.8,89,15,301,19.28,12.43,9062,109913,26,Low
+AGC-00049,2024-11-09,Nov,Spring,Maseru,Wheat,grains,7.17,38.3,19.4,7.3,120,9.8,239,98,60,8.32,9.63,8320,79622,12,High
+AGC-00050,2024-04-22,Apr,Autumn,Mokhotlong,Sorghum,grains,9.41,55.4,13.6,5.46,153,7.2,131,36,376,14.02,8.53,8945,72938,27,Low
+AGC-00051,2025-05-19,May,Autumn,Thaba-Tseka,Cabbage,vegetables,10.16,51.7,14.6,5.69,69,7,24,41,324,74.07,11.07,50219,539653,28,Medium
+AGC-00052,2023-08-02,Aug,Winter,Berea,Wheat,grains,8.06,12.3,11.8,7.34,126,9.8,126,39,96,3.06,11.66,2026,23429,21,Low
+AGC-00053,2023-07-17,Jul,Winter,Thaba-Tseka,Peaches,fruits,6.6,34.3,8.9,7.34,159,19,94,16,305,17.36,22.73,8298,186083,30,Low
+AGC-00054,2023-06-13,Jun,Winter,Quthing,Cabbage,vegetables,2.18,5,8.5,5.48,101,7,185,46,251,1.83,6.98,1314,8842,23,Medium
+AGC-00055,2023-04-03,Apr,Autumn,Maseru,Peaches,fruits,7.33,40.4,14.8,6.17,183,19,77,66,61,28.88,25.53,25357,645817,16,High
+AGC-00056,2024-12-04,Dec,Summer,Quthing,Maize,grains,5.42,96,20.4,6.75,139,6.5,109,38,268,13.71,9.1,8966,79188,25,Low
+AGC-00057,2025-12-12,Dec,Summer,Mohale's Hoek,Cabbage,vegetables,7.85,101.6,26.5,5.79,109,7,58,51,198,153.62,10.17,116444,1161180,23,Medium
+AGC-00058,2025-10-23,Oct,Spring,Butha-Buthe,Potatoes,vegetables,2.58,81.1,17.3,7.15,212,8.8,113,49,183,29.93,11,22208,240224,22,Medium
+AGC-00059,2023-09-20,Sep,Spring,Mokhotlong,Sorghum,grains,8.6,78.2,22.9,5.93,148,7.2,99,23,416,18.66,9.87,9964,94200,29,Low
+AGC-00060,2023-02-03,Feb,Summer,Butha-Buthe,Wheat,grains,10.65,152.1,22.1,5.86,136,9.8,90,48,212,23.11,12.6,16963,210138,26,Medium
+AGC-00061,2023-06-10,Jun,Winter,Mohale's Hoek,Wheat,grains,7.31,5,12.3,7.22,126,9.8,123,45,176,1.17,11.55,831,9452,27,Medium
+AGC-00062,2024-05-30,May,Autumn,Butha-Buthe,Potatoes,vegetables,3.08,55.1,17.6,7.13,123,8.8,100,53,186,25.32,10.73,19598,206641,18,Medium
+AGC-00063,2024-10-31,Oct,Spring,Mafeteng,Cabbage,vegetables,8.47,49.9,16.6,5.48,94,7,84,37,112,67.93,8.86,43883,383888,22,Low
+AGC-00064,2023-09-07,Sep,Spring,Butha-Buthe,Sorghum,grains,11.55,80.6,18.8,5.42,110,7.2,90,42,190,21.37,9.54,14660,137071,24,Medium
+AGC-00065,2023-09-22,Sep,Spring,Leribe,Wheat,grains,4.99,76.7,18.2,7.32,146,9.8,208,53,143,12.43,8.76,9621,82904,17,Medium
+AGC-00066,2024-11-17,Nov,Spring,Butha-Buthe,Potatoes,vegetables,3.38,94.5,19.9,5.94,107,8.8,84,49,172,41.64,11.74,30897,357416,20,Medium
+AGC-00067,2023-12-20,Dec,Summer,Maseru,Wheat,grains,8.62,91.5,20.4,5.81,120,9.8,106,75,68,20.52,12.91,19494,250342,17,High
+AGC-00068,2023-09-11,Sep,Spring,Thaba-Tseka,Sorghum,grains,2.28,74.2,18.6,7.43,176,7.2,85,38,307,5.75,9.54,3761,34725,23,Low
+AGC-00069,2024-09-24,Sep,Spring,Leribe,Maize,grains,9.52,40.6,19.6,6.09,105,6.5,88,50,132,11.42,8.28,8565,69788,24,Medium
+AGC-00070,2025-09-21,Sep,Spring,Qacha's Nek,Wheat,grains,8.43,98,19.3,5.58,290,9.8,196,67,375,25.71,10.79,22779,237243,17,High
+AGC-00071,2024-03-31,Mar,Autumn,Butha-Buthe,Tomatoes,vegetables,0.93,45.3,15.7,7.04,159,12.5,103,28,199,6.54,15.13,3754,56051,27,Low
+AGC-00072,2023-07-15,Jul,Winter,Mafeteng,Cabbage,vegetables,1.87,18.3,4.4,7.12,141,7,192,76,135,6.28,7.69,6016,45451,18,High
+AGC-00073,2025-05-25,May,Autumn,Mohale's Hoek,Potatoes,vegetables,11.55,23.6,9.9,7.14,73,8.8,87,51,167,32.8,12.51,24862,306872,20,Medium
+AGC-00074,2024-03-26,Mar,Autumn,Maseru,Beans (Dry),legumes,3.59,72.1,15.1,7.2,159,22.5,178,71,67,3.37,21.69,3094,66902,15,High
+AGC-00075,2023-11-12,Nov,Spring,Berea,Tomatoes,vegetables,11.39,71.3,20.5,6.92,124,12.5,61,47,97,152.06,16.29,110396,1787642,20,Medium
+AGC-00076,2025-07-31,Jul,Winter,Thaba-Tseka,Cabbage,vegetables,12.29,21.6,9.1,5.96,256,7,195,54,298,59.48,8.21,46513,368011,21,Medium
+AGC-00077,2025-04-15,Apr,Autumn,Butha-Buthe,Potatoes,vegetables,9.67,66.3,15.7,6.93,89,8.8,54,38,206,94.57,11.76,61849,714603,26,Low
+AGC-00078,2025-05-08,May,Autumn,Leribe,Maize,grains,6.27,29.3,23,6.85,246,6.5,204,63,140,6.77,6.47,5782,36600,18,Medium
+AGC-00079,2023-06-19,Jun,Winter,Butha-Buthe,Beans (Dry),legumes,11.4,34,7.4,7.15,20,22.5,76,26,193,3.99,27.97,2226,61832,25,Low
+AGC-00080,2024-10-17,Oct,Spring,Leribe,Peaches,fruits,6.32,79.7,19.5,5.63,106,19,77,64,141,35.9,24.87,30946,765264,19,Medium
+AGC-00081,2024-03-08,Mar,Autumn,Quthing,Beans (Dry),legumes,8.1,45,16,5.98,66,22.5,207,42,259,4.54,18.84,3114,57861,24,Medium
+AGC-00082,2024-06-03,Jun,Winter,Qacha's Nek,Tomatoes,vegetables,11.23,5,2.5,6.96,171,12.5,102,33,320,9.1,15.24,5587,83358,25,Low
+AGC-00083,2025-07-04,Jul,Winter,Leribe,Potatoes,vegetables,6.07,9.6,8.3,5.48,190,8.8,62,61,147,9.04,11.89,7576,88965,19,Medium
+AGC-00084,2025-01-09,Jan,Summer,Berea,Peaches,fruits,0.9,101.1,22.2,6.15,67,19,179,83,91,6.94,18.55,6940,128105,13,High
+AGC-00085,2025-07-24,Jul,Winter,Maseru,Wheat,grains,6.77,22.2,15.3,6.84,90,9.8,33,59,69,4.6,14.1,3781,53051,21,Medium
+AGC-00086,2024-12-10,Dec,Summer,Quthing,Cabbage,vegetables,0.69,107.2,23.5,5.73,145,7,64,44,244,13.54,9.83,9505,91115,24,Medium
+AGC-00087,2025-10-12,Oct,Spring,Berea,Sorghum,grains,9.9,78.7,24.8,6.9,225,7.2,94,50,111,24.85,8.8,18638,161946,24,Medium
+AGC-00088,2023-06-02,Jun,Winter,Leribe,Peaches,fruits,9.12,5,-0.3,6.12,185,19,81,93,137,4.38,27.04,4380,117835,13,High
+AGC-00089,2025-08-02,Aug,Winter,Thaba-Tseka,Wheat,grains,7.56,35,5.7,7.36,136,9.8,66,49,345,8.39,13.87,6225,84193,23,Medium
+AGC-00090,2024-11-12,Nov,Spring,Maseru,Wheat,grains,1.64,83.7,16,6.33,54,9.8,208,75,65,3.82,9.36,3629,33732,16,High
+AGC-00091,2025-04-24,Apr,Autumn,Berea,Wheat,grains,1.22,74.1,16.2,7.21,154,9.8,114,42,112,2.65,11.59,1818,20867,24,Medium
+AGC-00092,2025-01-25,Jan,Summer,Butha-Buthe,Potatoes,vegetables,1.87,150.6,23.8,7.31,202,8.8,189,47,187,34.67,8.28,25170,203701,21,Medium
+AGC-00093,2024-04-28,Apr,Autumn,Mohale's Hoek,Sorghum,grains,1.35,41.7,15.5,6.09,155,7.2,183,62,170,2.09,6.73,1768,11598,18,Medium
+AGC-00094,2025-06-03,Jun,Winter,Mafeteng,Cabbage,vegetables,3.58,9.4,6.4,6.39,84,7,187,71,132,6.66,6.86,6114,41135,15,High
+AGC-00095,2024-12-29,Dec,Summer,Qacha's Nek,Maize,grains,7.58,115,17.1,6.59,116,6.5,31,50,395,25.92,10.79,19440,202079,25,Medium
+AGC-00096,2023-07-22,Jul,Winter,Leribe,Potatoes,vegetables,3.98,26.6,8.2,6.52,134,8.8,62,74,148,16.68,12.87,15713,199901,17,High
+AGC-00097,2023-02-10,Feb,Summer,Mohale's Hoek,Sorghum,grains,7.04,116.2,22.1,5.45,166,7.2,85,59,168,14.36,10.11,11804,117355,20,Medium
+AGC-00098,2024-10-18,Oct,Spring,Quthing,Wheat,grains,10.84,84.1,19.4,7.23,137,9.8,191,42,244,26.02,8.86,17850,153796,23,Medium
+AGC-00099,2025-12-06,Dec,Summer,Mohale's Hoek,Tomatoes,vegetables,6.35,86.9,20.3,7.01,122,12.5,209,46,194,71.82,10.6,51567,536606,20,Medium
+AGC-00100,2025-07-10,Jul,Winter,Butha-Buthe,Maize,grains,8.55,28.3,6.3,7.47,111,6.5,69,43,195,5.04,9.65,3498,33074,25,Medium
+AGC-00101,2024-01-28,Jan,Summer,Quthing,Wheat,grains,2.85,105.2,21.8,5.97,98,9.8,99,19,223,6.27,12.19,3148,37672,32,Low
+AGC-00102,2024-08-12,Aug,Winter,Maseru,Cabbage,vegetables,4.19,13.4,9.4,6.4,186,7,128,98,64,14.75,8.01,14750,117204,11,High
+AGC-00103,2023-04-18,Apr,Autumn,Mafeteng,Beans (Dry),legumes,3.24,18.8,16.1,7.4,123,22.5,191,53,115,0.84,19.34,650,12496,23,Medium
+AGC-00104,2024-07-26,Jul,Winter,Butha-Buthe,Sorghum,grains,1.96,13.3,8.1,6.95,118,7.2,68,63,198,0.86,10.14,734,7297,17,Medium
+AGC-00105,2024-02-05,Feb,Summer,Leribe,Tomatoes,vegetables,5.71,110.6,22.5,6.65,150,12.5,159,50,132,106.72,11.93,80040,944312,17,Medium
+AGC-00106,2024-01-20,Jan,Summer,Mohale's Hoek,Tomatoes,vegetables,3.46,90.8,28.9,6.35,70,12.5,160,48,174,47.09,12.03,34564,409791,22,Medium
+AGC-00107,2023-06-16,Jun,Winter,Mohale's Hoek,Tomatoes,vegetables,12.39,13.8,9.8,6.29,67,12.5,110,54,182,28.37,16.36,22185,358909,21,Medium
+AGC-00108,2025-08-17,Aug,Winter,Butha-Buthe,Potatoes,vegetables,4.79,10.5,12.5,6.67,181,8.8,42,33,195,9.05,12.11,5557,66212,27,Low
+AGC-00109,2024-02-20,Feb,Summer,Butha-Buthe,Sorghum,grains,8.21,137.8,21.3,5.84,179,7.2,34,39,190,18.23,10.17,12068,120439,24,Low
+AGC-00110,2024-05-28,May,Autumn,Quthing,Tomatoes,vegetables,7.33,25.5,17.4,7.01,115,12.5,69,42,220,28.88,16.4,19812,320558,24,Medium
+AGC-00111,2024-10-21,Oct,Spring,Maseru,Sorghum,grains,12.32,62,24.4,7.16,80,7.2,88,91,67,20.08,10.31,20080,205679,19,High
+AGC-00112,2023-06-16,Jun,Winter,Butha-Buthe,Tomatoes,vegetables,9.34,5,4,5.83,273,12.5,75,39,182,7.85,15.85,5197,81427,23,Low
+AGC-00113,2025-06-28,Jun,Winter,Quthing,Potatoes,vegetables,10.73,5.2,11.6,6.76,91,8.8,48,42,234,9.01,12.22,6181,74085,27,Medium
+AGC-00114,2023-08-09,Aug,Winter,Mohale's Hoek,Wheat,grains,4.2,67.8,4.2,6.78,188,9.8,79,36,187,9.58,12.73,6112,76663,26,Low
+AGC-00115,2025-03-06,Mar,Autumn,Leribe,Sorghum,grains,10.11,65.5,14.1,6,178,7.2,182,69,122,22.55,7.04,20340,140712,16,High
+AGC-00116,2024-04-17,Apr,Autumn,Qacha's Nek,Sorghum,grains,6.06,53.9,16.6,7.14,256,7.2,164,51,355,11.51,7.93,8725,66092,21,Medium
+AGC-00117,2025-08-13,Aug,Winter,Qacha's Nek,Wheat,grains,5.68,31,10.1,7.12,165,9.8,77,53,359,4.71,13.71,3646,48678,20,Medium
+AGC-00118,2024-04-23,Apr,Autumn,Qacha's Nek,Wheat,grains,10.69,38.9,13.2,7.4,161,9.8,20,48,344,12.61,15.53,9256,140562,26,Medium
+AGC-00119,2025-06-16,Jun,Winter,Quthing,Beans (Dry),legumes,1.39,27.6,8.6,7.11,95,22.5,54,37,268,0.46,29.12,297,8569,26,Low
+AGC-00120,2025-05-09,May,Autumn,Qacha's Nek,Beans (Dry),legumes,3.45,45.3,19.5,6.78,152,22.5,218,70,375,2.73,21.41,2484,52251,15,High
+AGC-00121,2023-05-03,May,Autumn,Butha-Buthe,Sorghum,grains,8.61,39.5,17.9,6.54,130,7.2,166,49,193,11.8,7.39,8756,63017,21,Medium
+AGC-00122,2025-01-02,Jan,Summer,Qacha's Nek,Beans (Dry),legumes,8.22,103.3,23.5,5.51,108,22.5,84,55,363,10.36,30,8184,242549,20,Medium
+AGC-00123,2023-08-02,Aug,Winter,Mokhotlong,Wheat,grains,4.71,41.6,6.7,7.39,126,9.8,92,41,365,5.46,13.82,3702,49810,24,Medium
+AGC-00124,2025-08-05,Aug,Winter,Butha-Buthe,Potatoes,vegetables,3.92,5,6.3,6.24,105,8.8,33,34,182,2.78,12.01,1729,20451,27,Low
+AGC-00125,2026-01-13,Jan,Summer,Mafeteng,Potatoes,vegetables,6.06,108.1,26.6,5.46,108,8.8,135,47,123,85.69,8.55,62211,524252,22,Medium
+AGC-00126,2025-06-24,Jun,Winter,Maseru,Beans (Dry),legumes,7.19,5,9.3,6.49,107,22.5,63,71,68,0.58,31.72,532,16839,19,High
+AGC-00127,2024-01-16,Jan,Summer,Mafeteng,Potatoes,vegetables,12.24,77.4,29.6,7.16,163,8.8,155,52,117,131.21,9.14,100507,906875,20,Medium
+AGC-00128,2025-06-15,Jun,Winter,Butha-Buthe,Peaches,fruits,7.93,9,7.2,6.98,179,19,54,50,182,6.82,25.54,5115,129706,21,Medium
+AGC-00129,2024-07-21,Jul,Winter,Mafeteng,Sorghum,grains,10.93,5,4,7,141,7.2,52,44,123,2.08,8.88,1460,12785,30,Medium
+AGC-00130,2025-02-09,Feb,Summer,Mohale's Hoek,Maize,grains,6.38,95.1,21.6,6.83,37,6.5,63,50,170,14.55,8.84,10913,94616,22,Medium
+AGC-00131,2024-08-26,Aug,Winter,Mafeteng,Cabbage,vegetables,3.95,18.3,7.7,5.53,153,7,213,61,121,13.83,6.48,11590,73701,20,Medium
+AGC-00132,2025-05-11,May,Autumn,Maseru,Beans (Dry),legumes,8.6,52.1,18.7,7.44,108,22.5,169,75,71,5.5,21.36,5225,111235,15,High
+AGC-00133,2025-07-22,Jul,Winter,Qacha's Nek,Wheat,grains,10.47,5,10.1,6.88,163,9.8,66,32,368,1.88,12.55,1139,13875,24,Low
+AGC-00134,2025-10-07,Oct,Spring,Leribe,Sorghum,grains,12.3,87.2,12.8,5.65,124,7.2,135,36,149,27.06,8.84,17264,150041,24,Low
+AGC-00135,2023-06-06,Jun,Winter,Qacha's Nek,Tomatoes,vegetables,9.05,13.1,5.4,5.71,168,12.5,38,34,356,19.82,17.46,12328,210858,26,Low
+AGC-00136,2023-04-28,Apr,Autumn,Berea,Maize,grains,6.34,37,13.4,6.47,79,6.5,156,59,96,6.47,5.91,5318,30919,20,Medium
+AGC-00137,2024-01-11,Jan,Summer,Qacha's Nek,Potatoes,vegetables,7.73,170,25,6.87,162,8.8,171,48,389,167.12,9.63,122666,1133557,21,Medium
+AGC-00138,2023-10-06,Oct,Spring,Butha-Buthe,Cabbage,vegetables,8.71,72.4,16.8,5.7,103,7,88,45,194,100.25,9.6,71178,669500,26,Medium
+AGC-00139,2023-12-25,Dec,Summer,Thaba-Tseka,Maize,grains,1.55,109.9,29.6,6.17,142,6.5,85,33,301,5.81,9.19,3567,31707,27,Low
+AGC-00140,2024-11-16,Nov,Spring,Mohale's Hoek,Potatoes,vegetables,10.72,86.8,17.6,6.82,227,8.8,26,43,190,184.49,12.76,128036,1609413,24,Medium
+AGC-00141,2023-02-12,Feb,Summer,Qacha's Nek,Wheat,grains,0.83,131.5,22.1,5.59,130,9.8,56,35,328,1.83,12.86,1153,14449,28,Low
+AGC-00142,2024-05-16,May,Autumn,Mohale's Hoek,Peaches,fruits,11.97,39,15.8,6.26,189,19,60,35,191,47.64,24.44,30013,727785,24,Low
+AGC-00143,2025-11-11,Nov,Spring,Mohale's Hoek,Potatoes,vegetables,11.1,60.9,17.4,6.99,184,8.8,68,45,189,125.54,12.37,89133,1085729,25,Medium
+AGC-00144,2023-09-02,Sep,Spring,Mokhotlong,Maize,grains,10.48,76.4,25.5,6.62,152,6.5,77,35,381,20.96,10.02,13205,127283,25,Low
+AGC-00145,2025-09-15,Sep,Spring,Mafeteng,Potatoes,vegetables,12.23,69.4,22.1,5.97,128,8.8,87,48,131,103.95,11.63,76299,877362,23,Medium
+AGC-00146,2025-08-24,Aug,Winter,Mokhotlong,Peaches,fruits,4.22,17.5,11.3,6.78,112,19,98,24,408,5.53,23.99,2997,70675,27,Low
+AGC-00147,2025-01-23,Jan,Summer,Thaba-Tseka,Peaches,fruits,11.39,141.1,22,6.72,119,19,202,38,304,107.41,15.79,70246,1087830,23,Low
+AGC-00148,2023-08-07,Aug,Winter,Leribe,Wheat,grains,9.49,5,8.6,6.62,157,9.8,136,53,127,1.71,12.04,1324,15773,24,Medium
+AGC-00149,2025-01-28,Jan,Summer,Berea,Wheat,grains,9.43,89.5,23.1,7.43,134,9.8,115,57,98,24.05,11.71,19384,225087,22,Medium
+AGC-00150,2024-02-05,Feb,Summer,Leribe,Peaches,fruits,4.71,92.8,30,6.14,82,19,164,72,123,37.77,18.74,34975,651130,13,High
+AGC-00151,2023-12-10,Dec,Summer,Maseru,Sorghum,grains,6.74,102.5,25.8,5.79,203,7.2,71,50,73,16.38,8.98,12285,109422,24,Medium
+AGC-00152,2025-11-19,Nov,Spring,Leribe,Tomatoes,vegetables,10.05,61.7,22,6.54,143,12.5,120,66,123,97.99,15.74,86035,1343609,17,High
+AGC-00153,2024-10-20,Oct,Spring,Butha-Buthe,Wheat,grains,10.89,94.5,15.4,6.77,166,9.8,205,56,177,36.59,8.77,29199,250907,17,Medium
+AGC-00154,2025-07-31,Jul,Winter,Leribe,Wheat,grains,4.79,45.2,9.7,5.69,96,9.8,34,46,133,6.04,13.51,4337,58016,25,Medium
+AGC-00155,2024-06-20,Jun,Winter,Mohale's Hoek,Wheat,grains,1.89,36.4,1.4,5.52,232,9.8,89,47,191,2.27,12.56,1648,20384,24,Medium
+AGC-00156,2024-12-18,Dec,Summer,Thaba-Tseka,Maize,grains,0.83,126,28.6,7.17,197,6.5,45,15,344,2.61,9.59,1227,11345,34,Low
+AGC-00157,2024-01-02,Jan,Summer,Qacha's Nek,Tomatoes,vegetables,9.46,122.3,21.9,7.24,126,12.5,230,55,392,173.12,11.01,136765,1452171,21,Medium
+AGC-00158,2024-04-03,Apr,Autumn,Berea,Beans (Dry),legumes,1.6,59.2,17.4,5.44,137,22.5,159,86,110,1.22,22.94,1220,27853,14,High
+AGC-00159,2024-04-16,Apr,Autumn,Berea,Tomatoes,vegetables,5.52,33,13.7,6.1,31,12.5,55,48,112,24.95,16.38,18313,297916,24,Medium
+AGC-00160,2023-08-20,Aug,Winter,Quthing,Tomatoes,vegetables,1.86,28.8,9.1,5.76,59,12.5,107,28,229,6.62,14.9,3800,55750,28,Low
+AGC-00161,2024-03-09,Mar,Autumn,Butha-Buthe,Beans (Dry),legumes,12.49,57.7,14.8,6.79,115,22.5,152,71,174,11.62,23.18,10667,245405,18,High
+AGC-00162,2023-11-27,Nov,Spring,Berea,Beans (Dry),legumes,6.63,54.7,17.8,6.01,162,22.5,56,38,104,7.89,28.33,5160,145646,24,Low
+AGC-00163,2025-07-04,Jul,Winter,Thaba-Tseka,Sorghum,grains,3.77,9,2.4,7.31,102,7.2,32,39,339,0.83,10.89,549,5792,27,Low
+AGC-00164,2025-11-02,Nov,Spring,Mafeteng,Potatoes,vegetables,2.68,75.8,19.4,7.21,106,8.8,57,42,131,25.97,11.36,17815,200045,27,Medium
+AGC-00165,2024-07-07,Jul,Winter,Quthing,Sorghum,grains,9.14,21.1,14.6,6.37,107,7.2,18,34,238,6.86,10.16,4267,42337,25,Low
+AGC-00166,2025-03-04,Mar,Autumn,Berea,Beans (Dry),legumes,8.57,86.9,12.1,6.78,162,22.5,174,72,99,13.8,21.51,12779,273611,18,High
+AGC-00167,2025-04-22,Apr,Autumn,Butha-Buthe,Maize,grains,3.94,26.5,15.1,5.93,228,6.5,193,60,186,3.47,6.67,2880,18674,19,Medium
+AGC-00168,2023-11-04,Nov,Spring,Qacha's Nek,Maize,grains,6.54,102.1,17.5,5.76,152,6.5,94,29,387,16.94,9.27,9859,87577,28,Low
+AGC-00169,2023-03-16,Mar,Autumn,Maseru,Wheat,grains,5.77,21.8,18.4,6.55,133,9.8,120,53,63,4.27,12.54,3305,41236,19,Medium
+AGC-00170,2025-12-27,Dec,Summer,Mafeteng,Maize,grains,2.75,111.5,24.1,6.17,44,6.5,83,57,111,7.64,8.63,6158,52460,20,Medium
+AGC-00171,2024-07-14,Jul,Winter,Mohale's Hoek,Tomatoes,vegetables,9.26,49.3,10.4,6.39,230,12.5,29,36,188,100.93,16.72,64393,1064545,25,Low
+AGC-00172,2024-02-20,Feb,Summer,Mohale's Hoek,Beans (Dry),legumes,6.34,118.9,26.7,7.08,178,22.5,58,19,182,8.43,27.25,4232,114552,27,Low
+AGC-00173,2024-12-17,Dec,Summer,Quthing,Tomatoes,vegetables,6.86,101,22.2,6.14,205,12.5,163,71,272,141.52,13.22,129915,1682139,18,High
+AGC-00174,2025-11-14,Nov,Spring,Quthing,Maize,grains,10.3,70.4,16.6,6.11,109,6.5,36,39,233,22.35,9.4,14796,135635,27,Low
+AGC-00175,2023-10-07,Oct,Spring,Butha-Buthe,Cabbage,vegetables,10.39,87.7,17.9,6.8,135,7,69,61,199,214.55,9.54,179793,1679446,22,Medium
+AGC-00176,2024-02-06,Feb,Summer,Butha-Buthe,Potatoes,vegetables,1.38,92.4,26.3,6.6,117,8.8,149,80,188,21.31,10.38,21097,215021,13,High
+AGC-00177,2025-04-07,Apr,Autumn,Mafeteng,Potatoes,vegetables,6.89,24.6,15.3,5.52,104,8.8,70,61,119,23.91,12.31,20037,244271,22,Medium
+AGC-00178,2023-07-21,Jul,Winter,Quthing,Peaches,fruits,3.62,6,5.8,7.08,105,19,69,62,237,1.27,26.66,1074,28378,22,Medium
+AGC-00179,2025-06-26,Jun,Winter,Mohale's Hoek,Tomatoes,vegetables,4.76,5.4,10,5.56,180,12.5,113,48,189,4.24,15.58,3112,47897,20,Medium
+AGC-00180,2024-02-21,Feb,Summer,Mohale's Hoek,Beans (Dry),legumes,10.08,95,29.8,6.45,147,22.5,103,26,160,15.22,26.72,8493,225574,28,Low
+AGC-00181,2025-05-31,May,Autumn,Maseru,Beans (Dry),legumes,1.7,42.1,18.5,5.96,139,22.5,158,83,75,0.99,22.85,990,22547,14,High
+AGC-00182,2025-04-23,Apr,Autumn,Mokhotlong,Wheat,grains,4.03,31.9,19.7,6.78,81,9.8,120,47,399,3.75,12.71,2723,33523,21,Medium
+AGC-00183,2024-08-21,Aug,Winter,Mokhotlong,Peaches,fruits,4.04,8.6,7.4,6.52,148,19,56,43,354,3.6,25.99,2498,64039,24,Medium
+AGC-00184,2025-07-18,Jul,Winter,Maseru,Wheat,grains,7.12,5,10.6,7.43,141,9.8,105,80,75,1.07,13.75,1059,14482,16,High
+AGC-00185,2023-04-11,Apr,Autumn,Qacha's Nek,Potatoes,vegetables,1.88,86.5,13.4,6.57,184,8.8,79,29,397,30.53,12.63,17768,217356,26,Low
+AGC-00186,2024-08-14,Aug,Winter,Butha-Buthe,Maize,grains,1.28,24.8,5.8,6.44,83,6.5,44,45,205,0.88,10.39,625,6366,26,Medium
+AGC-00187,2025-08-31,Aug,Winter,Mafeteng,Maize,grains,5.68,7.6,10.1,5.56,208,6.5,61,69,127,1.25,9.72,1128,10821,17,High
+AGC-00188,2025-04-25,Apr,Autumn,Mafeteng,Sorghum,grains,10.23,45.7,17.4,7.32,68,7.2,244,62,131,11.36,6.6,9611,62174,17,Medium
+AGC-00189,2025-05-31,May,Autumn,Mafeteng,Beans (Dry),legumes,3.32,43.9,12.2,7.36,88,22.5,162,50,115,1.93,20.58,1448,29633,15,Medium
+AGC-00190,2023-02-09,Feb,Summer,Mohale's Hoek,Cabbage,vegetables,7.59,114.6,22.4,5.98,94,7,46,44,185,112.41,9.75,78912,754793,23,Medium
+AGC-00191,2025-04-29,Apr,Autumn,Mokhotlong,Cabbage,vegetables,10.9,65.2,11.9,6.97,76,7,64,43,377,112.81,10.7,78290,808188,30,Medium
+AGC-00192,2023-11-27,Nov,Spring,Leribe,Peaches,fruits,1.93,78.7,16.8,5.56,133,19,80,84,141,9.44,27.18,9440,255248,14,High
+AGC-00193,2023-01-29,Jan,Summer,Mohale's Hoek,Sorghum,grains,8.33,113.9,23.9,5.96,146,7.2,57,35,173,15.66,9.64,9866,93401,30,Low
+AGC-00194,2025-02-14,Feb,Summer,Mokhotlong,Wheat,grains,1.12,140.3,26.8,6.5,198,9.8,75,49,361,3.88,14.36,2879,40303,25,Medium
+AGC-00195,2025-12-23,Dec,Summer,Berea,Maize,grains,9.25,100.7,20.4,6.56,20,6.5,103,55,93,21.18,7.95,16732,131463,19,Medium
+AGC-00196,2023-07-30,Jul,Winter,Quthing,Peaches,fruits,3.28,22.2,3.3,6.8,106,19,40,33,240,5.61,24.9,3445,84954,26,Low
+AGC-00197,2023-09-23,Sep,Spring,Berea,Maize,grains,5.43,84.2,16.5,6.58,132,6.5,64,34,107,15.15,8.45,9423,78616,26,Low
+AGC-00198,2024-05-13,May,Autumn,Butha-Buthe,Wheat,grains,8.74,60.3,14.7,6.59,130,9.8,56,57,191,18.79,13.86,15145,207017,22,Medium
+AGC-00199,2024-01-11,Jan,Summer,Thaba-Tseka,Tomatoes,vegetables,2.42,112.4,29.4,7.17,117,12.5,160,56,333,38.36,12.62,30611,376117,20,Medium
+AGC-00200,2024-01-25,Jan,Summer,Quthing,Wheat,grains,9.02,83.9,26.2,5.62,150,9.8,87,45,255,19.84,13.32,14086,184034,25,Medium
+AGC-00201,2023-01-24,Jan,Summer,Maseru,Sorghum,grains,7.66,131.2,18.4,6.46,147,7.2,30,62,71,19,9.98,16074,159277,21,Medium
+AGC-00202,2024-09-25,Sep,Spring,Butha-Buthe,Cabbage,vegetables,10.96,62.6,23.3,5.84,108,7,143,33,204,111.57,8.76,68504,586120,23,Low
+AGC-00203,2024-05-19,May,Autumn,Qacha's Nek,Potatoes,vegetables,10.64,74.6,14.2,6.29,173,8.8,83,39,342,130.45,12.85,86358,1080166,31,Low
+AGC-00204,2024-02-02,Feb,Summer,Mafeteng,Cabbage,vegetables,3.45,70.1,27.1,7.39,182,7,53,64,117,60.48,9.29,52134,478225,20,Medium
+AGC-00205,2025-03-28,Mar,Autumn,Leribe,Maize,grains,8.89,53,12.8,5.71,76,6.5,174,79,144,10.05,7.41,9869,71708,14,High
+AGC-00206,2023-03-23,Mar,Autumn,Mokhotlong,Beans (Dry),legumes,11.01,49.2,13,7.21,211,22.5,170,56,383,10.02,20.63,7996,161895,21,Medium
+AGC-00207,2024-08-10,Aug,Winter,Thaba-Tseka,Sorghum,grains,9.12,40.8,3.8,7.18,145,7.2,50,39,284,11.67,10.14,7726,76147,23,Low
+AGC-00208,2026-01-07,Jan,Summer,Butha-Buthe,Peaches,fruits,6.9,85.4,23.3,6.3,56,19,218,73,199,46.44,17.67,43375,757805,15,High
+AGC-00209,2024-01-27,Jan,Summer,Maseru,Potatoes,vegetables,10.72,124,23.9,7.14,71,8.8,190,53,62,153.4,8.16,118732,961492,19,Medium
+AGC-00210,2023-08-04,Aug,Winter,Berea,Tomatoes,vegetables,9.36,23.3,12,7.04,103,12.5,99,65,97,32.76,16.5,28501,467502,19,High
+AGC-00211,2023-09-22,Sep,Spring,Berea,Beans (Dry),legumes,3.21,49,23.2,6.77,162,22.5,73,78,106,2.79,30.14,2717,81602,19,High
+AGC-00212,2023-12-03,Dec,Summer,Quthing,Wheat,grains,1.09,121.3,24.3,7.21,101,9.8,93,42,258,2.05,13.57,1406,18717,25,Medium
+AGC-00213,2025-10-14,Oct,Spring,Qacha's Nek,Wheat,grains,8.06,75.7,22.9,6.81,227,9.8,174,49,386,27.48,10.52,20390,206632,21,Medium
+AGC-00214,2024-11-29,Nov,Spring,Mokhotlong,Tomatoes,vegetables,3.46,78.6,18,7.05,38,12.5,49,40,413,30.69,17.67,20562,354838,27,Medium
+AGC-00215,2023-12-04,Dec,Summer,Mokhotlong,Maize,grains,1.78,145.7,26.7,6.72,134,6.5,83,34,392,6.02,9.37,3744,33614,28,Low
+AGC-00216,2023-07-24,Jul,Winter,Mohale's Hoek,Potatoes,vegetables,8.42,24.7,14.6,7.22,224,8.8,32,46,165,33.09,11.9,23759,278812,22,Medium
+AGC-00217,2024-03-03,Mar,Autumn,Thaba-Tseka,Cabbage,vegetables,2.84,58.2,15.6,5.51,137,7,37,15,346,29.17,10.1,13710,133727,33,Low
+AGC-00218,2023-04-02,Apr,Autumn,Maseru,Tomatoes,vegetables,7.22,52.1,18.2,6.65,130,12.5,19,53,65,65.27,17.94,50519,903027,22,Medium
+AGC-00219,2025-03-11,Mar,Autumn,Quthing,Maize,grains,3.51,45.1,18.1,7.15,121,6.5,171,69,257,3.19,7.86,2877,21874,17,High
+AGC-00220,2023-10-23,Oct,Spring,Butha-Buthe,Potatoes,vegetables,9.9,58,15.4,5.48,91,8.8,45,42,177,71.87,12.04,49303,584881,29,Medium
+AGC-00221,2025-07-24,Jul,Winter,Mohale's Hoek,Maize,grains,5.5,16.9,7.9,5.66,126,6.5,75,52,193,2.36,9.51,1808,16845,24,Medium
+AGC-00222,2023-11-16,Nov,Spring,Thaba-Tseka,Peaches,fruits,3.17,79.8,27.5,5.56,124,19,63,42,316,18.51,24.49,12698,306961,29,Medium
+AGC-00223,2023-11-05,Nov,Spring,Maseru,Maize,grains,4.41,62.9,21,6.64,250,6.5,68,62,62,9.48,8.85,8020,70480,21,Medium
+AGC-00224,2025-05-02,May,Autumn,Mafeteng,Sorghum,grains,5.5,46.5,17.9,6.13,89,7.2,172,41,111,7.7,6.82,5221,35028,25,Medium
+AGC-00225,2023-09-07,Sep,Spring,Maseru,Maize,grains,12.44,37.7,21.6,5.78,242,6.5,72,75,62,10.7,9.15,10165,92380,16,High
+AGC-00226,2024-07-10,Jul,Winter,Thaba-Tseka,Peaches,fruits,3.33,5,3.9,6.33,98,19,59,40,291,1.4,25.77,938,23899,28,Medium
+AGC-00227,2024-06-20,Jun,Winter,Qacha's Nek,Wheat,grains,4.36,33.7,7.1,6.45,118,9.8,59,23,325,5.28,12.88,2820,35405,24,Low
+AGC-00228,2025-07-17,Jul,Winter,Qacha's Nek,Peaches,fruits,11.2,32.4,5.7,6.73,62,19,62,42,395,28.34,24.87,19441,475818,23,Medium
+AGC-00229,2025-10-19,Oct,Spring,Mokhotlong,Sorghum,grains,7.47,94.1,21.4,6.35,136,7.2,79,46,393,19.72,11.08,14159,151317,24,Medium
+AGC-00230,2025-08-18,Aug,Winter,Berea,Wheat,grains,7.71,34.9,4.6,5.55,157,9.8,66,64,102,8.94,13.47,7706,103014,19,Medium
+AGC-00231,2023-05-25,May,Autumn,Mokhotlong,Maize,grains,6.37,43.5,21.5,6.19,152,6.5,103,53,369,8.85,7.92,6850,51724,23,Medium
+AGC-00232,2025-03-21,Mar,Autumn,Mafeteng,Cabbage,vegetables,0.98,47.7,13.3,5.94,194,7,93,58,128,10.54,9.17,8580,77580,23,Medium
+AGC-00233,2024-11-22,Nov,Spring,Mokhotlong,Peaches,fruits,5.99,78.1,16.8,5.62,146,19,64,34,389,34.74,25.93,21608,551890,25,Low
+AGC-00234,2025-07-06,Jul,Winter,Butha-Buthe,Tomatoes,vegetables,7.76,22.7,11.8,6.44,160,12.5,47,47,209,37.02,17.72,26877,470643,23,Medium
+AGC-00235,2023-08-02,Aug,Winter,Qacha's Nek,Potatoes,vegetables,5.33,13.3,6.7,6.62,199,8.8,78,47,357,13.48,12.42,9786,118049,20,Medium
+AGC-00236,2023-12-01,Dec,Summer,Berea,Wheat,grains,8.25,119.5,29.7,5.85,153,9.8,61,53,104,21.53,13.59,16664,224731,19,Medium
+AGC-00237,2024-12-08,Dec,Summer,Qacha's Nek,Maize,grains,10.67,139,21.2,5.96,137,6.5,118,41,381,31.26,8.91,21194,180764,25,Medium
+AGC-00238,2023-08-03,Aug,Winter,Quthing,Cabbage,vegetables,10.24,29.6,10.3,6.47,71,7,167,36,261,60.62,6.44,38676,238979,27,Low
+AGC-00239,2023-09-25,Sep,Spring,Thaba-Tseka,Sorghum,grains,5.27,65,21.9,7.47,20,7.2,85,52,315,7.69,11.9,5891,68247,27,Medium
+AGC-00240,2023-09-24,Sep,Spring,Mafeteng,Potatoes,vegetables,11.8,66.5,23.2,6.76,108,8.8,59,56,119,111.98,12.39,89360,1096537,21,Medium
+AGC-00241,2024-12-20,Dec,Summer,Mohale's Hoek,Tomatoes,vegetables,7.16,90.9,23.4,5.47,98,12.5,181,56,196,85.35,11.92,68109,798510,16,Medium
+AGC-00242,2024-07-16,Jul,Winter,Qacha's Nek,Beans (Dry),legumes,5.56,26.4,5,6.53,190,22.5,36,38,355,2.67,31.26,1746,53960,25,Low
+AGC-00243,2024-02-10,Feb,Summer,Maseru,Beans (Dry),legumes,2.73,103.2,23,5.51,146,22.5,86,61,72,3.52,29.23,2950,86016,18,Medium
+AGC-00244,2025-10-26,Oct,Spring,Leribe,Sorghum,grains,1.24,68.2,19.7,5.44,126,7.2,41,51,140,2.39,10.08,1812,18011,22,Medium
+AGC-00245,2024-06-04,Jun,Winter,Qacha's Nek,Peaches,fruits,10.21,5.4,12,6.23,217,19,78,15,331,5.62,22.97,2641,59790,31,Low
+AGC-00246,2025-09-01,Sep,Spring,Maseru,Beans (Dry),legumes,10.78,86.6,14.4,5.73,191,22.5,77,51,67,14.98,28.22,11355,319677,20,Medium
+AGC-00247,2024-12-19,Dec,Summer,Quthing,Beans (Dry),legumes,1.16,105,20.9,6.29,105,22.5,103,38,220,1.46,26.82,955,25403,24,Low
+AGC-00248,2024-03-22,Mar,Autumn,Qacha's Nek,Cabbage,vegetables,7.34,48.2,20.6,7.2,121,7,69,46,323,67.82,9.91,48695,466839,23,Medium
+AGC-00249,2024-05-25,May,Autumn,Thaba-Tseka,Peaches,fruits,12.11,21.7,17.3,6.5,153,19,94,39,314,20.71,24.27,13710,328437,27,Low
+AGC-00250,2025-05-20,May,Autumn,Leribe,Wheat,grains,3.34,53.2,18.6,5.65,133,9.8,99,59,137,4.98,13.31,4094,53930,20,Medium
+AGC-00251,2026-01-13,Jan,Summer,Maseru,Sorghum,grains,2.9,98.6,18.3,7.08,164,7.2,99,59,75,5.77,9.48,4743,44608,20,Medium
+AGC-00252,2023-03-09,Mar,Autumn,Qacha's Nek,Peaches,fruits,0.71,50.7,17.9,6.63,56,19,108,39,373,2.64,23.59,1748,40583,27,Low
+AGC-00253,2025-05-03,May,Autumn,Berea,Sorghum,grains,3.44,48.4,12.8,5.77,167,7.2,167,72,107,5.06,6.95,4686,32066,17,High
+AGC-00254,2024-07-04,Jul,Winter,Qacha's Nek,Potatoes,vegetables,4.8,6.5,9.1,6.94,156,8.8,82,44,371,6.1,13.11,4282,54548,25,Medium
+AGC-00255,2024-04-05,Apr,Autumn,Leribe,Beans (Dry),legumes,5.93,41.3,24.7,6.46,168,22.5,151,94,127,3.8,24.03,3800,90831,8,High
+AGC-00256,2023-06-23,Jun,Winter,Butha-Buthe,Maize,grains,5.66,5,9.4,6.37,98,6.5,49,49,197,0.79,9.46,586,5428,23,Medium
+AGC-00257,2025-05-25,May,Autumn,Maseru,Cabbage,vegetables,11.62,33.3,14.8,7.09,86,7,69,77,67,59.96,10.65,57921,612978,19,High
+AGC-00258,2023-01-18,Jan,Summer,Mafeteng,Tomatoes,vegetables,9.42,111.2,19,6.03,172,12.5,187,43,111,202.34,11.54,140424,1604906,24,Medium
+AGC-00259,2024-11-25,Nov,Spring,Quthing,Maize,grains,2.91,69.8,18,6.91,183,6.5,59,38,241,7.54,9.31,4931,44719,25,Low
+AGC-00260,2025-03-14,Mar,Autumn,Butha-Buthe,Tomatoes,vegetables,6.27,64.9,20.9,6.48,141,12.5,96,39,199,72.36,16,47902,756900,23,Low
+AGC-00261,2025-06-16,Jun,Winter,Berea,Peaches,fruits,11.66,5,8.4,7.38,106,19,98,42,112,3.85,22.73,2641,59734,24,Medium
+AGC-00262,2025-02-19,Feb,Summer,Mafeteng,Tomatoes,vegetables,9.95,107.4,24.4,6.41,137,12.5,229,71,113,197.01,10.82,180855,1936414,15,High
+AGC-00263,2024-07-11,Jul,Winter,Leribe,Peaches,fruits,12.14,5,12,5.84,160,19,92,56,140,5.71,25.04,4557,113469,22,Medium
+AGC-00264,2025-04-18,Apr,Autumn,Mohale's Hoek,Cabbage,vegetables,5.04,26.2,9.9,7.39,148,7,70,46,169,26.86,9.14,19285,173006,23,Medium
+AGC-00265,2025-06-11,Jun,Winter,Mokhotlong,Wheat,grains,4.43,48.7,9.2,7.24,178,9.8,93,27,423,6.47,13.6,3662,48254,29,Low
+AGC-00266,2023-05-13,May,Autumn,Mokhotlong,Beans (Dry),legumes,3.66,59.6,16.6,7.23,177,22.5,201,61,408,3.59,21.31,3008,62873,17,Medium
+AGC-00267,2025-10-28,Oct,Spring,Berea,Maize,grains,5.72,46.7,15.4,6.27,221,6.5,105,24,96,8.52,7.66,4618,34931,27,Low
+AGC-00268,2023-11-27,Nov,Spring,Mafeteng,Beans (Dry),legumes,4.79,80.2,21.5,6.55,147,22.5,42,66,122,6.37,30.66,5593,170799,20,High
+AGC-00269,2025-10-08,Oct,Spring,Berea,Beans (Dry),legumes,2.96,67.4,16.2,5.99,160,22.5,145,51,107,2.96,25.84,2244,57745,26,Medium
+AGC-00270,2024-10-12,Oct,Spring,Thaba-Tseka,Cabbage,vegetables,5.14,83.2,20,6.55,139,7,113,25,295,102.9,9.38,56595,514166,29,Low
+AGC-00271,2023-09-12,Sep,Spring,Mokhotlong,Beans (Dry),legumes,6.62,81.7,19,6.88,183,22.5,69,40,352,9.53,29.95,6385,188983,26,Medium
+AGC-00272,2024-06-29,Jun,Winter,Butha-Buthe,Tomatoes,vegetables,6.31,5,5.8,6.76,141,12.5,80,33,212,5.68,15.79,3488,54336,27,Low
+AGC-00273,2023-10-10,Oct,Spring,Mokhotlong,Peaches,fruits,8.28,71.6,23.8,7.49,84,19,79,41,397,37.43,25.13,25378,627674,22,Medium
+AGC-00274,2023-06-12,Jun,Winter,Mafeteng,Cabbage,vegetables,6.08,28.4,5.9,7.42,137,7,160,57,126,29.18,6.45,23519,148734,19,Medium
+AGC-00275,2025-06-10,Jun,Winter,Maseru,Tomatoes,vegetables,11.82,5.3,10.4,6.04,231,12.5,71,89,67,12.17,17.82,12170,216054,12,High
+AGC-00276,2024-09-10,Sep,Spring,Leribe,Cabbage,vegetables,10.02,97,15,5.86,139,7,85,58,126,188.68,10.31,153586,1564120,17,Medium
+AGC-00277,2023-11-02,Nov,Spring,Mokhotlong,Wheat,grains,7.54,75,16.9,5.94,133,9.8,169,33,346,15.23,9.81,9351,88498,27,Low
+AGC-00278,2025-01-26,Jan,Summer,Butha-Buthe,Cabbage,vegetables,2.41,119.1,26.9,6.71,223,7,65,37,185,63.17,9.8,40808,392369,22,Low
+AGC-00279,2024-03-19,Mar,Autumn,Mokhotlong,Peaches,fruits,8.32,72.4,17.8,7.47,52,19,78,20,392,35.78,23.56,18248,422770,30,Low
+AGC-00280,2024-04-06,Apr,Autumn,Berea,Peaches,fruits,3.87,68,16.6,6.39,136,19,101,81,91,23.41,25.26,23363,588023,16,High
+AGC-00281,2023-03-24,Mar,Autumn,Mohale's Hoek,Potatoes,vegetables,5.81,62,14.9,7.39,132,8.8,114,42,176,49.27,11.13,33799,370234,27,Medium
+AGC-00282,2025-01-08,Jan,Summer,Maseru,Potatoes,vegetables,11.52,126.9,28.6,6.14,238,8.8,159,81,71,267.84,9.51,267304,2523082,17,High
+AGC-00283,2024-12-03,Dec,Summer,Maseru,Wheat,grains,4.61,131.9,19.8,5.6,162,9.8,87,61,74,13.18,13.5,11045,148290,17,Medium
+AGC-00284,2023-03-07,Mar,Autumn,Maseru,Peaches,fruits,11.47,55.5,22.1,7.08,113,19,66,55,64,44.5,24.58,35155,861860,23,Medium
+AGC-00285,2023-05-27,May,Autumn,Butha-Buthe,Cabbage,vegetables,11.61,70.6,14.2,6.78,122,7,39,50,196,173.57,10.59,130178,1353070,22,Medium
+AGC-00286,2023-02-20,Feb,Summer,Mohale's Hoek,Beans (Dry),legumes,5.71,106.8,22.4,7.49,156,22.5,61,38,166,8.22,27.63,5376,147646,24,Low
+AGC-00287,2023-03-08,Mar,Autumn,Qacha's Nek,Wheat,grains,10.86,30.3,20.6,6.12,63,9.8,86,25,362,10.43,12.23,5737,68087,26,Low
+AGC-00288,2023-11-03,Nov,Spring,Leribe,Cabbage,vegetables,9.66,87.2,21,7.45,182,7,89,43,149,161.9,8.79,112359,970894,23,Medium
+AGC-00289,2023-02-05,Feb,Summer,Leribe,Tomatoes,vegetables,7.48,120.5,20,7.36,166,12.5,154,82,147,158.2,13.98,158200,2188381,15,High
+AGC-00290,2026-01-07,Jan,Summer,Maseru,Cabbage,vegetables,3.24,111.1,31.8,5.5,142,7,91,92,73,66.52,10.19,66520,672983,15,High
+AGC-00291,2023-06-25,Jun,Winter,Mokhotlong,Peaches,fruits,2.65,42.7,8.2,7.25,161,19,91,38,391,8.21,25.25,5369,133468,24,Low
+AGC-00292,2023-04-14,Apr,Autumn,Mohale's Hoek,Sorghum,grains,8.42,42.4,21.5,7.3,175,7.2,184,42,176,10.02,6.14,6874,40997,22,Medium
+AGC-00293,2023-10-05,Oct,Spring,Butha-Buthe,Wheat,grains,8.21,81.9,19.7,7.25,170,9.8,146,65,187,18.88,10.07,16426,162338,18,High
+AGC-00294,2024-08-21,Aug,Winter,Butha-Buthe,Wheat,grains,11.5,18.1,4.7,6.6,103,9.8,37,42,180,5.98,13.5,4102,54639,27,Medium
+AGC-00295,2024-05-01,May,Autumn,Butha-Buthe,Sorghum,grains,7.58,46.5,11.1,6.85,186,7.2,174,51,193,12.96,7.05,9824,67363,19,Medium
+AGC-00296,2024-11-03,Nov,Spring,Mokhotlong,Peaches,fruits,8.85,82.1,18.8,7.42,149,19,58,40,412,47.88,25.71,32080,811560,26,Medium
+AGC-00297,2025-05-01,May,Autumn,Quthing,Peaches,fruits,3.24,33.1,16.5,6.96,149,19,53,43,256,10.27,24.79,7127,174854,24,Medium
+AGC-00298,2024-02-27,Feb,Summer,Mafeteng,Peaches,fruits,0.94,102.7,24.4,7.29,78,19,176,60,135,6.4,17.64,5312,92987,16,Medium
+AGC-00299,2024-12-24,Dec,Summer,Thaba-Tseka,Potatoes,vegetables,8.47,156.3,19.8,6.01,267,8.8,188,44,314,226.06,8.83,158694,1351438,22,Medium
+AGC-00300,2023-07-17,Jul,Winter,Berea,Peaches,fruits,11.46,13.6,5.7,7.12,124,19,58,65,90,9.86,25.96,8578,221913,21,High
+AGC-00301,2025-04-14,Apr,Autumn,Butha-Buthe,Wheat,grains,7.85,26.6,16.9,6.52,193,9.8,30,40,185,8.4,13.68,5628,75950,24,Medium
+AGC-00302,2025-08-16,Aug,Winter,Maseru,Maize,grains,9.21,7.7,10.1,5.74,119,6.5,67,61,62,1.57,8.79,1316,11486,17,Medium
+AGC-00303,2025-04-05,Apr,Autumn,Qacha's Nek,Tomatoes,vegetables,2.08,51.1,16.7,6.23,169,12.5,72,63,372,20.99,18.2,17925,319567,21,Medium
+AGC-00304,2023-10-14,Oct,Spring,Mohale's Hoek,Beans (Dry),legumes,1.8,49.8,24.2,6.74,58,22.5,42,42,178,1.17,30.06,803,23995,27,Medium
+AGC-00305,2025-03-16,Mar,Autumn,Mokhotlong,Peaches,fruits,3.36,67.1,16.3,6.96,104,19,67,22,354,18.95,23.68,9968,232514,29,Low
+AGC-00306,2025-05-05,May,Autumn,Leribe,Peaches,fruits,8.57,87.1,14.9,6.18,83,19,84,60,149,49.28,25.69,40902,1044678,16,Medium
+AGC-00307,2023-03-07,Mar,Autumn,Quthing,Peaches,fruits,10.84,44.9,14.9,6.46,76,19,86,40,232,33.71,24.77,22586,554215,23,Medium
+AGC-00308,2023-08-05,Aug,Winter,Thaba-Tseka,Tomatoes,vegetables,1.3,34.5,6,7.33,128,12.5,80,57,285,6.33,17.6,5102,88341,19,Medium
+AGC-00309,2025-01-13,Jan,Summer,Maseru,Peaches,fruits,9.5,126.1,27.4,7.48,165,19,168,81,75,78.47,18.76,78313,1463278,14,High
+AGC-00310,2023-02-09,Feb,Summer,Quthing,Sorghum,grains,5.04,106.9,21,5.87,164,7.2,22,33,227,9.93,10.46,6097,62391,27,Low
+AGC-00311,2023-12-20,Dec,Summer,Leribe,Maize,grains,8.24,114.1,22.1,6.67,221,6.5,31,42,128,30.9,9.29,21197,194207,26,Medium
+AGC-00312,2024-10-12,Oct,Spring,Leribe,Wheat,grains,11.01,74.5,19.4,6.95,134,9.8,178,84,144,25.1,10.12,25100,250398,12,High
+AGC-00313,2025-08-26,Aug,Winter,Maseru,Cabbage,vegetables,4.56,5.8,2,6.69,195,7,171,82,70,7.66,7.15,7660,54233,12,High
+AGC-00314,2023-09-10,Sep,Spring,Mokhotlong,Sorghum,grains,5.71,86.5,15.8,7.25,158,7.2,35,29,357,14.33,10.98,8340,88596,27,Low
+AGC-00315,2025-01-12,Jan,Summer,Thaba-Tseka,Cabbage,vegetables,3.76,107.8,27.8,6.64,184,7,48,21,333,88.32,10.49,45750,464683,30,Low
+AGC-00316,2025-07-07,Jul,Winter,Mokhotlong,Cabbage,vegetables,2.07,38.4,8.5,6.81,129,7,187,63,400,16.56,7.85,14142,105358,20,Medium
+AGC-00317,2023-04-04,Apr,Autumn,Mohale's Hoek,Maize,grains,0.79,37.3,19.1,6.95,167,6.5,184,47,197,0.86,6.08,624,3671,18,Medium
+AGC-00318,2025-04-27,Apr,Autumn,Quthing,Cabbage,vegetables,11.57,43.1,20.8,7.24,82,7,138,58,225,77.63,9.15,63191,563980,20,Medium
+AGC-00319,2025-02-05,Feb,Summer,Thaba-Tseka,Beans (Dry),legumes,12.45,125.2,24.1,6.24,176,22.5,85,47,315,21.04,29.26,15275,442135,26,Medium
+AGC-00320,2023-02-13,Feb,Summer,Berea,Wheat,grains,5.69,108.4,21.7,5.48,127,9.8,51,31,105,14.17,12.68,8474,106561,26,Low
+AGC-00321,2024-12-24,Dec,Summer,Quthing,Wheat,grains,10.54,102.5,29.3,7.2,120,9.8,64,56,247,25.4,13.98,20269,278354,24,Medium
+AGC-00322,2023-07-15,Jul,Winter,Mohale's Hoek,Tomatoes,vegetables,2.29,8.4,4.7,6.34,157,12.5,91,38,198,3.37,15.73,2204,34233,25,Low
+AGC-00323,2024-03-08,Mar,Autumn,Mohale's Hoek,Peaches,fruits,11.15,35.3,9.5,5.78,133,19,70,63,194,26.98,25.71,23041,587914,18,Medium
+AGC-00324,2023-11-28,Nov,Spring,Mohale's Hoek,Potatoes,vegetables,10.95,56.3,17.1,6.32,162,8.8,47,42,164,96.03,12.48,65877,811341,24,Medium
+AGC-00325,2025-10-09,Oct,Spring,Mafeteng,Beans (Dry),legumes,7.95,74,16.3,7.27,163,22.5,40,36,116,8.9,29.66,5678,167751,31,Low
+AGC-00326,2025-11-27,Nov,Spring,Leribe,Sorghum,grains,3.44,92.5,14.8,7.09,218,7.2,81,61,145,9.43,10.12,7902,78822,17,Medium
+AGC-00327,2024-09-11,Sep,Spring,Leribe,Tomatoes,vegetables,0.52,66.7,22.6,7.12,97,12.5,67,73,138,4.47,16.99,4175,70357,15,High
+AGC-00328,2023-02-09,Feb,Summer,Thaba-Tseka,Peaches,fruits,2.15,104.5,22.4,7.49,184,19,163,56,317,18.04,18.81,14396,266225,20,Medium
+AGC-00329,2024-07-08,Jul,Winter,Leribe,Potatoes,vegetables,8.94,9.9,4.6,5.67,154,8.8,114,38,138,12.07,10.54,7894,82113,27,Low
+AGC-00330,2024-12-06,Dec,Summer,Berea,Potatoes,vegetables,5.09,105,20.9,5.91,108,8.8,162,81,102,69.89,8.58,69750,591341,10,High
+AGC-00331,2024-07-06,Jul,Winter,Quthing,Potatoes,vegetables,0.97,35.5,8.8,5.75,90,8.8,62,31,230,4.35,11.58,2601,29521,26,Low
+AGC-00332,2023-10-15,Oct,Spring,Butha-Buthe,Sorghum,grains,3.08,79.6,21.6,5.99,146,7.2,59,46,188,6.75,9.67,4847,45959,25,Medium
+AGC-00333,2023-01-19,Jan,Summer,Butha-Buthe,Maize,grains,10.55,102.5,20.1,7.05,84,6.5,91,24,197,23.53,8.54,12753,106398,29,Low
+AGC-00334,2024-08-14,Aug,Winter,Qacha's Nek,Potatoes,vegetables,12.26,11,6.9,6.62,150,8.8,72,30,363,22.31,12.29,13163,156995,27,Low
+AGC-00335,2024-11-16,Nov,Spring,Thaba-Tseka,Sorghum,grains,2.68,104.8,23.2,7.31,128,7.2,98,51,287,5.52,10.3,4184,41894,26,Medium
+AGC-00336,2023-11-24,Nov,Spring,Mokhotlong,Peaches,fruits,8.47,109,18.5,6.8,121,19,81,40,415,64.12,24.66,42960,1041565,24,Medium
+AGC-00337,2024-02-18,Feb,Summer,Berea,Wheat,grains,11.15,106,22.1,5.91,71,9.8,92,73,110,21.63,13.46,20202,269697,20,High
+AGC-00338,2024-07-29,Jul,Winter,Quthing,Cabbage,vegetables,3.3,5,12.3,6.29,141,7,176,47,224,4.06,6.38,2948,18148,22,Medium
+AGC-00339,2023-07-01,Jul,Winter,Mohale's Hoek,Beans (Dry),legumes,3.84,15.4,8.7,7.31,108,22.5,69,60,178,0.96,30.06,797,23816,19,Medium
+AGC-00340,2023-09-03,Sep,Spring,Maseru,Maize,grains,8.18,48.2,17.4,5.67,191,6.5,38,81,71,11.78,9.94,11756,116020,17,High
+AGC-00341,2023-03-06,Mar,Autumn,Qacha's Nek,Maize,grains,1.76,61,18.7,6.65,79,6.5,191,52,332,2.59,6.62,1984,12475,19,Medium
+AGC-00342,2024-09-07,Sep,Spring,Quthing,Maize,grains,9.24,100.6,19.6,7.13,130,6.5,103,30,247,25.96,9.3,15316,138656,29,Low
+AGC-00343,2025-11-25,Nov,Spring,Berea,Wheat,grains,4.98,68.9,16.8,6.75,112,9.8,156,85,110,11.7,10.77,11700,124722,11,High
+AGC-00344,2024-05-09,May,Autumn,Mokhotlong,Cabbage,vegetables,6.97,53.3,18.3,6.96,82,7,32,34,351,71.58,11.1,44523,478578,29,Low
+AGC-00345,2024-07-26,Jul,Winter,Mafeteng,Maize,grains,7.44,31.4,11.2,7.07,96,6.5,53,28,126,3.94,8.36,2262,18625,32,Low
+AGC-00346,2025-07-11,Jul,Winter,Mokhotlong,Sorghum,grains,4.64,25.7,11.8,7.02,104,7.2,117,26,347,3.16,9.35,1763,15872,27,Low
+AGC-00347,2025-04-23,Apr,Autumn,Mafeteng,Peaches,fruits,1.59,48.1,15.1,7.45,121,19,46,46,117,5.01,24.88,3597,89073,22,Medium
+AGC-00348,2024-10-23,Oct,Spring,Mokhotlong,Sorghum,grains,10.8,62.9,13.7,6.93,151,7.2,85,42,341,21.28,10.38,14598,146549,26,Medium
+AGC-00349,2023-09-20,Sep,Spring,Butha-Buthe,Beans (Dry),legumes,3.56,76.5,15.7,7.31,150,22.5,71,44,182,3.6,29.55,2527,74213,26,Medium
+AGC-00350,2024-02-23,Feb,Summer,Mokhotlong,Potatoes,vegetables,10.57,128.9,16.5,6.48,207,8.8,207,44,387,249.03,8.67,174819,1448026,19,Medium
+AGC-00351,2025-09-26,Sep,Spring,Maseru,Maize,grains,1.41,67.6,23.4,5.56,98,6.5,66,73,61,2.23,9.81,2083,20307,18,High
+AGC-00352,2025-11-11,Nov,Spring,Mohale's Hoek,Potatoes,vegetables,2.72,51,15.6,5.75,144,8.8,95,23,187,22.77,10.12,12159,120775,24,Low
+AGC-00353,2023-03-12,Mar,Autumn,Quthing,Peaches,fruits,8.15,46.7,10.2,5.7,167,19,73,49,263,29.01,24.82,21525,528589,23,Medium
+AGC-00354,2025-05-10,May,Autumn,Thaba-Tseka,Wheat,grains,2.35,59.8,14.2,5.73,176,9.8,120,15,315,4.63,11.34,2176,23990,31,Low
+AGC-00355,2023-09-03,Sep,Spring,Thaba-Tseka,Beans (Dry),legumes,3.54,93.8,19.8,7.34,159,22.5,58,48,296,5.24,30.62,3846,116626,23,Medium
+AGC-00356,2024-12-27,Dec,Summer,Qacha's Nek,Peaches,fruits,6.2,107.7,26,7.19,117,19,200,42,385,38.75,17.56,26582,456546,22,Medium
+AGC-00357,2023-07-17,Jul,Winter,Maseru,Peaches,fruits,4.48,20.1,4.8,7.4,172,19,66,75,68,6.63,26.67,6299,167566,17,High
+AGC-00358,2024-11-26,Nov,Spring,Maseru,Potatoes,vegetables,2.71,65.1,19.4,5.85,197,8.8,37,76,62,25.04,13.33,23988,318273,18,High
+AGC-00359,2023-10-21,Oct,Spring,Qacha's Nek,Maize,grains,8.74,88.6,19.2,5.68,148,6.5,60,38,394,19.4,10.42,12688,127210,26,Low
+AGC-00360,2024-11-18,Nov,Spring,Qacha's Nek,Peaches,fruits,2.74,66.8,20.6,5.81,123,19,95,55,355,13.07,25.99,10325,264681,21,Medium
+AGC-00361,2024-11-21,Nov,Spring,Leribe,Potatoes,vegetables,2.07,69.5,22.8,5.91,193,8.8,64,38,120,21.78,12.35,14244,174204,24,Low
+AGC-00362,2023-07-06,Jul,Winter,Thaba-Tseka,Cabbage,vegetables,12.05,5,7.3,5.89,189,7,141,43,344,12.77,7.75,8862,65632,26,Medium
+AGC-00363,2025-11-08,Nov,Spring,Mafeteng,Maize,grains,5.69,61.5,22.3,5.75,164,6.5,93,49,134,9.9,8.48,7346,61310,24,Medium
+AGC-00364,2024-12-12,Dec,Summer,Mokhotlong,Peaches,fruits,4.51,152.2,19,5.46,176,19,207,47,388,38.06,17.02,27632,459575,21,Medium
+AGC-00365,2023-10-17,Oct,Spring,Qacha's Nek,Maize,grains,3.93,99.4,21.7,5.53,145,6.5,42,31,334,10.53,9.94,6297,60489,24,Low
+AGC-00366,2025-07-17,Jul,Winter,Mohale's Hoek,Maize,grains,11.06,16.1,4.9,6.5,153,6.5,45,60,175,5.75,9.65,4773,45224,23,Medium
+AGC-00367,2025-06-24,Jun,Winter,Butha-Buthe,Peaches,fruits,10.42,9.9,8,6.92,202,19,113,53,207,10.32,24.25,7988,192055,21,Medium
+AGC-00368,2023-10-17,Oct,Spring,Qacha's Nek,Wheat,grains,1.67,86.6,18.9,6.55,128,9.8,171,48,359,4.94,10.51,3626,36808,24,Medium
+AGC-00369,2025-08-02,Aug,Winter,Maseru,Tomatoes,vegetables,12.29,10.3,8,5.53,162,12.5,82,61,68,15.12,16.46,12671,207703,18,Medium
+AGC-00370,2024-11-01,Nov,Spring,Mohale's Hoek,Potatoes,vegetables,2.29,65.7,21.3,5.74,140,8.8,75,39,197,23.34,11.48,15451,174334,27,Low
+AGC-00371,2023-04-03,Apr,Autumn,Mohale's Hoek,Maize,grains,7.94,51.3,15.8,6.64,153,6.5,217,43,163,11.35,5.73,7877,43851,23,Medium
+AGC-00372,2023-11-03,Nov,Spring,Thaba-Tseka,Tomatoes,vegetables,5.02,73.8,18.5,6.99,96,12.5,78,41,321,51.76,17.06,35093,587422,26,Medium
+AGC-00373,2024-10-24,Oct,Spring,Thaba-Tseka,Cabbage,vegetables,8.75,61.2,27.7,6.5,107,7,94,35,281,122.41,9.81,77118,734857,29,Low
+AGC-00374,2024-02-29,Feb,Summer,Thaba-Tseka,Tomatoes,vegetables,6.61,115.7,25.1,6.66,149,12.5,205,40,317,136.3,10.9,91321,966450,24,Medium
+AGC-00375,2023-10-04,Oct,Spring,Mafeteng,Sorghum,grains,8.73,85.9,18.3,6.94,189,7.2,111,48,118,26.71,9.34,19605,180797,22,Medium
+AGC-00376,2023-09-01,Sep,Spring,Maseru,Peaches,fruits,4.67,76.2,14.7,6.66,190,19,59,59,61,33.48,25.28,27521,694052,20,Medium
+AGC-00377,2023-08-04,Aug,Winter,Qacha's Nek,Sorghum,grains,2.44,37.3,9.2,5.71,182,7.2,67,57,377,2.98,11.14,2402,25853,26,Medium
+AGC-00378,2024-12-21,Dec,Summer,Berea,Tomatoes,vegetables,11.88,88.4,24.4,7.02,154,12.5,173,76,104,133.17,12.93,127577,1636303,19,High
+AGC-00379,2023-11-29,Nov,Spring,Thaba-Tseka,Peaches,fruits,2.88,47.6,21.7,7.18,142,19,84,45,339,8.87,25.45,6298,158149,27,Medium
+AGC-00380,2023-10-25,Oct,Spring,Mafeteng,Maize,grains,5.33,50,16.5,5.82,110,6.5,82,64,130,5.7,8.55,4913,41367,18,Medium
+AGC-00381,2023-07-05,Jul,Winter,Mafeteng,Sorghum,grains,1.09,5,10.3,6.71,131,7.2,104,52,114,0.2,8.92,153,1347,19,Medium
+AGC-00382,2023-03-03,Mar,Autumn,Qacha's Nek,Peaches,fruits,6.01,45.9,19.1,5.66,175,19,124,44,361,22.96,23.39,16118,371181,22,Medium
+AGC-00383,2025-08-25,Aug,Winter,Maseru,Cabbage,vegetables,11.7,45.1,4.6,6.23,78,7,178,59,74,104.13,6.41,85595,542330,17,Medium
+AGC-00384,2023-01-31,Jan,Summer,Mokhotlong,Cabbage,vegetables,5.83,135.1,24.1,6.39,84,7,39,32,370,119.34,10.55,72320,736218,25,Low
+AGC-00385,2023-01-18,Jan,Summer,Qacha's Nek,Wheat,grains,3.44,132.5,24,6.72,73,9.8,49,19,399,8.7,13.78,4367,58435,33,Low
+AGC-00386,2025-11-15,Nov,Spring,Quthing,Cabbage,vegetables,9.8,84.8,21,7.29,166,7,18,49,247,158.07,10.82,117288,1240086,24,Medium
+AGC-00387,2023-05-14,May,Autumn,Berea,Peaches,fruits,5.02,58.5,16.7,6.98,156,19,79,53,93,26.71,24.16,20674,497561,18,Medium
+AGC-00388,2025-12-24,Dec,Summer,Butha-Buthe,Maize,grains,5.16,141.3,23.2,7.28,160,6.5,59,66,184,18.32,9.86,16085,155638,21,High
+AGC-00389,2024-09-28,Sep,Spring,Berea,Sorghum,grains,8.84,92.8,18.4,7.21,193,7.2,100,57,99,18.83,9.29,15177,139492,21,Medium
+AGC-00390,2025-09-04,Sep,Spring,Berea,Maize,grains,11.9,64.6,19.5,5.61,127,6.5,59,54,94,17.25,9.45,13490,126212,22,Medium
+AGC-00391,2023-03-18,Mar,Autumn,Maseru,Maize,grains,6.56,21.3,19.2,5.84,144,6.5,205,93,75,4.13,6.63,4130,27072,11,High
+AGC-00392,2023-04-22,Apr,Autumn,Qacha's Nek,Sorghum,grains,4,65.2,14.9,5.5,32,7.2,215,43,390,5.12,7.15,3553,24018,25,Medium
+AGC-00393,2024-01-09,Jan,Summer,Mokhotlong,Beans (Dry),legumes,2.57,107.7,24,6.2,160,22.5,91,48,382,4.11,28.83,3017,85828,24,Medium
+AGC-00394,2025-05-22,May,Autumn,Maseru,Wheat,grains,6.7,73.2,17.2,5.43,152,9.8,60,48,74,13.47,13.17,9887,129480,22,Medium
+AGC-00395,2023-12-23,Dec,Summer,Quthing,Beans (Dry),legumes,6.62,109.2,24.1,5.4,135,22.5,54,51,270,7.88,30.41,5973,180026,23,Medium
+AGC-00396,2025-06-15,Jun,Winter,Mohale's Hoek,Beans (Dry),legumes,1.72,33,10.6,6.56,260,22.5,51,46,195,1.2,30.02,862,25709,24,Medium
+AGC-00397,2023-03-08,Mar,Autumn,Thaba-Tseka,Sorghum,grains,1.66,60.6,17.9,6.31,149,7.2,163,53,292,4.07,7.57,3150,22926,23,Medium
+AGC-00398,2024-05-20,May,Autumn,Mokhotlong,Maize,grains,9.05,40.3,14.7,6.07,122,6.5,139,44,385,11.22,7.55,7876,56432,23,Medium
+AGC-00399,2024-01-20,Jan,Summer,Thaba-Tseka,Cabbage,vegetables,8.35,117.4,21.5,6,146,7,108,32,308,190.71,8.86,115570,988355,27,Low
+AGC-00400,2025-03-28,Mar,Autumn,Butha-Buthe,Peaches,fruits,3.65,64.1,21,6.51,178,19,96,46,174,22.19,23.69,15932,374657,23,Medium
+AGC-00401,2025-07-08,Jul,Winter,Thaba-Tseka,Tomatoes,vegetables,4.04,20.1,5.1,6.87,138,12.5,14,15,306,15.27,17.6,7177,124119,31,Low
+AGC-00402,2023-11-21,Nov,Spring,Mokhotlong,Tomatoes,vegetables,11.62,89.9,14,6.93,166,12.5,69,63,395,193.94,18.78,165625,3045016,19,Medium
+AGC-00403,2023-01-15,Jan,Summer,Mohale's Hoek,Tomatoes,vegetables,4.8,79.2,23.2,7.37,183,12.5,155,44,169,61.15,11.43,42927,483401,23,Medium
+AGC-00404,2025-01-04,Jan,Summer,Qacha's Nek,Potatoes,vegetables,9.29,121.3,24.7,6.58,161,8.8,178,37,348,209.3,9.09,135208,1181988,26,Low
+AGC-00405,2025-07-25,Jul,Winter,Butha-Buthe,Beans (Dry),legumes,12.28,31.6,11.7,5.99,75,22.5,125,48,209,4.91,27.42,3604,98068,19,Medium
+AGC-00406,2023-07-31,Jul,Winter,Berea,Cabbage,vegetables,6.6,20.7,4.8,7.04,152,7,163,80,112,28.78,8.06,28492,226454,19,High
+AGC-00407,2023-06-14,Jun,Winter,Qacha's Nek,Wheat,grains,3.61,23.3,7,6.23,60,9.8,94,38,352,2.56,13.2,1674,21508,26,Low
+AGC-00408,2023-11-15,Nov,Spring,Mohale's Hoek,Tomatoes,vegetables,6.61,86.2,20.7,7.32,126,12.5,51,43,183,86.39,17.2,59955,1020254,23,Medium
+AGC-00409,2023-01-17,Jan,Summer,Mokhotlong,Sorghum,grains,7.86,153.9,21.4,5.85,120,7.2,40,30,371,17.92,10.31,10573,105085,29,Low
+AGC-00410,2025-09-22,Sep,Spring,Leribe,Beans (Dry),legumes,11.87,87.8,24.9,6.12,131,22.5,95,72,144,20.06,30.22,18576,558692,16,High
+AGC-00411,2023-07-31,Jul,Winter,Berea,Maize,grains,7.1,33,11,7.3,106,6.5,79,60,99,4.76,8.49,3951,33153,21,Medium
+AGC-00412,2023-03-11,Mar,Autumn,Leribe,Peaches,fruits,8.15,45.9,20.2,7.46,120,19,30,41,122,26,25.02,17628,438902,22,Medium
+AGC-00413,2024-12-04,Dec,Summer,Mohale's Hoek,Potatoes,vegetables,7.3,112.9,18.8,6.97,126,8.8,193,60,163,126.51,7.94,105003,816608,17,Medium
+AGC-00414,2025-04-07,Apr,Autumn,Mafeteng,Maize,grains,10.42,23.3,16.9,6.94,224,6.5,195,60,116,8.86,6.51,7354,47021,16,Medium
+AGC-00415,2024-10-07,Oct,Spring,Mohale's Hoek,Potatoes,vegetables,2.06,57.6,25,7.1,189,8.8,64,49,199,17.41,12.88,12918,163813,24,Medium
+AGC-00416,2025-03-07,Mar,Autumn,Quthing,Sorghum,grains,12.27,37.5,16.6,7.17,80,7.2,222,45,221,11.04,6.52,7838,49372,23,Medium
+AGC-00417,2024-07-24,Jul,Winter,Mokhotlong,Potatoes,vegetables,2.25,5,6.1,6.8,205,8.8,101,26,418,2.07,12.68,1155,14163,25,Low
+AGC-00418,2025-06-29,Jun,Winter,Mohale's Hoek,Maize,grains,12.25,23.3,7.3,5.69,222,6.5,86,58,189,7.96,9.26,6479,58771,21,Medium
+AGC-00419,2025-12-23,Dec,Summer,Thaba-Tseka,Sorghum,grains,8.6,113.6,22.2,5.83,155,7.2,107,22,333,18.4,9.51,9678,88815,29,Low
+AGC-00420,2024-02-08,Feb,Summer,Butha-Buthe,Wheat,grains,10.03,121,20.4,6.02,165,9.8,82,43,202,30.99,12.18,21507,257611,26,Medium
+AGC-00421,2025-11-14,Nov,Spring,Quthing,Wheat,grains,8.08,70.3,16.4,7.37,181,9.8,170,54,239,19.31,9.16,15100,134707,20,Medium
+AGC-00422,2023-11-26,Nov,Spring,Mohale's Hoek,Cabbage,vegetables,2.35,58.2,14.8,6.83,124,7,107,46,172,24.35,9.27,17483,159060,23,Medium
+AGC-00423,2023-02-11,Feb,Summer,Butha-Buthe,Tomatoes,vegetables,8.91,103.8,20.7,5.87,155,12.5,179,79,173,163.23,11.78,160292,1860509,15,High
+AGC-00424,2023-12-15,Dec,Summer,Berea,Maize,grains,2.66,117.1,25.1,6.01,185,6.5,62,68,102,9.28,9.42,8296,77302,19,High
+AGC-00425,2024-07-08,Jul,Winter,Leribe,Maize,grains,10.32,23.1,6.3,6.68,122,6.5,74,41,130,7.33,8.35,4970,40853,21,Medium
+AGC-00426,2024-02-26,Feb,Summer,Leribe,Potatoes,vegetables,11.79,116.7,27.1,7.16,93,8.8,183,56,146,173.67,7.95,138589,1081549,18,Medium
+AGC-00427,2023-08-05,Aug,Winter,Mohale's Hoek,Tomatoes,vegetables,5.55,15.3,7.9,7.3,105,12.5,59,53,160,11.99,16.24,9280,149222,21,Medium
+AGC-00428,2025-05-18,May,Autumn,Qacha's Nek,Beans (Dry),legumes,8.63,45,15.2,7.09,129,22.5,189,53,330,5.26,20.91,4071,83781,20,Medium
+AGC-00429,2023-10-23,Oct,Spring,Quthing,Tomatoes,vegetables,3.91,66.8,12.7,6.86,229,12.5,42,44,224,53.37,17.45,37466,645389,25,Medium
+AGC-00430,2023-08-09,Aug,Winter,Leribe,Beans (Dry),legumes,10.12,21.2,1.9,5.87,132,22.5,95,53,142,2.93,28.42,2268,64135,22,Medium
+AGC-00431,2025-10-28,Oct,Spring,Mokhotlong,Peaches,fruits,6.36,99.8,21.7,7.05,195,19,105,28,354,55.59,22.35,31909,701870,27,Low
+AGC-00432,2024-04-12,Apr,Autumn,Mokhotlong,Tomatoes,vegetables,5.22,74.8,16.9,7.21,113,12.5,95,24,344,51.63,15.94,27983,436423,27,Low
+AGC-00433,2024-11-28,Nov,Spring,Thaba-Tseka,Potatoes,vegetables,10.56,86.3,17.8,6.58,84,8.8,65,47,319,136.01,12.74,98743,1226487,24,Medium
+AGC-00434,2023-01-18,Jan,Summer,Leribe,Potatoes,vegetables,9.81,131.6,23.3,6.43,116,8.8,230,70,126,188.16,7.8,171226,1313988,13,High
+AGC-00435,2025-11-29,Nov,Spring,Mohale's Hoek,Tomatoes,vegetables,8.21,47.4,15.7,6.34,209,12.5,62,54,171,80.21,17.15,62724,1064991,20,Medium
+AGC-00436,2025-05-14,May,Autumn,Mohale's Hoek,Peaches,fruits,11.13,64.3,15.5,6.75,93,19,73,41,172,61.77,23.82,41880,990378,27,Medium
+AGC-00437,2025-02-12,Feb,Summer,Butha-Buthe,Sorghum,grains,3.62,133.8,27.6,5.8,132,7.2,68,54,172,7.93,10.43,6201,63610,24,Medium
+AGC-00438,2025-11-13,Nov,Spring,Mafeteng,Maize,grains,4.13,72.8,15.3,6.93,123,6.5,60,50,127,8.22,8.62,6165,52359,22,Medium
+AGC-00439,2024-03-29,Mar,Autumn,Mokhotlong,Sorghum,grains,5.12,46.3,18.7,7.04,183,7.2,234,50,356,6.81,6.6,5108,31894,21,Medium
+AGC-00440,2025-05-22,May,Autumn,Mafeteng,Wheat,grains,11.77,43.5,14.1,7.41,93,9.8,109,49,125,13.18,12.52,9780,121223,23,Medium
+AGC-00441,2025-05-09,May,Autumn,Qacha's Nek,Maize,grains,12.36,73.5,16.3,7.44,127,6.5,193,35,371,22.25,6.57,14017,86891,23,Low
+AGC-00442,2025-11-08,Nov,Spring,Maseru,Potatoes,vegetables,7.98,82.8,17.6,6.07,190,8.8,10,40,70,123.37,11.95,82658,981977,21,Medium
+AGC-00443,2023-07-24,Jul,Winter,Quthing,Maize,grains,2.46,5,8,6.12,150,6.5,62,37,248,0.37,9.37,239,2180,25,Low
+AGC-00444,2024-08-16,Aug,Winter,Quthing,Potatoes,vegetables,5.49,28.9,6.8,6.83,204,8.8,53,42,221,31.68,12.2,21732,260328,23,Medium
+AGC-00445,2023-08-15,Aug,Winter,Qacha's Nek,Beans (Dry),legumes,7.83,16.2,7.3,5.67,98,22.5,46,42,399,1.57,30.26,1077,32160,28,Medium
+AGC-00446,2024-10-06,Oct,Spring,Thaba-Tseka,Sorghum,grains,5.28,72.5,20.4,7.01,103,7.2,44,36,327,9.19,11.15,5863,63455,29,Low
+AGC-00447,2023-12-18,Dec,Summer,Qacha's Nek,Peaches,fruits,5.95,116.8,27.3,7.33,119,19,163,64,325,38.68,19.81,33342,649669,17,Medium
+AGC-00448,2023-04-07,Apr,Autumn,Mokhotlong,Tomatoes,vegetables,2.42,41.4,22.2,6.74,173,12.5,65,19,419,18.9,16.74,9488,154854,29,Low
+AGC-00449,2025-05-03,May,Autumn,Mokhotlong,Sorghum,grains,4.3,64.8,23.2,5.81,237,7.2,213,57,408,8.86,7.32,7141,49359,21,Medium
+AGC-00450,2024-06-20,Jun,Winter,Qacha's Nek,Maize,grains,9.79,35.9,9.1,6.33,86,6.5,83,32,357,10.57,10.28,6405,63557,25,Low
+AGC-00451,2025-04-05,Apr,Autumn,Maseru,Peaches,fruits,9.4,16.5,12.1,6.89,138,19,91,77,64,12.41,25.2,11988,301330,15,High
+AGC-00452,2024-10-21,Oct,Spring,Mafeteng,Peaches,fruits,6.94,77.3,20.2,6.96,193,19,53,47,123,57.05,25.24,41418,1040296,19,Medium
+AGC-00453,2023-06-07,Jun,Winter,Leribe,Cabbage,vegetables,9.61,31.4,4.9,7.19,55,7,180,58,148,46.22,6.31,37623,231833,20,Medium
+AGC-00454,2025-10-11,Oct,Spring,Thaba-Tseka,Beans (Dry),legumes,6.54,63.6,16,6.72,99,22.5,69,33,301,7.13,28.69,4378,124287,23,Low
+AGC-00455,2025-10-19,Oct,Spring,Berea,Wheat,grains,5.26,88.2,16,6.63,153,9.8,174,62,94,16.83,9.6,14238,135346,19,Medium
+AGC-00456,2023-02-23,Feb,Summer,Maseru,Beans (Dry),legumes,1.8,126.4,23.3,7.07,208,22.5,64,71,69,2.7,31.2,2479,77174,16,High
+AGC-00457,2025-10-21,Oct,Spring,Mokhotlong,Beans (Dry),legumes,8.31,82.9,18.3,6.83,134,22.5,122,17,373,12.13,26.19,5895,152191,30,Low
+AGC-00458,2024-03-22,Mar,Autumn,Mokhotlong,Peaches,fruits,9.75,71.2,20.5,6.09,185,19,29,22,341,69.13,25.37,36362,910104,33,Low
+AGC-00459,2023-07-13,Jul,Winter,Butha-Buthe,Sorghum,grains,9.43,15.6,9.1,6.03,141,7.2,99,59,178,5.56,10.29,4570,46212,21,Medium
+AGC-00460,2024-12-18,Dec,Summer,Qacha's Nek,Sorghum,grains,9.48,109.3,23.6,7.18,116,7.2,89,15,374,20.76,10.09,9757,94799,31,Low
+AGC-00461,2026-01-07,Jan,Summer,Maseru,Wheat,grains,10.19,114.2,18.1,6.62,167,9.8,110,79,66,30.37,13.27,29823,393783,14,High
+AGC-00462,2024-06-02,Jun,Winter,Berea,Sorghum,grains,2.23,42.7,1.3,6.9,171,7.2,70,51,110,3.77,9.66,2858,27294,22,Medium
+AGC-00463,2024-11-25,Nov,Spring,Mafeteng,Peaches,fruits,5.5,67.9,21.1,5.63,126,19,41,55,130,29.2,26.14,23068,599999,22,Medium
+AGC-00464,2023-04-08,Apr,Autumn,Mohale's Hoek,Sorghum,grains,1.64,49.8,19.9,6.72,150,7.2,173,40,187,3.18,7.83,2131,16287,25,Medium
+AGC-00465,2025-12-25,Dec,Summer,Qacha's Nek,Tomatoes,vegetables,5.91,102.5,22.6,5.44,130,12.5,206,64,321,91.78,11.72,79114,901820,15,Medium
+AGC-00466,2024-02-21,Feb,Summer,Mokhotlong,Peaches,fruits,11.4,143.2,26,6.55,172,19,169,53,364,119.36,18.04,92385,1632997,24,Medium
+AGC-00467,2023-08-16,Aug,Winter,Qacha's Nek,Tomatoes,vegetables,4.92,29.2,14.2,6.06,130,12.5,97,20,336,29.57,15.07,15081,222203,30,Low
+AGC-00468,2023-07-04,Jul,Winter,Thaba-Tseka,Maize,grains,4.91,21.3,5,6.35,127,6.5,88,26,285,2.7,9.09,1507,13269,30,Low
+AGC-00469,2025-05-08,May,Autumn,Berea,Potatoes,vegetables,8.41,48.3,19.7,5.48,132,8.8,54,31,109,50.96,11.69,30474,352919,29,Low
+AGC-00470,2023-09-03,Sep,Spring,Mokhotlong,Sorghum,grains,8.52,59.2,22.8,6.02,103,7.2,65,47,380,17.55,10.71,12741,131615,26,Medium
+AGC-00471,2024-12-12,Dec,Summer,Leribe,Beans (Dry),legumes,6.36,130.8,26.4,6.71,219,22.5,61,66,147,11.51,30.84,10106,310183,18,High
+AGC-00472,2023-11-30,Nov,Spring,Berea,Cabbage,vegetables,0.6,89.1,18.2,5.61,153,7,79,40,98,10.28,8.78,6888,59802,26,Medium
+AGC-00473,2025-06-03,Jun,Winter,Leribe,Potatoes,vegetables,5.98,5,10.2,6.04,158,8.8,83,67,141,5.02,11.73,4448,51548,19,High
+AGC-00474,2023-05-19,May,Autumn,Berea,Sorghum,grains,5.86,38.3,17.8,6.73,165,7.2,186,57,110,9.02,6.4,7270,45728,20,Medium
+AGC-00475,2023-10-07,Oct,Spring,Mafeteng,Potatoes,vegetables,3.96,61.5,19.1,5.41,131,8.8,78,58,124,31.72,12.01,25820,306897,19,Medium
+AGC-00476,2023-08-20,Aug,Winter,Quthing,Beans (Dry),legumes,3.93,16.5,11.2,6.22,245,22.5,105,15,253,1.14,25.58,536,13575,27,Low
+AGC-00477,2024-09-03,Sep,Spring,Berea,Maize,grains,6.96,68,22,6.11,176,6.5,59,47,98,16.15,8.99,11725,104259,23,Medium
+AGC-00478,2025-06-05,Jun,Winter,Berea,Tomatoes,vegetables,11.77,22.3,10.4,5.88,191,12.5,54,61,111,41.55,17.04,34819,589451,15,Medium
+AGC-00479,2024-11-25,Nov,Spring,Thaba-Tseka,Wheat,grains,11.56,89.7,20,6.57,168,9.8,210,55,340,35.49,9.34,28037,252333,20,Medium
+AGC-00480,2023-08-26,Aug,Winter,Butha-Buthe,Cabbage,vegetables,5.2,33.1,1.8,5.99,187,7,155,64,180,36.3,7.39,31291,225608,19,Medium
+AGC-00481,2025-01-02,Jan,Summer,Qacha's Nek,Wheat,grains,8.26,130.6,24.6,7.14,157,9.8,92,48,354,20.07,12.62,14731,180690,26,Medium
+AGC-00482,2025-03-04,Mar,Autumn,Berea,Peaches,fruits,6.66,62,14.7,6.93,158,19,85,59,105,40.83,24.37,33562,814382,21,Medium
+AGC-00483,2023-04-26,Apr,Autumn,Berea,Potatoes,vegetables,10.12,45.8,16.1,7.12,210,8.8,94,52,97,79.44,11.37,60851,685973,20,Medium
+AGC-00484,2025-03-28,Mar,Autumn,Thaba-Tseka,Wheat,grains,9.37,29.4,13.2,7.24,179,9.8,54,31,292,9.28,13.41,5549,72792,28,Low
+AGC-00485,2024-05-30,May,Autumn,Quthing,Sorghum,grains,4.97,7.5,15.5,6.6,132,7.2,165,45,259,1.14,7.23,809,5640,20,Medium
+AGC-00486,2023-04-25,Apr,Autumn,Berea,Cabbage,vegetables,12.09,59.6,13.8,5.47,167,7,96,56,97,157.17,9.85,125422,1223241,21,Medium
+AGC-00487,2024-01-11,Jan,Summer,Qacha's Nek,Potatoes,vegetables,8.81,120.7,18.8,6.25,147,8.8,161,36,320,152.24,8.65,97129,809085,24,Low
+AGC-00488,2023-06-04,Jun,Winter,Quthing,Wheat,grains,0.78,5,7.7,5.4,237,9.8,10,37,223,0.2,14.52,129,1844,26,Low
+AGC-00489,2024-05-31,May,Autumn,Berea,Sorghum,grains,1.46,53,14,6.96,169,7.2,168,77,92,2.98,7.69,2879,21875,14,High
+AGC-00490,2025-11-08,Nov,Spring,Berea,Beans (Dry),legumes,1.89,79.5,15.4,6.44,136,22.5,78,54,103,2.59,28.34,2025,57180,24,Medium
+AGC-00491,2023-05-08,May,Autumn,Maseru,Wheat,grains,8.34,21.2,11.6,7.42,159,9.8,29,67,67,5.42,14.16,4802,67675,22,High
+AGC-00492,2024-09-17,Sep,Spring,Leribe,Cabbage,vegetables,8.1,85.7,20.2,6.44,138,7,52,69,131,159.41,10.16,143788,1442050,17,High
+AGC-00493,2025-03-01,Mar,Autumn,Quthing,Beans (Dry),legumes,1.35,47.6,19.1,6.09,159,22.5,152,39,237,1.24,20.88,821,16948,23,Low
+AGC-00494,2023-05-28,May,Autumn,Berea,Cabbage,vegetables,10.53,62.6,21.6,6.41,135,7,68,39,111,140.89,8.69,93269,800155,28,Low
+AGC-00495,2024-09-18,Sep,Spring,Qacha's Nek,Peaches,fruits,1.99,93.1,18.9,7.32,176,19,82,25,350,14.29,23.67,7860,183295,24,Low
+AGC-00496,2025-11-15,Nov,Spring,Qacha's Nek,Cabbage,vegetables,3.14,100.8,18.5,5.74,62,7,16,57,391,52.25,11.21,42114,455631,21,Medium
+AGC-00497,2024-03-13,Mar,Autumn,Mafeteng,Beans (Dry),legumes,10.62,51.7,19.1,7.17,82,22.5,147,52,136,7.86,21.08,6021,126104,19,Medium
+AGC-00498,2025-03-05,Mar,Autumn,Mafeteng,Potatoes,vegetables,9.52,28.9,11.9,6.63,144,8.8,93,54,137,46.08,11.72,36035,417393,22,Medium
+AGC-00499,2024-01-28,Jan,Summer,Maseru,Maize,grains,12.2,99.3,21.9,6.15,51,6.5,44,86,72,30.5,9.92,30500,300364,16,High
+AGC-00500,2026-01-03,Jan,Summer,Quthing,Sorghum,grains,6.34,133.8,27.4,6.09,165,7.2,106,54,240,14.9,10.5,11652,119550,22,Medium
+AGC-00501,2025-01-08,Jan,Summer,Mokhotlong,Beans (Dry),legumes,1.99,117.5,24.4,6.59,125,22.5,113,51,350,2.69,28.94,2039,58295,23,Medium
+AGC-00502,2023-12-23,Dec,Summer,Thaba-Tseka,Peaches,fruits,10.72,106.9,26,5.71,71,19,146,49,285,60.57,18.3,44943,809648,25,Medium
+AGC-00503,2024-10-01,Oct,Spring,Mafeteng,Cabbage,vegetables,11.26,82,20,6.61,169,7,126,37,137,218.44,8,141112,1109564,27,Low
+AGC-00504,2025-03-01,Mar,Autumn,Berea,Tomatoes,vegetables,4.09,62.7,20,6.64,98,12.5,63,62,93,41.64,17.14,35227,600515,20,Medium
+AGC-00505,2023-06-10,Jun,Winter,Butha-Buthe,Potatoes,vegetables,8.46,40.2,5.7,6.03,61,8.8,57,44,200,44.33,12.48,31120,382154,26,Medium
+AGC-00506,2024-04-09,Apr,Autumn,Quthing,Cabbage,vegetables,8.18,73.4,20.9,5.95,189,7,56,28,272,126.46,10.47,72588,740252,28,Low
+AGC-00507,2025-12-29,Dec,Summer,Quthing,Potatoes,vegetables,6.39,120.8,26,5.89,98,8.8,141,65,272,89.46,9.61,77830,726777,18,High
+AGC-00508,2024-05-08,May,Autumn,Butha-Buthe,Wheat,grains,4.38,49.9,17.5,5.6,173,9.8,58,24,199,7.31,12.57,3962,49014,29,Low
+AGC-00509,2025-08-04,Aug,Winter,Mafeteng,Beans (Dry),legumes,1.15,20.5,13.8,5.86,213,22.5,107,62,123,0.39,28.92,330,9503,19,Medium
+AGC-00510,2024-06-12,Jun,Winter,Butha-Buthe,Sorghum,grains,4.65,26.6,7.7,7.29,33,7.2,63,16,174,2.51,9.74,1200,11479,31,Low
+AGC-00511,2025-01-01,Jan,Summer,Thaba-Tseka,Sorghum,grains,8.75,126,21.5,7.4,159,7.2,53,30,315,18.99,10.33,11204,112208,33,Low
+AGC-00512,2023-02-16,Feb,Summer,Leribe,Potatoes,vegetables,6.43,96.3,23.6,6.95,139,8.8,202,64,120,117.35,7.98,101156,795086,20,Medium
+AGC-00513,2024-04-04,Apr,Autumn,Thaba-Tseka,Cabbage,vegetables,3.37,49.2,13.9,5.64,221,7,64,21,295,39.53,9.8,20477,194634,35,Low
+AGC-00514,2025-08-02,Aug,Winter,Berea,Sorghum,grains,10.56,39.1,6.1,5.81,132,7.2,43,54,105,12.78,10.13,9994,100190,22,Medium
+AGC-00515,2023-09-29,Sep,Spring,Leribe,Sorghum,grains,10.63,86.4,18.4,6.38,102,7.2,98,70,138,28.06,10.24,25535,257955,17,High
+AGC-00516,2024-06-09,Jun,Winter,Butha-Buthe,Sorghum,grains,1.15,31.6,13.7,6.56,172,7.2,96,66,183,1.26,10.67,1106,11599,20,High
+AGC-00517,2023-06-28,Jun,Winter,Leribe,Wheat,grains,5.95,17.8,7.4,6.22,158,9.8,69,35,146,3.75,13.45,2362,31424,24,Low
+AGC-00518,2024-07-26,Jul,Winter,Qacha's Nek,Wheat,grains,11.79,7.4,4.9,6.36,139,9.8,47,56,394,2.71,14.76,2163,31074,21,Medium
+AGC-00519,2024-06-13,Jun,Winter,Mohale's Hoek,Maize,grains,2.5,40.7,10.3,6.58,72,6.5,23,39,197,2.85,9.53,1887,17611,26,Low
+AGC-00520,2025-06-27,Jun,Winter,Thaba-Tseka,Tomatoes,vegetables,1.97,32.9,10.8,6.33,167,12.5,84,46,317,12.35,16.61,8867,144470,26,Medium
+AGC-00521,2024-10-26,Oct,Spring,Leribe,Sorghum,grains,2.58,58.5,23.3,6.66,195,7.2,100,71,131,6.53,10.16,5995,60124,17,High
+AGC-00522,2025-03-27,Mar,Autumn,Butha-Buthe,Sorghum,grains,11.1,37.2,18.4,5.64,79,7.2,204,34,194,9.43,5.81,5865,32938,23,Low
+AGC-00523,2024-11-07,Nov,Spring,Leribe,Maize,grains,10.87,89.6,16.1,5.41,62,6.5,84,69,146,19.24,9.29,17354,158685,18,High
+AGC-00524,2024-12-24,Dec,Summer,Mohale's Hoek,Potatoes,vegetables,0.65,123.2,25.5,6.45,159,8.8,181,58,161,13.33,9.03,10851,96238,20,Medium
+AGC-00525,2025-01-31,Jan,Summer,Mafeteng,Beans (Dry),legumes,6.86,83.6,28.9,6.96,203,22.5,45,61,112,12.55,30.07,10517,315068,21,Medium
+AGC-00526,2025-02-02,Feb,Summer,Maseru,Maize,grains,7.89,117.2,22.2,7.33,52,6.5,63,79,60,19.17,8.63,18825,161330,15,High
+AGC-00527,2023-12-19,Dec,Summer,Berea,Beans (Dry),legumes,11.18,115.8,21.6,7.25,138,22.5,91,62,93,14.76,28.38,12487,353220,19,Medium
+AGC-00528,2023-03-09,Mar,Autumn,Thaba-Tseka,Tomatoes,vegetables,2.82,16,15.4,5.65,184,12.5,57,39,319,6.74,17.09,4462,74832,25,Low
+AGC-00529,2025-01-19,Jan,Summer,Mohale's Hoek,Sorghum,grains,1.99,88,22.6,6.64,148,7.2,99,30,182,5.85,8.36,3452,28230,26,Low
+AGC-00530,2023-05-25,May,Autumn,Qacha's Nek,Tomatoes,vegetables,11.73,5.6,17.8,6.49,83,12.5,55,26,334,9.03,17.08,5039,84383,29,Low
+AGC-00531,2024-09-02,Sep,Spring,Mohale's Hoek,Tomatoes,vegetables,7.81,54.2,17.8,6.08,120,12.5,82,60,188,73.8,16.74,61254,1013876,16,Medium
+AGC-00532,2024-06-27,Jun,Winter,Mafeteng,Beans (Dry),legumes,7.72,46.3,8.3,6.19,125,22.5,32,47,125,5.64,30.71,4095,125246,25,Medium
+AGC-00533,2024-09-13,Sep,Spring,Leribe,Sorghum,grains,3.35,73.7,22.5,7.16,80,7.2,59,56,134,5.36,9.89,4277,41726,20,Medium
+AGC-00534,2023-03-23,Mar,Autumn,Berea,Tomatoes,vegetables,4.06,44.4,15.3,6.69,81,12.5,78,42,97,27.04,16.37,18549,301848,27,Medium
+AGC-00535,2024-04-04,Apr,Autumn,Butha-Buthe,Peaches,fruits,12.02,64,13.5,6.05,174,19,36,34,197,59.74,25.43,37158,937608,30,Low
+AGC-00536,2025-03-06,Mar,Autumn,Quthing,Beans (Dry),legumes,9.96,21.9,12.9,6.94,172,22.5,203,52,261,4.18,19.6,3202,61923,19,Medium
+AGC-00537,2023-11-24,Nov,Spring,Mafeteng,Wheat,grains,8.25,77,12.8,6.96,149,9.8,151,63,119,23.35,9.59,19941,188861,18,Medium
+AGC-00538,2025-02-16,Feb,Summer,Qacha's Nek,Wheat,grains,4.78,108.7,19.9,7.5,225,9.8,35,26,387,14.01,14.39,7818,109475,30,Low
+AGC-00539,2025-02-14,Feb,Summer,Mafeteng,Beans (Dry),legumes,2.05,90.9,23.6,6.67,105,22.5,96,33,129,2.87,27.25,1762,47787,26,Low
+AGC-00540,2025-10-30,Oct,Spring,Mafeteng,Peaches,fruits,6.5,75,14.7,6.14,83,19,89,49,130,41.66,23.8,30912,731687,23,Medium
+AGC-00541,2023-12-03,Dec,Summer,Butha-Buthe,Wheat,grains,5.08,122.3,22.9,6.99,80,9.8,51,29,185,11.63,13.16,6769,87828,27,Low
+AGC-00542,2024-05-29,May,Autumn,Berea,Maize,grains,5.47,42.5,13.2,6.8,153,6.5,220,74,102,7.99,6.53,7527,48384,15,High
+AGC-00543,2023-10-26,Oct,Spring,Mokhotlong,Peaches,fruits,6.64,112.3,14.9,5.44,220,19,76,31,390,63.15,24.46,37764,908979,30,Low
+AGC-00544,2025-01-05,Jan,Summer,Maseru,Beans (Dry),legumes,3.4,111.7,26.5,6.84,163,22.5,105,59,71,5.03,28.01,4135,115528,18,Medium
+AGC-00545,2023-08-31,Aug,Winter,Thaba-Tseka,Sorghum,grains,9.48,13.1,8.1,5.59,203,7.2,63,44,308,3.79,10.67,2661,27573,23,Medium
+AGC-00546,2024-04-04,Apr,Autumn,Mafeteng,Cabbage,vegetables,10.8,55.5,14.1,7.19,135,7,31,56,116,124.74,10.35,99543,1018723,21,Medium
+AGC-00547,2025-08-23,Aug,Winter,Maseru,Cabbage,vegetables,11.18,13.4,7.2,6.64,128,7,231,91,67,33.65,6.15,33650,204693,9,High
+AGC-00548,2025-08-23,Aug,Winter,Berea,Peaches,fruits,11.59,35.3,4.9,7.04,177,19,46,52,112,29.9,25.75,22903,587187,20,Medium
+AGC-00549,2025-10-16,Oct,Spring,Leribe,Tomatoes,vegetables,1.9,80.8,16.9,6.68,74,12.5,60,68,150,22.08,17.21,19740,336764,17,High
+AGC-00550,2023-03-22,Mar,Autumn,Mafeteng,Tomatoes,vegetables,9.77,72,18.8,6.21,143,12.5,83,55,133,133.65,16.19,105584,1695362,21,Medium
+AGC-00551,2024-01-21,Jan,Summer,Quthing,Tomatoes,vegetables,8.28,112.7,19.8,5.45,150,12.5,171,49,234,136.54,12.12,101313,1204206,18,Medium
+AGC-00552,2023-04-05,Apr,Autumn,Leribe,Potatoes,vegetables,11.41,33.2,15.2,6.09,165,8.8,72,56,124,54.88,12.63,43794,547688,23,Medium
+AGC-00553,2025-11-05,Nov,Spring,Mohale's Hoek,Cabbage,vegetables,8.28,46.6,18.7,6.3,107,7,103,42,170,88.26,9.45,60546,561867,26,Medium
+AGC-00554,2024-09-17,Sep,Spring,Leribe,Beans (Dry),legumes,4.74,73.6,25.7,7.16,132,22.5,106,57,143,5.4,28.67,4352,124150,19,Medium
+AGC-00555,2024-08-10,Aug,Winter,Leribe,Beans (Dry),legumes,9.07,15.1,6.2,6.54,174,22.5,76,53,134,2.45,28.24,1896,53289,24,Medium
+AGC-00556,2024-11-20,Nov,Spring,Mafeteng,Cabbage,vegetables,7.75,49.3,19.3,6.78,172,7,93,54,118,96.64,8.64,75572,644025,23,Medium
+AGC-00557,2023-02-11,Feb,Summer,Mokhotlong,Cabbage,vegetables,3.85,120.5,21.2,6.63,171,7,29,38,357,87.86,10.85,57460,602928,29,Low
+AGC-00558,2024-01-09,Jan,Summer,Maseru,Maize,grains,11.27,119.3,23,6.21,207,6.5,50,56,67,41.7,9.17,33277,302921,20,Medium
+AGC-00559,2024-06-24,Jun,Winter,Mafeteng,Beans (Dry),legumes,3.59,28.9,9.3,5.88,84,22.5,88,51,124,1.22,28.46,925,26211,17,Medium
+AGC-00560,2024-01-23,Jan,Summer,Mafeteng,Beans (Dry),legumes,9.05,82.3,24.7,6.95,128,22.5,71,61,127,11.95,29.18,10014,290937,17,Medium
+AGC-00561,2024-01-24,Jan,Summer,Mokhotlong,Potatoes,vegetables,12.07,128.8,22.7,7.02,184,8.8,203,43,415,212.79,9.16,147676,1291427,22,Medium
+AGC-00562,2024-11-17,Nov,Spring,Mohale's Hoek,Sorghum,grains,9.5,76.2,21.2,7.23,109,7.2,81,44,179,20.33,9.95,14272,139452,23,Medium
+AGC-00563,2025-02-02,Feb,Summer,Mohale's Hoek,Cabbage,vegetables,1.51,100.6,26.2,7.48,174,7,81,50,183,29.1,10.01,21825,214474,23,Medium
+AGC-00564,2024-11-07,Nov,Spring,Thaba-Tseka,Wheat,grains,3.7,66.3,20,5.51,64,9.8,197,70,308,5.59,10.26,5087,50626,13,High
+AGC-00565,2024-07-08,Jul,Winter,Quthing,Maize,grains,5.31,5,-0.8,6.88,149,6.5,67,68,232,0.85,10.96,760,8153,16,High
+AGC-00566,2023-07-04,Jul,Winter,Butha-Buthe,Beans (Dry),legumes,1.45,9.4,12.8,6.1,128,22.5,100,26,186,0.22,26.16,123,3195,30,Low
+AGC-00567,2024-05-05,May,Autumn,Mohale's Hoek,Beans (Dry),legumes,3.34,25.1,10.3,6.55,42,22.5,206,44,181,1.14,17.64,800,13967,21,Medium
+AGC-00568,2023-10-14,Oct,Spring,Thaba-Tseka,Sorghum,grains,12.27,83.5,14.5,6.81,160,7.2,82,46,294,31.29,10.39,22466,226817,22,Medium
+AGC-00569,2025-09-19,Sep,Spring,Mohale's Hoek,Beans (Dry),legumes,6.94,60.2,16.5,7.36,177,22.5,69,38,192,6.73,29.22,4401,127752,29,Low
+AGC-00570,2024-01-16,Jan,Summer,Mafeteng,Potatoes,vegetables,5.47,66.8,23.9,7.21,135,8.8,197,69,124,53.44,8.65,48203,410979,16,High
+AGC-00571,2025-06-08,Jun,Winter,Butha-Buthe,Maize,grains,4.63,23.7,3.2,5.73,149,6.5,44,50,172,3.29,9.77,2468,23688,25,Medium
+AGC-00572,2025-10-03,Oct,Spring,Maseru,Tomatoes,vegetables,6.5,52,13.5,6.29,143,12.5,60,56,75,65.26,16.4,52077,850157,19,Medium
+AGC-00573,2023-09-28,Sep,Spring,Qacha's Nek,Beans (Dry),legumes,8.38,70.8,20.8,5.84,161,22.5,98,46,331,9.64,28.4,6922,194294,24,Medium
+AGC-00574,2023-10-24,Oct,Spring,Leribe,Wheat,grains,8.58,71.9,19.3,5.72,157,9.8,152,75,145,18.79,10.74,17851,189131,16,High
+AGC-00575,2023-12-03,Dec,Summer,Mohale's Hoek,Sorghum,grains,3.38,81,21.9,5.87,143,7.2,31,37,163,7.71,10.16,4981,49795,26,Low
+AGC-00576,2023-07-29,Jul,Winter,Mokhotlong,Sorghum,grains,10.83,10.2,5.5,7.18,144,7.2,74,43,368,3.36,10.66,2332,24001,23,Medium
+AGC-00577,2025-12-28,Dec,Summer,Thaba-Tseka,Peaches,fruits,3.86,121.7,18.7,7.06,116,19,172,56,294,25.28,18.08,20173,358797,19,Medium
+AGC-00578,2025-01-19,Jan,Summer,Berea,Potatoes,vegetables,1.47,82.3,26.3,5.85,162,8.8,159,73,110,16.64,8.72,15542,133817,15,High
+AGC-00579,2025-11-21,Nov,Spring,Qacha's Nek,Potatoes,vegetables,0.66,75.2,20.3,7.34,170,8.8,58,56,340,6.47,13.16,5163,66190,21,Medium
+AGC-00580,2024-09-16,Sep,Spring,Butha-Buthe,Sorghum,grains,2.84,61.9,20.2,5.59,169,7.2,63,62,180,5.23,10.68,4425,46463,20,Medium
+AGC-00581,2023-09-18,Sep,Spring,Mohale's Hoek,Beans (Dry),legumes,10.38,65.3,19.3,6.29,76,22.5,76,54,160,9.55,29.71,7468,220679,23,Medium
+AGC-00582,2023-10-22,Oct,Spring,Mokhotlong,Wheat,grains,1.5,85.6,23.5,6.25,100,9.8,189,29,357,4.53,9.08,2636,22994,30,Low
+AGC-00583,2025-12-13,Dec,Summer,Thaba-Tseka,Wheat,grains,2.72,112.5,22.1,7.24,129,9.8,110,66,313,6.42,13.91,5637,76646,23,High
+AGC-00584,2025-10-19,Oct,Spring,Quthing,Potatoes,vegetables,3.4,50.9,18.1,6.7,44,8.8,31,49,237,24.21,12.58,17964,221730,27,Medium
+AGC-00585,2024-08-20,Aug,Winter,Maseru,Potatoes,vegetables,4.6,5,8.7,5.58,150,8.8,66,72,70,2.85,12.01,2639,31510,18,High
+AGC-00586,2023-11-30,Nov,Spring,Thaba-Tseka,Wheat,grains,11.59,81.4,15.9,6.22,120,9.8,165,35,320,28.63,9.35,18037,162874,29,Low
+AGC-00587,2023-08-14,Aug,Winter,Leribe,Maize,grains,7.19,16.4,8.4,6.8,155,6.5,105,59,124,3.81,8.23,3132,25388,18,Medium
+AGC-00588,2024-04-11,Apr,Autumn,Leribe,Sorghum,grains,6.67,65,11.7,7.14,239,7.2,159,77,145,15.34,8.17,14818,118914,17,High
+AGC-00589,2025-11-13,Nov,Spring,Maseru,Beans (Dry),legumes,5.43,66.9,18.3,7.15,211,22.5,87,59,65,5.86,29.01,4817,139428,23,Medium
+AGC-00590,2024-01-01,Jan,Summer,Mohale's Hoek,Sorghum,grains,10.93,89.2,16.8,5.67,107,7.2,80,31,180,22.52,9.63,13467,127263,27,Low
+AGC-00591,2025-08-22,Aug,Winter,Mafeteng,Cabbage,vegetables,3.74,8.7,11.7,6.25,75,7,167,61,116,6.58,6.51,5514,35257,18,Medium
+AGC-00592,2024-01-01,Jan,Summer,Mafeteng,Tomatoes,vegetables,4.12,105.2,26.8,5.9,152,12.5,201,75,124,63.24,12.33,60078,733312,17,High
+AGC-00593,2025-05-08,May,Autumn,Qacha's Nek,Sorghum,grains,3.36,43.2,15.5,5.84,68,7.2,236,51,350,4.07,6.75,3085,19744,24,Medium
+AGC-00594,2024-04-05,Apr,Autumn,Thaba-Tseka,Potatoes,vegetables,9.61,11.1,20.1,6.82,191,8.8,113,22,304,20.95,10.64,11020,113903,28,Low
+AGC-00595,2024-12-16,Dec,Summer,Mokhotlong,Peaches,fruits,7.56,139,24.3,6.68,162,19,189,42,425,64.71,17.04,44391,737556,23,Medium
+AGC-00596,2024-03-19,Mar,Autumn,Berea,Beans (Dry),legumes,5.33,44,10.1,5.58,160,22.5,139,87,110,3.57,23.68,3570,84145,10,High
+AGC-00597,2023-06-04,Jun,Winter,Mafeteng,Potatoes,vegetables,7.48,31.1,9.3,6.2,111,8.8,37,69,114,35.38,12.68,31913,401019,18,High
+AGC-00598,2024-07-01,Jul,Winter,Qacha's Nek,Wheat,grains,11.56,21.4,4.6,6.65,62,9.8,72,28,335,6.7,12.8,3846,47940,26,Low
+AGC-00599,2024-12-25,Dec,Summer,Quthing,Maize,grains,11.21,92.7,23.5,5.83,180,6.5,52,45,235,26.34,9.5,18701,173265,25,Medium
+AGC-00600,2025-08-09,Aug,Winter,Mohale's Hoek,Potatoes,vegetables,9.67,38.9,11.2,6.15,156,8.8,84,52,176,73.4,11.57,56224,640616,24,Medium
+AGC-00601,2025-07-09,Jul,Winter,Berea,Wheat,grains,8.63,30.3,8.2,6.36,258,9.8,58,27,108,13.72,12.24,7766,94217,24,Low
+AGC-00602,2025-12-17,Dec,Summer,Thaba-Tseka,Maize,grains,5.9,131.7,22.1,6.82,205,6.5,23,42,306,25.13,10.41,17239,174183,26,Medium
+AGC-00603,2025-07-03,Jul,Winter,Maseru,Sorghum,grains,9.43,23.3,8.5,6.35,130,7.2,54,60,66,7.83,9.53,6499,61507,21,Medium
+AGC-00604,2025-06-07,Jun,Winter,Maseru,Cabbage,vegetables,1.09,5,6.8,5.77,140,7,145,98,62,0.98,7.68,980,7466,10,High
+AGC-00605,2025-08-27,Aug,Winter,Leribe,Tomatoes,vegetables,12.32,30.6,11.1,5.61,145,12.5,120,44,130,52.85,14.87,37101,546869,23,Medium
+AGC-00606,2025-04-03,Apr,Autumn,Berea,Peaches,fruits,6.52,48.6,18.8,7.42,158,19,125,52,91,24.71,22.71,18928,428132,20,Medium
+AGC-00607,2025-08-30,Aug,Winter,Maseru,Tomatoes,vegetables,2.46,9.4,15.3,6.38,129,12.5,97,84,71,4.18,17.06,4180,71014,15,High
+AGC-00608,2024-05-05,May,Autumn,Maseru,Cabbage,vegetables,9.37,32.4,12.7,7.19,203,7,50,54,65,71.31,10.1,55764,559592,21,Medium
+AGC-00609,2024-06-29,Jun,Winter,Leribe,Sorghum,grains,8.72,5,10.7,6.26,56,7.2,50,66,135,1.57,10.29,1378,13994,23,High
+AGC-00610,2024-08-18,Aug,Winter,Butha-Buthe,Tomatoes,vegetables,6.92,26.6,4.6,6.77,114,12.5,60,53,173,34.46,17.26,26672,455744,23,Medium
+AGC-00611,2023-04-04,Apr,Autumn,Thaba-Tseka,Peaches,fruits,2.11,51.1,16.2,7.02,177,19,73,43,318,7.95,25.4,5517,138377,23,Medium
+AGC-00612,2024-08-26,Aug,Winter,Berea,Potatoes,vegetables,4.66,5,12.5,5.65,61,8.8,58,57,99,2.7,12.72,2176,27463,22,Medium
+AGC-00613,2025-12-06,Dec,Summer,Leribe,Tomatoes,vegetables,9.95,129,16.7,6.95,96,12.5,164,83,121,199.6,12.71,199600,2512764,12,High
+AGC-00614,2025-07-26,Jul,Winter,Qacha's Nek,Wheat,grains,6,42.2,9.2,7,229,9.8,63,29,357,8.94,13.34,5203,67551,29,Low
+AGC-00615,2024-11-30,Nov,Spring,Leribe,Maize,grains,7.11,70,19.4,7.45,173,6.5,21,66,145,15.71,10.34,13793,140620,18,High
+AGC-00616,2025-09-03,Sep,Spring,Butha-Buthe,Potatoes,vegetables,9.44,66.9,15.6,6.08,57,8.8,88,56,192,87.51,12.01,69833,825286,23,Medium
+AGC-00617,2024-11-04,Nov,Spring,Quthing,Sorghum,grains,7.75,77.7,21.6,5.82,123,7.2,120,49,254,14.49,9.32,10752,97478,23,Medium
+AGC-00618,2023-05-07,May,Autumn,Berea,Peaches,fruits,0.62,35.3,16.6,7.39,142,19,73,42,111,1.67,24.28,1146,27698,24,Medium
+AGC-00619,2024-03-03,Mar,Autumn,Maseru,Sorghum,grains,3.96,35.1,14.6,7.14,180,7.2,200,98,75,4.36,7.12,4360,30716,6,High
+AGC-00620,2024-12-29,Dec,Summer,Mokhotlong,Tomatoes,vegetables,10.73,129.9,23,7.44,114,12.5,177,71,366,194.21,13.17,178285,2282761,20,High
+AGC-00621,2023-11-04,Nov,Spring,Mafeteng,Potatoes,vegetables,4.82,79,18.4,6.05,88,8.8,74,66,111,57.7,11.84,50661,594203,20,High
+AGC-00622,2024-06-30,Jun,Winter,Berea,Wheat,grains,9.04,26.8,0.6,6.54,189,9.8,61,43,100,8.68,13.4,6024,80119,26,Medium
+AGC-00623,2025-06-04,Jun,Winter,Quthing,Peaches,fruits,2.61,5,12.1,7.18,235,19,74,32,271,1.02,24.41,618,14918,26,Low
+AGC-00624,2025-08-14,Aug,Winter,Leribe,Peaches,fruits,9.97,5,7,7.37,121,19,97,46,126,3.19,23.06,2290,52519,24,Medium
+AGC-00625,2025-03-30,Mar,Autumn,Berea,Tomatoes,vegetables,10.42,39.8,16.4,6.09,190,12.5,65,59,93,88.67,16.31,72887,1182008,19,Medium
+AGC-00626,2023-10-28,Oct,Spring,Mohale's Hoek,Potatoes,vegetables,5.37,58.1,21.7,5.41,92,8.8,42,43,161,43.5,11.87,30189,353483,24,Medium
+AGC-00627,2025-12-24,Dec,Summer,Quthing,Peaches,fruits,6.02,98.2,23.3,6.13,105,19,186,68,258,50.45,17.81,45102,791630,18,High
+AGC-00628,2025-11-14,Nov,Spring,Mafeteng,Beans (Dry),legumes,12,64.6,21.2,5.78,93,22.5,67,52,125,9.6,29.48,7354,215877,23,Medium
+AGC-00629,2025-01-06,Jan,Summer,Berea,Beans (Dry),legumes,10.04,116.2,23.8,5.71,116,22.5,118,78,104,13.25,29.34,12906,377320,15,High
+AGC-00630,2024-01-31,Jan,Summer,Butha-Buthe,Cabbage,vegetables,3.23,123.8,27.9,7.42,106,7,94,38,202,60.66,9.41,39672,365300,23,Low
+AGC-00631,2024-02-06,Feb,Summer,Butha-Buthe,Wheat,grains,6.8,97.9,26.1,5.62,200,9.8,67,70,212,18.16,13.89,16526,226043,16,High
+AGC-00632,2023-01-24,Jan,Summer,Mafeteng,Tomatoes,vegetables,2.63,101.5,19.1,6.66,122,12.5,159,66,136,48.31,12.95,42416,543519,19,High
+AGC-00633,2024-10-05,Oct,Spring,Quthing,Potatoes,vegetables,9.57,53,14.7,6.42,95,8.8,58,31,262,75.89,11.88,45382,527248,26,Low
+AGC-00634,2023-07-23,Jul,Winter,Maseru,Potatoes,vegetables,5.67,15.7,6.9,5.92,130,8.8,86,78,63,13.15,11.82,12808,150584,14,High
+AGC-00635,2023-06-08,Jun,Winter,Mohale's Hoek,Potatoes,vegetables,8.05,11,6.5,6.77,103,8.8,54,28,188,14.81,11.78,8501,98544,28,Low
+AGC-00636,2024-11-02,Nov,Spring,Berea,Tomatoes,vegetables,3.87,111.2,17.3,7.14,128,12.5,90,54,93,60.53,16.31,47334,767615,20,Medium
+AGC-00637,2024-01-18,Jan,Summer,Mohale's Hoek,Maize,grains,8.11,88.6,25.9,5.5,136,6.5,63,40,160,17.11,9.43,11464,106271,26,Medium
+AGC-00638,2024-01-15,Jan,Summer,Qacha's Nek,Beans (Dry),legumes,4.16,127.5,25.3,7.04,103,22.5,72,39,366,5.66,30.03,3747,111151,25,Low
+AGC-00639,2024-12-24,Dec,Summer,Mokhotlong,Tomatoes,vegetables,6.82,113.7,20.6,6.56,165,12.5,181,34,368,176.91,10.75,110038,1142415,27,Low
+AGC-00640,2023-04-04,Apr,Autumn,Maseru,Beans (Dry),legumes,4.39,49.6,22.3,6.63,61,22.5,216,76,62,3.07,19.72,2941,57814,11,High
+AGC-00641,2024-11-26,Nov,Spring,Berea,Beans (Dry),legumes,10.61,77.6,20.5,6.09,149,22.5,85,50,100,15.17,28.16,11378,319267,21,Medium
+AGC-00642,2023-07-13,Jul,Winter,Quthing,Tomatoes,vegetables,4.11,20.1,8.2,6.33,78,12.5,40,32,234,13.23,17.66,8017,139704,31,Low
+AGC-00643,2024-03-01,Mar,Autumn,Mokhotlong,Wheat,grains,11.97,45.7,16.2,6.37,143,9.8,69,33,371,17.6,13.47,10806,141548,28,Low
+AGC-00644,2023-11-09,Nov,Spring,Maseru,Sorghum,grains,8.15,73.5,21.4,5.53,97,7.2,102,72,71,13.45,9.88,12455,122171,18,High
+AGC-00645,2023-03-02,Mar,Autumn,Leribe,Peaches,fruits,6.68,49.4,18.2,5.88,196,19,93,65,144,24.11,25.29,20976,527462,18,High
+AGC-00646,2023-12-14,Dec,Summer,Leribe,Maize,grains,6.71,119.3,22.3,7.4,178,6.5,67,67,143,17.65,9.83,15638,151485,17,High
+AGC-00647,2024-03-11,Mar,Autumn,Leribe,Sorghum,grains,11.32,51.3,18.9,7.44,124,7.2,192,69,140,15.28,7.6,13783,102821,17,High
+AGC-00648,2024-04-07,Apr,Autumn,Berea,Beans (Dry),legumes,7.68,70.5,12.8,6.83,125,22.5,149,87,105,10.44,23.69,10440,246227,12,High
+AGC-00649,2023-11-05,Nov,Spring,Leribe,Maize,grains,12.47,83.3,18.3,6.34,106,6.5,117,54,136,23.94,8.22,18721,151341,20,Medium
+AGC-00650,2025-05-19,May,Autumn,Maseru,Cabbage,vegetables,2.47,5,12.4,6.32,161,7,57,76,71,3.14,10.56,3008,31551,17,High
+AGC-00651,2023-02-09,Feb,Summer,Maseru,Tomatoes,vegetables,4.57,86.9,20.5,7.38,96,12.5,143,87,74,55.71,13.58,55710,752419,15,High
+AGC-00652,2023-04-28,Apr,Autumn,Maseru,Peaches,fruits,5.4,56.5,8.8,6.92,45,19,29,54,73,22.19,26.14,17353,452341,24,Medium
+AGC-00653,2024-10-28,Oct,Spring,Qacha's Nek,Cabbage,vegetables,11.71,83.1,25.7,7.39,138,7,54,31,399,190.29,10.96,113793,1201768,25,Low
+AGC-00654,2025-08-19,Aug,Winter,Leribe,Beans (Dry),legumes,4.3,17.7,5.7,5.99,124,22.5,60,43,128,1.03,29.37,715,20908,26,Medium
+AGC-00655,2024-06-12,Jun,Winter,Qacha's Nek,Beans (Dry),legumes,11.62,53.4,9,5.85,94,22.5,112,44,356,8.02,28.26,5630,157100,24,Medium
+AGC-00656,2024-11-10,Nov,Spring,Qacha's Nek,Tomatoes,vegetables,12.06,99.7,17.3,6.44,105,12.5,70,33,326,197.66,16.55,121363,1968993,25,Low
+AGC-00657,2024-11-08,Nov,Spring,Mohale's Hoek,Maize,grains,3.38,70.9,19,7.43,56,6.5,81,70,184,4.39,9.53,3995,37337,15,High
+AGC-00658,2023-04-23,Apr,Autumn,Thaba-Tseka,Tomatoes,vegetables,2.91,60.2,13.6,5.68,20,12.5,112,30,296,22.7,15.45,13393,202958,25,Low
+AGC-00659,2023-03-22,Mar,Autumn,Mokhotlong,Peaches,fruits,7.23,40.1,15.8,5.79,176,19,58,48,393,19.95,26.46,14643,381699,25,Medium
+AGC-00660,2024-06-14,Jun,Winter,Mohale's Hoek,Maize,grains,9.43,17.9,11,5.68,190,6.5,47,15,165,4.71,9.53,2214,20734,33,Low
+AGC-00661,2025-01-21,Jan,Summer,Maseru,Tomatoes,vegetables,9.55,97.7,24.8,7.08,37,12.5,184,92,64,111.45,12.48,111450,1383763,12,High
+AGC-00662,2023-02-04,Feb,Summer,Maseru,Wheat,grains,5.58,101.6,22.6,7.33,122,9.8,33,62,74,13.73,13.65,11616,157699,23,Medium
+AGC-00663,2025-01-17,Jan,Summer,Butha-Buthe,Beans (Dry),legumes,0.84,90.8,20.8,6.3,68,22.5,63,31,198,1.21,29.36,724,21113,24,Low
+AGC-00664,2024-04-16,Apr,Autumn,Leribe,Sorghum,grains,12.05,44.8,10.6,5.43,112,7.2,165,87,145,11.33,7.77,11330,86391,14,High
+AGC-00665,2023-05-05,May,Autumn,Mohale's Hoek,Beans (Dry),legumes,7.86,36.5,15.6,5.71,166,22.5,190,38,169,4.09,18.38,2675,48714,22,Low
+AGC-00666,2023-03-27,Mar,Autumn,Thaba-Tseka,Peaches,fruits,10.95,58.4,16.9,6.18,182,19,56,59,332,65.37,26.19,53734,1389454,20,Medium
+AGC-00667,2024-01-22,Jan,Summer,Quthing,Cabbage,vegetables,5.99,102.9,25.4,6.08,179,7,101,40,270,153.88,9.48,103100,949551,26,Medium
+AGC-00668,2024-02-15,Feb,Summer,Mokhotlong,Potatoes,vegetables,11.92,131,24.3,7.28,201,8.8,199,45,416,203.83,9.21,144719,1272659,22,Medium
+AGC-00669,2023-09-19,Sep,Spring,Mohale's Hoek,Sorghum,grains,12.04,61.1,18,5.63,171,7.2,77,40,188,23.24,9.61,15571,146710,25,Medium
+AGC-00670,2024-04-02,Apr,Autumn,Leribe,Beans (Dry),legumes,9.85,42.3,11.6,5.71,74,22.5,212,86,138,4.73,21.11,4730,99198,11,High
+AGC-00671,2025-10-12,Oct,Spring,Butha-Buthe,Potatoes,vegetables,3.18,71.2,20,6.28,174,8.8,70,37,196,43.57,11.15,28146,308311,31,Low
+AGC-00672,2023-08-20,Aug,Winter,Leribe,Potatoes,vegetables,5.09,5,8.5,7.23,105,8.8,67,64,148,3.16,12.66,2724,34083,17,Medium
+AGC-00673,2024-10-10,Oct,Spring,Maseru,Maize,grains,6.32,63.1,13.7,6.19,151,6.5,41,50,73,14.41,8.7,10808,93241,21,Medium
+AGC-00674,2025-04-16,Apr,Autumn,Quthing,Peaches,fruits,9.67,31.4,15,7.39,111,19,68,52,233,18.37,24.74,14071,344838,23,Medium
+AGC-00675,2025-06-28,Jun,Winter,Leribe,Maize,grains,1.3,20,7,6.47,151,6.5,69,81,123,0.86,9.19,858,7779,13,High
+AGC-00676,2025-02-01,Feb,Summer,Qacha's Nek,Wheat,grains,3.82,129.5,24.3,5.75,96,9.8,70,29,328,8.06,13.45,4691,61555,27,Low
+AGC-00677,2024-01-20,Jan,Summer,Berea,Cabbage,vegetables,0.97,118.9,27.7,7.37,140,7,47,62,108,17.96,9.23,15194,138600,21,Medium
+AGC-00678,2023-05-08,May,Autumn,Qacha's Nek,Potatoes,vegetables,1.81,74.2,16.2,6.09,123,8.8,82,15,395,21.79,12.1,10241,119871,34,Low
+AGC-00679,2023-08-24,Aug,Winter,Butha-Buthe,Potatoes,vegetables,3.45,29.3,10,7.16,274,8.8,93,52,199,19.22,11.9,14723,172274,23,Medium
+AGC-00680,2024-10-19,Oct,Spring,Mafeteng,Potatoes,vegetables,10.38,61.5,20.5,6.07,152,8.8,44,53,114,111.69,12.17,86448,1042217,23,Medium
+AGC-00681,2023-09-25,Sep,Spring,Maseru,Tomatoes,vegetables,7.06,57.1,20.6,6.13,21,12.5,67,48,72,56.97,15.69,41816,653082,24,Medium
+AGC-00682,2023-11-01,Nov,Spring,Berea,Peaches,fruits,8.49,61.3,15.4,5.59,160,19,61,45,96,37.61,24.62,26703,654864,21,Medium
+AGC-00683,2025-07-01,Jul,Winter,Maseru,Sorghum,grains,4.31,19.3,7.3,7.29,174,7.2,96,66,70,2.5,9.66,2195,21050,24,High
+AGC-00684,2023-07-31,Jul,Winter,Leribe,Sorghum,grains,9.48,61.7,10.2,6.87,184,7.2,88,70,137,24.36,10.46,22168,228840,16,High
+AGC-00685,2025-11-27,Nov,Spring,Leribe,Maize,grains,10.15,81.1,22.2,5.43,216,6.5,99,38,124,22.94,7.35,15003,108412,25,Low
+AGC-00686,2025-08-17,Aug,Winter,Mohale's Hoek,Tomatoes,vegetables,12.32,23.6,1.9,6.53,114,12.5,79,40,184,49.77,16,33346,527400,27,Medium
+AGC-00687,2024-12-30,Dec,Summer,Quthing,Wheat,grains,2.27,97.8,22.9,7.03,194,9.8,70,35,233,6.29,13.33,3963,51903,25,Low
+AGC-00688,2024-09-18,Sep,Spring,Thaba-Tseka,Beans (Dry),legumes,3.99,78.7,22.6,5.42,198,22.5,84,43,309,4.99,28.41,3463,97314,25,Medium
+AGC-00689,2025-01-19,Jan,Summer,Berea,Maize,grains,6.56,103.5,22.2,5.48,153,6.5,100,74,107,18.3,9.2,17239,156754,17,High
+AGC-00690,2025-10-12,Oct,Spring,Butha-Buthe,Beans (Dry),legumes,1.18,69.4,18.1,5.48,137,22.5,70,30,199,1.16,28.01,684,19023,27,Low
+AGC-00691,2024-01-22,Jan,Summer,Mafeteng,Peaches,fruits,2.09,107,27.2,6.25,65,19,157,61,116,15.8,17.68,13240,232547,17,Medium
+AGC-00692,2024-02-20,Feb,Summer,Berea,Tomatoes,vegetables,4.41,102.6,21.3,7.26,38,12.5,227,72,99,50.32,10.5,46596,484645,14,High
+AGC-00693,2023-05-15,May,Autumn,Mafeteng,Sorghum,grains,1.63,47.9,15.5,6.63,114,7.2,221,52,110,2.35,6.39,1800,11304,20,Medium
+AGC-00694,2023-10-11,Oct,Spring,Berea,Sorghum,grains,7.52,73.3,22.7,6.84,132,7.2,108,58,102,18.35,9.44,14937,139482,20,Medium
+AGC-00695,2025-07-09,Jul,Winter,Butha-Buthe,Wheat,grains,5.61,14.7,13.2,5.99,76,9.8,61,44,177,2.08,13.36,1460,19247,24,Medium
+AGC-00696,2026-01-08,Jan,Summer,Thaba-Tseka,Peaches,fruits,4.71,141.3,25.4,5.97,141,19,159,28,327,34.67,17.45,19901,340765,26,Low
+AGC-00697,2024-04-09,Apr,Autumn,Butha-Buthe,Maize,grains,5.88,64.1,16.3,5.89,117,6.5,142,64,199,6.94,7.87,5982,45888,18,Medium
+AGC-00698,2025-06-06,Jun,Winter,Mohale's Hoek,Sorghum,grains,4.7,17.8,8.6,6.96,183,7.2,64,52,180,3.06,9.98,2344,22971,23,Medium
+AGC-00699,2024-02-16,Feb,Summer,Berea,Tomatoes,vegetables,11.77,118.4,24.2,7.04,149,12.5,183,68,105,189.85,11.8,169726,1984946,12,High
+AGC-00700,2025-06-04,Jun,Winter,Mafeteng,Sorghum,grains,4.55,6.3,5.5,6.12,193,7.2,46,54,125,1.09,10.51,852,8848,24,Medium
+AGC-00701,2024-11-11,Nov,Spring,Thaba-Tseka,Sorghum,grains,8.87,59.8,18.3,7.19,110,7.2,103,46,335,14.46,10.07,10382,101069,25,Medium
+AGC-00702,2025-08-23,Aug,Winter,Leribe,Peaches,fruits,7.3,33.8,7.3,6.99,139,19,94,41,131,20.8,22.78,14102,319396,21,Medium
+AGC-00703,2024-10-05,Oct,Spring,Qacha's Nek,Potatoes,vegetables,3.99,72.5,19.9,5.86,135,8.8,115,47,353,36.87,12.16,26768,316050,22,Medium
+AGC-00704,2023-09-24,Sep,Spring,Quthing,Cabbage,vegetables,12.21,66.4,20.6,6.41,213,7,63,41,263,197.31,9.55,133776,1242378,26,Medium
+AGC-00705,2023-05-05,May,Autumn,Qacha's Nek,Wheat,grains,10.16,62,14.1,5.5,152,9.8,88,33,336,17.27,12.3,10604,126866,25,Low
+AGC-00706,2024-12-21,Dec,Summer,Leribe,Potatoes,vegetables,1.74,122.7,25.6,5.95,220,8.8,185,74,137,28.17,8.59,26536,224309,17,High
+AGC-00707,2025-02-16,Feb,Summer,Mafeteng,Peaches,fruits,2.55,80.3,21.3,6.95,71,19,133,62,136,15.38,19.15,13011,247391,18,Medium
+AGC-00708,2023-05-30,May,Autumn,Thaba-Tseka,Wheat,grains,10.45,46.5,18.2,6.7,252,9.8,58,31,307,20.69,13.42,12373,162247,29,Low
+AGC-00709,2025-12-26,Dec,Summer,Qacha's Nek,Tomatoes,vegetables,10.57,118.2,27.6,7.11,174,12.5,183,39,366,198.61,12.12,131480,1545416,21,Low
+AGC-00710,2023-02-03,Feb,Summer,Butha-Buthe,Wheat,grains,4.35,131,21.9,6.93,238,9.8,97,45,182,16.23,12.72,11523,144475,22,Medium
+AGC-00711,2024-06-15,Jun,Winter,Thaba-Tseka,Beans (Dry),legumes,1.32,5,9.6,6.26,147,22.5,54,37,345,0.2,30.34,129,3869,28,Low
+AGC-00712,2023-07-05,Jul,Winter,Mafeteng,Potatoes,vegetables,2.82,16.6,9.6,6.82,148,8.8,92,47,137,7.42,11.09,5387,59004,25,Medium
+AGC-00713,2023-06-11,Jun,Winter,Butha-Buthe,Peaches,fruits,6.96,28.8,10.4,5.82,151,19,50,49,177,15.45,25.13,11464,286061,20,Medium
+AGC-00714,2024-10-21,Oct,Spring,Maseru,Tomatoes,vegetables,2.73,66.9,19.9,7.32,106,12.5,76,52,63,22.74,15.53,17419,269420,21,Medium
+AGC-00715,2025-10-03,Oct,Spring,Thaba-Tseka,Sorghum,grains,3.95,81.7,16.6,7.31,73,7.2,92,67,281,7.74,11.12,6858,74334,17,High
+AGC-00716,2026-01-12,Jan,Summer,Leribe,Cabbage,vegetables,7.94,123.1,26.2,6.96,125,7,73,59,149,154.12,9.54,126687,1189718,20,Medium
+AGC-00717,2024-08-02,Aug,Winter,Butha-Buthe,Peaches,fruits,8.01,5,10.6,7.29,90,19,71,63,188,2.88,25.96,2460,63399,23,Medium
+AGC-00718,2023-08-08,Aug,Winter,Mokhotlong,Maize,grains,1.56,31.9,5,7.43,161,6.5,47,30,361,1.19,8.79,702,5917,29,Low
+AGC-00719,2025-11-26,Nov,Spring,Berea,Potatoes,vegetables,5.38,81.6,20.2,7.07,85,8.8,87,30,91,52.13,10.88,30757,331837,28,Low
+AGC-00720,2025-12-24,Dec,Summer,Qacha's Nek,Beans (Dry),legumes,9.85,121.8,24.5,6.06,79,22.5,110,50,392,15.07,28.78,11303,320870,25,Medium
+AGC-00721,2025-08-12,Aug,Winter,Thaba-Tseka,Beans (Dry),legumes,3.87,50.2,9.8,6.47,157,22.5,114,33,285,3.17,27.28,1946,52532,23,Low
+AGC-00722,2024-10-05,Oct,Spring,Mohale's Hoek,Wheat,grains,1.53,69.7,18.1,5.66,138,9.8,171,62,169,2.4,10.05,2030,20058,17,Medium
+AGC-00723,2024-03-11,Mar,Autumn,Mafeteng,Beans (Dry),legumes,11.82,63,23.1,6.43,213,22.5,167,68,120,13.59,21.68,12149,261932,18,High
+AGC-00724,2025-06-03,Jun,Winter,Mafeteng,Cabbage,vegetables,3.82,8.4,2,7.12,150,7,153,66,116,6.3,6.91,5531,37578,15,High
+AGC-00725,2024-09-30,Sep,Spring,Thaba-Tseka,Beans (Dry),legumes,4.77,43.7,16.3,7.12,187,22.5,62,47,304,3.34,29.66,2425,71188,25,Medium
+AGC-00726,2024-07-30,Jul,Winter,Mafeteng,Sorghum,grains,6.61,18.5,9.7,5.51,118,7.2,70,49,119,3.44,9.18,2552,23124,23,Medium
+AGC-00727,2025-11-28,Nov,Spring,Berea,Beans (Dry),legumes,1.78,63.8,17.7,6.83,162,22.5,51,39,108,2.1,28.78,1390,39854,27,Low
+AGC-00728,2023-05-01,May,Autumn,Berea,Wheat,grains,5.51,24.2,19.1,5.72,199,9.8,119,63,110,4.19,13.07,3578,46371,17,Medium
+AGC-00729,2025-09-16,Sep,Spring,Mohale's Hoek,Peaches,fruits,4.78,44.9,17.6,7.3,73,19,36,32,179,14.82,25.37,8981,226240,30,Low
+AGC-00730,2023-04-28,Apr,Autumn,Berea,Tomatoes,vegetables,6.84,36,12.5,7.32,121,12.5,68,64,98,36.25,16.4,31248,509405,17,Medium
+AGC-00731,2024-09-10,Sep,Spring,Maseru,Cabbage,vegetables,8.28,60.4,23.6,5.9,203,7,71,84,73,109.05,10.64,109050,1152331,16,High
+AGC-00732,2023-03-21,Mar,Autumn,Butha-Buthe,Potatoes,vegetables,6.92,72.9,13.9,6.5,65,8.8,107,56,184,73.08,11.37,58318,652345,24,Medium
+AGC-00733,2024-06-11,Jun,Winter,Qacha's Nek,Tomatoes,vegetables,3.68,38.8,5.5,6.23,121,12.5,48,33,385,23.59,17.71,14484,250935,28,Low
+AGC-00734,2023-05-01,May,Autumn,Thaba-Tseka,Maize,grains,6.38,41.1,13.3,5.51,73,6.5,151,48,280,5.17,7.25,3795,26451,24,Medium
+AGC-00735,2023-12-10,Dec,Summer,Mohale's Hoek,Tomatoes,vegetables,8.24,80.7,22.8,6.4,123,12.5,185,70,190,110,12.27,100100,1209208,16,High
+AGC-00736,2023-06-11,Jun,Winter,Butha-Buthe,Tomatoes,vegetables,0.94,43.2,13.3,6.84,142,12.5,114,51,188,7.09,16.12,5374,85619,21,Medium
+AGC-00737,2024-04-25,Apr,Autumn,Mokhotlong,Sorghum,grains,0.56,29.7,16.7,6.66,102,7.2,162,35,349,0.6,7.67,378,2767,23,Low
+AGC-00738,2023-08-31,Aug,Winter,Berea,Maize,grains,4.8,5,9.7,5.85,131,6.5,72,44,100,0.58,8.65,407,3480,22,Medium
+AGC-00739,2023-04-24,Apr,Autumn,Mafeteng,Tomatoes,vegetables,12.06,38.8,13,5.99,67,12.5,72,33,132,69.83,15.94,42876,677784,25,Low
+AGC-00740,2023-11-15,Nov,Spring,Mohale's Hoek,Peaches,fruits,5.46,78.1,20.2,5.66,97,19,96,36,169,27.85,22.68,17768,399975,26,Low
+AGC-00741,2023-02-06,Feb,Summer,Thaba-Tseka,Maize,grains,7.61,127.3,23.7,7.21,188,6.5,54,35,290,22.98,9.8,14477,137676,29,Low
+AGC-00742,2024-01-09,Jan,Summer,Qacha's Nek,Wheat,grains,9.38,141.8,27.9,6.13,177,9.8,45,40,396,28.52,13.81,19108,256315,26,Medium
+AGC-00743,2025-04-29,Apr,Autumn,Thaba-Tseka,Maize,grains,0.99,67.9,16.1,5.7,184,6.5,202,43,338,1.97,6.66,1367,8642,23,Medium
+AGC-00744,2023-10-17,Oct,Spring,Maseru,Maize,grains,1.27,78.8,14.6,5.71,128,6.5,83,85,61,2.35,8.24,2350,19221,15,High
+AGC-00745,2024-06-20,Jun,Winter,Mohale's Hoek,Beans (Dry),legumes,4.64,16.3,5.3,7.33,98,22.5,98,45,196,1.21,28.19,859,24047,22,Medium
+AGC-00746,2024-11-30,Nov,Spring,Mafeteng,Beans (Dry),legumes,3.17,64.7,22.1,6.17,113,22.5,85,65,128,3.27,29.66,2845,84019,17,High
+AGC-00747,2023-06-22,Jun,Winter,Maseru,Potatoes,vegetables,12.43,30.9,7.9,5.59,163,8.8,71,86,63,52.7,12.9,52700,676510,13,High
+AGC-00748,2023-03-22,Mar,Autumn,Leribe,Peaches,fruits,4.62,44.6,20.8,7.14,203,19,66,81,133,17.46,26.31,17425,456134,16,High
+AGC-00749,2024-04-01,Apr,Autumn,Leribe,Cabbage,vegetables,11.63,47.9,14.5,7.09,194,7,27,50,120,106.65,10.37,79988,819877,22,Medium
+AGC-00750,2025-12-21,Dec,Summer,Thaba-Tseka,Cabbage,vegetables,4.11,164.4,24.9,6.9,230,7,66,26,337,100.24,10.68,55934,578525,26,Low
+AGC-00751,2024-06-18,Jun,Winter,Berea,Potatoes,vegetables,7.39,37.9,9.7,6.83,178,8.8,74,58,100,52.69,12.39,42890,527118,20,Medium
+AGC-00752,2026-01-05,Jan,Summer,Leribe,Tomatoes,vegetables,3.93,133.1,24.6,5.93,100,12.5,162,76,137,67.99,12.84,65134,827397,15,High
+AGC-00753,2023-10-13,Oct,Spring,Mokhotlong,Sorghum,grains,3.34,84.9,19.5,6.41,157,7.2,84,33,365,8.48,9.82,5207,49232,23,Low
+AGC-00754,2026-01-09,Jan,Summer,Berea,Potatoes,vegetables,4.97,113.6,21.8,7.19,135,8.8,169,90,101,61.88,9.24,61880,565521,14,High
+AGC-00755,2025-04-17,Apr,Autumn,Quthing,Peaches,fruits,0.53,43.9,15.6,6.03,173,19,91,44,244,2.32,24.4,1629,39350,21,Medium
+AGC-00756,2024-03-20,Mar,Autumn,Mohale's Hoek,Beans (Dry),legumes,3.02,42.4,17.4,6.89,137,22.5,176,60,175,2.17,20.55,1801,36695,18,Medium
+AGC-00757,2025-07-28,Jul,Winter,Mokhotlong,Wheat,grains,7.23,29.5,6.3,5.4,128,9.8,73,44,409,6.15,13.9,4317,58241,25,Medium
+AGC-00758,2024-06-29,Jun,Winter,Berea,Sorghum,grains,5.29,14.5,11,6.6,158,7.2,87,78,97,3.23,9.79,3146,30494,19,High
+AGC-00759,2023-09-03,Sep,Spring,Mohale's Hoek,Maize,grains,4.34,49.5,13.3,6,79,6.5,90,55,161,6.03,8.93,4764,41776,19,Medium
+AGC-00760,2025-05-05,May,Autumn,Qacha's Nek,Tomatoes,vegetables,3.77,33,19.7,7.34,208,12.5,64,41,353,21.41,17.08,14516,242809,27,Medium
+AGC-00761,2024-11-15,Nov,Spring,Mafeteng,Wheat,grains,10.44,103.8,18.5,6.06,124,9.8,180,65,126,32.99,9.68,28701,274209,17,High
+AGC-00762,2023-10-13,Oct,Spring,Thaba-Tseka,Cabbage,vegetables,4.19,76.1,19.1,7.08,147,7,71,15,295,60.04,8.09,28219,219967,35,Low
+AGC-00763,2023-01-24,Jan,Summer,Quthing,Wheat,grains,3.41,78.8,24.7,6.78,148,9.8,32,52,247,11.39,14.39,8725,123398,24,Medium
+AGC-00764,2023-10-15,Oct,Spring,Butha-Buthe,Peaches,fruits,5.73,63.8,22.7,6.12,145,19,83,52,179,36.61,24.62,28043,685399,24,Medium
+AGC-00765,2025-10-27,Oct,Spring,Berea,Peaches,fruits,4.41,83.4,18.5,6.5,156,19,66,78,96,32.33,26.92,31489,844661,16,High
+AGC-00766,2023-10-30,Oct,Spring,Butha-Buthe,Potatoes,vegetables,12.4,85.1,22.9,7.19,127,8.8,95,63,201,136.4,12.03,116486,1377913,18,Medium
+AGC-00767,2025-07-01,Jul,Winter,Mafeteng,Maize,grains,12,37.1,7,6.56,110,6.5,115,51,124,14.16,8.09,10733,85499,18,Medium
+AGC-00768,2025-01-07,Jan,Summer,Butha-Buthe,Potatoes,vegetables,8.84,120.2,26.9,7.42,89,8.8,146,33,198,118.46,8.5,72734,603838,27,Low
+AGC-00769,2025-08-14,Aug,Winter,Mokhotlong,Sorghum,grains,2.97,34.6,13.9,5.92,192,7.2,49,42,374,3.27,11.26,2243,24417,26,Medium
+AGC-00770,2023-09-07,Sep,Spring,Leribe,Beans (Dry),legumes,8.21,85.7,16,7.21,150,22.5,70,69,141,10.59,30.53,9552,290276,18,High
+AGC-00771,2023-11-22,Nov,Spring,Maseru,Maize,grains,0.75,79.3,19.4,5.42,154,6.5,82,70,68,1.42,8.13,1292,10416,15,High
+AGC-00772,2023-10-08,Oct,Spring,Quthing,Maize,grains,8.22,67.7,14.5,6.31,66,6.5,100,33,275,15.12,8.66,9284,77846,29,Low
+AGC-00773,2023-01-18,Jan,Summer,Berea,Wheat,grains,5.53,103.7,18.7,6.64,150,9.8,92,62,92,17.14,12.38,14500,178176,17,Medium
+AGC-00774,2024-09-03,Sep,Spring,Leribe,Potatoes,vegetables,8.63,93.7,16.1,7.11,183,8.8,104,42,145,118.66,10.67,81401,856746,27,Medium
+AGC-00775,2025-06-10,Jun,Winter,Qacha's Nek,Peaches,fruits,10.59,20.6,12.2,6.61,168,19,50,33,330,22.03,25.14,13526,335580,29,Low
+AGC-00776,2025-01-17,Jan,Summer,Maseru,Cabbage,vegetables,1.17,126.5,21.3,6.6,143,7,42,51,73,28.43,9.14,21550,195394,22,Medium
+AGC-00777,2025-11-05,Nov,Spring,Berea,Sorghum,grains,1.07,73.9,19.4,7.29,114,7.2,115,52,93,2.56,8.63,1961,16741,22,Medium
+AGC-00778,2023-07-13,Jul,Winter,Mohale's Hoek,Wheat,grains,2.94,9.3,10.9,6.1,166,9.8,67,29,187,1.06,12.86,617,7819,29,Low
+AGC-00779,2024-07-10,Jul,Winter,Berea,Sorghum,grains,4.54,5,4.9,7.18,113,7.2,61,55,110,0.64,10.48,506,5247,18,Medium
+AGC-00780,2023-02-28,Feb,Summer,Maseru,Peaches,fruits,4.08,145.4,28.3,5.9,152,19,205,65,70,28.4,16.01,24708,393846,15,High
+AGC-00781,2025-04-10,Apr,Autumn,Butha-Buthe,Beans (Dry),legumes,5.46,19.3,15.9,6.06,57,22.5,134,60,177,1.47,22.87,1220,27685,22,Medium
+AGC-00782,2024-03-13,Mar,Autumn,Mokhotlong,Peaches,fruits,10.5,31.3,11.7,6.66,206,19,50,28,404,32.23,24.91,18500,453361,28,Low
+AGC-00783,2023-07-19,Jul,Winter,Thaba-Tseka,Beans (Dry),legumes,3.87,16.7,11.7,6.73,108,22.5,88,22,307,0.93,27.53,489,13312,27,Low
+AGC-00784,2024-03-12,Mar,Autumn,Quthing,Wheat,grains,4.56,60.9,12.3,6.06,93,9.8,40,45,246,8.34,14.73,5921,85760,21,Medium
+AGC-00785,2023-05-04,May,Autumn,Mokhotlong,Peaches,fruits,5.32,69.5,11.3,5.43,97,19,54,22,360,25.8,24.31,13571,325025,27,Low
+AGC-00786,2024-10-28,Oct,Spring,Mokhotlong,Peaches,fruits,5.52,93.9,22.7,6.4,135,19,95,33,343,46.37,23.64,28471,663289,25,Low
+AGC-00787,2023-12-25,Dec,Summer,Mohale's Hoek,Sorghum,grains,4.13,146.1,23.8,5.8,159,7.2,61,29,196,8.92,10.22,5191,52035,25,Low
+AGC-00788,2025-03-14,Mar,Autumn,Mohale's Hoek,Tomatoes,vegetables,2.51,35.3,14.3,7.49,117,12.5,102,25,168,11.4,14.45,6270,89548,28,Low
+AGC-00789,2025-05-06,May,Autumn,Berea,Maize,grains,9.5,35.8,12.6,6.77,212,6.5,200,71,96,14.35,6.13,13173,79486,19,High
+AGC-00790,2024-07-29,Jul,Winter,Maseru,Cabbage,vegetables,5.49,17.1,8.8,6.15,117,7,200,89,75,23.66,7.05,23660,165029,13,High
+AGC-00791,2023-05-23,May,Autumn,Quthing,Tomatoes,vegetables,0.99,12,15.8,6.67,81,12.5,121,62,231,1.78,16.05,1506,23823,22,Medium
+AGC-00792,2025-09-19,Sep,Spring,Mokhotlong,Cabbage,vegetables,11.87,104,18.7,7.19,144,7,64,15,353,211.4,9.54,99358,912802,29,Low
+AGC-00793,2025-10-08,Oct,Spring,Mafeteng,Beans (Dry),legumes,6.07,59.2,19.9,5.5,128,22.5,69,46,122,4.49,29.25,3224,93909,25,Medium
+AGC-00794,2024-06-16,Jun,Winter,Mokhotlong,Peaches,fruits,2.8,16.8,8.8,5.59,139,19,59,35,354,3.47,25.22,2186,54357,29,Low
+AGC-00795,2025-06-04,Jun,Winter,Thaba-Tseka,Maize,grains,6.65,46.8,10.7,7,128,6.5,95,54,295,8.71,8.96,6811,59017,21,Medium
+AGC-00796,2024-02-21,Feb,Summer,Mohale's Hoek,Maize,grains,3.57,72.8,28.4,5.69,187,6.5,10,32,163,6.07,9.45,3678,34158,28,Low
+AGC-00797,2025-09-17,Sep,Spring,Maseru,Maize,grains,1.37,64.7,23.1,7.12,58,6.5,61,48,69,1.69,8.15,1240,10020,19,Medium
+AGC-00798,2025-08-11,Aug,Winter,Thaba-Tseka,Wheat,grains,1.52,9.1,5.3,6.6,114,9.8,78,15,331,0.46,11.95,216,2510,34,Low
+AGC-00799,2025-01-12,Jan,Summer,Butha-Buthe,Maize,grains,5.64,111.7,23.5,6.46,137,6.5,55,51,177,18.56,9.88,14068,136502,24,Medium
+AGC-00800,2025-01-26,Jan,Summer,Maseru,Potatoes,vegetables,8.51,121.2,19.6,5.54,178,8.8,185,94,73,131.99,8.75,131990,1145277,12,High
+AGC-00801,2024-06-12,Jun,Winter,Maseru,Sorghum,grains,3.59,36.4,8.2,5.51,106,7.2,115,84,74,3.88,10.33,3880,39793,16,High
+AGC-00802,2023-11-19,Nov,Spring,Thaba-Tseka,Maize,grains,6.38,75.2,21.4,6.62,84,6.5,64,30,340,12.89,9.57,7605,70194,28,Low
+AGC-00803,2024-05-05,May,Autumn,Berea,Beans (Dry),legumes,5.22,56.1,16.3,5.67,149,22.5,187,84,108,3.92,21.88,3920,85346,14,High
+AGC-00804,2023-04-09,Apr,Autumn,Quthing,Beans (Dry),legumes,12.2,67,9.5,6.86,151,22.5,174,41,233,13.05,20.29,8848,177464,25,Medium
+AGC-00805,2023-10-02,Oct,Spring,Maseru,Sorghum,grains,3.09,81.7,20.9,7.34,198,7.2,48,65,63,7.57,10.45,6586,68409,19,High
+AGC-00806,2023-12-15,Dec,Summer,Butha-Buthe,Peaches,fruits,11.75,135.7,19.8,6.21,175,19,150,45,178,123.73,17.4,87848,1512918,24,Medium
+AGC-00807,2025-05-30,May,Autumn,Quthing,Beans (Dry),legumes,7.2,34.5,12.1,7.27,134,22.5,213,40,260,3.67,18.64,2459,45196,23,Medium
+AGC-00808,2024-09-23,Sep,Spring,Leribe,Sorghum,grains,5.02,80.3,24.8,7.39,170,7.2,54,63,136,10.14,10.13,8660,86548,19,Medium
+AGC-00809,2025-09-07,Sep,Spring,Butha-Buthe,Potatoes,vegetables,8.77,50.1,20.8,6.52,139,8.8,97,61,170,73.49,11.64,61585,706380,19,Medium
+AGC-00810,2025-07-29,Jul,Winter,Quthing,Tomatoes,vegetables,7.59,5,8.8,6.17,219,12.5,61,26,271,8.05,17.21,4492,76090,28,Low
+AGC-00811,2023-09-26,Sep,Spring,Thaba-Tseka,Tomatoes,vegetables,5.08,93.6,20.2,6.46,106,12.5,51,37,323,74.98,17.94,48437,853315,27,Low
+AGC-00812,2024-01-10,Jan,Summer,Mokhotlong,Sorghum,grains,6.36,151.7,27.2,6.2,92,7.2,79,26,411,15.52,9.7,8660,80443,25,Low
+AGC-00813,2023-07-13,Jul,Winter,Qacha's Nek,Cabbage,vegetables,2.3,5.6,9.1,7.25,128,7,208,24,340,2.16,7.37,1171,8232,31,Low
+AGC-00814,2024-10-23,Oct,Spring,Maseru,Maize,grains,7.64,60.1,18.2,6.57,115,6.5,119,81,69,14.9,8.65,14870,127599,16,High
+AGC-00815,2025-04-10,Apr,Autumn,Qacha's Nek,Beans (Dry),legumes,9.05,42.1,11.8,7.44,70,22.5,179,63,365,4.62,22.03,3945,85468,17,Medium
+AGC-00816,2026-01-02,Jan,Summer,Quthing,Wheat,grains,9.35,70.9,25.5,5.83,75,9.8,96,26,247,16.46,12.58,9185,113279,30,Low
+AGC-00817,2024-05-31,May,Autumn,Mafeteng,Sorghum,grains,2.56,39.2,20.7,5.98,99,7.2,183,66,120,2.76,6.26,2423,14877,18,High
+AGC-00818,2023-07-20,Jul,Winter,Butha-Buthe,Sorghum,grains,9.92,31,9.3,6.16,113,7.2,92,49,187,11.51,9.13,8540,76373,23,Medium
+AGC-00819,2023-02-09,Feb,Summer,Maseru,Maize,grains,1.74,120.2,20.9,7.45,184,6.5,107,65,74,5.08,8.15,4420,35696,15,High
+AGC-00820,2025-08-22,Aug,Winter,Mafeteng,Maize,grains,1.07,21.2,11.4,6.41,326,6.5,77,29,113,0.88,8.3,512,4192,27,Low
+AGC-00821,2024-09-04,Sep,Spring,Mohale's Hoek,Cabbage,vegetables,9.58,85.3,21.9,6.1,164,7,74,33,173,198.59,9.13,121934,1092163,28,Low
+AGC-00822,2025-12-06,Dec,Summer,Mohale's Hoek,Maize,grains,3.83,114.1,21.5,6.45,191,6.5,99,36,188,12.6,8.57,8039,67383,22,Low
+AGC-00823,2023-08-10,Aug,Winter,Quthing,Wheat,grains,4.49,32.3,9.7,6.54,106,9.8,69,37,233,4.09,12.91,2642,33493,24,Low
+AGC-00824,2025-08-18,Aug,Winter,Mafeteng,Peaches,fruits,9.87,9.6,6.8,5.77,151,19,138,31,110,7.4,20.98,4425,92350,24,Low
+AGC-00825,2025-12-20,Dec,Summer,Mokhotlong,Potatoes,vegetables,3.37,137.5,20.7,6.46,133,8.8,150,58,397,67.43,9.89,54888,521052,18,Medium
+AGC-00826,2023-03-03,Mar,Autumn,Mokhotlong,Maize,grains,9.74,66.3,16.1,7.18,196,6.5,208,38,409,19.77,6.99,12930,85092,23,Low
+AGC-00827,2023-03-09,Mar,Autumn,Mohale's Hoek,Tomatoes,vegetables,12.36,45.7,14.2,6.64,93,12.5,98,23,162,92.7,15.16,49502,742431,27,Low
+AGC-00828,2025-09-15,Sep,Spring,Mafeteng,Potatoes,vegetables,5.35,41.6,17.6,5.85,135,8.8,49,51,118,31.62,12.1,23968,287185,22,Medium
+AGC-00829,2025-08-20,Aug,Winter,Maseru,Potatoes,vegetables,7.04,29.8,3.2,6.83,249,8.8,124,79,65,43.58,11.17,42796,475250,15,High
+AGC-00830,2024-07-27,Jul,Winter,Quthing,Peaches,fruits,7.92,28.1,1.9,7.2,41,19,73,36,240,12.99,24.74,8288,203056,27,Low
+AGC-00831,2023-04-08,Apr,Autumn,Maseru,Sorghum,grains,10.32,45.2,16.9,5.79,159,7.2,140,77,69,12.07,8.15,11660,94224,13,High
+AGC-00832,2024-03-08,Mar,Autumn,Qacha's Nek,Cabbage,vegetables,3.86,74.3,19,5.54,154,7,72,54,361,56.43,10.93,44128,466389,21,Medium
+AGC-00833,2025-06-08,Jun,Winter,Leribe,Sorghum,grains,10.95,17.4,5.1,6.73,186,7.2,80,53,131,7.23,10.18,5596,56234,20,Medium
+AGC-00834,2025-06-07,Jun,Winter,Leribe,Wheat,grains,5.87,12.4,13.2,6.46,118,9.8,113,69,122,2.23,12.82,2011,25536,19,High
+AGC-00835,2024-05-18,May,Autumn,Quthing,Cabbage,vegetables,4.08,50.7,12.7,6.98,132,7,69,41,244,43.9,10.48,29764,304664,29,Medium
+AGC-00836,2024-10-03,Oct,Spring,Mohale's Hoek,Cabbage,vegetables,2.38,51.6,21.7,6.57,101,7,72,55,165,27.27,9.69,21543,205197,18,Medium
+AGC-00837,2023-11-24,Nov,Spring,Qacha's Nek,Cabbage,vegetables,5.48,79.1,19.7,7.26,121,7,87,20,345,80.83,9.54,41223,379045,31,Low
+AGC-00838,2025-08-21,Aug,Winter,Berea,Potatoes,vegetables,0.64,12.2,6.4,7.27,134,8.8,64,61,101,0.98,11.43,821,9301,20,Medium
+AGC-00839,2025-10-18,Oct,Spring,Thaba-Tseka,Beans (Dry),legumes,4.76,71.1,19.3,6.86,217,22.5,50,55,322,7.33,30.85,5791,176788,22,Medium
+AGC-00840,2023-08-30,Aug,Winter,Qacha's Nek,Beans (Dry),legumes,9.25,18.8,6.5,6.13,154,22.5,65,21,355,3.05,28.49,1580,44453,29,Low
+AGC-00841,2024-04-13,Apr,Autumn,Mokhotlong,Beans (Dry),legumes,8.36,15.3,17.1,6.11,72,22.5,226,44,386,1.67,18.45,1172,21171,19,Medium
+AGC-00842,2023-10-18,Oct,Spring,Mafeteng,Peaches,fruits,7.86,50.7,14.5,6.71,108,19,89,35,115,32.93,22.9,20746,472698,25,Low
+AGC-00843,2025-09-06,Sep,Spring,Quthing,Wheat,grains,3.32,47.5,20.8,6.26,135,9.8,167,56,244,5.21,9.87,4158,40025,20,Medium
+AGC-00844,2025-11-25,Nov,Spring,Maseru,Beans (Dry),legumes,1.46,47.3,22.5,5.6,116,22.5,79,60,73,0.89,29.81,739,21976,20,Medium
+AGC-00845,2025-06-05,Jun,Winter,Mokhotlong,Wheat,grains,2.15,19.8,0.8,6.97,150,9.8,71,36,411,1.72,13.93,1097,14830,26,Low
+AGC-00846,2023-08-11,Aug,Winter,Butha-Buthe,Potatoes,vegetables,3.62,5,8.6,6.11,178,8.8,85,46,183,3.11,11.95,2233,26276,23,Medium
+AGC-00847,2023-04-29,Apr,Autumn,Mokhotlong,Cabbage,vegetables,3.15,71.8,6.7,6.79,209,7,95,15,365,59.72,9.45,28068,254998,31,Low
+AGC-00848,2025-05-07,May,Autumn,Qacha's Nek,Tomatoes,vegetables,6.66,27.6,17.2,7.12,177,12.5,90,70,328,28.7,18.31,26117,469636,18,High
+AGC-00849,2025-08-25,Aug,Winter,Thaba-Tseka,Maize,grains,2.26,22.5,9,5.84,153,6.5,90,36,325,1.15,8.92,734,6309,27,Low
+AGC-00850,2023-11-19,Nov,Spring,Butha-Buthe,Sorghum,grains,10.05,84.1,19.2,5.55,132,7.2,82,29,171,19.5,8.79,11349,97817,29,Low
+AGC-00851,2024-08-30,Aug,Winter,Mohale's Hoek,Wheat,grains,12.04,36.5,5.7,6.1,79,9.8,67,48,175,15.53,13.16,11399,148016,19,Medium
+AGC-00852,2024-10-20,Oct,Spring,Butha-Buthe,Wheat,grains,0.51,78.4,14.2,7.46,142,9.8,212,66,189,1.01,9.39,887,8161,20,High
+AGC-00853,2025-01-29,Jan,Summer,Leribe,Tomatoes,vegetables,8.05,109.4,27.1,5.87,71,12.5,203,57,147,101.67,11.61,81946,939347,20,Medium
+AGC-00854,2025-11-13,Nov,Spring,Mafeteng,Sorghum,grains,1.06,90.8,18.7,6.22,267,7.2,65,52,111,3.63,9.73,2781,26750,23,Medium
+AGC-00855,2024-06-25,Jun,Winter,Mokhotlong,Sorghum,grains,0.59,20.3,12.4,6.35,117,7.2,105,34,419,0.4,10.06,249,2401,29,Low
+AGC-00856,2024-09-06,Sep,Spring,Berea,Wheat,grains,2.76,89.9,13.2,7.17,155,9.8,147,73,94,6.38,10.44,5959,61652,14,High
+AGC-00857,2024-09-05,Sep,Spring,Thaba-Tseka,Sorghum,grains,7.56,83.5,19.5,6.19,169,7.2,55,39,317,16.03,10.95,10612,112837,25,Low
+AGC-00858,2023-02-09,Feb,Summer,Maseru,Tomatoes,vegetables,7.42,95,26,5.73,142,12.5,152,60,67,103.58,11.37,85971,971730,13,Medium
+AGC-00859,2024-02-19,Feb,Summer,Mohale's Hoek,Wheat,grains,11.67,87.1,23.2,5.58,96,9.8,95,21,169,26.37,11.72,13660,157787,29,Low
+AGC-00860,2023-02-23,Feb,Summer,Maseru,Tomatoes,vegetables,2.21,127.9,26.5,7.14,101,12.5,141,95,71,37.84,13.78,37840,518749,12,High
+AGC-00861,2023-12-20,Dec,Summer,Maseru,Sorghum,grains,5.03,125.1,21,7.37,197,7.2,89,78,60,12.32,9.15,12000,109080,12,High
+AGC-00862,2024-01-01,Jan,Summer,Mafeteng,Peaches,fruits,8.12,86.4,20,7.19,149,19,169,68,124,47.42,18.47,42393,777742,15,High
+AGC-00863,2024-06-27,Jun,Winter,Maseru,Cabbage,vegetables,0.52,5,8.8,5.58,142,7,163,98,75,0.5,8.21,500,4068,7,High
+AGC-00864,2023-09-23,Sep,Spring,Leribe,Cabbage,vegetables,5.36,87.2,21.6,5.89,124,7,92,60,124,90.42,8.93,75049,660881,20,Medium
+AGC-00865,2024-09-01,Sep,Spring,Thaba-Tseka,Potatoes,vegetables,10.57,81.9,15.8,7.29,182,8.8,54,35,343,117.96,12.84,74315,928715,29,Low
+AGC-00866,2023-07-06,Jul,Winter,Butha-Buthe,Peaches,fruits,5.61,5,5.7,7.09,97,19,88,53,173,1.8,24.83,1393,34347,20,Medium
+AGC-00867,2023-04-06,Apr,Autumn,Leribe,Maize,grains,1.97,48.8,16.3,6.37,118,6.5,171,66,136,2.5,6.09,2195,13069,18,High
+AGC-00868,2024-06-29,Jun,Winter,Qacha's Nek,Wheat,grains,0.7,27.5,3.7,5.49,175,9.8,59,35,327,0.61,13.53,384,5070,27,Low
+AGC-00869,2025-03-09,Mar,Autumn,Butha-Buthe,Cabbage,vegetables,4.05,34.1,22.6,6.61,199,7,58,39,211,32.85,10.34,21747,220275,25,Low
+AGC-00870,2025-10-26,Oct,Spring,Butha-Buthe,Tomatoes,vegetables,10.38,66.8,27.9,5.93,199,12.5,104,41,211,110.03,15.73,74600,1157717,24,Medium
+AGC-00871,2024-05-10,May,Autumn,Thaba-Tseka,Beans (Dry),legumes,10.55,50.5,17.4,6.75,126,22.5,201,53,297,7.6,20.1,5882,116481,21,Medium
+AGC-00872,2023-05-13,May,Autumn,Maseru,Peaches,fruits,6.51,46.8,16.7,5.7,114,19,54,70,72,22.79,26.13,20739,540417,21,High
+AGC-00873,2023-11-29,Nov,Spring,Butha-Buthe,Peaches,fruits,9.48,73.2,19.3,6.31,142,19,43,36,182,69.11,25.16,44092,1101330,23,Low
+AGC-00874,2023-03-07,Mar,Autumn,Quthing,Cabbage,vegetables,11.09,35.6,11.9,7.27,137,7,77,24,225,79.63,9.23,43159,388647,26,Low
+AGC-00875,2025-07-06,Jul,Winter,Quthing,Cabbage,vegetables,5.6,49.7,10.2,6.01,168,7,153,34,248,65.69,7.68,40859,303664,22,Low
+AGC-00876,2024-07-15,Jul,Winter,Butha-Buthe,Beans (Dry),legumes,11.13,6.2,9.3,7.27,180,22.5,79,57,195,1,29.51,806,23628,19,Medium
+AGC-00877,2023-12-15,Dec,Summer,Butha-Buthe,Wheat,grains,5.5,133.5,22.1,7.16,202,9.8,116,44,209,13.42,12.71,9421,117772,23,Medium
+AGC-00878,2023-12-11,Dec,Summer,Maseru,Tomatoes,vegetables,6.67,79,28.4,6.72,187,12.5,174,63,70,93.25,11.57,79636,915814,18,Medium
+AGC-00879,2025-03-12,Mar,Autumn,Butha-Buthe,Maize,grains,9.24,69.2,12.1,5.66,137,6.5,178,48,210,14.78,5.69,10849,59453,20,Medium
+AGC-00880,2025-06-28,Jun,Winter,Quthing,Cabbage,vegetables,0.89,11.1,7.5,5.83,95,7,163,52,261,1.67,8.28,1279,10256,17,Medium
+AGC-00881,2023-08-22,Aug,Winter,Mafeteng,Sorghum,grains,9.46,8.4,5.1,7.07,160,7.2,97,44,132,2.65,8.81,1860,16141,26,Medium
+AGC-00882,2023-04-02,Apr,Autumn,Mafeteng,Wheat,grains,11.4,55.3,21.3,7.31,154,9.8,68,64,123,15.39,13.23,13266,173877,21,Medium
+AGC-00883,2025-03-05,Mar,Autumn,Mohale's Hoek,Potatoes,vegetables,1.4,19.5,15.6,6.18,150,8.8,67,59,167,4.68,12.02,3847,45598,19,Medium
+AGC-00884,2023-10-01,Oct,Spring,Butha-Buthe,Wheat,grains,2.15,78.7,17.7,7.27,111,9.8,137,53,184,4.06,10.96,3142,33858,18,Medium
+AGC-00885,2024-09-09,Sep,Spring,Butha-Buthe,Potatoes,vegetables,11.81,44.4,22.8,7.19,120,8.8,62,35,199,69.68,11.45,43898,493896,27,Low
+AGC-00886,2023-04-19,Apr,Autumn,Maseru,Potatoes,vegetables,11.71,37.6,13.3,6.26,161,8.8,72,76,69,79.51,12.45,76171,943073,17,High
+AGC-00887,2025-08-24,Aug,Winter,Butha-Buthe,Potatoes,vegetables,3.4,15.3,9.4,6.33,140,8.8,79,56,197,7.38,11.97,5889,69331,22,Medium
+AGC-00888,2025-10-12,Oct,Spring,Mokhotlong,Sorghum,grains,7.85,76.6,18.5,6.07,83,7.2,77,37,389,17.98,10.78,11615,120691,24,Low
+AGC-00889,2026-01-11,Jan,Summer,Leribe,Potatoes,vegetables,6.79,98,26.9,6.46,60,8.8,180,71,121,86.91,8.39,79783,659726,15,High
+AGC-00890,2026-01-03,Jan,Summer,Thaba-Tseka,Potatoes,vegetables,1.46,84.6,20,5.89,194,8.8,163,66,350,20.29,10.19,17815,175300,20,High
+AGC-00891,2024-01-18,Jan,Summer,Quthing,Peaches,fruits,11.17,113.6,26.2,6.7,155,19,164,68,246,104.77,18.73,93664,1731285,15,High
+AGC-00892,2025-03-11,Mar,Autumn,Thaba-Tseka,Cabbage,vegetables,2.8,74.9,14.1,6.51,148,7,56,40,339,56.11,10.03,37594,364323,25,Medium
+AGC-00893,2023-10-02,Oct,Spring,Thaba-Tseka,Sorghum,grains,6.48,96.8,20.9,6.35,88,7.2,52,30,305,13.02,10.84,7682,80930,30,Low
+AGC-00894,2023-10-13,Oct,Spring,Berea,Wheat,grains,11.09,75.6,18.6,5.79,146,9.8,160,73,112,21.29,10.21,19885,200799,15,High
+AGC-00895,2024-09-10,Sep,Spring,Maseru,Potatoes,vegetables,8.4,49.2,19.9,7.22,144,8.8,53,69,63,62.41,11.73,56294,656782,19,High
+AGC-00896,2025-06-26,Jun,Winter,Mohale's Hoek,Peaches,fruits,6.91,20.2,11.8,6.1,155,19,87,56,200,12.99,24.63,10366,253241,21,Medium
+AGC-00897,2025-04-21,Apr,Autumn,Quthing,Potatoes,vegetables,1.44,35.1,15.2,6.53,230,8.8,105,46,232,11.45,11.01,8221,88606,25,Medium
+AGC-00898,2023-08-20,Aug,Winter,Butha-Buthe,Sorghum,grains,11.83,5,7.1,7.33,136,7.2,54,52,189,1.77,10.49,1356,13968,21,Medium
+AGC-00899,2024-05-12,May,Autumn,Qacha's Nek,Sorghum,grains,4.78,51.4,11.4,5.69,129,7.2,96,51,387,6.21,8.99,4707,40494,26,Medium
+AGC-00900,2024-03-04,Mar,Autumn,Mafeteng,Wheat,grains,5.65,49.8,16,6.67,130,9.8,115,31,110,9.94,11.67,5944,68713,25,Low
+AGC-00901,2024-04-20,Apr,Autumn,Mafeteng,Wheat,grains,3.05,36.3,19.9,7.32,172,9.8,79,61,133,3.66,12.49,3067,37899,22,Medium
+AGC-00902,2023-10-20,Oct,Spring,Quthing,Maize,grains,9.31,63,17.5,7.09,96,6.5,74,58,240,12.01,9.46,9776,90135,21,Medium
+AGC-00903,2024-09-11,Sep,Spring,Leribe,Cabbage,vegetables,7.01,50.9,21,6.33,149,7,77,57,143,76.83,9.73,61925,593675,20,Medium
+AGC-00904,2023-01-27,Jan,Summer,Qacha's Nek,Sorghum,grains,4.88,92.7,21.5,6.02,135,7.2,67,48,373,12.79,10.37,9388,93852,25,Medium
+AGC-00905,2024-01-25,Jan,Summer,Butha-Buthe,Tomatoes,vegetables,12.23,134.1,23.7,7.48,97,12.5,164,62,183,204.61,11.49,173100,1957242,22,Medium
+AGC-00906,2024-03-16,Mar,Autumn,Thaba-Tseka,Beans (Dry),legumes,6.69,27.7,12.9,6.39,105,22.5,233,25,302,2.54,16.55,1397,22698,25,Low
+AGC-00907,2024-04-03,Apr,Autumn,Quthing,Wheat,grains,5.63,29.3,14.4,7.34,116,9.8,87,41,262,4.39,13.05,2976,38057,24,Medium
+AGC-00908,2023-10-08,Oct,Spring,Butha-Buthe,Cabbage,vegetables,2.66,86.3,21.6,5.46,84,7,104,38,196,42.21,8.89,27605,239998,24,Low
+AGC-00909,2025-12-31,Dec,Summer,Berea,Potatoes,vegetables,1.87,108.9,19.7,6.33,190,8.8,147,58,105,38.73,8.53,31526,265607,20,Medium
+AGC-00910,2025-01-16,Jan,Summer,Thaba-Tseka,Beans (Dry),legumes,12.4,99,26.3,5.89,148,22.5,76,39,315,15.13,28.06,10016,277894,22,Low
+AGC-00911,2023-01-20,Jan,Summer,Thaba-Tseka,Cabbage,vegetables,2.89,111.1,20.7,5.54,124,7,52,62,318,47.69,11.33,40346,444290,23,Medium
+AGC-00912,2025-04-09,Apr,Autumn,Mohale's Hoek,Tomatoes,vegetables,11.5,68,10.7,6.14,132,12.5,80,22,187,139.61,15.02,73435,1089261,30,Low
+AGC-00913,2025-04-16,Apr,Autumn,Quthing,Sorghum,grains,10.96,5,16.4,7,120,7.2,176,74,232,2.08,8.7,1959,16589,18,High
+AGC-00914,2024-06-14,Jun,Winter,Mafeteng,Beans (Dry),legumes,1.61,6.4,6.6,6.31,98,22.5,73,47,128,0.2,28.57,145,4124,28,Medium
+AGC-00915,2024-08-15,Aug,Winter,Leribe,Wheat,grains,10.22,16.4,8.4,7.41,276,9.8,73,58,139,5.21,12.58,4241,52762,24,Medium
+AGC-00916,2024-01-23,Jan,Summer,Leribe,Wheat,grains,7.56,116.6,26.3,7.14,184,9.8,120,29,148,21.55,12.23,12542,151532,31,Low
+AGC-00917,2023-04-19,Apr,Autumn,Quthing,Beans (Dry),legumes,6.41,51.6,16.1,7.48,153,22.5,183,56,269,4.68,20.23,3735,74554,21,Medium
+AGC-00918,2024-04-04,Apr,Autumn,Quthing,Tomatoes,vegetables,5.95,26.9,21.7,5.94,150,12.5,80,51,231,26,17.16,19708,333637,22,Medium
+AGC-00919,2025-08-20,Aug,Winter,Butha-Buthe,Potatoes,vegetables,2.59,24.8,8.2,5.84,132,8.8,18,24,189,7.43,11.85,4027,46959,29,Low
+AGC-00920,2023-11-20,Nov,Spring,Butha-Buthe,Peaches,fruits,6.46,84.1,21.5,7.36,212,19,87,38,193,47.74,23.99,31222,742990,23,Low
+AGC-00921,2023-06-26,Jun,Winter,Thaba-Tseka,Sorghum,grains,8.69,5,12.7,5.99,109,7.2,77,20,341,1.22,10.25,622,6163,32,Low
+AGC-00922,2024-12-06,Dec,Summer,Thaba-Tseka,Beans (Dry),legumes,5.24,104.6,20.3,6.32,150,22.5,83,34,337,7.96,28.73,4951,140574,25,Low
+AGC-00923,2025-08-01,Aug,Winter,Mafeteng,Maize,grains,7.83,16.4,10.9,6.27,141,6.5,58,50,122,4.23,9.04,3173,28297,23,Medium
+AGC-00924,2025-02-24,Feb,Summer,Mafeteng,Beans (Dry),legumes,7.98,86.2,29.7,7.1,160,22.5,118,44,111,10.37,26.25,7280,190292,24,Medium
+AGC-00925,2025-09-22,Sep,Spring,Qacha's Nek,Peaches,fruits,6.03,53.3,22.1,6.55,33,19,70,36,359,23.34,25.63,14891,376310,24,Low
+AGC-00926,2024-08-15,Aug,Winter,Mohale's Hoek,Wheat,grains,6.11,5,8.1,7.33,172,9.8,126,58,162,0.92,12.13,749,8964,25,Medium
+AGC-00927,2024-04-15,Apr,Autumn,Butha-Buthe,Maize,grains,7.41,56.2,17.1,6.78,102,6.5,205,56,208,11.63,6.72,9281,60438,18,Medium
+AGC-00928,2024-09-29,Sep,Spring,Maseru,Sorghum,grains,12.25,86.5,18.4,5.61,74,7.2,76,53,72,20.46,9.73,15836,152944,24,Medium
+AGC-00929,2025-10-11,Oct,Spring,Qacha's Nek,Maize,grains,9.99,98.2,17.5,6.05,172,6.5,35,50,374,33.67,10.32,25253,251166,26,Medium
+AGC-00930,2023-05-13,May,Autumn,Mafeteng,Tomatoes,vegetables,2.73,69.9,13.4,5.97,114,12.5,90,32,124,28.8,15.57,17453,269579,28,Low
+AGC-00931,2023-12-21,Dec,Summer,Berea,Tomatoes,vegetables,10.1,119.6,22.9,7.07,114,12.5,217,74,91,170.49,11.19,160602,1782522,14,High
+AGC-00932,2024-06-10,Jun,Winter,Maseru,Maize,grains,5.49,5,1.9,5.96,133,6.5,77,77,60,0.66,9.15,638,5799,18,High
+AGC-00933,2024-06-22,Jun,Winter,Leribe,Potatoes,vegetables,8.01,33.1,9.2,6.69,89,8.8,67,52,139,43.09,12.43,33007,405689,20,Medium
+AGC-00934,2024-08-27,Aug,Winter,Mafeteng,Maize,grains,3.98,25.7,8.4,6.11,117,6.5,87,54,112,2.71,8.38,2119,17520,23,Medium
+AGC-00935,2025-02-07,Feb,Summer,Maseru,Peaches,fruits,1.16,93.1,25.1,6.33,143,19,170,87,63,9.69,19.19,9690,185341,12,High
+AGC-00936,2024-12-05,Dec,Summer,Qacha's Nek,Wheat,grains,3.67,119.1,24.7,5.68,72,9.8,74,25,350,7.56,12.15,4158,49064,25,Low
+AGC-00937,2023-09-19,Sep,Spring,Butha-Buthe,Wheat,grains,9.31,65.1,23,6.02,178,9.8,184,66,186,24.58,9.79,21581,207264,16,High
+AGC-00938,2025-11-02,Nov,Spring,Thaba-Tseka,Potatoes,vegetables,2.73,92.9,16,5.76,97,8.8,89,42,293,33.58,12.01,23036,269913,26,Medium
+AGC-00939,2025-02-05,Feb,Summer,Berea,Cabbage,vegetables,2.21,117.4,24.9,5.97,102,7,82,52,93,41.33,9.37,31659,293701,24,Medium
+AGC-00940,2025-09-03,Sep,Spring,Mafeteng,Cabbage,vegetables,4.32,51.3,17.1,6.3,57,7,51,33,115,42.77,9.74,26261,252762,29,Low
+AGC-00941,2024-05-03,May,Autumn,Leribe,Potatoes,vegetables,2.15,46.9,17.3,5.51,189,8.8,27,46,149,13.72,12.29,9851,119601,25,Medium
+AGC-00942,2024-12-17,Dec,Summer,Qacha's Nek,Peaches,fruits,9.68,136.9,28.3,5.93,102,19,159,45,368,63.79,18.25,45291,809894,22,Medium
+AGC-00943,2025-12-21,Dec,Summer,Berea,Wheat,grains,10.12,122.9,22.4,5.66,99,9.8,107,55,101,22.06,12.39,17427,214160,21,Medium
+AGC-00944,2025-08-06,Aug,Winter,Maseru,Maize,grains,4.33,30,6.8,7.38,277,6.5,98,97,74,3.98,9.04,3980,35685,11,High
+AGC-00945,2023-05-01,May,Autumn,Mokhotlong,Tomatoes,vegetables,8.67,42,16.5,5.41,113,12.5,91,18,405,49.25,15.92,24330,377480,27,Low
+AGC-00946,2024-08-09,Aug,Winter,Quthing,Peaches,fruits,4.45,16.5,3.2,5.77,70,19,77,20,254,4.94,22.96,2519,57196,29,Low
+AGC-00947,2025-06-16,Jun,Winter,Mafeteng,Peaches,fruits,3.9,16,3.4,5.72,142,19,30,37,113,4.09,24.83,2642,65302,26,Low
+AGC-00948,2024-06-01,Jun,Winter,Thaba-Tseka,Wheat,grains,7.27,30.4,9.6,5.88,141,9.8,72,26,332,6.18,13,3448,43679,35,Low
+AGC-00949,2025-09-02,Sep,Spring,Leribe,Peaches,fruits,8.37,68.2,16.8,5.74,129,19,56,53,138,42.27,25.42,32717,827151,21,Medium
+AGC-00950,2023-06-20,Jun,Winter,Berea,Sorghum,grains,8.48,10.5,3.2,5.6,161,7.2,70,57,92,2.8,9.18,2257,20512,19,Medium
+AGC-00951,2023-02-07,Feb,Summer,Leribe,Cabbage,vegetables,11.65,139.9,17.4,7.42,107,7,94,54,122,174.4,8.33,136381,1119415,23,Medium
+AGC-00952,2024-05-01,May,Autumn,Thaba-Tseka,Sorghum,grains,2.16,41.4,15.1,7.14,133,7.2,148,59,312,2.76,8.88,2269,19441,20,Medium
+AGC-00953,2025-11-10,Nov,Spring,Leribe,Tomatoes,vegetables,0.86,80.7,14.2,6.84,88,12.5,103,51,134,11.22,15.75,8505,132814,21,Medium
+AGC-00954,2025-06-15,Jun,Winter,Mafeteng,Tomatoes,vegetables,9.5,23,10.6,7.36,140,12.5,82,57,122,27.74,16.56,22358,367521,20,Medium
+AGC-00955,2024-10-23,Oct,Spring,Berea,Tomatoes,vegetables,9.64,73.2,19.9,6.14,170,12.5,111,59,101,126.96,15.73,104361,1631058,17,Medium
+AGC-00956,2025-04-08,Apr,Autumn,Berea,Maize,grains,10.3,54.3,15.9,5.95,196,6.5,180,67,97,16.38,6.2,14513,88573,17,High
+AGC-00957,2025-09-07,Sep,Spring,Mokhotlong,Peaches,fruits,10.33,88.7,23.8,6.56,84,19,46,34,354,68.38,25.34,42532,1062705,25,Low
+AGC-00958,2024-06-26,Jun,Winter,Mohale's Hoek,Sorghum,grains,2.7,5,4.4,6.62,123,7.2,42,50,195,0.43,10.61,323,3364,20,Medium
+AGC-00959,2024-12-28,Dec,Summer,Leribe,Cabbage,vegetables,4.57,92.9,22.1,7.13,113,7,56,56,140,82.58,10.03,65899,651741,20,Medium
+AGC-00960,2024-11-10,Nov,Spring,Qacha's Nek,Peaches,fruits,4.46,89.2,18.5,5.93,211,19,85,43,374,36.62,24.78,25414,620254,24,Medium
+AGC-00961,2023-07-27,Jul,Winter,Mokhotlong,Sorghum,grains,5.49,11.7,11.4,6.89,129,7.2,66,19,423,2.42,10.84,1215,12657,33,Low
+AGC-00962,2024-03-16,Mar,Autumn,Thaba-Tseka,Peaches,fruits,10.38,47.9,15.7,7.42,114,19,102,43,313,28.65,24.09,19883,472758,26,Medium
+AGC-00963,2025-08-14,Aug,Winter,Thaba-Tseka,Maize,grains,7.41,8.7,5,5.52,166,6.5,85,53,310,1.7,8.74,1316,11094,22,Medium
+AGC-00964,2025-08-29,Aug,Winter,Leribe,Cabbage,vegetables,10.7,28.4,3.7,7.33,123,7,195,95,137,56.82,7.21,56820,401888,6,High
+AGC-00965,2025-02-23,Feb,Summer,Quthing,Peaches,fruits,10.14,100.2,21.7,5.98,240,19,124,58,257,87.31,20.2,71070,1417349,21,Medium
+AGC-00966,2024-01-23,Jan,Summer,Butha-Buthe,Cabbage,vegetables,1.62,127.3,25.1,5.4,187,7,48,23,185,31.91,9.66,17040,161454,32,Low
+AGC-00967,2025-10-26,Oct,Spring,Quthing,Beans (Dry),legumes,2.63,65,23.3,5.91,92,22.5,81,35,267,2.31,29.06,1455,41894,30,Low
+AGC-00968,2025-02-14,Feb,Summer,Thaba-Tseka,Potatoes,vegetables,7.48,103.9,23.8,6.3,160,8.8,162,50,350,136.96,9.61,102720,951187,22,Medium
+AGC-00969,2024-09-28,Sep,Spring,Berea,Maize,grains,5.03,64.2,24.9,6.08,111,6.5,76,57,102,9.96,8.91,8028,70711,20,Medium
+AGC-00970,2024-09-21,Sep,Spring,Mafeteng,Tomatoes,vegetables,7.43,67.3,18.3,7.03,133,12.5,37,28,124,68.06,16.06,39066,622556,33,Low
+AGC-00971,2024-12-14,Dec,Summer,Mohale's Hoek,Cabbage,vegetables,3.14,109.7,26.8,6.46,143,7,85,31,177,72.94,8.84,43618,377863,26,Low
+AGC-00972,2024-09-03,Sep,Spring,Mafeteng,Peaches,fruits,10.62,43.2,20.6,7.5,199,19,72,61,121,33.77,24.98,28299,703485,21,Medium
+AGC-00973,2023-03-07,Mar,Autumn,Mokhotlong,Peaches,fruits,12.32,56.6,20.1,6.25,112,19,99,46,373,52.85,24.17,37946,903001,25,Medium
+AGC-00974,2025-11-23,Nov,Spring,Mokhotlong,Maize,grains,2.02,91.7,15.7,6.82,134,6.5,43,31,408,5.72,9.68,3421,31720,27,Low
+AGC-00975,2025-03-26,Mar,Autumn,Thaba-Tseka,Potatoes,vegetables,1.35,26.4,20.8,6.19,174,8.8,76,28,281,7.1,11.67,4075,46410,31,Low
+AGC-00976,2023-11-20,Nov,Spring,Mokhotlong,Tomatoes,vegetables,6.21,83.1,15.4,7.13,187,12.5,41,34,341,81.54,17.14,50718,852012,31,Low
+AGC-00977,2025-02-01,Feb,Summer,Mafeteng,Wheat,grains,7.11,113.8,24.2,6.98,128,9.8,86,41,113,19.69,12.78,13350,169104,25,Medium
+AGC-00978,2024-09-13,Sep,Spring,Mafeteng,Peaches,fruits,4.49,66.4,19,5.63,125,19,64,52,126,19.35,25.5,14822,376093,19,Medium
+AGC-00979,2023-02-01,Feb,Summer,Maseru,Cabbage,vegetables,10.28,105.1,30.1,6.29,192,7,62,70,62,249.91,9.78,227418,2210048,17,High
+AGC-00980,2023-04-12,Apr,Autumn,Qacha's Nek,Sorghum,grains,1.05,51.1,11.1,7.34,78,7.2,187,53,375,1.22,7.61,944,6830,17,Medium
+AGC-00981,2024-10-04,Oct,Spring,Leribe,Cabbage,vegetables,8.24,118.9,19.9,7.36,154,7,39,53,133,164.88,10.27,127617,1293654,20,Medium
+AGC-00982,2024-03-09,Mar,Autumn,Butha-Buthe,Peaches,fruits,6.36,23.6,15.6,5.99,40,19,116,41,210,7.7,23.53,5221,121754,21,Medium
+AGC-00983,2025-12-15,Dec,Summer,Qacha's Nek,Potatoes,vegetables,0.53,141.4,21.5,5.86,64,8.8,151,67,327,7.76,10.84,6875,72277,20,High
+AGC-00984,2023-05-11,May,Autumn,Mafeteng,Maize,grains,6.29,37.1,14.1,5.42,155,6.5,195,42,136,5.54,5.59,3800,20725,19,Medium
+AGC-00985,2023-02-28,Feb,Summer,Mokhotlong,Cabbage,vegetables,2.21,120.1,24.8,5.49,162,7,111,27,384,39.03,10.7,22091,227891,28,Low
+AGC-00986,2023-02-12,Feb,Summer,Mokhotlong,Peaches,fruits,8.46,137.1,21.4,7.06,52,19,130,41,347,55.16,19.3,37398,708804,20,Medium
+AGC-00987,2025-01-26,Jan,Summer,Maseru,Peaches,fruits,8.2,120.4,23.9,5.73,188,19,159,73,70,69.04,18.86,64483,1211636,15,High
+AGC-00988,2024-08-07,Aug,Winter,Quthing,Beans (Dry),legumes,1.01,33.8,7.6,5.82,120,22.5,47,51,266,0.47,30.73,356,10845,21,Medium
+AGC-00989,2023-03-28,Mar,Autumn,Qacha's Nek,Cabbage,vegetables,6.21,76.7,17,5.93,106,7,84,41,374,82.22,10.3,55745,553325,26,Medium
+AGC-00990,2024-08-15,Aug,Winter,Mokhotlong,Sorghum,grains,5.19,21.1,6.9,6.12,129,7.2,62,36,419,3.84,11.24,2450,26511,29,Low
+AGC-00991,2023-12-22,Dec,Summer,Berea,Sorghum,grains,12.17,114.6,27.3,6.45,103,7.2,76,60,108,30.79,9.52,25556,240533,19,Medium
+AGC-00992,2024-06-11,Jun,Winter,Butha-Buthe,Cabbage,vegetables,9.42,12.9,14.7,5.48,210,7,186,90,200,27.22,7.73,27220,204967,10,High
+AGC-00993,2023-05-08,May,Autumn,Qacha's Nek,Peaches,fruits,6.26,61.7,17.2,6.87,124,19,79,15,352,30.49,23.4,14330,330278,30,Low
+AGC-00994,2024-02-09,Feb,Summer,Mohale's Hoek,Sorghum,grains,11.47,81.5,22.2,7.41,126,7.2,73,34,178,18.93,9.89,11774,114349,26,Low
+AGC-00995,2025-04-04,Apr,Autumn,Qacha's Nek,Wheat,grains,12.42,70.4,12.1,5.78,117,9.8,98,30,345,23.47,12.88,13847,173572,30,Low
+AGC-00996,2023-08-22,Aug,Winter,Butha-Buthe,Tomatoes,vegetables,3.4,13.5,8.2,6.11,167,12.5,88,31,190,9.49,15.73,5675,88190,25,Low
+AGC-00997,2023-06-23,Jun,Winter,Mafeteng,Sorghum,grains,1.39,5,10.7,5.84,173,7.2,83,52,112,0.25,9.67,192,1835,23,Medium
+AGC-00998,2023-10-05,Oct,Spring,Thaba-Tseka,Sorghum,grains,3.93,58,21.5,6.33,130,7.2,10,43,281,7.9,11.55,5483,61788,29,Medium
+AGC-00999,2025-04-06,Apr,Autumn,Maseru,Potatoes,vegetables,3.3,19.4,16.1,7.1,106,8.8,53,65,63,6.96,12.25,6055,73792,19,High
+AGC-01000,2025-01-31,Jan,Summer,Mokhotlong,Potatoes,vegetables,3.11,138.6,20.7,5.47,164,8.8,163,48,374,46.56,9.26,34175,303679,20,Medium
+AGC-01001,2024-04-05,Apr,Autumn,Qacha's Nek,Wheat,grains,9.45,28.4,14.1,6.96,159,9.8,97,22,325,10.49,12.48,5518,67071,30,Low
+AGC-01002,2023-02-16,Feb,Summer,Qacha's Nek,Maize,grains,3.11,135.7,20.6,6.12,61,6.5,104,21,346,8.15,8.13,4222,32864,30,Low
+AGC-01003,2023-01-22,Jan,Summer,Quthing,Peaches,fruits,6.37,72.2,26,7.06,117,19,218,66,247,31.47,16.87,27631,459310,17,High
+AGC-01004,2025-11-12,Nov,Spring,Leribe,Potatoes,vegetables,5.67,73.2,16.4,6.01,96,8.8,66,65,135,61.86,12.41,53818,660616,16,High
+AGC-01005,2023-02-25,Feb,Summer,Leribe,Cabbage,vegetables,10.81,120.7,28.9,5.86,113,7,93,51,147,182.8,8.99,138562,1225304,21,Medium
+AGC-01006,2024-08-21,Aug,Winter,Qacha's Nek,Sorghum,grains,11.36,16.3,10.1,7.21,109,7.2,49,37,343,4.77,10.59,3081,31571,25,Low
+AGC-01007,2023-06-04,Jun,Winter,Qacha's Nek,Peaches,fruits,6.98,21.9,9.8,6.71,124,19,52,38,351,13.54,25.25,8855,220481,24,Low
+AGC-01008,2024-03-16,Mar,Autumn,Mohale's Hoek,Beans (Dry),legumes,9.3,48.1,18,5.65,158,22.5,187,67,176,5.67,21.64,5024,107835,17,High
+AGC-01009,2025-09-25,Sep,Spring,Mokhotlong,Peaches,fruits,1.35,86.2,17.6,6.97,150,19,107,46,342,9.71,24.73,6972,170033,23,Medium
+AGC-01010,2023-05-13,May,Autumn,Mafeteng,Peaches,fruits,2.33,20.8,17.7,7.07,182,19,41,39,134,3.98,25.39,2635,66550,28,Low
+AGC-01011,2024-10-18,Oct,Spring,Mafeteng,Wheat,grains,11.5,54.3,19.6,5.62,139,9.8,199,55,121,16.91,8.65,13359,113939,20,Medium
+AGC-01012,2025-03-23,Mar,Autumn,Mokhotlong,Cabbage,vegetables,5,54.2,18.9,5.83,175,7,98,47,342,53.05,10.42,38514,388144,22,Medium
+AGC-01013,2024-12-22,Dec,Summer,Maseru,Cabbage,vegetables,4.48,120,21.5,7.08,134,7,118,45,63,75.26,8.33,53435,441747,19,Medium
+AGC-01014,2023-10-13,Oct,Spring,Qacha's Nek,Tomatoes,vegetables,2.31,82.7,21.6,7.49,187,12.5,72,54,363,33.47,17.9,26174,459013,22,Medium
+AGC-01015,2025-04-04,Apr,Autumn,Thaba-Tseka,Beans (Dry),legumes,0.73,53.7,18.3,6.52,171,22.5,196,58,297,0.59,20.6,480,9745,17,Medium
+AGC-01016,2023-05-12,May,Autumn,Mohale's Hoek,Maize,grains,4.46,50.3,9.9,7.16,152,6.5,214,70,178,6.51,6.38,5924,36741,20,High
+AGC-01017,2023-03-28,Mar,Autumn,Qacha's Nek,Tomatoes,vegetables,8.74,78.5,15.2,7.27,219,12.5,85,24,373,112.4,15.93,60921,947748,27,Low
+AGC-01018,2023-09-18,Sep,Spring,Thaba-Tseka,Maize,grains,1.55,68.4,20.1,7.5,80,6.5,74,45,330,2.22,9.55,1576,14531,24,Medium
+AGC-01019,2025-08-11,Aug,Winter,Maseru,Wheat,grains,0.5,36.5,10.3,6.84,179,9.8,63,60,65,0.61,13.09,506,6591,18,Medium
+AGC-01020,2024-12-07,Dec,Summer,Mafeteng,Beans (Dry),legumes,9.29,116,24.2,7.33,143,22.5,88,58,114,12.36,28.77,10061,288308,24,Medium
+AGC-01021,2024-02-19,Feb,Summer,Maseru,Maize,grains,8.37,143.6,26.1,7.26,133,6.5,10,76,71,20.42,9.84,19562,191101,17,High
+AGC-01022,2024-07-23,Jul,Winter,Berea,Potatoes,vegetables,2.76,13,6.4,7.07,152,8.8,95,38,91,5.88,10.49,3846,39995,25,Low
+AGC-01023,2024-03-29,Mar,Autumn,Thaba-Tseka,Beans (Dry),legumes,11.28,75.6,13.7,6.68,104,22.5,193,60,339,14.21,20.91,11794,242614,19,Medium
+AGC-01024,2025-07-06,Jul,Winter,Mohale's Hoek,Cabbage,vegetables,1.5,9.3,7.2,6.64,170,7,175,64,184,2.97,7.22,2560,18012,18,Medium
+AGC-01025,2023-04-09,Apr,Autumn,Maseru,Peaches,fruits,0.82,40.6,14.6,6.02,178,19,41,48,75,3.18,25.19,2334,58618,24,Medium
+AGC-01026,2023-06-17,Jun,Winter,Mohale's Hoek,Beans (Dry),legumes,6.89,24.7,8.7,6.12,117,22.5,72,42,170,2.62,28.38,1797,50693,25,Medium
+AGC-01027,2025-03-29,Mar,Autumn,Mafeteng,Beans (Dry),legumes,2.63,49.6,14.2,6.84,115,22.5,146,50,133,2.05,21.4,1538,32709,21,Medium
+AGC-01028,2023-05-08,May,Autumn,Thaba-Tseka,Potatoes,vegetables,10.62,49.4,16.9,6.57,99,8.8,82,40,286,90.27,12.18,60481,719361,28,Medium
+AGC-01029,2024-08-30,Aug,Winter,Mafeteng,Cabbage,vegetables,10.46,37.7,6.3,6.1,54,7,163,44,123,71.86,6.15,50446,304038,24,Medium
+AGC-01030,2024-11-14,Nov,Spring,Mokhotlong,Tomatoes,vegetables,10.48,65.9,18.8,6.23,61,12.5,91,28,408,109.73,16.13,62985,990250,31,Low
+AGC-01031,2023-07-07,Jul,Winter,Butha-Buthe,Maize,grains,11.34,30.6,8.3,6.74,158,6.5,76,46,180,10.32,8.75,7410,63504,25,Medium
+AGC-01032,2025-08-19,Aug,Winter,Mokhotlong,Cabbage,vegetables,7.84,43.4,13.3,6.5,109,7,202,60,346,75.73,7.88,62856,473557,18,Medium
+AGC-01033,2023-09-15,Sep,Spring,Butha-Buthe,Maize,grains,10.03,76.9,15.5,6.24,165,6.5,71,35,176,26.88,8.54,16934,141636,24,Low
+AGC-01034,2025-03-18,Mar,Autumn,Qacha's Nek,Sorghum,grains,4.58,31.2,16.1,5.42,133,7.2,167,39,371,3.71,7.64,2456,17853,24,Low
+AGC-01035,2025-06-15,Jun,Winter,Thaba-Tseka,Beans (Dry),legumes,1.42,5,6.7,5.99,78,22.5,116,48,345,0.2,27.73,147,4026,21,Medium
+AGC-01036,2023-12-18,Dec,Summer,Butha-Buthe,Peaches,fruits,11.34,124.3,21.6,6.41,75,19,176,52,179,97.52,17.32,74700,1280433,20,Medium
+AGC-01037,2024-04-30,Apr,Autumn,Maseru,Beans (Dry),legumes,11.03,50.3,21.6,6.1,122,22.5,141,96,61,9.27,24.93,9270,230536,13,High
+AGC-01038,2024-01-20,Jan,Summer,Qacha's Nek,Tomatoes,vegetables,2.36,143,23.8,7.43,98,12.5,213,65,386,45.6,12.19,39672,468288,17,High
+AGC-01039,2024-10-13,Oct,Spring,Quthing,Beans (Dry),legumes,2.89,65.3,22.4,6.49,146,22.5,66,32,267,3.01,28.43,1824,51369,25,Low
+AGC-01040,2024-01-11,Jan,Summer,Mokhotlong,Beans (Dry),legumes,2.39,162.6,26.2,6.08,142,22.5,95,16,346,4.04,26.82,1931,51121,30,Low
+AGC-01041,2025-06-10,Jun,Winter,Quthing,Sorghum,grains,0.62,5,6.9,6.02,164,7.2,57,49,254,0.2,9.93,148,1432,24,Medium
+AGC-01042,2024-08-29,Aug,Winter,Berea,Cabbage,vegetables,2.43,34.8,8.4,6.33,103,7,251,69,107,16.96,5.86,15298,88009,14,High
+AGC-01043,2025-09-14,Sep,Spring,Berea,Cabbage,vegetables,7,61.3,13,6.29,83,7,32,68,106,76.58,9.99,68463,676688,19,High
+AGC-01044,2025-08-29,Aug,Winter,Mokhotlong,Beans (Dry),legumes,1.77,19.8,10.4,6.75,185,22.5,85,66,388,0.65,30.42,571,17148,17,High
+AGC-01045,2024-05-11,May,Autumn,Butha-Buthe,Wheat,grains,3.54,45.8,17.1,6.1,124,9.8,122,41,184,4.64,11.7,3146,36229,24,Medium
+AGC-01046,2025-12-01,Dec,Summer,Mohale's Hoek,Wheat,grains,10.18,104.7,22.3,7.02,101,9.8,52,34,174,23.62,12.66,14692,183444,24,Low
+AGC-01047,2023-03-18,Mar,Autumn,Maseru,Cabbage,vegetables,3.57,20.2,13.5,7.32,150,7,138,71,62,13.46,8.97,12356,110067,20,High
+AGC-01048,2023-10-31,Oct,Spring,Mokhotlong,Sorghum,grains,8.72,83.7,14,7.25,171,7.2,98,26,393,17.18,10.47,9586,96598,30,Low
+AGC-01049,2024-02-16,Feb,Summer,Mafeteng,Peaches,fruits,0.57,119.2,25,6.1,159,19,197,66,113,4.58,17.46,4021,69752,17,High
+AGC-01050,2024-07-11,Jul,Winter,Qacha's Nek,Wheat,grains,7.78,17.7,8.1,6.69,119,9.8,73,25,393,4.12,13.05,2266,28681,31,Low
+AGC-01051,2025-12-16,Dec,Summer,Thaba-Tseka,Maize,grains,0.52,100.6,28.2,5.93,150,6.5,81,25,330,1.43,9.58,787,7280,25,Low
+AGC-01052,2025-07-15,Jul,Winter,Mafeteng,Peaches,fruits,9.46,5,5.3,7.03,139,19,38,46,117,3.5,25.49,2513,63762,23,Medium
+AGC-01053,2025-08-28,Aug,Winter,Quthing,Peaches,fruits,2.58,28.3,10,5.91,121,19,39,56,233,4.18,26.3,3336,86960,23,Medium
+AGC-01054,2023-01-15,Jan,Summer,Berea,Peaches,fruits,10.22,108.7,24,6.91,121,19,205,54,106,94.43,16.57,73844,1215768,21,Medium
+AGC-01055,2025-06-09,Jun,Winter,Thaba-Tseka,Potatoes,vegetables,6.37,26.7,3.8,5.45,126,8.8,126,25,345,22.74,11.09,12507,134388,25,Low
+AGC-01056,2024-06-09,Jun,Winter,Berea,Potatoes,vegetables,4.66,5,7.3,6.65,102,8.8,51,42,107,3.45,11.06,2367,25926,24,Medium
+AGC-01057,2025-09-09,Sep,Spring,Quthing,Peaches,fruits,0.86,70.9,21.5,5.88,142,19,152,38,256,5.05,21.74,3303,70962,25,Low
+AGC-01058,2024-01-25,Jan,Summer,Thaba-Tseka,Tomatoes,vegetables,9.83,116.2,24.7,5.98,200,12.5,174,34,314,188.34,11.4,117147,1298692,22,Low
+AGC-01059,2024-03-04,Mar,Autumn,Mafeteng,Potatoes,vegetables,1.89,27.3,15.4,5.82,126,8.8,121,67,123,6.9,11.67,6113,70587,19,High
+AGC-01060,2023-11-06,Nov,Spring,Leribe,Cabbage,vegetables,8.36,79.1,17.2,6.09,145,7,74,57,148,160.76,10.24,129573,1307651,22,Medium
+AGC-01061,2024-08-19,Aug,Winter,Qacha's Nek,Potatoes,vegetables,1.04,30.6,7.9,5.66,142,8.8,74,35,382,4.2,12.06,2646,30900,29,Low
+AGC-01062,2024-12-17,Dec,Summer,Thaba-Tseka,Peaches,fruits,11.79,124.7,24.2,6.62,156,19,145,52,295,119.2,18.82,91307,1691462,18,Medium
+AGC-01063,2025-10-02,Oct,Spring,Maseru,Potatoes,vegetables,9.96,88.3,18.1,6.81,120,8.8,82,60,61,146.61,11.79,121686,1427255,22,Medium
+AGC-01064,2024-03-17,Mar,Autumn,Qacha's Nek,Beans (Dry),legumes,7.74,49.9,16.9,5.41,74,22.5,168,48,364,4.49,21.2,3296,68675,22,Medium
+AGC-01065,2025-05-07,May,Autumn,Quthing,Wheat,grains,12.24,59.8,13.8,6.7,103,9.8,99,61,266,22.89,14.01,19182,263637,18,Medium
+AGC-01066,2024-06-08,Jun,Winter,Berea,Wheat,grains,3.85,5,3.3,7.45,205,9.8,99,45,102,0.58,12.15,412,4964,24,Medium
+AGC-01067,2025-12-28,Dec,Summer,Leribe,Peaches,fruits,9.24,121.8,24.3,6.52,121,19,190,95,142,90.18,19.65,90180,1759231,8,High
+AGC-01068,2024-03-26,Mar,Autumn,Quthing,Potatoes,vegetables,6.42,19.5,17.6,6.16,74,8.8,109,58,256,19.26,12.63,15678,194000,20,Medium
+AGC-01069,2025-11-24,Nov,Spring,Qacha's Nek,Potatoes,vegetables,4.72,79.7,13.5,7.1,91,8.8,74,15,369,46.3,12.74,21761,269205,29,Low
+AGC-01070,2024-03-30,Mar,Autumn,Berea,Wheat,grains,3.68,45,19.2,6.8,81,9.8,88,66,95,4.75,13.1,4171,54244,15,High
+AGC-01071,2024-11-22,Nov,Spring,Qacha's Nek,Wheat,grains,11.29,70.3,22.7,5.76,192,9.8,175,38,328,23.48,9.37,15356,138849,24,Low
+AGC-01072,2023-11-26,Nov,Spring,Mokhotlong,Cabbage,vegetables,10.71,79.7,15,7.03,116,7,28,37,355,147.8,11.33,95479,1047882,27,Low
+AGC-01073,2023-09-28,Sep,Spring,Qacha's Nek,Maize,grains,11.29,79.1,17.2,6.8,158,6.5,81,46,376,30.6,10.51,21971,222654,18,Medium
+AGC-01074,2025-07-19,Jul,Winter,Mokhotlong,Maize,grains,11.63,24,12.3,6.69,128,6.5,56,25,411,8.14,11.01,4477,47452,29,Low
+AGC-01075,2023-03-19,Mar,Autumn,Butha-Buthe,Potatoes,vegetables,4.31,40.7,20.9,6.06,145,8.8,31,35,198,32.63,12.67,20557,256387,30,Low
+AGC-01076,2024-07-28,Jul,Winter,Butha-Buthe,Tomatoes,vegetables,3.71,5,10.9,7.32,155,12.5,36,67,174,2.82,18.11,2499,44822,19,High
+AGC-01077,2025-04-25,Apr,Autumn,Quthing,Tomatoes,vegetables,6.91,60.1,19.5,7.35,77,12.5,70,42,264,53.9,17.53,36975,638410,23,Medium
+AGC-01078,2024-07-03,Jul,Winter,Qacha's Nek,Potatoes,vegetables,11.58,34.8,6.2,5.51,122,8.8,83,30,338,48.52,11.8,28627,328123,28,Low
+AGC-01079,2024-07-09,Jul,Winter,Thaba-Tseka,Sorghum,grains,4.33,17.8,6.5,7.17,80,7.2,94,45,342,2.12,9.94,1505,14445,22,Medium
+AGC-01080,2023-04-28,Apr,Autumn,Qacha's Nek,Potatoes,vegetables,8.68,67.5,15.8,5.79,154,8.8,17,47,367,76.9,14.32,55829,778982,23,Medium
+AGC-01081,2023-07-08,Jul,Winter,Berea,Tomatoes,vegetables,12.14,28.4,15.1,6.02,146,12.5,55,63,92,62.4,18.13,53290,961245,19,Medium
+AGC-01082,2025-12-23,Dec,Summer,Mafeteng,Tomatoes,vegetables,5.68,99.7,27.1,6.82,133,12.5,189,81,133,93.66,13.05,93473,1207391,11,High
+AGC-01083,2023-04-23,Apr,Autumn,Maseru,Beans (Dry),legumes,5.33,54.9,13.4,6.53,274,22.5,165,60,61,5.54,20.2,4598,92599,19,Medium
+AGC-01084,2023-10-04,Oct,Spring,Qacha's Nek,Potatoes,vegetables,4.17,67.5,19.1,6.77,136,8.8,93,43,387,50.75,12.14,35221,413952,22,Medium
+AGC-01085,2023-06-02,Jun,Winter,Berea,Potatoes,vegetables,7.97,9.7,12.2,6.46,157,8.8,94,56,111,12.83,12.47,10238,126531,20,Medium
+AGC-01086,2024-01-13,Jan,Summer,Mafeteng,Maize,grains,2.69,103.1,23.9,5.62,143,6.5,84,55,119,7.4,8.81,5846,50808,21,Medium
+AGC-01087,2023-01-22,Jan,Summer,Mokhotlong,Cabbage,vegetables,6.46,144.5,25.2,5.91,181,7,113,39,356,132.11,9.54,87457,803205,25,Low
+AGC-01088,2023-05-15,May,Autumn,Mokhotlong,Peaches,fruits,3.95,69.8,18.1,5.85,201,19,85,15,345,22.52,22.58,10584,235335,27,Low
+AGC-01089,2024-02-08,Feb,Summer,Quthing,Peaches,fruits,9.37,90,20.2,6.35,125,19,136,38,270,73.93,18.29,48350,871267,24,Low
+AGC-01090,2025-10-14,Oct,Spring,Mohale's Hoek,Cabbage,vegetables,11.82,82.7,20.4,5.54,133,7,69,31,200,155.43,9.75,92947,887644,28,Low
+AGC-01091,2024-11-18,Nov,Spring,Qacha's Nek,Potatoes,vegetables,12.08,86.4,17.1,5.74,138,8.8,60,34,348,156.07,12.52,97076,1181609,27,Low
+AGC-01092,2024-01-19,Jan,Summer,Mohale's Hoek,Wheat,grains,1.67,97.1,25.7,6.67,102,9.8,57,25,170,4.78,12.63,2629,32757,33,Low
+AGC-01093,2024-06-19,Jun,Winter,Leribe,Cabbage,vegetables,11.37,28.6,5.6,6.07,125,7,163,69,148,78.34,7.63,70663,528701,18,High
+AGC-01094,2025-03-14,Mar,Autumn,Mokhotlong,Potatoes,vegetables,1.22,73.2,14.4,6.76,226,8.8,78,47,363,20.69,13.31,15021,194477,23,Medium
+AGC-01095,2025-06-23,Jun,Winter,Berea,Tomatoes,vegetables,4.62,39.6,2.6,7.14,149,12.5,91,53,109,29.2,16.2,22601,363673,21,Medium
+AGC-01096,2024-04-08,Apr,Autumn,Mokhotlong,Beans (Dry),legumes,1.93,57.9,18.6,6.65,221,22.5,172,63,365,2.35,22.54,2007,44505,16,Medium
+AGC-01097,2025-05-20,May,Autumn,Mohale's Hoek,Peaches,fruits,11.28,34,15.9,5.53,159,19,98,30,187,27.75,23,16373,373517,27,Low
+AGC-01098,2024-05-25,May,Autumn,Mafeteng,Peaches,fruits,8.95,18.6,15.9,5.63,106,19,77,46,113,11.81,23.68,8480,199848,27,Medium
+AGC-01099,2023-08-08,Aug,Winter,Mafeteng,Maize,grains,10.68,26.5,8,5.59,147,6.5,21,27,124,7.48,8.38,4234,34956,28,Low
+AGC-01100,2025-04-28,Apr,Autumn,Butha-Buthe,Peaches,fruits,1.34,61.3,12.9,6.17,128,19,95,49,206,6.3,24.26,4675,112452,23,Medium
+AGC-01101,2024-09-26,Sep,Spring,Mohale's Hoek,Tomatoes,vegetables,10.55,58.5,20.8,6.94,150,12.5,72,26,174,102.02,15.37,56927,865063,31,Low
+AGC-01102,2023-11-03,Nov,Spring,Berea,Wheat,grains,10.22,55.3,12.7,7.33,182,9.8,183,68,108,14.51,9.37,12972,120147,18,High
+AGC-01103,2025-11-07,Nov,Spring,Quthing,Cabbage,vegetables,4.64,41.8,15.7,6.98,175,7,81,38,272,52.9,10.16,34597,342095,28,Low
+AGC-01104,2023-04-08,Apr,Autumn,Maseru,Tomatoes,vegetables,10.68,29.8,13.2,6.88,98,12.5,69,53,68,52.12,16.26,40341,653201,22,Medium
+AGC-01105,2025-08-06,Aug,Winter,Mohale's Hoek,Potatoes,vegetables,1.21,31.3,9.5,5.78,155,8.8,48,58,178,4.86,12.12,3956,47243,19,Medium
+AGC-01106,2023-05-11,May,Autumn,Mafeteng,Potatoes,vegetables,7.47,27.6,20.5,5.7,104,8.8,115,39,132,26.82,11.35,17755,199176,25,Low
+AGC-01107,2023-11-21,Nov,Spring,Maseru,Sorghum,grains,6.29,61.4,15.6,6.12,163,7.2,70,69,60,14.84,10.4,13386,138411,19,High
+AGC-01108,2023-08-16,Aug,Winter,Maseru,Wheat,grains,6.84,5,9.7,6.74,95,9.8,73,69,68,1.03,13.13,929,12135,19,High
+AGC-01109,2025-06-20,Jun,Winter,Butha-Buthe,Beans (Dry),legumes,2.25,34.7,6.9,7.04,126,22.5,98,41,181,1.04,27.78,705,19457,23,Medium
+AGC-01110,2024-08-21,Aug,Winter,Berea,Wheat,grains,3.05,23.4,8,6.95,84,9.8,66,41,97,2.07,12.66,1403,17626,24,Medium
+AGC-01111,2024-09-24,Sep,Spring,Berea,Wheat,grains,1.55,62.5,19.3,5.45,237,9.8,206,75,92,3.24,9.38,3078,28588,13,High
+AGC-01112,2025-07-23,Jul,Winter,Berea,Wheat,grains,10.51,24.4,8.1,5.49,114,9.8,71,57,109,6.62,12.65,5336,66919,21,Medium
+AGC-01113,2024-03-07,Mar,Autumn,Qacha's Nek,Sorghum,grains,2.76,47.1,19.1,7.25,207,7.2,211,50,348,4.31,7.48,3233,23058,20,Medium
+AGC-01114,2025-10-18,Oct,Spring,Maseru,Cabbage,vegetables,5.41,52.3,16.1,6.6,152,7,97,76,75,77.63,8.97,74370,661521,20,High
+AGC-01115,2023-01-27,Jan,Summer,Mokhotlong,Sorghum,grains,8.16,114,25.1,5.52,205,7.2,111,52,404,19.01,11.02,14562,154590,23,Medium
+AGC-01116,2024-11-28,Nov,Spring,Maseru,Tomatoes,vegetables,5.8,84.2,19.8,6.6,150,12.5,127,86,67,79.69,16,79690,1269701,15,High
+AGC-01117,2025-06-05,Jun,Winter,Butha-Buthe,Beans (Dry),legumes,9.8,41.3,2.5,6.5,147,22.5,59,40,204,7.15,28.17,4791,133985,24,Medium
+AGC-01118,2024-06-14,Jun,Winter,Mokhotlong,Wheat,grains,0.87,32.4,6.9,5.7,129,9.8,112,45,406,0.77,13.95,547,7409,23,Medium
+AGC-01119,2024-01-09,Jan,Summer,Maseru,Beans (Dry),legumes,11.61,72.8,23.4,6.93,75,22.5,70,64,63,12.19,30.28,10508,317520,19,Medium
+AGC-01120,2023-10-06,Oct,Spring,Quthing,Maize,grains,11.34,67,13.8,6.49,30,6.5,41,33,263,19.28,9.49,11838,109229,27,Low
+AGC-01121,2025-03-16,Mar,Autumn,Mafeteng,Peaches,fruits,8.58,46.3,16.2,6.37,97,19,81,40,118,30.12,23.54,20180,472656,25,Medium
+AGC-01122,2024-07-17,Jul,Winter,Qacha's Nek,Potatoes,vegetables,10.6,37.4,6.2,6.12,91,8.8,72,38,361,54.7,12.43,35774,431756,27,Low
+AGC-01123,2024-07-10,Jul,Winter,Butha-Buthe,Tomatoes,vegetables,3.82,10.8,5.2,6.1,107,12.5,90,56,187,7.22,16.98,5762,96761,22,Medium
+AGC-01124,2025-04-01,Apr,Autumn,Leribe,Peaches,fruits,8.31,41.4,17.7,6.61,154,19,58,76,120,33.99,26.79,32562,868429,17,High
+AGC-01125,2023-04-24,Apr,Autumn,Butha-Buthe,Potatoes,vegetables,3.47,58.8,20.5,5.64,114,8.8,57,49,203,26.27,12.28,19492,235405,24,Medium
+AGC-01126,2024-04-05,Apr,Autumn,Quthing,Potatoes,vegetables,10.82,61,12.2,6.43,167,8.8,77,54,270,119.89,13,93754,1193488,24,Medium
+AGC-01127,2025-09-08,Sep,Spring,Quthing,Beans (Dry),legumes,10.18,46.1,20.9,6.02,124,22.5,58,26,245,7.94,28.43,4431,124888,30,Low
+AGC-01128,2024-10-28,Oct,Spring,Qacha's Nek,Peaches,fruits,5.89,96,19.6,6.67,109,19,65,33,393,49,25.19,30086,746043,32,Low
+AGC-01129,2025-09-27,Sep,Spring,Quthing,Sorghum,grains,4.96,58.2,16.1,5.97,185,7.2,69,71,234,9.37,10.86,8602,91405,22,High
+AGC-01130,2024-08-22,Aug,Winter,Mohale's Hoek,Cabbage,vegetables,0.64,5,6.5,5.5,181,7,186,79,183,0.6,7.19,589,4127,15,High
+AGC-01131,2023-06-04,Jun,Winter,Mokhotlong,Cabbage,vegetables,3.41,10.9,10.7,7.37,122,7,174,52,366,6.65,7.14,5094,34507,21,Medium
+AGC-01132,2023-10-11,Oct,Spring,Leribe,Tomatoes,vegetables,11.75,80.6,18.4,6.6,129,12.5,57,67,138,166.73,18.11,147723,2654878,20,High
+AGC-01133,2023-04-12,Apr,Autumn,Mokhotlong,Cabbage,vegetables,12.16,62.5,21.2,5.74,191,7,34,28,409,151.88,10.51,87179,880595,26,Low
+AGC-01134,2024-01-29,Jan,Summer,Mokhotlong,Tomatoes,vegetables,5.12,113.2,17.9,6.42,104,12.5,185,48,392,101.84,12.11,74751,875932,20,Medium
+AGC-01135,2025-12-17,Dec,Summer,Mafeteng,Wheat,grains,3.64,103.7,18.7,5.89,154,9.8,73,32,134,9.57,12.32,5799,70667,29,Low
+AGC-01136,2024-08-31,Aug,Winter,Qacha's Nek,Maize,grains,0.96,22.7,4.1,7.43,130,6.5,101,44,383,0.58,8.69,407,3381,28,Medium
+AGC-01137,2025-10-12,Oct,Spring,Maseru,Tomatoes,vegetables,9.6,62.4,18.7,6.91,176,12.5,70,66,74,118.85,16.47,104350,1710923,14,High
+AGC-01138,2025-02-05,Feb,Summer,Qacha's Nek,Maize,grains,6.62,137.9,23.9,5.95,155,6.5,97,35,395,18.47,10.15,11636,113509,27,Low
+AGC-01139,2024-05-03,May,Autumn,Qacha's Nek,Potatoes,vegetables,11.07,102.7,16.8,7.38,87,8.8,71,32,367,142.8,12.03,86537,1009281,31,Low
+AGC-01140,2024-09-10,Sep,Spring,Butha-Buthe,Wheat,grains,10.1,73.5,13.2,5.81,128,9.8,154,60,177,20.3,10.61,16849,175786,20,Medium
+AGC-01141,2023-02-19,Feb,Summer,Maseru,Maize,grains,7.63,128.7,23.8,6.99,145,6.5,103,41,64,24.57,8.37,16658,138361,25,Medium
+AGC-01142,2023-07-29,Jul,Winter,Mafeteng,Maize,grains,11.99,36,7.6,5.82,173,6.5,58,32,132,11.99,8.19,7266,58549,28,Low
+AGC-01143,2024-04-11,Apr,Autumn,Mokhotlong,Beans (Dry),legumes,7.13,34.9,16,6.24,132,22.5,160,55,367,3.28,21.94,2591,55896,21,Medium
+AGC-01144,2023-09-02,Sep,Spring,Berea,Cabbage,vegetables,12.18,105.6,19.6,6.59,211,7,107,58,98,313.15,9.3,254904,2345627,21,Medium
+AGC-01145,2025-04-15,Apr,Autumn,Berea,Peaches,fruits,5.62,86.3,20.9,6.77,136,19,64,58,92,42.54,25.18,34628,868747,22,Medium
+AGC-01146,2024-12-27,Dec,Summer,Mafeteng,Cabbage,vegetables,6.74,87.1,25.2,6.58,197,7,59,38,128,128.53,9.44,84059,782757,28,Low
+AGC-01147,2024-09-25,Sep,Spring,Maseru,Peaches,fruits,6.61,67.9,22.7,6.98,183,19,132,82,63,45.21,24.36,45210,1098467,13,High
+AGC-01148,2023-10-18,Oct,Spring,Maseru,Wheat,grains,8.82,60.7,21.3,6.93,229,9.8,183,82,66,24.96,10.44,24960,258935,13,High
+AGC-01149,2025-04-03,Apr,Autumn,Mafeteng,Potatoes,vegetables,6,53.5,17.6,6.44,112,8.8,100,44,117,50.52,10.63,35465,372844,23,Medium
+AGC-01150,2023-09-30,Sep,Spring,Quthing,Sorghum,grains,8.74,31.3,17.7,5.57,181,7.2,94,40,264,7.78,10.23,5213,51953,26,Medium
+AGC-01151,2024-11-04,Nov,Spring,Berea,Potatoes,vegetables,1.26,63.6,14.3,7.16,149,8.8,64,57,99,13.29,11.98,10712,127269,20,Medium
+AGC-01152,2024-05-12,May,Autumn,Mafeteng,Beans (Dry),legumes,6.79,41.4,12.4,7.38,173,22.5,162,44,133,4.21,20.28,2955,59534,22,Medium
+AGC-01153,2024-11-14,Nov,Spring,Leribe,Sorghum,grains,1.59,92.1,17.2,5.43,132,7.2,77,47,148,3.12,9.59,2265,21386,23,Medium
+AGC-01154,2023-12-12,Dec,Summer,Qacha's Nek,Cabbage,vegetables,11.26,106.2,28.1,7.17,103,7,112,23,362,214.05,9.78,114303,1076506,33,Low
+AGC-01155,2024-10-26,Oct,Spring,Mokhotlong,Peaches,fruits,4.48,89.3,16.1,6.78,164,19,23,15,404,39.11,25.29,18382,457454,30,Low
+AGC-01156,2025-05-23,May,Autumn,Maseru,Beans (Dry),legumes,4.42,56.7,16.9,6.52,111,22.5,170,72,67,4.42,21.72,4093,88626,12,High
+AGC-01157,2025-04-19,Apr,Autumn,Quthing,Maize,grains,5.58,55.1,16.7,5.44,166,6.5,181,50,267,7.64,6.35,5730,34856,22,Medium
+AGC-01158,2023-02-11,Feb,Summer,Butha-Buthe,Sorghum,grains,8.54,112.9,20.3,5.92,64,7.2,141,23,186,15.37,8.82,8208,70868,31,Low
+AGC-01159,2025-07-08,Jul,Winter,Thaba-Tseka,Sorghum,grains,11.51,17.2,12,5.41,130,7.2,120,35,314,5.87,9.85,3698,35264,26,Low
+AGC-01160,2023-06-23,Jun,Winter,Qacha's Nek,Wheat,grains,0.79,17.1,8.7,6.97,188,9.8,55,35,373,0.58,14.04,365,4988,29,Low
+AGC-01161,2024-05-31,May,Autumn,Thaba-Tseka,Tomatoes,vegetables,10.98,64.1,14.7,6.82,53,12.5,43,44,319,97.83,18.12,68677,1222519,22,Medium
+AGC-01162,2024-08-02,Aug,Winter,Thaba-Tseka,Peaches,fruits,1.25,9.7,11.7,6.31,46,19,97,33,288,0.84,23.67,516,12065,26,Low
+AGC-01163,2025-07-21,Jul,Winter,Mohale's Hoek,Sorghum,grains,3.44,5,6.7,6.26,152,7.2,95,31,167,0.58,9.39,347,3200,27,Low
+AGC-01164,2024-06-08,Jun,Winter,Maseru,Peaches,fruits,12.48,31.8,10.4,6.22,78,19,91,79,68,26.96,26.24,26475,692904,16,High
+AGC-01165,2024-03-23,Mar,Autumn,Berea,Potatoes,vegetables,10.75,29.7,15.7,6.31,135,8.8,78,45,105,53.86,11.23,38241,425431,21,Medium
+AGC-01166,2024-02-10,Feb,Summer,Berea,Maize,grains,10.9,132.7,27.9,7.36,181,6.5,65,52,105,32.48,8.88,24880,218322,25,Medium
+AGC-01167,2023-11-23,Nov,Spring,Berea,Sorghum,grains,12,89.1,22.3,5.62,114,7.2,72,65,99,21.84,9.98,19001,187749,19,High
+AGC-01168,2024-08-29,Aug,Winter,Qacha's Nek,Wheat,grains,5.45,14.8,6,6.4,72,9.8,34,39,391,2.4,14.35,1589,22181,27,Low
+AGC-01169,2025-12-09,Dec,Summer,Qacha's Nek,Peaches,fruits,10.92,132.5,21.2,5.84,92,19,176,46,364,71.64,18.25,51438,920020,23,Medium
+AGC-01170,2025-12-14,Dec,Summer,Qacha's Nek,Wheat,grains,5.17,100.9,22.8,6.29,144,9.8,80,16,368,15.2,12.51,7266,88224,29,Low
+AGC-01171,2024-07-18,Jul,Winter,Quthing,Tomatoes,vegetables,11.28,22.5,11.9,6.8,161,12.5,85,37,275,46.7,16.53,30168,490381,27,Low
+AGC-01172,2025-12-03,Dec,Summer,Qacha's Nek,Potatoes,vegetables,8.94,136.7,19.2,6.57,30,8.8,157,43,323,153.23,9.29,106342,953569,21,Medium
+AGC-01173,2025-05-08,May,Autumn,Berea,Peaches,fruits,6.01,72.9,15.2,7.11,112,19,69,63,94,26.26,26.05,22426,582089,19,Medium
+AGC-01174,2023-03-20,Mar,Autumn,Maseru,Peaches,fruits,4.28,37.7,20.2,5.85,149,19,76,52,71,13.91,23.95,10655,254431,25,Medium
+AGC-01175,2023-12-04,Dec,Summer,Mokhotlong,Beans (Dry),legumes,10.81,106.5,21.5,5.59,100,22.5,74,37,414,13.3,29.94,8592,253687,25,Low
+AGC-01176,2024-05-22,May,Autumn,Mokhotlong,Beans (Dry),legumes,8.89,64.4,15.7,5.73,163,22.5,177,69,419,9.07,22.57,8181,181217,15,High
+AGC-01177,2023-12-03,Dec,Summer,Quthing,Potatoes,vegetables,1.62,105.5,21.7,7.2,155,8.8,192,64,227,23.46,9.14,20223,180248,15,Medium
+AGC-01178,2026-01-11,Jan,Summer,Maseru,Beans (Dry),legumes,3.41,118.5,23.3,6.64,181,22.5,80,61,62,6.27,29,5254,152040,18,Medium
+AGC-01179,2024-01-18,Jan,Summer,Maseru,Potatoes,vegetables,10.1,122.4,21.7,7.33,82,8.8,143,81,74,136.45,8.99,136177,1214154,11,High
+AGC-01180,2025-04-09,Apr,Autumn,Maseru,Beans (Dry),legumes,4.46,41.9,13.9,6.51,174,22.5,181,75,63,3.26,21.56,3097,66576,11,High
+AGC-01181,2025-02-20,Feb,Summer,Mokhotlong,Sorghum,grains,3.78,109.5,20.5,7.48,135,7.2,54,36,359,7.37,10.3,4702,46743,25,Low
+AGC-01182,2023-06-01,Jun,Winter,Qacha's Nek,Beans (Dry),legumes,7.01,5,2.3,5.48,132,22.5,95,34,365,0.42,28.67,261,7388,25,Low
+AGC-01183,2024-09-11,Sep,Spring,Leribe,Peaches,fruits,4.33,69.2,22.6,7.2,20,19,95,56,121,15.07,24.36,12026,291498,21,Medium
+AGC-01184,2024-05-19,May,Autumn,Mafeteng,Tomatoes,vegetables,7.99,32.3,20.8,7.3,153,12.5,137,40,127,37.15,14.22,24891,350789,24,Medium
+AGC-01185,2025-01-07,Jan,Summer,Berea,Tomatoes,vegetables,7.51,149.1,25.1,6.26,83,12.5,169,98,98,172.58,13.79,172580,2362965,10,High
+AGC-01186,2023-01-23,Jan,Summer,Quthing,Sorghum,grains,6.9,111.7,24.7,6.42,124,7.2,44,42,250,15.11,10.14,10365,102510,21,Medium
+AGC-01187,2023-10-31,Oct,Spring,Quthing,Beans (Dry),legumes,10.13,80.1,14.2,6.14,159,22.5,35,35,256,12.66,29.96,7976,236919,22,Low
+AGC-01188,2024-02-20,Feb,Summer,Maseru,Beans (Dry),legumes,9.44,108.5,23.9,7.47,133,22.5,84,61,69,13.78,29.22,11548,336636,20,Medium
+AGC-01189,2025-02-14,Feb,Summer,Mokhotlong,Wheat,grains,11.3,120.3,28.3,6.32,188,9.8,50,22,357,40.12,14.65,21103,301625,28,Low
+AGC-01190,2025-05-22,May,Autumn,Maseru,Maize,grains,11.11,67,12.8,7.32,39,6.5,182,74,63,13.55,6.58,12764,83183,14,High
+AGC-01191,2024-05-03,May,Autumn,Mohale's Hoek,Cabbage,vegetables,9.54,39.1,14.1,5.75,106,7,94,21,188,65.64,8.56,34002,284665,33,Low
+AGC-01192,2024-05-05,May,Autumn,Mohale's Hoek,Wheat,grains,2.42,20.2,11.4,6.59,125,9.8,91,39,176,1.62,12.89,1072,13629,28,Low
+AGC-01193,2024-01-27,Jan,Summer,Mokhotlong,Cabbage,vegetables,3.66,127,24.2,5.52,132,7,117,53,423,75.4,10.09,58360,564166,20,Medium
+AGC-01194,2023-07-08,Jul,Winter,Qacha's Nek,Wheat,grains,4.55,5,9.7,6.3,239,9.8,126,41,371,1,13,678,8562,25,Medium
+AGC-01195,2025-06-23,Jun,Winter,Thaba-Tseka,Tomatoes,vegetables,3.46,6.1,10.2,6.71,195,12.5,93,38,291,3.7,15.84,2420,37629,26,Low
+AGC-01196,2024-11-25,Nov,Spring,Maseru,Beans (Dry),legumes,7.65,89.8,16.5,7.29,184,22.5,59,69,68,10.33,30.99,9318,288131,17,High
+AGC-01197,2025-08-09,Aug,Winter,Qacha's Nek,Peaches,fruits,10.66,24.3,1.5,5.99,92,19,72,21,375,17.06,23.96,8837,208421,31,Low
+AGC-01198,2023-04-21,Apr,Autumn,Mohale's Hoek,Maize,grains,4.45,36.6,17.8,5.92,132,6.5,194,56,165,4.27,6.65,3407,22094,20,Medium
+AGC-01199,2024-11-14,Nov,Spring,Thaba-Tseka,Peaches,fruits,6.7,85,17.7,6.19,110,19,87,20,292,44.49,22.38,22690,501177,32,Low
+AGC-01200,2023-10-16,Oct,Spring,Maseru,Beans (Dry),legumes,0.86,80,21.6,6.31,74,22.5,90,61,74,1,29.72,838,24843,18,Medium

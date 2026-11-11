@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blockchain Ledger — Livestock App</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">⛓️ Agri<span>Chain</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">📊 Farmer Dashboard</a>
+      <a href="marketplace.html">🛒 Marketplace</a>
+      <a href="ai-dashboard.html">🤖 AI &amp; Analytics</a>
+      <a href="blockchain.html" class="active">⛓️ Blockchain Ledger</a>
+      <a href="admin.html">🛡️ Admin &amp; Security HQ</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="font-size:13px; font-weight:600; color:var(--text-primary);" id="user-name">…</div>
+      <div style="font-size:11.5px; color:var(--text-muted);" id="user-role"></div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:10px; width:100%;" onclick="AG.logout()">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div class="topbar">
+      <div>
+        <h1>⛓️ Blockchain Distributed Ledger</h1>
+        <p style="font-size:12.5px; color:var(--text-muted); margin-top:2px;">
+          Livestock record hashes are stored in Firestore and anchored on Ethereum Sepolia.
+        </p>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-secondary btn-sm" onclick="syncRecordsToChain()">🔄 Sync Farm Records</button>
+        <button class="btn btn-primary btn-sm" onclick="verifyChainIntegrity()">🔄 Refresh Ethereum Anchors</button>
+      </div>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card" style="--accent:var(--green-500)">
+        <div class="kpi-label">Ethereum Anchors</div>
+        <div class="kpi-value" id="stat-blocks">—</div>
+        <div class="kpi-change pos">Loaded from server</div>
+      </div>
+      <div class="kpi-card" style="--accent:var(--blue-400)">
+        <div class="kpi-label">Smart Contract Anchors</div>
+        <div class="kpi-value" id="stat-anchors">—</div>
+        <div class="kpi-change">Sepolia testnet status</div>
+      </div>
+      <div class="kpi-card" style="--accent:var(--purple-400)">
+        <div class="kpi-label">Record Storage</div>
+        <div class="kpi-value" style="font-size:18px;">Firestore + hash</div>
+        <div class="kpi-change">Private records stay off-chain</div>
+      </div>
+      <div class="kpi-card" style="--accent:var(--amber-400)">
+        <div class="kpi-label">Contract Address</div>
+        <div class="kpi-value" style="font-size:12.5px; word-break:break-all; font-family:monospace; margin-top:8px;">
+          <a href="https://sepolia.etherscan.io/address/0xe8db173AaB970eeE21623e38302B13804815A558" target="_blank" style="color:var(--text-accent); text-decoration:none;">0xe8db...A558 ↗</a>
+        </div>
+        <div class="kpi-change">Ethereum Sepolia (11155111)</div>
+      </div>
+    </div>
+
+    <!-- FILTER TOOLBAR -->
+    <div class="card mb-4" style="display:none; padding:14px 18px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; gap:10px; align-items:center;">
+          <select id="filter-type" class="form-select" style="width:200px;" onchange="renderChain()">
+            <option value="">All Records</option>
+            <option value="GENESIS">Genesis Block</option>
+            <option value="ANIMAL_REGISTRATION">Animal Registrations</option>
+            <option value="HEALTH_EVENT">Health Events</option>
+            <option value="SALE_TRANSACTION">Sale Transactions</option>
+          </select>
+          <input type="text" id="search-chain" class="form-input" placeholder="🔍 Search block hash, data..." style="width:260px;" oninput="renderChain()"/>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-secondary btn-sm" id="btn-toggle-view" onclick="toggleView()">🌐 View On-Chain Anchors</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAIN CONTAINER -->
+    <div id="chain-container" style="display:none;"></div>
+
+    <!-- ON-CHAIN ANCHORS CONTAINER -->
+    <div id="anchors-container" class="card">
+      <div class="card-title">🌐 Confirmed Smart Contract Anchors (Server-Audited)</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Record Type</th><th>Cryptographic Record Hash</th><th>EVM Tx Hash</th><th>Network</th><th>Status</th></tr>
+          </thead>
+          <tbody id="anchors-tbody"><tr><td colspan="5" style="text-align:center; padding:20px; color:var(--text-muted);">Loading anchors…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="blockchain.js"></script>
+<script>
+  'use strict';
+  const u = AG.currentUser();
+  if (u) {
+    document.getElementById('user-name').textContent = u.name;
+    document.getElementById('user-role').textContent = u.role === 'veterinary_officer' ? 'Veterinary Officer' : u.role === 'buyer' ? 'Buyer' : 'Farmer';
+  } else {
+    document.getElementById('user-name').textContent = 'Public Viewer';
+    document.getElementById('user-role').textContent = 'Anonymous';
+  }
+
+  function showToast(msg, type = 'success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+
+  let activeView = 'anchors';
+
+  function toggleView() {
+    activeView = 'anchors';
+    document.getElementById('chain-container').style.display = 'none';
+    document.getElementById('anchors-container').style.display = 'block';
+    loadSmartContractAnchors();
+  }
+
+  async function loadSmartContractAnchors() {
+    const tbody = document.getElementById('anchors-tbody');
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--text-muted);">Loading verified on-chain anchors…</td></tr>';
+    const anchors = await AG.getBlockchainAnchors();
+    document.getElementById('stat-anchors').textContent = anchors.length;
+    document.getElementById('stat-blocks').textContent = anchors.filter(a => a.status === 'confirmed').length;
+
+    if (!anchors.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--text-muted);">No on-chain anchors confirmed yet. Record an event to anchor.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = anchors.map(a => `
+      <tr>
+        <td><span class="badge badge-blue">${AG.esc(a.recordType)}</span></td>
+        <td><code style="font-size:11px; color:var(--text-accent);">${AG.esc(a.recordHash ? (a.recordHash.length > 20 ? a.recordHash.slice(0, 18) + '…' : a.recordHash) : '—')}</code></td>
+        <td>${a.txHash && a.txHash.startsWith('0x') ? `<a href="https://sepolia.etherscan.io/tx/${AG.esc(a.txHash)}" target="_blank" style="color:var(--text-accent); text-decoration:none;"><code style="font-size:11px;">${AG.esc(a.txHash.slice(0, 16))}… ↗</code></a>` : `<code style="font-size:11px;">${AG.esc(a.txHash || 'Pending')}</code>`}</td>
+        <td><span class="badge badge-muted">${AG.esc(a.network || 'Sepolia pending')}</span></td>
+        <td><span class="badge ${a.status === 'confirmed' ? 'badge-green' : 'badge-muted'}">${AG.esc(a.status || 'Pending')}</span></td>
+      </tr>
+    `).join('');
+  }
+
+  async function syncRecordsToChain() {
+    const btn = document.querySelector('button[onclick="syncRecordsToChain()"]');
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Sending hashes...'; }
+    try {
+      const out = await AG.loadData();
+      if (!out || !out.data) return showToast('No farm data to sync', 'info');
+      const d = out.data;
+      let count = 0;
+
+      // Sync animals
+      for (const a of (d.animals || [])) {
+        const result = await addBlockchainRecord({ type: 'ANIMAL_REGISTRATION', animalId: a.id, name: a.name, species: a.species, breed: a.breed, health: a.health });
+        if (!result.duplicate) count++;
+      }
+      // Sync health records
+      for (const h of (d.healthRec || [])) {
+        const desc = h.description || h.desc;
+        const result = await addBlockchainRecord({ type: 'HEALTH_EVENT', animalId: h.animalId, eventType: h.type, desc: desc, vet: h.vetName || h.vet });
+        if (!result.duplicate) count++;
+      }
+      // Sync sales
+      for (const s of (d.salesRec || [])) {
+        const result = await addBlockchainRecord({ type: 'SALE_TRANSACTION', saleId: s.id, animalId: s.animalId, price: s.price, buyer: s.buyer });
+        if (!result.duplicate) count++;
+      }
+
+      showToast(`Synced ${count} new record hashes to Ethereum Sepolia.`, 'success');
+      loadSmartContractAnchors();
+    } catch (e) {
+      showToast('Sync error: ' + e.message, 'error');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '🔄 Sync Farm Records'; }
+    }
+  }
+
+  async function verifyChainIntegrity() {
+    await loadSmartContractAnchors();
+    showToast('Ethereum anchor list refreshed from the server.', 'success');
+  }
+
+  // Load and render
+  loadSmartContractAnchors();
+</script>
+</body>
+</html>
+

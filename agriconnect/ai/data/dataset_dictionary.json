@@ -1,0 +1,34 @@
+{
+  "dataset_name": "AgriConnect Lesotho Crop Market & Sales Dataset",
+  "version": "1.0.0",
+  "description": "Comprehensive agricultural market, sales, agronomic, and pricing dataset tailored to the Lesotho highland farming economy.",
+  "objective": "Empower farmers to optimize crop sales pricing, forecast market demand, and maximize revenue velocity in the digital era.",
+  "total_records": 1200,
+  "time_coverage": "2023 - 2026",
+  "geographic_coverage": "All 10 Districts of Lesotho (Maseru, Berea, Leribe, Mafeteng, Mohale's Hoek, Quthing, Qacha's Nek, Mokhotlong, Thaba-Tseka, Butha-Buthe)",
+  "features": [
+    { "name": "record_id", "type": "string", "description": "Unique transaction and farm record identifier (AGC-xxxxx)" },
+    { "name": "date", "type": "date", "description": "Transaction/harvest observation date (YYYY-MM-DD)" },
+    { "name": "month", "type": "string", "description": "3-letter calendar month" },
+    { "name": "season", "type": "categorical", "values": ["Summer", "Autumn", "Winter", "Spring"], "description": "Agricultural season in Lesotho" },
+    { "name": "district", "type": "categorical", "description": "District administrative region" },
+    { "name": "crop_name", "type": "categorical", "values": ["Maize", "Sorghum", "Wheat", "Beans (Dry)", "Potatoes", "Tomatoes", "Cabbage", "Peaches"], "description": "Crop variety" },
+    { "name": "category", "type": "categorical", "values": ["grains", "vegetables", "fruits", "legumes"], "description": "Agricultural commodity category" },
+    { "name": "farm_size_ha", "type": "float", "unit": "hectares", "description": "Cultivated land area (0.5 to 12 ha)" },
+    { "name": "rainfall_mm", "type": "float", "unit": "millimeters", "description": "Precipitation recorded during growing cycle" },
+    { "name": "temperature_c", "type": "float", "unit": "Celsius", "description": "Average ambient temperature during maturation" },
+    { "name": "soil_ph", "type": "float", "unit": "pH scale", "description": "Soil acidity/alkalinity level (5.4 to 7.5)" },
+    { "name": "fertilizer_kg_per_ha", "type": "integer", "unit": "kg/ha", "description": "Fertilizer applied per hectare" },
+    { "name": "historical_avg_price_lsl", "type": "float", "unit": "LSL/kg", "description": "Baseline regional historical average price in Maloti" },
+    { "name": "competitor_supply_tons", "type": "integer", "unit": "metric tons", "description": "Estimated district-level competitor supply in the market" },
+    { "name": "market_demand_index", "type": "integer", "scale": "0 - 100", "description": "Consumer demand index derived from wholesale purchasing activity" },
+    { "name": "transport_cost_lsl", "type": "integer", "unit": "LSL/ton", "description": "Logistics cost to transport produce to urban market center" },
+    { "name": "yield_tons", "type": "float", "unit": "metric tons", "description": "Total harvest yield produced" },
+    { "name": "actual_price_per_kg_lsl", "type": "float", "unit": "LSL/kg", "target": true, "description": "Realized market selling price per kg (primary regression target)" },
+    { "name": "sales_volume_kg", "type": "integer", "unit": "kg", "description": "Volume of crop successfully sold" },
+    { "name": "revenue_lsl", "type": "integer", "unit": "LSL", "target": true, "description": "Net sales revenue generated (sales volume * price - logistics)" },
+    { "name": "days_to_sell", "type": "integer", "unit": "days", "description": "Inventory turnover period / sales velocity" },
+    { "name": "demand_tier", "type": "categorical", "values": ["High", "Medium", "Low"], "description": "Classified demand category" }
+  ]
+}
+

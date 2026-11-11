@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome — Register Your Farm</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+  <script>
+    const u = AG.currentUser();
+    if (!u) location.replace('login.html');
+    else if (u.role === 'veterinary_officer') location.replace('vet-dashboard.html');
+    else if (u.role === 'buyer') location.replace('marketplace.html');
+    else if (u.registered) location.replace('dashboard.html');
+  </script>
+</head>
+<body style="background:var(--bg-base); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;">
+  <div id="toast-container"></div>
+
+  <div class="auth-card" style="width:min(580px, 95vw);">
+    <div class="auth-brand" style="margin-bottom:20px;">
+      <div style="font-size:36px; margin-bottom:6px;">🌾</div>
+      <h1 style="font-size:22px;">Welcome, Farmer!</h1>
+      <p style="font-size:12.5px;">Register your farm details to start managing your herd and connecting with veterinary officers.</p>
+    </div>
+
+    <form id="farm-setup-form">
+      <div class="form-group">
+        <label class="form-label">Farm / Holding Name</label>
+        <input type="text" id="farm-name" class="form-input" placeholder="e.g. Sekhantso Farm Feeds or Maluti Mountain Pastures" required/>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">District (Lesotho)</label>
+          <select id="farm-district" class="form-select" required>
+            <option value="">Select District…</option>
+            <option value="Berea">Berea (Teyateyaneng)</option>
+            <option value="Maseru">Maseru</option>
+            <option value="Leribe">Leribe (Hlotse)</option>
+            <option value="Mafeteng">Mafeteng</option>
+            <option value="Mohale's Hoek">Mohale's Hoek</option>
+            <option value="Quthing">Quthing (Moyeni)</option>
+            <option value="Qacha's Nek">Qacha's Nek</option>
+            <option value="Mokhotlong">Mokhotlong</option>
+            <option value="Thaba-Tseka">Thaba-Tseka</option>
+            <option value="Butha-Buthe">Butha-Buthe</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Town / Village</label>
+          <input type="text" id="farm-town" class="form-input" placeholder="e.g. Hlotse, Matsieng, or Teyateyaneng" required/>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Farm Size (Hectares — Ha)</label>
+          <input type="number" id="farm-size" class="form-input" min="0.5" step="0.5" placeholder="e.g. 15" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Primary Livestock Species</label>
+          <select id="farm-species" class="form-select" required>
+            <option value="Cattle">🐄 Cattle (Nguni, Brahman, Afrikaner)</option>
+            <option value="Sheep">🐑 Sheep (Merino, Dorper)</option>
+            <option value="Goat">🐐 Goats (Angora, Boer)</option>
+            <option value="Pig">🐖 Pigs (Large White, Landrace)</option>
+            <option value="Poultry">🐔 Poultry (Koekoek, Broilers)</option>
+            <option value="Mixed">🌾 Mixed Livestock Herd</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Approximate Herd Size</label>
+          <input type="number" id="farm-herd" class="form-input" min="1" placeholder="e.g. 48"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contact Phone</label>
+          <input type="tel" id="farm-phone" class="form-input" placeholder="+266 5885 1234 or +266 6200 4321"/>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:8px;">
+        <label style="display:flex; align-items:flex-start; gap:8px; font-size:12.5px; color:var(--text-secondary); cursor:pointer;">
+          <input type="checkbox" id="consent" required style="margin-top:2px;"/>
+          <span>I consent to registering this holding under DIDT3110 agricultural guidelines with tamper-evident cryptographic blockchain audit trails.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:12px;" id="btn-submit">
+        Complete Farm Registration &amp; Open Dashboard →
+      </button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('farm-setup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Registering farm…';
+
+      const farm = {
+        name: document.getElementById('farm-name').value.trim(),
+        district: document.getElementById('farm-district').value,
+        town: document.getElementById('farm-town').value.trim(),
+        sizeHa: parseFloat(document.getElementById('farm-size').value) || 10,
+        species: document.getElementById('farm-species').value,
+        herd: parseInt(document.getElementById('farm-herd').value, 10) || 0,
+        phone: document.getElementById('farm-phone').value.trim(),
+        consentAt: new Date().toISOString()
+      };
+
+      const ok = await AG.completeRegistration(farm);
+      if (ok) {
+        location.href = 'dashboard.html';
+      } else {
+        alert('Could not register farm. Please verify that your API server is running on port 4001.');
+        btn.disabled = false;
+        btn.textContent = 'Complete Farm Registration & Open Dashboard →';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vet Dashboard — Livestock App</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">🩺 Vet<span>Portal</span></div>
+    <nav class="sidebar-nav">
+      <a href="#" onclick="showSection('tasks')" class="active" id="nav-tasks">📋 My Tasks</a>
+      <a href="#" onclick="showSection('records')" id="nav-records">💉 Submitted Records</a>
+      <a href="ai-dashboard.html">🧠 AI Clinical Predictor</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="font-size:13px;font-weight:600;color:var(--text-primary);" id="user-name">…</div>
+      <div style="font-size:11.5px;color:var(--text-muted);">Veterinary Officer</div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:10px;width:100%;" onclick="AG.logout()">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <h1 id="section-title">My Assigned Animals</h1>
+      <button class="btn btn-primary btn-sm" onclick="openHealthModal()">+ Log Health Attendance</button>
+    </div>
+
+    <!-- TASKS SECTION: animals the vet must attend to -->
+    <section id="section-tasks">
+      <div class="card mb-4" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:4px solid var(--green-500);">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="font-size:36px;">🩺</div>
+          <div>
+            <div style="font-weight:700;font-size:16px;color:var(--text-primary);">Welcome, Dr. <span id="vet-name-display">…</span></div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">Below are the farms and animals you are assigned to attend. Click an animal to submit a health record.</div>
+          </div>
+        </div>
+      </div>
+      <div id="tasks-container"><div style="text-align:center;padding:40px;color:var(--text-muted);">Loading your assignments…</div></div>
+    </section>
+
+    <!-- SUBMITTED RECORDS -->
+    <section id="section-records" style="display:none;">
+      <div class="card mb-4">
+        <div class="card-title">💉 Records You Have Submitted</div>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Farm</th><th>Animal ID</th><th>Type</th><th>Description</th><th>Next Due</th><th>Status</th></tr>
+            </thead>
+            <tbody id="submitted-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL: Submit health record for an animal -->
+<div class="modal-overlay" id="modal-health-record">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">💉 Submit Health Record</span>
+      <button class="modal-close" onclick="closeModal('modal-health-record')">✕</button>
+    </div>
+    
+    <form id="health-form">
+      <input type="hidden" id="hf-farmId"/>
+      <input type="hidden" id="hf-animalId"/>
+
+      <!-- Dropdown to select animal -->
+      <div class="form-group">
+        <label class="form-label">Select Animal</label>
+        <select id="hf-animal-select" class="form-select" required onchange="onAnimalDropdownChange(this.value)">
+          <option value="">— Select an animal from assigned herd —</option>
+        </select>
+        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">
+          💡 Select any assigned animal from the dropdown to prevent typos.
+        </div>
+      </div>
+
+      <!-- Selected Animal Summary Card -->
+      <div id="health-modal-animal-info" class="card mb-4" style="margin-bottom:16px; padding:12px; background:var(--bg-card); display:none;"></div>
+
+      <div class="form-group">
+        <label class="form-label">Record Type</label>
+        <select id="hf-type" class="form-select" required>
+          <option value="">Select…</option>
+          <option value="Vaccination">💉 Vaccination</option>
+          <option value="Treatment">🩺 Treatment</option>
+          <option value="Check-up">🔍 Check-up</option>
+          <option value="Deworming">💊 Deworming</option>
+          <option value="Quarantine">⚠️ Quarantine</option>
+          <option value="Clearance">✅ Health Clearance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description / Findings</label>
+        <textarea id="hf-description" class="form-textarea" placeholder="Describe your findings and what was done…" required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Prescription / Medication (optional)</label>
+        <input type="text" id="hf-prescription" class="form-input" placeholder="e.g. Penicillin 5ml x 3 days"/>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Next Due Date (optional)</label>
+          <input type="date" id="hf-nextdue" class="form-input"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select id="hf-status" class="form-select">
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending Follow-up</option>
+            <option value="Critical">Critical — Needs Immediate Attention</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-health-record')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-submit-record">Submit Record</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  'use strict';
+  const API = window.AGRI_CONFIG.API_URL;
+
+  // Guard: only vets
+  const user = AG.guard({ roles: ['veterinary_officer'] });
+  if (!user) throw new Error('Not authorised');
+  document.getElementById('user-name').textContent = 'Dr. ' + user.name;
+  document.getElementById('vet-name-display').textContent = user.name;
+
+  function showToast(msg, type='success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+  function openModal(id)  { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  const sections = ['tasks', 'records'];
+  function showSection(name) {
+    sections.forEach(s => {
+      document.getElementById(`section-${s}`).style.display = s===name ? '' : 'none';
+      const nav = document.getElementById(`nav-${s}`);
+      if (nav) nav.classList.toggle('active', s===name);
+    });
+    const titles = { tasks: 'My Assigned Animals', records: 'Submitted Records' };
+    document.getElementById('section-title').textContent = titles[name] || '';
+    if (name === 'records') loadSubmittedRecords();
+  }
+
+  let assignedAnimalsList = [];
+
+  // ── Load tasks ──
+  async function loadTasks() {
+    try {
+      const out = await AG.apiRequest('/health/my-tasks');
+      const container = document.getElementById('tasks-container');
+
+      assignedAnimalsList = [];
+
+      if (!out.tasks || !out.tasks.length) {
+        container.innerHTML = `
+          <div class="card" style="text-align:center;padding:40px;">
+            <div style="font-size:36px;margin-bottom:12px;">📋</div>
+            <h3 style="color:var(--text-secondary);">No assignments yet</h3>
+            <p style="color:var(--text-muted);font-size:13px;margin-top:6px;">A farmer will assign you to their farm. Once assigned, their animals will appear here.</p>
+          </div>`;
+        return;
+      }
+
+      out.tasks.forEach(task => {
+        (task.animals || []).forEach(a => {
+          assignedAnimalsList.push({
+            farmId: task.farmId,
+            farmName: task.farmName,
+            ...a
+          });
+        });
+      });
+
+      container.innerHTML = out.tasks.map(task => `
+        <div class="card mb-4">
+          <div class="card-title">🏡 ${AG.esc(task.farmName)} <span class="badge badge-blue" style="margin-left:6px;">Farm ID: ${task.farmId.slice(0,8)}…</span></div>
+          ${task.animals.length === 0 ? '<p style="color:var(--text-muted);font-size:13px;">No animals on this farm.</p>' :
+          `<div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Name</th><th>Species</th><th>Breed</th><th>Weight</th><th>Health</th><th>Action</th></tr></thead>
+              <tbody>
+                ${task.animals.map(a => `
+                  <tr>
+                    <td><code>${AG.esc(a.id)}</code></td>
+                    <td><strong>${AG.esc(a.name)}</strong></td>
+                    <td>${AG.esc(a.species)}</td>
+                    <td>${AG.esc(a.breed||'—')}</td>
+                    <td>${a.weight||'—'} kg</td>
+                    <td><span class="badge ${a.health==='Healthy'?'badge-green':a.health==='Under Treatment'?'badge-red':'badge-amber'}">${AG.esc(a.health||'Unknown')}</span></td>
+                    <td>
+                      <button class="btn btn-primary btn-sm" onclick="openHealthModal('${task.farmId}','${AG.esc(a.id)}')">
+                        + Log Record
+                      </button>
+                    </td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>`}
+        </div>`).join('');
+    } catch(e) {
+      document.getElementById('tasks-container').innerHTML = `<div class="alert alert-danger">Failed to load tasks: ${AG.esc(e.message)}</div>`;
+    }
+  }
+
+  // ── Populate Animal Selector Dropdown ──
+  function populateAnimalDropdown(selectedKey = '') {
+    const sel = document.getElementById('hf-animal-select');
+    if (!assignedAnimalsList.length) {
+      sel.innerHTML = '<option value="">No assigned animals available</option>';
+      return;
+    }
+    sel.innerHTML = '<option value="">— Select an animal from assigned herd —</option>' +
+      assignedAnimalsList.map(item => {
+        const key = `${item.farmId}:::${item.id}`;
+        const isSel = key === selectedKey ? 'selected' : '';
+        return `<option value="${key}" ${isSel}>[${AG.esc(item.id)}] ${AG.esc(item.name)} (${AG.esc(item.species)} - ${AG.esc(item.breed || 'Standard')}) — ${AG.esc(item.farmName)}</option>`;
+      }).join('');
+  }
+
+  // ── Dropdown Change Event ──
+  function onAnimalDropdownChange(val) {
+    if (!val) {
+      document.getElementById('hf-farmId').value = '';
+      document.getElementById('hf-animalId').value = '';
+      document.getElementById('health-modal-animal-info').style.display = 'none';
+      return;
+    }
+    const parts = val.split(':::');
+    const farmId = parts[0];
+    const animalId = parts[1];
+    const found = assignedAnimalsList.find(a => a.farmId === farmId && a.id === animalId);
+    if (!found) return;
+
+    document.getElementById('hf-farmId').value = farmId;
+    document.getElementById('hf-animalId').value = animalId;
+
+    const info = document.getElementById('health-modal-animal-info');
+    info.style.display = 'block';
+    info.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <strong style="font-size:15px; color:var(--text-primary);">${AG.esc(found.name)} (${AG.esc(found.id)})</strong>
+          <div style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">
+            ${AG.esc(found.species)} · ${AG.esc(found.breed || 'Standard')} · ${found.weight || '—'} kg
+          </div>
+        </div>
+        <span class="badge ${found.health==='Healthy'?'badge-green':'badge-red'}">${AG.esc(found.health || 'Healthy')}</span>
+      </div>
+      <div style="font-size:11.5px; color:var(--text-muted); margin-top:6px;">
+        🏡 Farm: <strong>${AG.esc(found.farmName)}</strong> &nbsp;·&nbsp; Location: <strong>${AG.esc(found.location || 'Kraal')}</strong>
+      </div>
+    `;
+  }
+
+  // ── Open health record modal ──
+  function openHealthModal(farmId = '', animalId = '') {
+    populateAnimalDropdown();
+    document.getElementById('health-form').reset();
+    if (farmId && animalId) {
+      const key = `${farmId}:::${animalId}`;
+      document.getElementById('hf-animal-select').value = key;
+      onAnimalDropdownChange(key);
+    } else {
+      document.getElementById('hf-farmId').value = '';
+      document.getElementById('hf-animalId').value = '';
+      document.getElementById('health-modal-animal-info').style.display = 'none';
+    }
+    openModal('modal-health-record');
+  }
+
+  // ── Submit health record ──
+  document.getElementById('health-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btn-submit-record');
+    btn.disabled = true; btn.textContent = 'Submitting…';
+
+    const payload = {
+      farmId: document.getElementById('hf-farmId').value,
+      animalId: document.getElementById('hf-animalId').value,
+      type: document.getElementById('hf-type').value,
+      description: document.getElementById('hf-description').value.trim(),
+      prescription: document.getElementById('hf-prescription').value.trim(),
+      nextDue: document.getElementById('hf-nextdue').value || null,
+      status: document.getElementById('hf-status').value
+    };
+
+    try {
+      const out = await AG.apiRequest('/health/record', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      showToast('✅ ' + (out.message || 'Record submitted! Farmer has been notified.'));
+      closeModal('modal-health-record');
+      loadTasks();
+    } catch(err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Submit Record';
+    }
+  });
+
+  // ── Load submitted records ──
+  async function loadSubmittedRecords() {
+    const tbody = document.getElementById('submitted-tbody');
+    try {
+      const out = await AG.apiRequest('/health/my-records');
+      const records = out.records || [];
+      if (!records.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:20px;">No records submitted yet.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = records.map(r => `
+        <tr>
+          <td>${AG.esc(r.date||'—')}</td>
+          <td style="font-size:12px;"><code>${AG.esc(r.farmId?.slice(0,10)||'—')}…</code></td>
+          <td><code>${AG.esc(r.animalId||'—')}</code></td>
+          <td><span class="badge badge-blue">${AG.esc(r.type)}</span></td>
+          <td>${AG.esc(r.description||'—')}</td>
+          <td>${AG.esc(r.nextDue||'—')}</td>
+          <td><span class="badge ${r.status==='Completed'?'badge-green':r.status==='Critical'?'badge-red':'badge-amber'}">${AG.esc(r.status)}</span></td>
+        </tr>`).join('');
+    } catch(e) {
+      tbody.innerHTML = `<tr><td colspan="7" style="color:var(--red-400);padding:16px;">${AG.esc(e.message)}</td></tr>`;
+    }
+  }
+
+  // ── Init ──
+  loadTasks();
+</script>
+</body>
+</html>
+

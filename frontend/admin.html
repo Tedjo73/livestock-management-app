@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin HQ — AgriChain Lesotho</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="config.js"></script>
+  <script src="core.js"></script>
+  <style>
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .badge-admin {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-buyer {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .badge-vet {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .badge-farmer {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .action-btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .search-box {
+      min-width: 240px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="toast-container"></div>
+
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">🛡️ Agri<span>Admin</span> <span
+          style="font-size:10px;background:var(--accent-red);color:#fff;padding:2px 6px;border-radius:4px;vertical-align:middle;">HQ</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" onclick="showSection('overview'); return false;" class="active" id="nav-overview">📊 System
+          Overview</a>
+        <a href="#" onclick="showSection('users'); return false;" id="nav-users">👥 User Accounts</a>
+        <a href="#" onclick="showSection('audit'); return false;" id="nav-audit">📜 Login &amp; Audit Trail</a>
+        <a href="#" onclick="showSection('farms'); return false;" id="nav-farms">🏡 Farms &amp; Herds</a>
+        <a href="#" onclick="showSection('security'); return false;" id="nav-security">🔐 RBAC &amp; Data Tiers</a>
+        <a href="ai-dashboard.html">🧠 AI Analytics &amp; Models</a>
+        <a href="marketplace.html">🛒 View Marketplace</a>
+        <a href="blockchain.html">⛓️ Blockchain Ledger</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div style="font-size:13px;font-weight:600;color:var(--text-primary);" id="admin-user-name">Administrator</div>
+        <div style="font-size:11.5px;color:var(--text-accent);font-weight:600;" id="admin-user-role">Security
+          Administrator</div>
+        <button class="btn btn-secondary btn-sm" style="margin-top:10px;width:100%;"
+          onclick="AG.logout()">Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="topbar">
+        <div>
+          <h1 id="section-title">System Overview &amp; Control</h1>
+          <p style="font-size:12.5px;color:var(--text-secondary);margin-top:2px;">
+            Central administrative management, account auditing, login history &amp; cybersecurity controls.
+          </p>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <span class="badge badge-green" style="font-size:12px;padding:6px 10px;">● System Active</span>
+          <button class="btn btn-secondary btn-sm" onclick="refreshCurrentSection()">🔄 Refresh</button>
+        </div>
+      </div>
+
+      <!-- 1. SECTION: SYSTEM OVERVIEW -->
+      <section id="section-overview">
+        <div class="kpi-grid" style="margin-bottom:24px;">
+          <div class="kpi-card" style="--accent:var(--blue-400)">
+            <div class="kpi-label">Total Accounts</div>
+            <div class="kpi-value" id="kpi-total-users">—</div>
+            <div class="kpi-sub" id="kpi-users-breakdown">Loading accounts…</div>
+          </div>
+          <div class="kpi-card" style="--accent:var(--green-500)">
+            <div class="kpi-label">Farms &amp; Herd Size</div>
+            <div class="kpi-value" id="kpi-total-farms">—</div>
+            <div class="kpi-sub" id="kpi-herd-breakdown">Total animals recorded</div>
+          </div>
+          <div class="kpi-card" style="--accent:var(--amber-400)">
+            <div class="kpi-label">Livestock Sales</div>
+            <div class="kpi-value" id="kpi-total-sales">—</div>
+            <div class="kpi-sub" id="kpi-sales-revenue">Total trade volume</div>
+          </div>
+          <div class="kpi-card" style="--accent:var(--accent-red)">
+            <div class="kpi-label">Audit Log Events</div>
+            <div class="kpi-value" id="kpi-audit-events">—</div>
+            <div class="kpi-sub">Logins, changes &amp; purchases</div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="card-title">🕒 Recent User Logins (Real-Time Actor Trace)</div>
+            <a href="#" onclick="showSection('audit'); return false;" class="btn btn-secondary btn-sm">View Full Login
+              Trail →</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>User / Actor</th>
+                  <th>Email Address</th>
+                  <th>Role</th>
+                  <th>IP Address</th>
+                  <th>Client Device</th>
+                </tr>
+              </thead>
+              <tbody id="overview-logins-tbody">
+                <tr>
+                  <td colspan="6" style="text-align:center;padding:20px;color:var(--text-muted);">Loading login history…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">⚡ Quick Admin Actions</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+              <button class="btn btn-secondary" onclick="showSection('users'); openCreateUserModal();"
+                style="justify-content:flex-start;">
+                ➕ Create / Register New Account
+              </button>
+              <button class="btn btn-secondary" onclick="showSection('audit'); filterAuditByAction('LOGIN');"
+                style="justify-content:flex-start;">
+                🔍 Inspect All User Login Times &amp; IPs
+              </button>
+              <button class="btn btn-secondary" onclick="showSection('farms');" style="justify-content:flex-start;">
+                🏡 Inspect Registered Herds &amp; Vets
+              </button>
+              <a href="blockchain.html" class="btn btn-secondary" style="justify-content:flex-start;">
+                ⛓️ Verify On-Chain Blockchain Anchors
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">🛡️ Security &amp; Compliance Status</div>
+            <div style="font-size:13px;display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+              <div
+                style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border-light);padding-bottom:6px;">
+                <span style="color:var(--text-secondary);">Authentication Method:</span>
+                <strong>JWT + bcrypt (12 salt rounds)</strong>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border-light);padding-bottom:6px;">
+                <span style="color:var(--text-secondary);">Database Connection:</span>
+                <span class="badge badge-green">Firebase Firestore (Live)</span>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border-light);padding-bottom:6px;">
+                <span style="color:var(--text-secondary);">GDPR Pseudonymization:</span>
+                <span class="badge badge-green">12-Char SHA-256 Buyer Hashes</span>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border-light);padding-bottom:6px;">
+                <span style="color:var(--text-secondary);">Smart Contract Ledger:</span>
+                <code>Ethereum Sepolia testnet</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. SECTION: USER ACCOUNTS -->
+      <section id="section-users" style="display:none;">
+        <div class="card mb-4">
+          <div
+            style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+            <div>
+              <div class="card-title">👥 Existing User Accounts</div>
+              <div style="font-size:12.5px;color:var(--text-secondary);">Manage system roles, account states, and access
+                permissions across all actors.</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openCreateUserModal()">➕ Add New User</button>
+          </div>
+
+          <div class="filter-bar">
+            <input type="text" id="user-search" class="form-input search-box"
+              placeholder="🔍 Search name, email, or district…" oninput="renderUsersTable()" />
+            <select id="user-role-filter" class="form-select" style="width:160px;" onchange="renderUsersTable()">
+              <option value="">All Roles</option>
+              <option value="farmer">🌾 Farmers</option>
+              <option value="veterinary_officer">💉 Veterinary Officers</option>
+              <option value="buyer">🛒 Buyers</option>
+              <option value="security_admin">🛡️ Admins</option>
+            </select>
+            <select id="user-status-filter" class="form-select" style="width:150px;" onchange="renderUsersTable()">
+              <option value="">All Statuses</option>
+              <option value="active">Active Only</option>
+              <option value="suspended">Suspended Only</option>
+            </select>
+            <span id="users-count-badge" style="font-size:12.5px;color:var(--text-muted);margin-left:auto;"></span>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>User Full Name</th>
+                  <th>Email Address</th>
+                  <th>Role</th>
+                  <th>District / Farm</th>
+                  <th>Last Login</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="users-tbody">
+                <tr>
+                  <td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted);">Loading accounts…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SECTION: AUDIT TRAIL & LOGINS -->
+      <section id="section-audit" style="display:none;">
+        <div class="card mb-4">
+          <div
+            style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+            <div>
+              <div class="card-title">📜 Tamper-Evident Audit Trail &amp; Login Monitor</div>
+              <div style="font-size:12.5px;color:var(--text-secondary);">
+                Full historical log tracking user logins, role modifications, animal purchases, and administrative
+                events.
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="exportAuditTrail()">📥 Export Audit Logs (JSON)</button>
+          </div>
+
+          <div class="filter-bar">
+            <input type="text" id="audit-search" class="form-input search-box"
+              placeholder="🔍 Search actor name, email, IP, action…" oninput="renderAuditTable()" />
+            <select id="audit-action-filter" class="form-select" style="width:190px;" onchange="renderAuditTable()">
+              <option value="">All Actions</option>
+              <option value="LOGIN">🔑 Logins Only</option>
+              <option value="ROLE_CHANGED">🔄 Role Changes</option>
+              <option value="ACCOUNT_SUSPENDED">🚫 Suspensions</option>
+              <option value="ACCOUNT_ACTIVATED">✅ Activations</option>
+              <option value="PASSWORD_RESET">🔑 Password Resets</option>
+              <option value="ACCOUNT_DELETED">🗑️ Deletions</option>
+            </select>
+            <span id="audit-count-badge" style="font-size:12.5px;color:var(--text-muted);margin-left:auto;"></span>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Exact Timestamp</th>
+                  <th>Action</th>
+                  <th>Actor (Who Did It)</th>
+                  <th>Actor Email</th>
+                  <th>Role</th>
+                  <th>Target / Details</th>
+                  <th>IP Address</th>
+                  <th>Client Agent</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody">
+                <tr>
+                  <td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Loading audit logs…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SECTION: FARMS & HERDS -->
+      <section id="section-farms" style="display:none;">
+        <div class="card mb-4">
+          <div class="card-title">🏡 Registered Farms &amp; Livestock Holdings</div>
+          <div style="font-size:12.5px;color:var(--text-secondary);margin-bottom:16px;">
+            High-level operational overview of active farms in Lesotho, their herd counts, and medical attendance.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Farm Name</th>
+                  <th>Owner (Farmer)</th>
+                  <th>District</th>
+                  <th>Town</th>
+                  <th>Holding Area</th>
+                  <th>Herd Count</th>
+                  <th>Completed Sales</th>
+                  <th>Medical Records</th>
+                </tr>
+              </thead>
+              <tbody id="farms-tbody">
+                <tr>
+                  <td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Loading farm holdings…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SECTION: RBAC & DATA TIERS -->
+      <section id="section-security" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+          <div>
+            <h2 style="font-size:16px;font-weight:700;margin:0;">RBAC Policy &amp; Data Classification Tiers</h2>
+            <p style="font-size:12.5px;color:var(--text-secondary);margin:2px 0 0 0;">System security policy, data sensitivity tiers, and actor permission boundaries.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm" onclick="exportAllSecurityToSpreadsheet()">📊 Export All to Spreadsheet (CSV)</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportAllSecurityJSON()">📋 Export All (JSON)</button>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+            <div class="card-title" style="margin:0;">📂 Data Classification Tiers</div>
+            <button class="btn btn-secondary btn-sm" onclick="exportTableToCSV('table-data-tiers', 'Data_Classification_Tiers.csv')">📥 Export Classification (CSV)</button>
+          </div>
+          <div class="table-wrap">
+            <table id="table-data-tiers">
+              <thead>
+                <tr>
+                  <th>Tier Level</th>
+                  <th>Data Assets</th>
+                  <th>Access Policy</th>
+                  <th>Encryption &amp; Governance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-green">Public Tier</span></td>
+                  <td>Marketplace listings (Species, Breed, Weight, Certified Health, Maluti Price)</td>
+                  <td>Public / Anonymous Access</td>
+                  <td>Strict data minimization, PII excluded</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-blue">Restricted Farm Tier</span></td>
+                  <td>Herd registry, Pen locations, Feed consumption, Breeding records</td>
+                  <td>Authenticated Farmer &amp; Farm Owner</td>
+                  <td>TLS 1.3 in transit, AES-256 at rest, JWT verification</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-purple">Clinical / Vet Tier</span></td>
+                  <td>Vaccine lots, Diagnosis findings, Prescription notes, Quarantine alerts</td>
+                  <td>Assigned Veterinary Officers (Write), Farmers (Read-Only)</td>
+                  <td>Strict RBAC, signed doctor identities</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-amber">Private Financial Tier</span></td>
+                  <td>Revenues, sales receipts, private phone numbers</td>
+                  <td>Farm Owner &amp; Buyer only</td>
+                  <td>Private database storage, never broadcast on public ledger</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-red">Immutable Ledger Tier</span></td>
+                  <td>Cryptographic block hashes, Smart contract event logs, Buyer pseudonyms</td>
+                  <td>Distributed Public Ledger</td>
+                  <td>Keccak-256 record hashes anchored on Ethereum Sepolia</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+            <div class="card-title" style="margin:0;">🔐 Role-Based Access Control (RBAC) Matrix</div>
+            <button class="btn btn-secondary btn-sm" onclick="exportTableToCSV('table-rbac-matrix', 'RBAC_Access_Control_Matrix.csv')">📥 Export RBAC Matrix (CSV)</button>
+          </div>
+          <div class="table-wrap">
+            <table id="table-rbac-matrix">
+              <thead>
+                <tr>
+                  <th>Functional Module</th>
+                  <th>Public Buyer</th>
+                  <th>Farmer</th>
+                  <th>Veterinary Officer</th>
+                  <th>Security Admin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Browse Marketplace</strong></td>
+                  <td><span class="badge badge-green">Read</span></td>
+                  <td><span class="badge badge-green">Read</span></td>
+                  <td><span class="badge badge-green">Read</span></td>
+                  <td><span class="badge badge-green">Read</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Purchase Livestock</strong></td>
+                  <td><span class="badge badge-blue">Purchase (Pseudonym)</span></td>
+                  <td><span class="badge badge-muted">No</span></td>
+                  <td><span class="badge badge-muted">No</span></td>
+                  <td><span class="badge badge-muted">No</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Herd Management</strong></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-green">Full CRUD</span></td>
+                  <td><span class="badge badge-blue">Assigned (Read)</span></td>
+                  <td><span class="badge badge-muted">Audit Only</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Assign Veterinary Officer</strong></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-green">Assign / Revoke</span></td>
+                  <td><span class="badge badge-muted">No</span></td>
+                  <td><span class="badge badge-muted">Audit Only</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Submit Medical Records</strong></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-muted">Read Only</span></td>
+                  <td><span class="badge badge-purple">Submit &amp; Certify</span></td>
+                  <td><span class="badge badge-muted">Audit Only</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Manage Accounts &amp; Audit Logs</strong></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-muted">No Access</span></td>
+                  <td><span class="badge badge-red">Full Admin Control</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL: CHANGE USER ROLE -->
+  <div class="modal-overlay" id="modal-role">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">🔄 Change User Role</span>
+        <button class="modal-close" onclick="closeModal('modal-role')">✕</button>
+      </div>
+      <form id="role-form">
+        <input type="hidden" id="rf-user-id" />
+        <div style="margin-bottom:12px;font-size:13px;" id="rf-user-summary"></div>
+        <div class="form-group">
+          <label class="form-label">Select New Role</label>
+          <select id="rf-role" class="form-select" required>
+            <option value="farmer">🌾 Farmer (Herd Owner)</option>
+            <option value="veterinary_officer">💉 Veterinary Officer</option>
+            <option value="buyer">🛒 Livestock Buyer</option>
+            <option value="security_admin">🛡️ Security Administrator</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:16px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-role')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-role">Save Role</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: RESET PASSWORD -->
+  <div class="modal-overlay" id="modal-password">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">🔑 Reset Account Password</span>
+        <button class="modal-close" onclick="closeModal('modal-password')">✕</button>
+      </div>
+      <form id="password-form">
+        <input type="hidden" id="pf-user-id" />
+        <div style="margin-bottom:12px;font-size:13px;" id="pf-user-summary"></div>
+        <div class="form-group">
+          <label class="form-label">New Password</label>
+          <input type="text" id="pf-password" class="form-input" value="Password123!" required minlength="6" />
+          <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Default recommended:
+            <code>Password123!</code></div>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:16px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-password')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-password">Set Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CREATE USER -->
+  <div class="modal-overlay" id="modal-create-user">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">➕ Create System User</span>
+        <button class="modal-close" onclick="closeModal('modal-create-user')">✕</button>
+      </div>
+      <form id="create-user-form">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="cu-name" class="form-input" placeholder="e.g. Thabo Mofokeng" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="cu-email" class="form-input" placeholder="e.g. user@farms.ls" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Initial Password</label>
+          <input type="text" id="cu-password" class="form-input" value="Password123!" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Assigned Role</label>
+          <select id="cu-role" class="form-select">
+            <option value="farmer">🌾 Farmer (Herd Owner)</option>
+            <option value="veterinary_officer">💉 Veterinary Officer</option>
+            <option value="buyer">🛒 Livestock Buyer</option>
+            <option value="security_admin">🛡️ Security Administrator</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:16px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-create-user')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-create-user">Create User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    // Guard: Only security_admin or admin
+    const user = AG.guard({ roles: ['security_admin', 'admin'] });
+    if (!user) throw new Error('Not authorised as administrator');
+    document.getElementById('admin-user-name').textContent = user.name;
+    document.getElementById('admin-user-role').textContent = 'Security Administrator';
+
+    function showToast(msg, type = 'success') {
+      const c = document.getElementById('toast-container');
+      const t = document.createElement('div');
+      t.className = `toast ${type}`;
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(() => t.remove(), 4000);
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+    // Navigation
+    const sections = ['overview', 'users', 'audit', 'farms', 'security'];
+    let currentSection = 'overview';
+
+    function showSection(name) {
+      currentSection = name;
+      sections.forEach(s => {
+        const el = document.getElementById(`section-${s}`);
+        if (el) el.style.display = s === name ? '' : 'none';
+        const nav = document.getElementById(`nav-${s}`);
+        if (nav) nav.classList.toggle('active', s === name);
+      });
+      const titles = {
+        overview: 'System Overview & Control',
+        users: 'User Accounts Management',
+        audit: 'Tamper-Evident Audit Trail & Login Logs',
+        farms: 'Registered Farms & Livestock Herds',
+        security: 'Security, RBAC Matrix & Data Classification'
+      };
+      document.getElementById('section-title').textContent = titles[name] || '';
+
+      if (name === 'overview') loadOverview();
+      else if (name === 'users') loadUsers();
+      else if (name === 'audit') loadAuditLogs();
+      else if (name === 'farms') loadFarms();
+    }
+
+    function refreshCurrentSection() {
+      showSection(currentSection);
+      showToast('Data refreshed');
+    }
+
+    let allUsers = [];
+    let allAuditLogs = [];
+    let allFarms = [];
+
+    // Helper formatting dates
+    function formatTimestamp(ts) {
+      if (!ts) return '—';
+      if (ts.seconds) return new Date(ts.seconds * 1000).toLocaleString();
+      if (ts._seconds) return new Date(ts._seconds * 1000).toLocaleString();
+      const d = new Date(ts);
+      return isNaN(d.getTime()) ? String(ts) : d.toLocaleString();
+    }
+
+    function roleBadge(role) {
+      if (role === 'security_admin' || role === 'admin') return '<span class="badge badge-admin">🛡️ Admin</span>';
+      if (role === 'veterinary_officer') return '<span class="badge badge-vet">💉 Vet Officer</span>';
+      if (role === 'buyer') return '<span class="badge badge-buyer">🛒 Buyer</span>';
+      return '<span class="badge badge-farmer">🌾 Farmer</span>';
+    }
+
+    // ── 1. OVERVIEW ──
+    async function loadOverview() {
+      try {
+        const [stats, auditRes] = await Promise.all([
+          AG.apiRequest('/security/stats'),
+          AG.apiRequest('/security/audit-logs')
+        ]);
+
+        // KPIs
+        document.getElementById('kpi-total-users').textContent = stats.users.total;
+        document.getElementById('kpi-users-breakdown').textContent =
+          `${stats.users.farmer} Farmers · ${stats.users.veterinary_officer} Vets · ${stats.users.buyer} Buyers · ${stats.users.admin} Admins`;
+
+        document.getElementById('kpi-total-farms').textContent = stats.farmsCount;
+        document.getElementById('kpi-herd-breakdown').textContent = `${stats.totalAnimals} total animals recorded`;
+
+        document.getElementById('kpi-total-sales').textContent = stats.totalSalesCount;
+        document.getElementById('kpi-sales-revenue').textContent = `M ${(stats.totalSalesRevenue || 0).toLocaleString()} volume`;
+
+        document.getElementById('kpi-audit-events').textContent = stats.auditEventsCount;
+
+        // Recent 5 Logins
+        const logs = auditRes.logs || [];
+        const loginLogs = logs.filter(l => l.action === 'LOGIN').slice(0, 5);
+        const tbody = document.getElementById('overview-logins-tbody');
+
+        if (!loginLogs.length) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text-muted);">No login events recorded yet.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = loginLogs.map(l => `
+        <tr>
+          <td><code style="font-size:12px;">${formatTimestamp(l.createdAt)}</code></td>
+          <td><strong>${AG.esc(l.userName || 'User #' + (l.userId?.slice(0, 6) || ''))}</strong></td>
+          <td><code style="font-size:12px;">${AG.esc(l.userEmail || '—')}</code></td>
+          <td>${roleBadge(l.role || 'farmer')}</td>
+          <td><code>${AG.esc(l.ipAddress || '127.0.0.1')}</code></td>
+          <td style="font-size:12px;color:var(--text-secondary);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+            ${AG.esc(l.userAgent || 'Web Browser')}
+          </td>
+        </tr>
+      `).join('');
+
+      } catch (e) {
+        console.error(e);
+        showToast('Failed to load overview: ' + e.message, 'error');
+      }
+    }
+
+    // ── 2. USERS MANAGEMENT ──
+    async function loadUsers() {
+      try {
+        const out = await AG.apiRequest('/security/users');
+        allUsers = out.users || [];
+        renderUsersTable();
+      } catch (e) {
+        document.getElementById('users-tbody').innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--accent-red);padding:20px;">Failed to load accounts: ${AG.esc(e.message)}</td></tr>`;
+      }
+    }
+
+    function renderUsersTable() {
+      const q = (document.getElementById('user-search')?.value || '').toLowerCase().trim();
+      const role = document.getElementById('user-role-filter')?.value || '';
+      const st = document.getElementById('user-status-filter')?.value || '';
+
+      const filtered = allUsers.filter(u => {
+        if (role && u.role !== role) return false;
+        if (st === 'active' && !u.isActive) return false;
+        if (st === 'suspended' && u.isActive) return false;
+        if (q) {
+          const hay = `${u.name} ${u.email} ${u.district} ${u.farm?.name || ''}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('users-count-badge').textContent = `Showing ${filtered.length} of ${allUsers.length} accounts`;
+      const tbody = document.getElementById('users-tbody');
+
+      if (!filtered.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--text-muted);">No accounts found matching filter.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(u => `
+      <tr>
+        <td>
+          <strong>${AG.esc(u.name)}</strong>
+          <div style="font-size:11px;color:var(--text-muted);">ID: <code>${u.id.slice(0, 8)}…</code></div>
+        </td>
+        <td><code>${AG.esc(u.email)}</code></td>
+        <td>${roleBadge(u.role)}</td>
+        <td style="font-size:12.5px;">${u.farm ? `🏡 ${AG.esc(u.farm.name)}` : AG.esc(u.district || '—')}</td>
+        <td style="font-size:12px;color:var(--text-secondary);">${formatTimestamp(u.lastLoginAt)}</td>
+        <td>
+          <span class="badge ${u.isActive ? 'badge-green' : 'badge-red'}">
+            ${u.isActive ? 'Active' : 'Suspended'}
+          </span>
+        </td>
+        <td>
+          <div class="action-btn-group">
+            <button class="btn btn-secondary btn-sm" onclick="openRoleModal('${u.id}', '${AG.esc(u.name)}', '${u.role}')" title="Change Role">🔄 Role</button>
+            <button class="btn btn-secondary btn-sm" onclick="openPasswordModal('${u.id}', '${AG.esc(u.name)}', '${AG.esc(u.email)}')" title="Reset Password">🔑 Reset</button>
+            <button class="btn ${u.isActive ? 'btn-danger' : 'btn-primary'} btn-sm" onclick="toggleUserStatus('${u.id}', ${!u.isActive})">
+              ${u.isActive ? 'Suspend' : 'Activate'}
+            </button>
+            <button class="btn btn-danger btn-sm" onclick="deleteUser('${u.id}', '${AG.esc(u.name)}')" title="Delete Account">🗑️</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+    }
+
+    function openRoleModal(userId, name, currentRole) {
+      document.getElementById('rf-user-id').value = userId;
+      document.getElementById('rf-user-summary').innerHTML = `Changing role for <strong>${name}</strong>:`;
+      document.getElementById('rf-role').value = currentRole;
+      openModal('modal-role');
+    }
+
+    document.getElementById('role-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('rf-user-id').value;
+      const role = document.getElementById('rf-role').value;
+      const btn = document.getElementById('btn-save-role');
+      btn.disabled = true;
+
+      try {
+        const out = await AG.apiRequest(`/security/users/${userId}/role`, {
+          method: 'PATCH',
+          body: JSON.stringify({ role })
+        });
+        showToast(out.message || 'Role updated');
+        closeModal('modal-role');
+        loadUsers();
+      } catch (err) {
+        showToast(err.message, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    function openPasswordModal(userId, name, email) {
+      document.getElementById('pf-user-id').value = userId;
+      document.getElementById('pf-user-summary').innerHTML = `Reset password for <strong>${name}</strong> (<code>${email}</code>):`;
+      document.getElementById('pf-password').value = 'Password123!';
+      openModal('modal-password');
+    }
+
+    document.getElementById('password-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('pf-user-id').value;
+      const newPassword = document.getElementById('pf-password').value;
+      const btn = document.getElementById('btn-save-password');
+      btn.disabled = true;
+
+      try {
+        const out = await AG.apiRequest(`/security/users/${userId}/reset-password`, {
+          method: 'POST',
+          body: JSON.stringify({ newPassword })
+        });
+        showToast(out.message || 'Password successfully updated');
+        closeModal('modal-password');
+      } catch (err) {
+        showToast(err.message, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    async function toggleUserStatus(userId, activate) {
+      const verb = activate ? 'activate' : 'suspend';
+      if (!confirm(`Are you sure you want to ${verb} this user account?`)) return;
+
+      try {
+        const out = await AG.apiRequest(`/security/users/${userId}/status`, {
+          method: 'PATCH',
+          body: JSON.stringify({ isActive: activate })
+        });
+        showToast(out.message);
+        loadUsers();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+
+    async function deleteUser(userId, name) {
+      if (!confirm(`CAUTION: Permanently delete account for "${name}"? This cannot be undone.`)) return;
+
+      try {
+        const out = await AG.apiRequest(`/security/users/${userId}`, { method: 'DELETE' });
+        showToast(out.message);
+        loadUsers();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+
+    function openCreateUserModal() {
+      document.getElementById('create-user-form').reset();
+      document.getElementById('cu-password').value = 'Password123!';
+      openModal('modal-create-user');
+    }
+
+    document.getElementById('create-user-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-create-user');
+      btn.disabled = true;
+
+      const payload = {
+        name: document.getElementById('cu-name').value.trim(),
+        email: document.getElementById('cu-email').value.trim(),
+        password: document.getElementById('cu-password').value,
+        role: document.getElementById('cu-role').value
+      };
+
+      try {
+        const out = await AG.apiRequest('/auth/register', {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+        showToast('Account created successfully!');
+        closeModal('modal-create-user');
+        loadUsers();
+      } catch (err) {
+        showToast(err.message, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // ── 3. AUDIT TRAIL & LOGINS ──
+    async function loadAuditLogs() {
+      try {
+        const out = await AG.apiRequest('/security/audit-logs');
+        allAuditLogs = out.logs || [];
+        renderAuditTable();
+      } catch (e) {
+        document.getElementById('audit-tbody').innerHTML = `<tr><td colspan="8" style="text-align:center;color:var(--accent-red);padding:20px;">Failed to load audit logs: ${AG.esc(e.message)}</td></tr>`;
+      }
+    }
+
+    function filterAuditByAction(action) {
+      document.getElementById('audit-action-filter').value = action;
+      renderAuditTable();
+    }
+
+    function renderAuditTable() {
+      const q = (document.getElementById('audit-search')?.value || '').toLowerCase().trim();
+      const actionFilter = document.getElementById('audit-action-filter')?.value || '';
+
+      const filtered = allAuditLogs.filter(l => {
+        if (actionFilter && l.action !== actionFilter) return false;
+        if (q) {
+          const hay = `${l.action} ${l.userName || ''} ${l.userEmail || ''} ${l.ipAddress || ''} ${l.targetUserEmail || ''}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('audit-count-badge').textContent = `Showing ${filtered.length} of ${allAuditLogs.length} events`;
+      const tbody = document.getElementById('audit-tbody');
+
+      if (!filtered.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--text-muted);">No audit events matching criteria.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(l => {
+        const isLogin = l.action === 'LOGIN';
+        const actionBadge = isLogin ? 'badge-blue' : l.action.includes('DELETED') || l.action.includes('SUSPENDED') ? 'badge-red' : 'badge-green';
+        const actorName = l.userName || (l.userId ? 'User #' + l.userId.slice(0, 6) : 'System / Auto');
+        const details = l.details ? JSON.stringify(l.details) : (l.targetUserEmail ? 'Target: ' + l.targetUserEmail : (l.farmName || l.entityType || '—'));
+
+        return `
+        <tr>
+          <td><code style="font-size:12px;white-space:nowrap;">${formatTimestamp(l.createdAt)}</code></td>
+          <td><span class="badge ${actionBadge}">${AG.esc(l.action)}</span></td>
+          <td><strong>${AG.esc(actorName)}</strong></td>
+          <td><code style="font-size:12px;">${AG.esc(l.userEmail || '—')}</code></td>
+          <td>${roleBadge(l.role || 'farmer')}</td>
+          <td style="font-size:12px;color:var(--text-secondary);max-width:200px;overflow:hidden;text-overflow:ellipsis;">${AG.esc(details)}</td>
+          <td><code>${AG.esc(l.ipAddress || '127.0.0.1')}</code></td>
+          <td style="font-size:11.5px;color:var(--text-muted);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+            ${AG.esc(l.userAgent || '—')}
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function exportAuditTrail() {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(allAuditLogs, null, 2));
+      const a = document.createElement('a');
+      a.href = dataStr;
+      a.download = `audit-logs-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      showToast('Audit trail exported (JSON)');
+    }
+
+    // ── 4. FARMS & HERDS ──
+    async function loadFarms() {
+      try {
+        const out = await AG.apiRequest('/security/farms');
+        allFarms = out.farms || [];
+        const tbody = document.getElementById('farms-tbody');
+
+        if (!allFarms.length) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--text-muted);">No farms registered yet.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = allFarms.map(f => `
+        <tr>
+          <td><strong>🏡 ${AG.esc(f.name)}</strong></td>
+          <td>${AG.esc(f.ownerName)}</td>
+          <td><span class="badge badge-green">${AG.esc(f.district || '—')}</span></td>
+          <td>${AG.esc(f.town || '—')}</td>
+          <td>${f.sizeHa ? f.sizeHa + ' Ha' : '—'}</td>
+          <td><strong>${f.animalsCount}</strong> head</td>
+          <td>${f.salesCount} sale(s)</td>
+          <td>${f.healthCount} check-up(s)</td>
+        </tr>
+      `).join('');
+      } catch (e) {
+        document.getElementById('farms-tbody').innerHTML = `<tr><td colspan="8" style="text-align:center;color:var(--accent-red);padding:20px;">Failed to load farms: ${AG.esc(e.message)}</td></tr>`;
+      }
+    }
+
+    // ── 5. SPREADSHEET EXPORT FOR RBAC & DATA TIERS ──
+    function exportTableToCSV(tableId, filename) {
+      const table = document.getElementById(tableId);
+      if (!table) return;
+
+      const rows = Array.from(table.querySelectorAll('tr'));
+      const csvLines = rows.map(row => {
+        const cells = Array.from(row.querySelectorAll('th, td'));
+        return cells.map(cell => {
+          let text = cell.innerText || cell.textContent || '';
+          text = text.replace(/\r?\n|\r/g, ' ').replace(/\s+/g, ' ').trim();
+          text = text.replace(/"/g, '""');
+          return `"${text}"`;
+        }).join(',');
+      });
+
+      const csvContent = '\uFEFF' + csvLines.join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = filename || 'security_policy_export.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Spreadsheet exported: ${filename}`);
+    }
+
+    function exportAllSecurityToSpreadsheet() {
+      const dtTable = document.getElementById('table-data-tiers');
+      const rbacTable = document.getElementById('table-rbac-matrix');
+      if (!dtTable || !rbacTable) return;
+
+      function extractRows(table) {
+        return Array.from(table.querySelectorAll('tr')).map(row => {
+          const cells = Array.from(row.querySelectorAll('th, td'));
+          return cells.map(cell => {
+            let text = cell.innerText || cell.textContent || '';
+            text = text.replace(/\r?\n|\r/g, ' ').replace(/\s+/g, ' ').trim();
+            text = text.replace(/"/g, '""');
+            return `"${text}"`;
+          }).join(',');
+        });
+      }
+
+      const dtRows = extractRows(dtTable);
+      const rbacRows = extractRows(rbacTable);
+
+      const combined = [
+        '"=== AGRI-CHAIN: DATA CLASSIFICATION TIERS ==="',
+        ...dtRows,
+        '""',
+        '"=== AGRI-CHAIN: ROLE-BASED ACCESS CONTROL (RBAC) MATRIX ==="',
+        ...rbacRows
+      ].join('\r\n');
+
+      const blob = new Blob(['\uFEFF' + combined], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = `AgriChain_Security_and_RBAC_Spreadsheet_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Exported complete Security & RBAC spreadsheet!');
+    }
+
+    function exportAllSecurityJSON() {
+      const dtTable = document.getElementById('table-data-tiers');
+      const rbacTable = document.getElementById('table-rbac-matrix');
+      if (!dtTable || !rbacTable) return;
+
+      const dtRows = Array.from(dtTable.querySelectorAll('tbody tr')).map(r => {
+        const td = r.querySelectorAll('td');
+        return {
+          tierLevel: (td[0]?.innerText || '').trim(),
+          dataAssets: (td[1]?.innerText || '').trim(),
+          accessPolicy: (td[2]?.innerText || '').trim(),
+          encryptionAndGovernance: (td[3]?.innerText || '').trim()
+        };
+      });
+
+      const rbacRows = Array.from(rbacTable.querySelectorAll('tbody tr')).map(r => {
+        const td = r.querySelectorAll('td');
+        return {
+          functionalModule: (td[0]?.innerText || '').trim(),
+          publicBuyer: (td[1]?.innerText || '').trim(),
+          farmer: (td[2]?.innerText || '').trim(),
+          veterinaryOfficer: (td[3]?.innerText || '').trim(),
+          securityAdmin: (td[4]?.innerText || '').trim()
+        };
+      });
+
+      const payload = {
+        title: 'AgriChain RBAC Policy & Data Classification Specification',
+        exportedAt: new Date().toISOString(),
+        dataClassificationTiers: dtRows,
+        rbacMatrix: rbacRows
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = `AgriChain_Security_and_RBAC_${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Exported Security & RBAC JSON specification!');
+    }
+
+    // Init
+    loadOverview();
+  </script>
+</body>
+
+</html>
